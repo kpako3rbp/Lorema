@@ -1,6 +1,6 @@
 import { TRANSLATIONS } from '../i18n';
+import { renderLanguageOptions } from '../popover';
 import { Language } from '../types';
-import { renderLanguageOptions } from '../utils/render-language-options';
 import { getStorageItem, setStorageItem } from '../utils/storage';
 
 const CLOSE_DELAY = 600;

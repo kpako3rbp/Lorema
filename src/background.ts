@@ -1,14 +1,25 @@
 import { DEFAULT_STORAGE_VALUES } from './constants';
 import { TRANSLATIONS } from './i18n';
+import { COMMAND_NAME } from './popover/constants';
 import { ExtensionMessage } from './types';
 import { getStorageItem, setStorageItem } from './utils/storage';
 
 const MENU_ID = 'insert-lorem';
 
+const getCommandShortcut = async () => {
+  const commands = await chrome.commands.getAll();
+  const command = commands.find((item) => item.name === COMMAND_NAME);
+
+  return command?.shortcut;
+};
+
 const getTitle = async () => {
   const interfaceLanguage = await getStorageItem('interfaceLanguage');
+  const shortcut = await getCommandShortcut();
 
-  return TRANSLATIONS[interfaceLanguage].context.paste;
+  const title = TRANSLATIONS[interfaceLanguage].context.paste;
+
+  return shortcut ? `${title} (${shortcut})` : title;
 };
 
 const createContextMenu = async (): Promise<void> => {
@@ -19,20 +30,16 @@ const createContextMenu = async (): Promise<void> => {
   });
 };
 
-const sendInsertMessage = async (tabId: number): Promise<void> => {
+const sendInsertMessage = async (tabId: number, message: ExtensionMessage): Promise<void> => {
   try {
-    await chrome.tabs.sendMessage<ExtensionMessage>(tabId, {
-      type: 'INSERT_LOREM',
-    });
+    await chrome.tabs.sendMessage<ExtensionMessage>(tabId, message);
   } catch {
     await chrome.scripting.executeScript({
       target: { tabId },
       files: ['content.js'],
     });
 
-    await chrome.tabs.sendMessage<ExtensionMessage>(tabId, {
-      type: 'INSERT_LOREM',
-    });
+    await chrome.tabs.sendMessage<ExtensionMessage>(tabId, message);
   }
 };
 
@@ -49,6 +56,10 @@ chrome.runtime.onInstalled.addListener(async () => {
   await setStorageItem('charsCount', DEFAULT_STORAGE_VALUES.charsCount);
 });
 
+chrome.runtime.onStartup.addListener(() => {
+  void updateContextMenu();
+});
+
 chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
   if (message.type === 'UPDATE_CONTEXT_MENU') {
     void updateContextMenu();
@@ -58,5 +69,15 @@ chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId !== MENU_ID || !tab?.id) return;
 
-  void sendInsertMessage(tab.id);
+  void sendInsertMessage(tab.id, {
+    type: 'INSERT_LOREM_FROM_CONTEXT_MENU',
+  });
+});
+
+chrome.commands.onCommand.addListener((command, tab) => {
+  if (command !== COMMAND_NAME || !tab?.id) return;
+
+  void sendInsertMessage(tab.id, {
+    type: 'INSERT_LOREM_FROM_HOTKEY',
+  });
 });

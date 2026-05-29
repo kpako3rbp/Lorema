@@ -1,5 +1,4 @@
 import { TRANSLATIONS } from '../i18n';
-import { renderLanguageOptions } from '../utils/render-language-options';
 import {
   MAX_CHARS,
   POPOVER_CANCEL_BTN_ID,
@@ -10,6 +9,7 @@ import {
   POPOVER_INSERT_BTN_ID,
   POPOVER_LANG_SELECT_ID,
 } from './constants';
+import { renderLanguageOptions } from './render-language-options';
 import popoverStyles from './style.css?inline';
 import { CreatePopoverParams } from './types';
 

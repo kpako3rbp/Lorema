@@ -18,4 +18,13 @@ export type TextParts = {
   endings: string[];
 };
 
-export type ExtensionMessage = { type: 'INSERT_LOREM' | 'UPDATE_CONTEXT_MENU' };
+export type ExtensionMessage =
+  | {
+      type: 'INSERT_LOREM_FROM_CONTEXT_MENU';
+    }
+  | {
+      type: 'INSERT_LOREM_FROM_HOTKEY';
+    }
+  | {
+      type: 'UPDATE_CONTEXT_MENU';
+    };

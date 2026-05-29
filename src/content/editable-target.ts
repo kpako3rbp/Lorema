@@ -45,6 +45,46 @@ export const getEditableTargetSnapshot = (event: MouseEvent): EditableTargetSnap
   };
 };
 
+export const getActiveTargetSnapshot = (): EditableTargetSnapshot => {
+  const activeElement = document.activeElement;
+
+  if (activeElement && isTextInputElement(activeElement)) {
+    const rect = activeElement.getBoundingClientRect();
+
+    return {
+      element: activeElement,
+      savedRange: null,
+      position: {
+        x: rect.left,
+        y: rect.bottom,
+      },
+    };
+  }
+
+  const editableElement =
+    activeElement instanceof HTMLElement && activeElement.isContentEditable
+      ? activeElement
+      : activeElement instanceof HTMLElement
+        ? activeElement.closest<HTMLElement>('[contenteditable]')
+        : null;
+
+  if (editableElement?.isContentEditable) {
+    const rect = editableElement.getBoundingClientRect();
+    const selection = window.getSelection();
+
+    return {
+      element: editableElement,
+      savedRange: selection?.rangeCount ? selection.getRangeAt(0).cloneRange() : null,
+      position: {
+        x: rect.left,
+        y: rect.bottom,
+      },
+    };
+  }
+
+  return createEmptyTargetSnapshot();
+};
+
 export const createEmptyTargetSnapshot = (): EditableTargetSnapshot => ({
   element: null,
   position: DEFAULT_POSITION,

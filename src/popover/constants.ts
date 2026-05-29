@@ -9,3 +9,5 @@ export const POPOVER_LANG_SELECT_ID = 'popover-lang-select';
 export const POPOVER_OFFSET = 8;
 
 export const MAX_CHARS = 99999;
+
+export const COMMAND_NAME = 'open-lorem-popover';
