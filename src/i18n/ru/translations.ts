@@ -1,10 +1,11 @@
-export const TRANSLATIONS_RU = {
+import { Translation } from '../types';
+
+export const TRANSLATIONS_RU: Translation = {
   popup: {
-    title: 'Настройки Lorem Extension',
+    title: 'Настройки',
     charsCount: 'Количество символов',
     save: 'Сохранить',
     interfaceLanguage: 'Язык интерфейса',
-    loremLanguage: 'Язык текста',
     donate: 'Купить мне кофе',
     saved: 'Сохранено!',
   },
@@ -14,5 +15,9 @@ export const TRANSLATIONS_RU = {
     paragraphs: 'Разбить на абзацы',
     insert: 'Вставить',
     cancel: 'Отмена',
+  },
+
+  context: {
+    paste: 'Вставить текст-рыбу',
   },
 };

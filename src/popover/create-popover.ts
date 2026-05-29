@@ -29,9 +29,14 @@ export const createPopover = (params: Params): HTMLDivElement => {
   host.id = POPOVER_ID;
 
   host.style.position = 'fixed';
-  host.style.left = `${position.x}px`;
-  host.style.top = `${position.y}px`;
+  // host.style.left = `${position.x}px`;
+  // host.style.top = `${position.y}px`;
+  host.style.left = '0';
+  host.style.top = '0';
   host.style.zIndex = '99999';
+
+  host.dataset.cursorX = String(position.x);
+  host.dataset.cursorY = String(position.y);
 
   const shadowRoot = host.attachShadow({
     mode: 'open',
@@ -42,6 +47,10 @@ export const createPopover = (params: Params): HTMLDivElement => {
   style.textContent = popoverStyles;
 
   const popover = document.createElement('div');
+
+  popover.style.position = 'fixed';
+  popover.style.left = `${position.x + 8}px`;
+  popover.style.top = `${position.y + 8}px`;
 
   popover.className = 'lorem-popover';
 
@@ -105,14 +114,49 @@ export const createPopover = (params: Params): HTMLDivElement => {
   return host;
 };
 
-export const movePopoverInsideViewport = (popover: HTMLElement): void => {
+// export const movePopoverInsideViewport = (popover: HTMLElement): void => {
+//   const rect = popover.getBoundingClientRect();
+
+//   if (rect.right > window.innerWidth) {
+//     popover.style.left = `${window.innerWidth - rect.width - 8}px`;
+//   }
+
+//   if (rect.bottom > window.innerHeight) {
+//     popover.style.top = `${window.innerHeight - rect.height - 8}px`;
+//   }
+// };
+
+export const movePopoverInsideViewport = (host: HTMLElement): void => {
+  const popover = host.shadowRoot?.querySelector<HTMLElement>('.lorem-popover');
+
+  if (!popover) return;
+
+  const offset = 8;
   const rect = popover.getBoundingClientRect();
 
-  if (rect.right > window.innerWidth) {
-    popover.style.left = `${window.innerWidth - rect.width - 8}px`;
+  const cursorX = Number(host.dataset.cursorX);
+  const cursorY = Number(host.dataset.cursorY);
+
+  const hasSpaceBottom = cursorY + rect.height + offset <= window.innerHeight;
+  const hasSpaceTop = cursorY - rect.height - offset >= 0;
+
+  const hasSpaceRight = cursorX + rect.width + offset <= window.innerWidth;
+  const hasSpaceLeft = cursorX - rect.width - offset >= 0;
+
+  let top = cursorY + offset;
+  let left = cursorX + offset;
+
+  if (!hasSpaceBottom && hasSpaceTop) {
+    top = cursorY - rect.height - offset;
   }
 
-  if (rect.bottom > window.innerHeight) {
-    popover.style.top = `${window.innerHeight - rect.height - 8}px`;
+  if (!hasSpaceRight && hasSpaceLeft) {
+    left = cursorX - rect.width - offset;
   }
+
+  top = Math.max(offset, Math.min(top, window.innerHeight - rect.height - offset));
+  left = Math.max(offset, Math.min(left, window.innerWidth - rect.width - offset));
+
+  popover.style.top = `${top}px`;
+  popover.style.left = `${left}px`;
 };

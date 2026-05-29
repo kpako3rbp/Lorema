@@ -1,12 +1,5 @@
+import { DEFAULT_STORAGE_VALUES } from '../constants';
 import { type StorageSchema } from '../types';
-import { getBrowserLanguage } from './get-browser-language';
-
-const DEFAULT_STORAGE_VALUES: StorageSchema = {
-  charsCount: 300,
-  withParagraphs: false,
-  language: getBrowserLanguage(),
-  interfaceLanguage: getBrowserLanguage(),
-};
 
 export const getStorageItem = async <Key extends keyof StorageSchema>(key: Key): Promise<StorageSchema[Key]> => {
   const items = await chrome.storage.sync.get([key]);

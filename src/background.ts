@@ -1,4 +1,23 @@
+import { DEFAULT_STORAGE_VALUES } from './constants';
+import { TRANSLATIONS } from './i18n';
 import { ExtensionMessage } from './types';
+import { getStorageItem, setStorageItem } from './utils/storage';
+
+const MENU_ID = 'insert-lorem';
+
+const getTitle = async () => {
+  const interfaceLanguage = await getStorageItem('interfaceLanguage');
+
+  return TRANSLATIONS[interfaceLanguage].context.paste;
+};
+
+const createContextMenu = async (): Promise<void> => {
+  chrome.contextMenus.create({
+    id: MENU_ID,
+    title: await getTitle(),
+    contexts: ['editable'],
+  });
+};
 
 const sendInsertMessage = async (tabId: number): Promise<void> => {
   try {
@@ -17,31 +36,27 @@ const sendInsertMessage = async (tabId: number): Promise<void> => {
   }
 };
 
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
-    id: 'insert-russian-lorem',
-    title: 'Вставить текст-рыбу',
-    contexts: ['editable'],
-  });
+const updateContextMenu = async (): Promise<void> => {
+  const title = await getTitle();
 
-  chrome.storage.sync.set({
-    charsCount: 200,
+  await chrome.contextMenus.update(MENU_ID, {
+    title,
   });
+};
+
+chrome.runtime.onInstalled.addListener(async () => {
+  await createContextMenu();
+  await setStorageItem('charsCount', DEFAULT_STORAGE_VALUES.charsCount);
 });
 
-chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-  if (info.menuItemId !== 'insert-russian-lorem' || !tab?.id) return;
+chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
+  if (message.type === 'UPDATE_CONTEXT_MENU') {
+    void updateContextMenu();
+  }
+});
 
-  // const { charsCount } = await chrome.storage.sync.get(['charsCount']);
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId !== MENU_ID || !tab?.id) return;
 
-  // await chrome.scripting.executeScript({
-  //   target: { tabId: tab.id },
-  //   files: ['content.js'],
-  // });
-
-  // chrome.tabs.sendMessage(tab.id, {
-  //   type: 'INSERT_LOREM',
-  //   charsCount: Number(charsCount) || 200,
-  // });
-  await sendInsertMessage(tab.id);
+  void sendInsertMessage(tab.id);
 });

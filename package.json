@@ -4,6 +4,7 @@
     "dev": "vite build --watch"
   },
   "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
     "@types/chrome": "^0.0.268",
     "eslint-config-rtkit": "^3.0.5",
     "typescript": "^5.5.4",

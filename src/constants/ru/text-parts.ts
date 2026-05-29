@@ -1,4 +1,4 @@
-import { TextParts } from 'src/types';
+import { TextParts } from '../../types';
 
 export const TEXT_PARTS_RU: TextParts = {
   starts: [

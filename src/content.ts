@@ -67,6 +67,18 @@ declare global {
     saveContentEditableSelection(element);
   };
 
+  const closePopoverOnOutsideClick = (event: MouseEvent): void => {
+    const host = document.getElementById('lorem-config-popover');
+
+    if (!host) return;
+    const target = event.target;
+
+    if (!(target instanceof Node)) return;
+    if (host.contains(target)) return;
+    removePopover();
+    document.removeEventListener('mousedown', closePopoverOnOutsideClick, true);
+  };
+
   const insertIntoTextField = (element: HTMLInputElement | HTMLTextAreaElement, text: string): void => {
     element.focus();
 
@@ -138,8 +150,6 @@ declare global {
     const withParagraphs = checkbox.checked;
     const language = languageSelect.value as Language;
 
-    await setStorageItem('withParagraphs', withParagraphs);
-
     if (!Number.isFinite(chars) || chars <= 0) {
       input.focus();
       input.select();
@@ -149,6 +159,7 @@ declare global {
 
     const charsCount = Math.floor(chars);
 
+    await setStorageItem('withParagraphs', withParagraphs);
     await setStorageItem('charsCount', charsCount);
     await setStorageItem('language', language);
 
@@ -182,7 +193,10 @@ declare global {
 
     document.body.appendChild(popover);
 
-    movePopoverInsideViewport(popover);
+    // movePopoverInsideViewport(popover);
+    requestAnimationFrame(() => {
+      movePopoverInsideViewport(popover);
+    });
 
     const input = queryElement<HTMLInputElement>(shadowRoot, '.lorem-input');
     const insertButton = queryElement<HTMLButtonElement>(shadowRoot, '.lorem-insert');
@@ -195,6 +209,7 @@ declare global {
     });
 
     cancelButton.addEventListener('click', removePopover);
+    document.addEventListener('mousedown', closePopoverOnOutsideClick, true);
 
     input.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {

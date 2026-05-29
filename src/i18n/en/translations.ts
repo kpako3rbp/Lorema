@@ -1,10 +1,11 @@
-export const TRANSLATIONS_EN = {
+import { Translation } from '../types';
+
+export const TRANSLATIONS_EN: Translation = {
   popup: {
-    title: 'Lorem Extension Settings',
+    title: 'Settings',
     charsCount: 'Characters count',
     save: 'Save',
     interfaceLanguage: 'Interface language',
-    loremLanguage: 'Lorem language',
     donate: 'Buy me a coffee',
     saved: 'Saved!',
   },
@@ -14,5 +15,9 @@ export const TRANSLATIONS_EN = {
     paragraphs: 'Split into paragraphs',
     insert: 'Insert',
     cancel: 'Cancel',
+  },
+
+  context: {
+    paste: 'Insert lorem text',
   },
 };
