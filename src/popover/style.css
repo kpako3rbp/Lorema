@@ -115,6 +115,14 @@
   &:focus-visible {
     outline: 2px solid #3636494a;
   }
+
+  &::placeholder {
+    color: #8080a0;
+  }
+
+  &.error {
+    animation: input-error 1s ease;
+  }
 }
 
 .lorem-input::-webkit-inner-spin-button,
@@ -196,5 +204,19 @@
 
   &:hover {
     background-color: #3d3d65;
+  }
+}
+
+@keyframes input-error {
+  0% {
+    border-color: #ff4d4f;
+  }
+
+  70% {
+    border-color: #ff4d4f;
+  }
+
+  100% {
+    border-color: #4e4e6c;
   }
 }

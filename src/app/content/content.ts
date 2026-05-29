@@ -1,8 +1,17 @@
-import { createPopover, movePopoverInsideViewport, removePopover } from './popover/create-popover';
-import { ExtensionMessage, Language } from './types';
-import { generateLorem } from './utils/lorem';
-import { queryElement } from './utils/query-element';
-import { getStorageItem, setStorageItem } from './utils/storage';
+import { movePopoverInsideViewport } from 'src/popover';
+import { generateLorem } from 'src/utils/lorem';
+
+import {
+  POPOVER_CANCEL_BTN_ID,
+  POPOVER_CHECKBOX_ID,
+  POPOVER_INPUT_ID,
+  POPOVER_INSERT_BTN_ID,
+  POPOVER_LANG_SELECT_ID,
+} from '../../popover/constants';
+import { createPopover, removePopover } from '../../popover/create-popover';
+import { ExtensionMessage, Language } from '../../types';
+import { queryElement } from '../../utils/query-element';
+import { getStorageItem, setStorageItem } from '../../utils/storage';
 
 type TargetElement = HTMLInputElement | HTMLTextAreaElement | HTMLElement | null;
 
@@ -193,16 +202,15 @@ declare global {
 
     document.body.appendChild(popover);
 
-    // movePopoverInsideViewport(popover);
     requestAnimationFrame(() => {
       movePopoverInsideViewport(popover);
     });
 
-    const input = queryElement<HTMLInputElement>(shadowRoot, '.lorem-input');
-    const insertButton = queryElement<HTMLButtonElement>(shadowRoot, '.lorem-insert');
-    const cancelButton = queryElement<HTMLButtonElement>(shadowRoot, '.lorem-cancel');
-    const checkbox = queryElement<HTMLInputElement>(shadowRoot, '.lorem-checkbox-input');
-    const languageSelect = queryElement<HTMLSelectElement>(shadowRoot, '.lorem-language');
+    const input = queryElement<HTMLInputElement>(shadowRoot, `#${POPOVER_INPUT_ID}`);
+    const insertButton = queryElement<HTMLButtonElement>(shadowRoot, `#${POPOVER_INSERT_BTN_ID}`);
+    const cancelButton = queryElement<HTMLButtonElement>(shadowRoot, `#${POPOVER_CANCEL_BTN_ID}`);
+    const checkbox = queryElement<HTMLInputElement>(shadowRoot, `#${POPOVER_CHECKBOX_ID}`);
+    const languageSelect = queryElement<HTMLSelectElement>(shadowRoot, `#${POPOVER_LANG_SELECT_ID}`);
 
     insertButton.addEventListener('click', () => {
       void submitText(input, checkbox, languageSelect);
