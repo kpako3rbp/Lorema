@@ -11,23 +11,6 @@ const dispatchTextInputEvent = (element: HTMLElement, text: string): void => {
   );
 };
 
-const insertIntoTextInput = (element: HTMLInputElement | HTMLTextAreaElement, text: string): void => {
-  element.focus();
-
-  const start = element.selectionStart ?? element.value.length;
-  const end = element.selectionEnd ?? element.value.length;
-  const nativeValueSetter = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(element), 'value')?.set;
-  const nextValue = element.value.slice(0, start) + text + element.value.slice(end);
-
-  nativeValueSetter?.call(element, nextValue);
-
-  const cursorPosition = start + text.length;
-
-  element.setSelectionRange(cursorPosition, cursorPosition);
-  dispatchTextInputEvent(element, text);
-  element.dispatchEvent(new Event('change', { bubbles: true }));
-};
-
 const restoreContentEditableSelection = (savedRange: Range | null): void => {
   if (!savedRange) return;
 
@@ -37,6 +20,27 @@ const restoreContentEditableSelection = (savedRange: Range | null): void => {
 
   selection.removeAllRanges();
   selection.addRange(savedRange);
+};
+
+const insertIntoTextInput = (element: HTMLInputElement | HTMLTextAreaElement, text: string): void => {
+  element.focus();
+
+  const start = element.selectionStart ?? element.value.length;
+  const end = element.selectionEnd ?? element.value.length;
+  const nativeValueSetter = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(element), 'value')?.set;
+  const nextValue = element.value.slice(0, start) + text + element.value.slice(end);
+
+  if (nativeValueSetter) {
+    nativeValueSetter.call(element, nextValue);
+  } else {
+    element.value = nextValue;
+  }
+
+  const cursorPosition = start + text.length;
+
+  element.setSelectionRange(cursorPosition, cursorPosition);
+  dispatchTextInputEvent(element, text);
+  element.dispatchEvent(new Event('change', { bubbles: true }));
 };
 
 const insertIntoContentEditable = (element: HTMLElement, text: string, savedRange: Range | null): void => {

@@ -3,16 +3,14 @@ import { createEmptyTargetSnapshot, getEditableTargetSnapshot } from './editable
 import { showPopover } from './popover-controller';
 import { EditableTargetSnapshot } from './types';
 
-declare global {
-  interface Window {
-    __loremExtensionLoaded?: boolean;
-  }
-}
+const initContentScript = (): void => {
+  const windowWithFlag = window as Window & {
+    __loremBrowserExtensionLoaded?: boolean;
+  };
 
-const bootstrapContentScript = (): void => {
-  if (window.__loremExtensionLoaded) return;
+  if (windowWithFlag.__loremBrowserExtensionLoaded) return;
 
-  window.__loremExtensionLoaded = true;
+  windowWithFlag.__loremBrowserExtensionLoaded = true;
 
   let latestTarget: EditableTargetSnapshot = createEmptyTargetSnapshot();
 
@@ -31,4 +29,4 @@ const bootstrapContentScript = (): void => {
   });
 };
 
-bootstrapContentScript();
+initContentScript();

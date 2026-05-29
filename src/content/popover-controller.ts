@@ -1,5 +1,12 @@
 import { createPopover, movePopoverInsideViewport, removePopover } from '../popover';
-import { POPOVER_ID } from '../popover/constants';
+import {
+  POPOVER_CANCEL_BTN_ID,
+  POPOVER_CHECKBOX_ID,
+  POPOVER_ID,
+  POPOVER_INPUT_ID,
+  POPOVER_INSERT_BTN_ID,
+  POPOVER_LANG_SELECT_ID,
+} from '../popover/constants';
 import { Language } from '../types';
 import { generateLorem } from '../utils/lorem';
 import { queryElement } from '../utils/query-element';
@@ -16,11 +23,11 @@ type PopoverElements = {
 };
 
 const getPopoverElements = (shadowRoot: ShadowRoot): PopoverElements => ({
-  input: queryElement<HTMLInputElement>(shadowRoot, '.lorem-input'),
-  insertButton: queryElement<HTMLButtonElement>(shadowRoot, '.lorem-insert'),
-  cancelButton: queryElement<HTMLButtonElement>(shadowRoot, '.lorem-cancel'),
-  checkbox: queryElement<HTMLInputElement>(shadowRoot, '.lorem-checkbox-input'),
-  languageSelect: queryElement<HTMLSelectElement>(shadowRoot, '.lorem-language'),
+  input: queryElement(shadowRoot, `#${POPOVER_INPUT_ID}`),
+  insertButton: queryElement(shadowRoot, `#${POPOVER_INSERT_BTN_ID}`),
+  cancelButton: queryElement(shadowRoot, `#${POPOVER_CANCEL_BTN_ID}`),
+  checkbox: queryElement(shadowRoot, `#${POPOVER_CHECKBOX_ID}`),
+  languageSelect: queryElement(shadowRoot, `#${POPOVER_LANG_SELECT_ID}`),
 });
 
 const closeActivePopover = (): void => {
@@ -56,9 +63,12 @@ const saveGenerationSettings = async (
 const getCharsCount = (input: HTMLInputElement): number | null => {
   const chars = Number(input.value);
 
+  input.classList.remove('error');
+
   if (!Number.isFinite(chars) || chars <= 0) {
     input.focus();
     input.select();
+    input.classList.add('error');
 
     return null;
   }
@@ -69,7 +79,7 @@ const getCharsCount = (input: HTMLInputElement): number | null => {
 const submitText = async (elements: PopoverElements, target: EditableTargetSnapshot): Promise<void> => {
   const charsCount = getCharsCount(elements.input);
 
-  if (!charsCount) return;
+  if (charsCount === null) return;
 
   const withParagraphs = elements.checkbox.checked;
   const language = elements.languageSelect.value as Language;
@@ -82,7 +92,7 @@ const submitText = async (elements: PopoverElements, target: EditableTargetSnaps
   closeActivePopover();
 };
 
-const bindPopoverEvents = (elements: PopoverElements, target: EditableTargetSnapshot): void => {
+const registerPopoverEvents = (elements: PopoverElements, target: EditableTargetSnapshot): void => {
   elements.insertButton.addEventListener('click', () => {
     void submitText(elements, target);
   });
@@ -133,7 +143,7 @@ export const showPopover = async (target: EditableTargetSnapshot): Promise<void>
 
   const elements = getPopoverElements(shadowRoot);
 
-  bindPopoverEvents(elements, target);
+  registerPopoverEvents(elements, target);
 
   requestAnimationFrame(() => {
     elements.input.focus();

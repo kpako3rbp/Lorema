@@ -1,7 +1,9 @@
 import { TRANSLATIONS } from '../i18n';
 import { Language } from '../types';
+import { renderLanguageOptions } from '../utils/render-language-options';
 import { getStorageItem, setStorageItem } from '../utils/storage';
-import { renderLanguageOptions } from './language-options';
+
+const CLOSE_DELAY = 600;
 
 const title = document.getElementById('popup-title');
 const languageLabel = document.getElementById('interface-language-label');
@@ -37,7 +39,7 @@ const markSettingsChanged = (): void => {
 const closePopupSoon = (): void => {
   setTimeout(() => {
     window.close();
-  }, 600);
+  }, CLOSE_DELAY);
 };
 
 const saveSettings = async (): Promise<void> => {

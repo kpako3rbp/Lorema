@@ -36,12 +36,12 @@ export const getEditableTargetSnapshot = (event: MouseEvent): EditableTargetSnap
     };
   }
 
-  const editableElement = target.closest<HTMLElement>('[contenteditable="true"]');
+  const editableElement = target.closest<HTMLElement>('[contenteditable]');
 
   return {
-    element: editableElement,
+    element: editableElement?.isContentEditable ? editableElement : null,
     position,
-    savedRange: editableElement ? cloneCurrentSelectionRange() : null,
+    savedRange: editableElement?.isContentEditable ? cloneCurrentSelectionRange() : null,
   };
 };
 

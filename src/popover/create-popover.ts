@@ -1,29 +1,22 @@
 import { TRANSLATIONS } from '../i18n';
-import { Language } from '../types';
-import { MAX_CHARS, POPOVER_ID, POPOVER_OFFSET } from './constants';
+import { renderLanguageOptions } from '../utils/render-language-options';
+import {
+  MAX_CHARS,
+  POPOVER_CANCEL_BTN_ID,
+  POPOVER_CHECKBOX_ID,
+  POPOVER_CLASSNAME,
+  POPOVER_ID,
+  POPOVER_INPUT_ID,
+  POPOVER_INSERT_BTN_ID,
+  POPOVER_LANG_SELECT_ID,
+} from './constants';
 import popoverStyles from './style.css?inline';
 import { CreatePopoverParams } from './types';
-
-const renderLanguageOptions = (selectedLanguage: Language): string => {
-  return Object.values(Language)
-    .map(
-      (language) => `
-        <option value="${language}" ${selectedLanguage === language ? 'selected' : ''}>
-          ${language.toUpperCase()}
-        </option>
-      `,
-    )
-    .join('');
-};
 
 const createHost = (params: CreatePopoverParams): HTMLDivElement => {
   const host = document.createElement('div');
 
   host.id = POPOVER_ID;
-  host.style.position = 'fixed';
-  host.style.left = '0';
-  host.style.top = '0';
-  host.style.zIndex = '99999';
   host.dataset.cursorX = String(params.position.x);
   host.dataset.cursorY = String(params.position.y);
 
@@ -38,21 +31,14 @@ const createStyle = (): HTMLStyleElement => {
   return style;
 };
 
-export const removePopover = (): void => {
-  document.getElementById(POPOVER_ID)?.remove();
-};
-
 export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
-  const { charsCount, withParagraphs, language, interfaceLanguage, position } = params;
+  const { charsCount, withParagraphs, language, interfaceLanguage } = params;
   const t = TRANSLATIONS[interfaceLanguage].popover;
   const host = createHost(params);
   const shadowRoot = host.attachShadow({ mode: 'open' });
   const popover = document.createElement('div');
 
-  popover.style.position = 'fixed';
-  popover.style.left = `${position.x + POPOVER_OFFSET}px`;
-  popover.style.top = `${position.y + POPOVER_OFFSET}px`;
-  popover.className = 'lorem-popover';
+  popover.className = POPOVER_CLASSNAME;
 
   popover.innerHTML = `
     <p class="lorem-title">
@@ -61,19 +47,22 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
 
     <input
       class="lorem-input"
+      id="${POPOVER_INPUT_ID}"
       type="number"
       min="1"
       max="${MAX_CHARS}"
       value="${charsCount}"
+      placeholder="${t.charsCount}"
     />
 
     <div class="lorem-options">
-      <select class="lorem-language">
-        ${renderLanguageOptions(language)}
+      <select id="${POPOVER_LANG_SELECT_ID}" class="lorem-language">
+        ${renderLanguageOptions(language, true)}
       </select>
 
       <label class="lorem-checkbox">
         <input
+          id="${POPOVER_CHECKBOX_ID}"
           class="lorem-checkbox-input"
           type="checkbox"
           ${withParagraphs ? 'checked' : ''}
@@ -87,6 +76,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
 
     <div class="lorem-actions">
       <button
+        id="${POPOVER_INSERT_BTN_ID}"
         type="button"
         class="lorem-insert"
       >
@@ -94,6 +84,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
       </button>
 
       <button
+        id="${POPOVER_CANCEL_BTN_ID}" 
         type="button"
         class="lorem-cancel"
       >
@@ -105,4 +96,8 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
   shadowRoot.append(createStyle(), popover);
 
   return host;
+};
+
+export const removePopover = (): void => {
+  document.getElementById(POPOVER_ID)?.remove();
 };
