@@ -1,178 +1,135 @@
-/* .lorem-popover {
-  position: fixed;
-  z-index: 99999;
-
-  width: 220px;
-  padding: 12px 14px;
-
-  background: white;
-  border: 1px solid #d0d0d0;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
-
-  font-family: inherit;
-  font-size: 14px;
-  color: black;
-}
-
-.lorem-title {
-  margin: 0 0 8px;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.lorem-input {
-  width: 100%;
-  box-sizing: border-box;
-  font-family: inherit;
-
-  padding: 8px;
-
-  border: 1px solid #c7c7c7;
-  border-radius: 6px;
-
-  font-size: 14px;
-  
-  &:focus-visible {
-    outline: 2px solid #f4f4f4;
-  }
-}
-
-.lorem-actions {
-  display: flex;
-  gap: 8px;
-
-  margin-top: 10px;
-}
-
-.lorem-insert,
-.lorem-cancel {
-  padding: 5px 16px;
-  border-radius: 10px;  
-  outline: none;
-  cursor: pointer;
-  transition: background-color .15s;
-  font-family: inherit;
-}
-
-.lorem-insert {
-  background-color: #2998cc;
-  border: 1px solid #268bb9;
-  color: white;
-
-  &:hover {
-    background-color: rgb(39, 133, 177);
-  }
-}
-
-.lorem-cancel {
-  background-color: #f0f0f0;
-  border: 1px solid #e1e1e1;
-
-  &:hover {
-    background-color: #e7e7e7;
-  }
-} */
-
 .lorem-popover {
   position: fixed;
   z-index: 99999;
-
-  width: 220px;
+  width: 280px;
   padding: 14px 16px;
-
   background: #1a1a2e;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
-
   font-family: inherit;
   font-size: 14px;
   color: #fefefe;
 }
 
 .lorem-title {
-  margin: 0 0 8px;
-  font-size: 15px;
-  font-weight: 500;
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.lorem-input {
+.lorem-form,
+.lorem-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lorem-form {
+  gap: 12px;
+}
+
+.lorem-field span,
+.lorem-checkbox span,
+.lorem-hint {
+  color: #9e9eca;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.lorem-field-inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lorem-input,
+.lorem-select {
   width: 100%;
   box-sizing: border-box;
-  font-family: inherit;
-  appearance: textfield;
-  -moz-appearance: textfield;
-
   padding: 8px;
-
   border: 1px solid #4e4e6c;
   background: #353548;
   border-radius: 10px;
   color: #fefefe;
-
+  font-family: inherit;
   font-size: 14px;
+}
 
-  &:focus-visible {
-    outline: 2px solid #3636494a;
-  }
+.lorem-field-inline .lorem-select {
+  width: auto;
+  min-width: 120px;
+}
 
-  &::placeholder {
-    color: #8080a0;
-  }
-
-  &.error {
-    animation: input-error 1s ease;
-  }
+.lorem-input {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 .lorem-input::-webkit-inner-spin-button,
 .lorem-input::-webkit-outer-spin-button {
   appearance: none;
-
   margin: 0;
 }
 
-.lorem-options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 12px;
+.lorem-input:focus-visible,
+.lorem-select:focus-visible {
+  outline: 2px solid #474bff;
+  outline-offset: 2px;
 }
 
-.lorem-language {
-  padding: 6px 8px;
-  color: #ffffff;
-  background: #3b3b56;
-  border: 1px solid #5b5b86;
-  border-radius: 8px;
+.lorem-input.error {
+  animation: input-error 1s ease;
+}
+
+.lorem-segmented {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  border: 1px solid #4e4e6c;
+  border-radius: 10px;
+}
+
+.lorem-segmented label {
+  padding: 7px;
+  text-align: center;
+  color: #dbdbff;
   cursor: pointer;
-  font-size: 12px;
+}
+
+.lorem-segmented label + label {
+  border-left: 1px solid #4e4e6c;
+}
+
+.lorem-segmented input {
+  margin-right: 6px;
+  accent-color: #474bff;
 }
 
 .lorem-checkbox {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
   cursor: pointer;
-
-  span {
-    color: #9e9eca;
-  }
 }
 
-.lorem-checkbox-input {
+.lorem-checkbox input {
   margin: 0;
   cursor: pointer;
   accent-color: #474bff;
-  background: #2b2b45;
+}
+
+.lorem-checkbox input:disabled + span {
+  opacity: 0.5;
+}
+
+.lorem-hint {
+  margin: 0;
+  font-size: 12px;
 }
 
 .lorem-actions {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
   padding-top: 14px;
   border-top: 1px solid #292949;
 }
@@ -191,27 +148,23 @@
 .lorem-insert {
   background-color: #474bff;
   color: #dbdbff;
+}
 
-  &:hover {
-    background-color: #3e41bf;
-  }
+.lorem-insert:hover {
+  background-color: #3e41bf;
 }
 
 .lorem-cancel {
   background-color: #2f2f4f;
-  border: none;
   color: #a2a2dc;
+}
 
-  &:hover {
-    background-color: #3d3d65;
-  }
+.lorem-cancel:hover {
+  background-color: #3d3d65;
 }
 
 @keyframes input-error {
-  0% {
-    border-color: #ff4d4f;
-  }
-
+  0%,
   70% {
     border-color: #ff4d4f;
   }

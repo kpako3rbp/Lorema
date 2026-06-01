@@ -1,33 +1,38 @@
-import { DEFAULT_STORAGE_VALUES } from './constants';
 import { TRANSLATIONS } from './i18n';
 import { COMMAND_NAME } from './popover/constants';
-import { ExtensionMessage } from './types';
-import { getStorageItem, setStorageItem } from './utils/storage';
+import { ContentType, ExtensionMessage, InsertMode } from './types';
+import { ensureDefaultStorage, getStorageItem } from './utils/storage';
 
-const MENU_ID = 'insert-lorem';
+const QUICK_ROOT_MENU_ID = 'quick-insert-text';
+const CUSTOM_ROOT_MENU_ID = 'custom-insert-text';
+const CONTENT_TYPES: ContentType[] = ['text', 'title', 'email', 'link', 'phone', 'address', 'firstName', 'lastName'];
 
-const getCommandShortcut = async () => {
-  const commands = await chrome.commands.getAll();
-  const command = commands.find((item) => item.name === COMMAND_NAME);
-
-  return command?.shortcut;
-};
-
-const getTitle = async () => {
-  const interfaceLanguage = await getStorageItem('interfaceLanguage');
-  const shortcut = await getCommandShortcut();
-
-  const title = TRANSLATIONS[interfaceLanguage].context.paste;
-
-  return shortcut ? `${title} (${shortcut})` : title;
-};
+const getMenuItemId = (mode: InsertMode, contentType: ContentType): string => `${mode}:${contentType}`;
 
 const createContextMenu = async (): Promise<void> => {
-  chrome.contextMenus.create({
-    id: MENU_ID,
-    title: await getTitle(),
-    contexts: ['editable'],
-  });
+  await chrome.contextMenus.removeAll();
+
+  const interfaceLanguage = await getStorageItem('interfaceLanguage');
+  const t = TRANSLATIONS[interfaceLanguage].context;
+
+  chrome.contextMenus.create({ id: QUICK_ROOT_MENU_ID, title: t.quickRoot, contexts: ['editable'] });
+  chrome.contextMenus.create({ id: CUSTOM_ROOT_MENU_ID, title: t.customRoot, contexts: ['editable'] });
+
+  for (const contentType of CONTENT_TYPES) {
+    chrome.contextMenus.create({
+      id: getMenuItemId('quick', contentType),
+      parentId: QUICK_ROOT_MENU_ID,
+      title: t.items[contentType],
+      contexts: ['editable'],
+    });
+
+    chrome.contextMenus.create({
+      id: getMenuItemId('custom', contentType),
+      parentId: CUSTOM_ROOT_MENU_ID,
+      title: t.items[contentType],
+      contexts: ['editable'],
+    });
+  }
 };
 
 const sendInsertMessage = async (tabId: number, message: ExtensionMessage): Promise<void> => {
@@ -44,40 +49,33 @@ const sendInsertMessage = async (tabId: number, message: ExtensionMessage): Prom
 };
 
 const updateContextMenu = async (): Promise<void> => {
-  const title = await getTitle();
-
-  await chrome.contextMenus.update(MENU_ID, {
-    title,
-  });
+  await createContextMenu();
 };
 
 chrome.runtime.onInstalled.addListener(async () => {
+  await ensureDefaultStorage();
   await createContextMenu();
-  await setStorageItem('charsCount', DEFAULT_STORAGE_VALUES.charsCount);
 });
 
 chrome.runtime.onStartup.addListener(() => {
-  void updateContextMenu();
+  void ensureDefaultStorage().then(updateContextMenu);
 });
 
 chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
-  if (message.type === 'UPDATE_CONTEXT_MENU') {
-    void updateContextMenu();
-  }
+  if (message.type === 'UPDATE_CONTEXT_MENU') void updateContextMenu();
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId !== MENU_ID || !tab?.id) return;
+  if (!tab?.id || typeof info.menuItemId !== 'string') return;
 
-  void sendInsertMessage(tab.id, {
-    type: 'INSERT_LOREM_FROM_CONTEXT_MENU',
-  });
+  const [mode, contentType] = info.menuItemId.split(':') as [InsertMode, ContentType];
+  if ((mode !== 'quick' && mode !== 'custom') || !CONTENT_TYPES.includes(contentType)) return;
+
+  void sendInsertMessage(tab.id, { type: 'INSERT_CONTENT', mode, contentType });
 });
 
 chrome.commands.onCommand.addListener((command, tab) => {
   if (command !== COMMAND_NAME || !tab?.id) return;
 
-  void sendInsertMessage(tab.id, {
-    type: 'INSERT_LOREM_FROM_HOTKEY',
-  });
+  void sendInsertMessage(tab.id, { type: 'INSERT_CONTENT', mode: 'custom', contentType: 'text' });
 });

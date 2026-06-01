@@ -1,4 +1,4 @@
-import { Language } from '../types';
+import { ContentType, Language, StorageSchema } from '../types';
 
 export type PopoverPosition = {
   x: number;
@@ -6,9 +6,8 @@ export type PopoverPosition = {
 };
 
 export type CreatePopoverParams = {
-  charsCount: number;
-  withParagraphs: boolean;
-  language: Language;
+  contentType: ContentType;
+  storage: StorageSchema;
   interfaceLanguage: Language;
   position: PopoverPosition;
 };

@@ -1,6 +1,6 @@
 import { ExtensionMessage } from '../types';
 import { createEmptyTargetSnapshot, getActiveTargetSnapshot, getEditableTargetSnapshot } from './editable-target';
-import { showPopover } from './popover-controller';
+import { insertQuickContent, showPopover } from './popover-controller';
 import { EditableTargetSnapshot } from './types';
 
 const initContentScript = (): void => {
@@ -23,15 +23,16 @@ const initContentScript = (): void => {
   );
 
   chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
-    if (message.type === 'INSERT_LOREM_FROM_CONTEXT_MENU') {
-      void showPopover(latestTarget);
+    if (message.type !== 'INSERT_CONTENT') return;
 
+    const target = message.mode === 'quick' ? latestTarget : latestTarget.element ? latestTarget : getActiveTargetSnapshot();
+
+    if (message.mode === 'quick') {
+      void insertQuickContent(message.contentType, target);
       return;
     }
 
-    if (message.type === 'INSERT_LOREM_FROM_HOTKEY') {
-      void showPopover(getActiveTargetSnapshot());
-    }
+    void showPopover(message.contentType, target);
   });
 };
 
