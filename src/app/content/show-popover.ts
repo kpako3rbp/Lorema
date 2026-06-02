@@ -18,7 +18,7 @@ type PopoverElements = {
 };
 
 const getPopoverElements = (shadowRoot: ShadowRoot): PopoverElements => ({
-  form: queryElement(shadowRoot, `#${POPOVER_IDS.popover}`),
+  form: queryElement(shadowRoot, `#${POPOVER_IDS.popoverForm}`),
   lengthInput: queryElement(shadowRoot, `#${POPOVER_IDS.lengthInput}`),
   insertButton: queryElement(shadowRoot, `#${POPOVER_IDS.insertButton}`),
   cancelButton: queryElement(shadowRoot, `#${POPOVER_IDS.cancelButton}`),

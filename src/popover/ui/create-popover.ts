@@ -53,12 +53,12 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
     </div>
     
 
-    <form id="${POPOVER_IDS.popover}" class="lorem-form">
+    <form id="${POPOVER_IDS.popoverForm}" class="lorem-form">
       ${renderForm(contentType, storage, interfaceLanguage)}
       <p class="lorem-hint">${t.saveHint}</p>
       <div class="lorem-actions">
         <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-insert">${t.insert}</button>
-        <button id="${POPOVER_IDS.insertButton}" type="button" class="lorem-cancel">${t.cancel}</button>
+        <button id="${POPOVER_IDS.cancelButton}" type="button" class="lorem-cancel">${t.cancel}</button>
       </div>
     </form>
   `;

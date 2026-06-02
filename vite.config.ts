@@ -15,16 +15,16 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        background: 'src/app/background/index.ts',
-        content: 'src/app/content/index.ts',
-        popup: 'src/app/popup/index.html',
-      },
-      output: {
-        entryFileNames: '[name].js',
-      },
-    },
+    // rollupOptions: {
+    //   input: {
+    //     background: 'src/app/background/index.ts',
+    //     content: 'src/app/content/index.ts',
+    //     popup: 'src/app/popup/index.html',
+    //   },
+    //   output: {
+    //     entryFileNames: '[name].js',
+    //   },
+    // },
 
     minify: false,
     sourcemap: true,
