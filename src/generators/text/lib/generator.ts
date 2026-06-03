@@ -8,15 +8,35 @@ type LoremOptions = {
   length: number;
   withParagraphs: boolean;
   language: Language;
+  keepWholeWords: boolean;
 };
 
 const MIN_SENTENCES_IN_PARAGRAPH = 2;
+const MIN_LAST_SENTENCE_WORDS = 2;
 const PARAGRAPH_SIZE_VARIANTS = 3;
 
 const capitalize = (text: string): string => {
   if (!text.length) return text;
 
   return text.charAt(0).toUpperCase() + text.slice(1);
+};
+
+const countWords = (text: string): number => {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+};
+
+const hasValidLastSentence = (text: string): boolean => {
+  const sentences = text
+    .split(/[.!?]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+  const lastSentence = sentences.at(-1);
+
+  return lastSentence ? countWords(lastSentence) >= MIN_LAST_SENTENCE_WORDS : false;
+};
+
+const addDot = (text: string): string => {
+  return /[.!?]$/.test(text) ? text : `${text}.`;
 };
 
 const getRandomParagraphSize = (): number => {
@@ -45,8 +65,24 @@ const appendChunk = (chunks: string[], chunk: string): number => {
   return chunk.length;
 };
 
+const trimTextToLastWord = (text: string): string => {
+  let result = text.trimEnd();
+
+  while (result.includes(' ')) {
+    const lastSpaceIndex = result.lastIndexOf(' ');
+
+    result = result.slice(0, lastSpaceIndex).trimEnd();
+
+    if (hasValidLastSentence(result)) {
+      return addDot(result);
+    }
+  }
+
+  return addDot(result);
+};
+
 export const generateLorem = (options: LoremOptions): string => {
-  const { length, withParagraphs, language } = options;
+  const { length, withParagraphs, language, keepWholeWords } = options;
   const textParts = TEXT_PARTS_BY_LANGUAGE[language];
   const chunks: string[] = [];
 
@@ -72,5 +108,7 @@ export const generateLorem = (options: LoremOptions): string => {
     }
   }
 
-  return chunks.join('').slice(0, length);
+  const text = chunks.join('').slice(0, length);
+
+  return keepWholeWords ? trimTextToLastWord(text) : text;
 };

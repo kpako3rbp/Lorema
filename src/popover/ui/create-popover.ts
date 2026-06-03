@@ -48,18 +48,20 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
 
   popover.innerHTML = /*html*/ `
     <div class="lorem-header">
-      <p class="lorem-title">${t.contentTitles[contentType]}</p>
+      <p class="lorem-title">${t.title}</p>
       ${renderLanguageSelect(generationLanguage, true)}
     </div>
     
 
     <form id="${POPOVER_IDS.popoverForm}" class="lorem-form">
-      ${renderForm(contentType, storage, interfaceLanguage)}
-      <p class="lorem-hint">${t.saveHint}</p>
-      <div class="lorem-actions">
-        <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-insert">${t.insert}</button>
-        <button id="${POPOVER_IDS.cancelButton}" type="button" class="lorem-cancel">${t.cancel}</button>
-      </div>
+      ${renderForm(contentType, storage, interfaceLanguage)}      
+      <div class="lorem-actions">        
+        <div class="lorem-buttons-group">
+          <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-insert">${t.insert}</button>
+          <button id="${POPOVER_IDS.cancelButton}" type="button" class="lorem-cancel">${t.cancel}</button>  
+        </div>   
+        <p class="lorem-hint">${t.saveHint}</p>   
+      </div>      
     </form>
   `;
 

@@ -11,13 +11,15 @@ export type Translation = {
   };
 
   popover: {
+    title: string;
     insert: string;
     cancel: string;
     saveHint: string;
+    trimHint: string;
     generationLanguage: string;
     length: string;
     lengthMode: string;
-    trimToWord: string;
+    keepWholeWords: string;
     paragraphs: string;
     maxLoginLength: string;
     prefix: string;

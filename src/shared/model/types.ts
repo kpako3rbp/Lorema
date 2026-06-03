@@ -24,7 +24,7 @@ export type TextSettings = {
   language: Language;
   length: number;
   lengthMode: LengthMode;
-  trimToWord: boolean;
+  keepWholeWords: boolean;
   withParagraphs: boolean;
 };
 

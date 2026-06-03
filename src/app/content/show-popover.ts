@@ -65,13 +65,14 @@ const parsePositiveInteger = (input: HTMLInputElement): number | null => {
 const readSettingsFromForm = (
   contentType: ContentType,
   form: HTMLFormElement,
+  languageSelect: HTMLSelectElement,
   storage: StorageSchema,
 ): StorageSchema | null => {
-  const getLanguage = (): Language => getSelect(form, POPOVER_IDS.languageSelect).value as Language;
+  const getLanguage = (): Language => languageSelect.value as Language;
 
   const handlers: Record<ContentType, () => Partial<StorageSchema> | null> = {
     text: () => {
-      const length = parsePositiveInteger(getInput(form, 'length'));
+      const length = parsePositiveInteger(getInput(form, POPOVER_IDS.lengthInput));
 
       if (length === null) return null;
 
@@ -82,8 +83,8 @@ const readSettingsFromForm = (
           language: getLanguage(),
           length,
           lengthMode,
-          trimToWord: !getInput(form, 'noTrimText').checked,
-          withParagraphs: lengthMode === 'exact' ? false : getInput(form, 'withParagraphs').checked,
+          keepWholeWords: lengthMode === 'exact' ? false : getInput(form, POPOVER_IDS.keepWholeWords).checked,
+          withParagraphs: lengthMode === 'exact' ? false : getInput(form, POPOVER_IDS.paragraphsCheckbox).checked,
         },
       };
     },
@@ -91,8 +92,8 @@ const readSettingsFromForm = (
     title: () => ({
       titleSettings: {
         language: getLanguage(),
-        maxLength: Number(getSelect(form, 'maxLength').value),
-        topic: getSelect(form, 'topic').value as TitleTopic,
+        maxLength: Number(getSelect(form, POPOVER_IDS.lengthInput).value),
+        topic: getSelect(form, POPOVER_IDS.topicSelect).value as TitleTopic,
       },
     }),
   };
@@ -113,17 +114,35 @@ const saveContentSettings = async (contentType: ContentType, storage: StorageSch
 
 const submitContent = async (
   contentType: ContentType,
-  form: HTMLFormElement,
+  elements: PopoverElements,
   storage: StorageSchema,
   target: EditableTargetSnapshot,
 ): Promise<void> => {
-  const nextStorage = readSettingsFromForm(contentType, form, storage);
+  const nextStorage = readSettingsFromForm(contentType, elements.form, elements.languageSelect, storage);
 
   if (!nextStorage) return;
 
   await saveContentSettings(contentType, nextStorage);
   insertTextAtTarget(target.element, generateContent(contentType, nextStorage), target.savedRange);
   closeActivePopover();
+};
+
+const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
+  const lengthMode = new FormData(form).get('lengthMode');
+
+  const shouldDisableCheckboxes = lengthMode === 'exact';
+
+  const trimTextCheckbox = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.keepWholeWords}`);
+
+  const paragraphsCheckbox = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.paragraphsCheckbox}`);
+
+  trimTextCheckbox.disabled = shouldDisableCheckboxes;
+  paragraphsCheckbox.disabled = shouldDisableCheckboxes;
+
+  if (shouldDisableCheckboxes) {
+    trimTextCheckbox.checked = false;
+    paragraphsCheckbox.checked = false;
+  }
 };
 
 const registerPopoverEvents = (
@@ -134,28 +153,26 @@ const registerPopoverEvents = (
 ): void => {
   elements.form.addEventListener('submit', (e) => {
     e.preventDefault();
-    void submitContent(contentType, elements.form, storage, target);
+    void submitContent(contentType, elements, storage, target);
+  });
+
+  elements.form.addEventListener('change', () => {
+    if (contentType === 'text') {
+      syncTextCheckboxesWithLengthMode(elements.form);
+    }
   });
 
   elements.form.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeActivePopover();
+
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      void submitContent(contentType, elements, storage, target);
+    }
   });
 
   elements.cancelButton.addEventListener('click', closeActivePopover);
   document.addEventListener('mousedown', closePopoverOnOutsideClick, true);
-
-  // const lengthModeInput = elements.form.querySelector<HTMLInputElement>(`#${POPOVER_LENGTHMODE_INPUT_ID}`);
-  // const paragraphsModeCheckbox = elements.form.querySelector<HTMLInputElement>(`#${POPOVER_PARAGRAPHS_CHECKBOX_ID}`);
-  // const cutModeCheckbox = elements.form.querySelector<HTMLInputElement>(`#${POPOVER_PARAGRAPHS_CHECKBOX_ID}`);
-
-  // lengthModeInput?.addEventListener('change', () => {
-  //   if (paragraphsModeCheckbox) {
-  //     paragraphsModeCheckbox.disabled = lengthModeInput.value === 'exact' && lengthModeInput.checked;
-  //   }
-  //   if (cutWordModeCheckbox) {
-  //     cutWordModeCheckbox.disabled = lengthModeInput.value === 'exact' && lengthModeInput.checked;
-  //   }
-  // });
 };
 
 export const insertQuickContent = async (contentType: ContentType, target: EditableTargetSnapshot): Promise<void> => {
@@ -187,6 +204,10 @@ export const showPopover = async (contentType: ContentType, target: EditableTarg
   requestAnimationFrame(() => movePopoverInsideViewport(popover));
 
   const elements = getPopoverElements(shadowRoot);
+
+  if (contentType === 'text') {
+    syncTextCheckboxesWithLengthMode(elements.form);
+  }
 
   registerPopoverEvents(contentType, elements, storage, target);
 

@@ -15,7 +15,11 @@ export const POPOVER_IDS = {
   languageSelect: 'languageSelect',
   lengthInput: 'lengthInput',
   lengthModeInput: 'lengthModeInput',
+
   paragraphsCheckbox: 'paragraphsCheckbox',
+  keepWholeWords: 'keepWholeWords',
+
+  topicSelect: 'topicSelect',
 
   insertButton: 'insertButton',
   cancelButton: 'cancelButton',
@@ -23,7 +27,7 @@ export const POPOVER_IDS = {
 
 export const POPOVER_CLASSNAME = 'lorem-popover';
 
-export const POPOVER_OFFSET = 8;
+export const POPOVER_OFFSET = 14;
 export const MAX_CHARS = 99999;
 
 export const COMMAND_NAME = 'open-lorem-popover';
