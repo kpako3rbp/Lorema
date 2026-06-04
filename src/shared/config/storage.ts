@@ -13,7 +13,7 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   },
   titleSettings: {
     language: browserLanguage,
-    maxLength: 50,
+    lengthPreset: 'md',
     topic: 'random',
   },
 

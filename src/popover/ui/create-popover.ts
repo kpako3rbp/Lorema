@@ -1,11 +1,11 @@
 import { TRANSLATIONS } from 'src/i18n';
-import { ContentType, Language, StorageSchema } from 'src/shared/model/types';
 
 import { POPOVER_CLASSNAME, POPOVER_IDS } from '../config/constants';
 import { CreatePopoverParams } from '../model/types';
+import { renderForms } from './render-forms';
 import { renderLanguageSelect } from './render-language-select';
-import { renderTextForm } from './render-text-form';
-import { renderTitleForm } from './render-title-form';
+import { renderTabs } from './render-tabs';
+import { renderTooltip } from './render-tooltip';
 import popoverStyles from './style.css?inline';
 
 const createHost = (params: CreatePopoverParams): HTMLDivElement => {
@@ -26,15 +26,6 @@ const createStyle = (): HTMLStyleElement => {
   return style;
 };
 
-const renderForm = (contentType: ContentType, storage: StorageSchema, interfaceLanguage: Language) => {
-  const mapContentTypeToRenderFn: Record<ContentType, string> = {
-    text: renderTextForm(storage, interfaceLanguage),
-    title: renderTitleForm(storage, interfaceLanguage),
-  };
-
-  return mapContentTypeToRenderFn[contentType];
-};
-
 export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
   const { contentType, storage, interfaceLanguage, generationLanguage } = params;
 
@@ -48,19 +39,34 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
 
   popover.innerHTML = /*html*/ `
     <div class="lorem-header">
-      <p class="lorem-title">${t.title}</p>
-      ${renderLanguageSelect(generationLanguage, true)}
-    </div>
-    
+      <p class="lorem-title">
+        ${t.title}
+        ${renderTooltip(t.titleTooltip, 120)}
+      </p>
+
+      <div class="lorem-flex aic">
+        <p class="lorem-descriptor">${t.generationLanguage}</p>
+        ${renderLanguageSelect(generationLanguage, true)}
+      </div>
+    </div>       
 
     <form id="${POPOVER_IDS.popoverForm}" class="lorem-form">
-      ${renderForm(contentType, storage, interfaceLanguage)}      
+      ${renderTabs(contentType, interfaceLanguage)} 
+      
+      ${renderForms(storage, interfaceLanguage)}
+      
       <div class="lorem-actions">        
         <div class="lorem-buttons-group">
-          <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-insert">${t.insert}</button>
-          <button id="${POPOVER_IDS.cancelButton}" type="button" class="lorem-cancel">${t.cancel}</button>  
+          <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-insert">
+            ${t.insert}
+            <span>(${t.insertKey})</span>
+          </button>
+          <button id="${POPOVER_IDS.cancelButton}" type="button" class="lorem-cancel">
+            ${t.cancel}
+            <span>(${t.cancelKey})</span>
+          </button>  
         </div>   
-        <p class="lorem-hint">${t.saveHint}</p>   
+        <!-- <p class="lorem-hint">${t.saveHint}</p>    -->
       </div>      
     </form>
   `;

@@ -5,7 +5,8 @@ export enum Language {
 
 export type LengthMode = 'lte' | 'exact';
 export type InsertMode = 'quick' | 'custom';
-export type ContentType = 'text' | 'title';
+export type LengthPreset = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
+export type ContentType = 'text' | 'title' | 'email' | 'link' | 'phone' | 'address' | 'firstName' | 'lastName';
 export type TitleTopic =
   | 'random'
   | 'business'
@@ -28,15 +29,31 @@ export type TextSettings = {
   withParagraphs: boolean;
 };
 
+export type TitleLengthPreset = LengthPreset | 'random';
+
 export type TitleSettings = {
   language: Language;
-  maxLength: number;
+  lengthPreset: TitleLengthPreset;
   topic: TitleTopic;
 };
+
+export type EmailSettings = {};
+export type LinklSettings = {};
+export type PhoneSettings = {};
+export type AddressSettings = {};
+export type FirstNameSettings = {};
+export type LastNameSettings = {};
 
 export type StorageSchema = {
   textSettings: TextSettings;
   titleSettings: TitleSettings;
+
+  emailSettings: EmailSettings;
+  linkSettings: LinklSettings;
+  phoneSettings: PhoneSettings;
+  addressSettings: AddressSettings;
+  firstNameSettings: FirstNameSettings;
+  lastNameSettings: LastNameSettings;
 
   // Common
   generationLanguage: Language;

@@ -16,6 +16,8 @@ export const POPOVER_IDS = {
   lengthInput: 'lengthInput',
   lengthModeInput: 'lengthModeInput',
 
+  lengthPresetSelect: 'lengthPresetSelect',
+
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeWords: 'keepWholeWords',
 
@@ -26,6 +28,7 @@ export const POPOVER_IDS = {
 };
 
 export const POPOVER_CLASSNAME = 'lorem-popover';
+export const POPOVER_TAB_CLASSNAME = 'lorem-tab-panel';
 
 export const POPOVER_OFFSET = 14;
 export const MAX_CHARS = 99999;

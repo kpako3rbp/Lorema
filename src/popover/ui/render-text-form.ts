@@ -2,6 +2,7 @@ import { TRANSLATIONS } from 'src/i18n';
 import { Language, StorageSchema } from 'src/shared/model/types';
 
 import { MAX_CHARS, POPOVER_IDS } from '../config/constants';
+import { renderTooltip } from './render-tooltip';
 
 export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Language) => {
   const t = TRANSLATIONS[interfaceLanguage].popover;
@@ -9,61 +10,84 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
   const isExactMode = settings.lengthMode === 'exact';
 
   return /*html*/ `
-    <div class="lorem-length-input-wrapper">
-      <div class="lorem-length-mode-wrapper">
-        <label class="lorem-segment">
-          <input
-            type="radio"
-            name="lengthMode"
-            value="lte"
-            ${settings.lengthMode === 'lte' ? 'checked' : ''}
-          />
-          <span>≤</span>
-        </label>
+    <div class="lorem-form-wrapper">
+      <span class="lorem-descriptor with-line">${t.textParams}</span>
 
-        <label class="lorem-segment">
+      <div class="lorem-length-input-wrapper">
+        <div class="lorem-form-el-with-label">
+          <span class="lorem-label">
+            ${t.lengthMode}
+            ${renderTooltip(t.lengthModeTooltip)}
+          </span>
+
+          <div class="lorem-length-mode-wrapper">
+            <label class="lorem-segment">
+              <input
+                type="radio"
+                name="lengthMode"
+                value="lte"
+                ${settings.lengthMode === 'lte' ? 'checked' : ''}
+              />
+              <span>≤</span>
+            </label>
+
+            <label class="lorem-segment">
+              <input
+                type="radio"
+                name="lengthMode"
+                value="exact"
+                ${settings.lengthMode === 'exact' ? 'checked' : ''}
+              />
+              <span>=</span>
+            </label>            
+          </div>
+        </div>
+      
+     
+        
+        <label class="lorem-form-el-with-label">
+          <span class="lorem-label">${t.length}</span>
           <input
-            type="radio"
-            name="lengthMode"
-            value="exact"
-            ${settings.lengthMode === 'exact' ? 'checked' : ''}
-          />
-          <span>=</span>
+            class="lorem-input"
+            id="${POPOVER_IDS.lengthInput}"
+            type="number"
+            min="1"
+            max="${MAX_CHARS}"
+            value="${settings.length}"
+            placeholder="${t.length}"
+          /> 
         </label>
       </div>
-    
-      <input
-        class="lorem-input"
-        id="${POPOVER_IDS.lengthInput}"
-        type="number"
-        min="1"
-        max="${MAX_CHARS}"
-        value="${settings.length}"
-        placeholder="${t.length}"
-      />
-    </div>
 
-    <div class="lorem-checkbox-group">
-      <label class="lorem-checkbox">
-        <input
-          class="lorem-checkbox-input"
-          id="${POPOVER_IDS.keepWholeWords}"
-          type="checkbox"
-          ${!isExactMode && settings.keepWholeWords ? 'checked' : ''}
-          ${isExactMode ? 'disabled' : ''}
-        />
-        <span>${t.keepWholeWords}</span>
-      </label>
-      <label class="lorem-checkbox">
-        <input
-          class="lorem-checkbox-input"
-          id="${POPOVER_IDS.paragraphsCheckbox}"
-          type="checkbox"
-          ${settings.withParagraphs ? 'checked' : ''}
-          ${isExactMode ? 'disabled' : ''}
-        />
-        <span>${t.paragraphs}</span>
-      </label>
+      <div class="lorem-checkbox-group">
+        <label class="lorem-checkbox">
+          <input
+            class="lorem-checkbox-input"
+            id="${POPOVER_IDS.keepWholeWords}"
+            type="checkbox"
+            ${!isExactMode && settings.keepWholeWords ? 'checked' : ''}
+            ${isExactMode ? 'disabled' : ''}
+          />
+          <span class="lorem-label">          
+            ${t.keepWholeWords}
+            ${renderTooltip(t.keepWholeWordsTooltip, 120)}
+          </span>          
+        </label>
+
+        <label class="lorem-checkbox">
+          <input
+            class="lorem-checkbox-input"
+            id="${POPOVER_IDS.paragraphsCheckbox}"
+            type="checkbox"
+            ${settings.withParagraphs ? 'checked' : ''}
+            ${isExactMode ? 'disabled' : ''}
+          />
+          <span class="lorem-label">
+            ${t.paragraphs}
+            ${renderTooltip(t.paragraphsCheckboxTooltip, 140)}
+          </span>          
+        </label>
+      </div>
     </div>
   `;
 };

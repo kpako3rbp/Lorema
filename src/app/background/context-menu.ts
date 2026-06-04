@@ -20,9 +20,8 @@ const getCommandShortcut = async () => {
   return command?.shortcut;
 };
 
-const getRootTitle = async (): Promise<string> => {
+const getRootTitle = async (shortcut?: string): Promise<string> => {
   const interfaceLanguage = await getStorageItem('interfaceLanguage');
-  const shortcut = await getCommandShortcut();
   const title = TRANSLATIONS[interfaceLanguage].context.paste;
 
   return shortcut ? `${title} (${shortcut})` : title;
@@ -31,12 +30,13 @@ const getRootTitle = async (): Promise<string> => {
 export const createContextMenu = async (): Promise<void> => {
   const interfaceLanguage = await getStorageItem('interfaceLanguage');
   const t = TRANSLATIONS[interfaceLanguage].context;
+  const shortcut = await getCommandShortcut();
 
   await chrome.contextMenus.removeAll();
 
   chrome.contextMenus.create({
     id: ROOT_MENU_ID,
-    title: await getRootTitle(),
+    title: await getRootTitle(shortcut),
     contexts: ['editable'],
   });
 
@@ -53,13 +53,14 @@ export const createContextMenu = async (): Promise<void> => {
     id: SEPARATOR_MENU_ID,
     parentId: ROOT_MENU_ID,
     type: 'separator',
+    title: '',
     contexts: ['editable'],
   });
 
   chrome.contextMenus.create({
     id: CUSTOM_MENU_ID,
     parentId: ROOT_MENU_ID,
-    title: t.setupAndPaste,
+    title: shortcut ? `${t.setupAndPaste} (${shortcut})` : t.setupAndPaste,
     contexts: ['editable'],
   });
 };
@@ -67,21 +68,3 @@ export const createContextMenu = async (): Promise<void> => {
 export const updateContextMenu = async (): Promise<void> => {
   await createContextMenu();
 };
-
-// export const createContextMenu = async (): Promise<void> => {
-//   chrome.contextMenus.create({
-//     id: MENU_ID,
-//     title: await getTitle(),
-//     contexts: ['editable'],
-//   });
-// };
-
-// export const updateContextMenu = async (): Promise<void> => {
-//   const title = await getTitle();
-
-//   await chrome.contextMenus.update(MENU_ID, {
-//     title,
-//   });
-// };
-
-// export { MENU_ID };

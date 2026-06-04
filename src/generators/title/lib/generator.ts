@@ -1,17 +1,16 @@
 import { TitleSettings } from 'src/shared/model/types';
 import { getRandomItem } from 'src/shared/utils/random';
 
+import { TITLE_LENGTH_PRESETS } from '../config/constants';
 import { TITLES } from '../config/titles';
 import { TOPICS } from '../config/topics';
 
 export const generateTitle = (settings: TitleSettings): string => {
   const topic = settings.topic === 'random' ? getRandomItem(TOPICS) : settings.topic;
-  const variants = TITLES[settings.language][topic];
-  let title = getRandomItem(variants);
 
-  if (title.length > settings.maxLength) {
-    title = title.slice(0, settings.maxLength).trimEnd();
-  }
+  const lengthPreset = settings.lengthPreset === 'random' ? getRandomItem(TITLE_LENGTH_PRESETS) : settings.lengthPreset;
 
-  return title;
+  const variants = TITLES[settings.language][topic][lengthPreset];
+
+  return getRandomItem(variants);
 };

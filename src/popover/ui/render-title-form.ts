@@ -1,16 +1,49 @@
-import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from 'src/generators/title/config/constants';
+import {
+  TITLE_LENGTH_PRESET_RANGES,
+  TITLE_LENGTH_SELECT_OPTIONS,
+  TITLE_TOPICS,
+} from 'src/generators/title/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language, StorageSchema } from 'src/shared/model/types';
+import { Language, StorageSchema, TitleLengthPreset } from 'src/shared/model/types';
 
+import { POPOVER_IDS } from '../config/constants';
 import { renderOptions } from './render-options';
 
 export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: Language): string => {
   const t = TRANSLATIONS[interfaceLanguage].popover;
   const settings = storage.titleSettings;
-  const presetLabels = Object.fromEntries(TITLE_LENGTH_PRESETS.map((value) => [value, String(value)]));
+  const presetLabels = Object.fromEntries(
+    TITLE_LENGTH_SELECT_OPTIONS.map((preset) => {
+      if (preset === 'random') {
+        return [preset, t.lengthPreset.random];
+      }
+
+      return [
+        preset,
+        `${t.lengthPreset[preset]} (${TITLE_LENGTH_PRESET_RANGES[preset].min}-${TITLE_LENGTH_PRESET_RANGES[preset].max})`,
+      ];
+    }),
+  ) as Record<TitleLengthPreset, string>;
 
   return /*html*/ `
-    <label class="form-field"><span>${t.titleLength}</span><select id="maxLength" class="lorem-select">${renderOptions(TITLE_LENGTH_PRESETS.map(String), String(settings.maxLength), presetLabels)}</select></label>
-    <label class="form-field"><span>${t.titleTopic}</span><select id="topic" class="lorem-select">${renderOptions(TITLE_TOPICS, settings.topic, t.titleTopics)}</select></label>
+   <div class="lorem-form-wrapper">
+      <span class="lorem-descriptor with-line">${t.titleParams}</span>
+    
+      <div class="lorem-title-form">
+        <label class="lorem-form-el-with-label">
+          <span class="lorem-label">${t.titleLength}</span>
+          <select id="${POPOVER_IDS.lengthPresetSelect}" class="lorem-select">
+            ${renderOptions(TITLE_LENGTH_SELECT_OPTIONS, settings.lengthPreset, presetLabels)}
+          </select>
+        </label>
+
+        <label class="lorem-form-el-with-label">
+          <span class="lorem-label">${t.titleTopic}</span>
+          <select id="${POPOVER_IDS.topicSelect}" class="lorem-select">
+            ${renderOptions(TITLE_TOPICS, settings.topic, t.titleTopics)}
+          </select>
+        </label>
+      </div>
+   </div>
   `;
 };
