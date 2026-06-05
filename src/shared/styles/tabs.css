@@ -60,11 +60,11 @@
 
 .lorem-tab:hover span {
   color: var(--color-text-light);
-  background-color: var(--color-surface-hover);
+  background: var(--color-surface-hover);
 }
 
 .lorem-tab:hover input:checked + span {
-  color: var(--color-text-primary);
+  color: var(--color-active-button-text);
   background-color: transparent;
 }
 

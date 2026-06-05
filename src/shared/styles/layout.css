@@ -23,8 +23,10 @@
 .lorem-form {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   gap: 12px;
   height: 100%;
+  flex-grow: 1;
 }
 
 .lorem-form-wrapper {

@@ -62,7 +62,7 @@
 
   --focus-offset: 2px;
 
-  --active-button-boder: none;
+  --active-button-boder: 1px solid var(--color-border);
 }
 
 * {
