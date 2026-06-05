@@ -13,11 +13,13 @@ export const POPOVER_IDS = {
   popover: 'popover',
   popoverForm: 'popoverForm',
   languageSelect: 'languageSelect',
-  lengthInput: 'lengthInput',
-  lengthModeInput: 'lengthModeInput',
+  textLengthInput: 'textLengthInput',
 
   titleLengthPresetSelect: 'titleLengthPresetSelect',
   emailLengthPresetSelect: 'emailLengthPresetSelect',
+  linkLengthPresetSelect: 'linkLengthPresetSelect',
+
+  linkPrefixSelect: 'linkPrefixSelect',
 
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeWords: 'keepWholeWords',
@@ -32,6 +34,6 @@ export const POPOVER_CLASSNAME = 'lorem-popover';
 export const POPOVER_TAB_CLASSNAME = 'lorem-tab-panel';
 
 export const POPOVER_OFFSET = 14;
-export const MAX_CHARS = 99999;
+export const MAX_TEXT_CHARS = 10000;
 
 export const COMMAND_NAME = 'open-lorem-popover';

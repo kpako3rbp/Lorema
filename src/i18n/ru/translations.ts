@@ -1,3 +1,5 @@
+import { MAX_LINK_CHARS, MAX_TEXT_CHARS, MIN_LINK_CHARS } from 'src/popover/config/constants';
+
 import { Translation } from '../types';
 
 export const TRANSLATIONS_RU: Translation = {
@@ -23,9 +25,13 @@ export const TRANSLATIONS_RU: Translation = {
 
     textParams: 'Параметры текста',
     titleParams: 'Параметры заголовка',
-    emailParams: 'Параметры e-mail',
+    emailParams: 'Параметры email',
+    linkParams: 'Параметры ссылки',
+
+    linkPrefix: 'Префикс',
 
     length: 'Количество символов',
+    lengthTooltip: `Максимум ${MAX_TEXT_CHARS}`,
     lengthMode: 'Режим',
     keepWholeWords: 'Не обрезать слова',
     paragraphs: 'Разбить на абзацы',
@@ -39,8 +45,10 @@ export const TRANSLATIONS_RU: Translation = {
     digitsCount: 'Количество цифр после кода',
     addressFormat: 'Формат адреса',
     titleLength: 'Размер',
-    loginLength: 'Размер логина',
+    loginLength: 'Длина логина',
+    linkLength: 'Размер ссылки',
     titleTopic: 'Тема',
+
     contentTitles: {
       text: 'Текст',
       title: 'Заголовок',
@@ -51,6 +59,7 @@ export const TRANSLATIONS_RU: Translation = {
       firstName: 'Имя',
       lastName: 'Фамилия',
     },
+
     titleTopics: {
       random: 'Случайно',
       business: 'Бизнес',
@@ -65,6 +74,7 @@ export const TRANSLATIONS_RU: Translation = {
       marketing: 'Маркетинг',
       health: 'Здоровье',
     },
+
     lengthPreset: {
       random: 'Случайно',
       xsm: 'Очень короткий',

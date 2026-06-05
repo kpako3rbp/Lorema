@@ -8,6 +8,8 @@ import {
   Language,
   LengthMode,
   LengthPreset,
+  LinkLengthPreset,
+  LinkPrefix,
   StorageSchema,
   TitleTopic,
 } from 'src/shared/model/types';
@@ -27,7 +29,7 @@ type PopoverElements = {
 
 const getPopoverElements = (shadowRoot: ShadowRoot): PopoverElements => ({
   form: queryElement(shadowRoot, `#${POPOVER_IDS.popoverForm}`),
-  lengthInput: queryElement(shadowRoot, `#${POPOVER_IDS.lengthInput}`),
+  lengthInput: queryElement(shadowRoot, `#${POPOVER_IDS.textLengthInput}`),
   insertButton: queryElement(shadowRoot, `#${POPOVER_IDS.insertButton}`),
   cancelButton: queryElement(shadowRoot, `#${POPOVER_IDS.cancelButton}`),
   languageSelect: queryElement(shadowRoot, `#${POPOVER_IDS.languageSelect}`),
@@ -80,7 +82,7 @@ const readSettingsFromForm = (
 
   const handlers: Record<ContentType, () => Partial<StorageSchema> | null> = {
     text: () => {
-      const length = parsePositiveInteger(getInput(form, POPOVER_IDS.lengthInput));
+      const length = parsePositiveInteger(getInput(form, POPOVER_IDS.textLengthInput));
 
       if (length === null) return null;
 
@@ -110,6 +112,15 @@ const readSettingsFromForm = (
         lengthPreset: getSelect(form, POPOVER_IDS.emailLengthPresetSelect).value as EmailLengthPreset,
       },
     }),
+
+    link: () => {
+      return {
+        linkSettings: {
+          prefix: getSelect(form, POPOVER_IDS.linkPrefixSelect).value as LinkPrefix,
+          lengthPreset: getSelect(form, POPOVER_IDS.linkLengthPresetSelect).value as LinkLengthPreset,
+        },
+      };
+    },
   };
 
   const patch = handlers[contentType]();

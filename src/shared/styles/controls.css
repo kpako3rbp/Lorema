@@ -260,5 +260,4 @@
 
 .lorem-cancel:hover {
   background-color: var(--color-surface-muted);
-  border-color: var(--color-surface);
 }

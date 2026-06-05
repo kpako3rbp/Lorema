@@ -1,6 +1,8 @@
-import { EmailLengthPreset } from 'src/shared/model/types';
+import { EmailLengthPreset, EmailLengthSelectOption } from 'src/shared/model/types';
 
 export const EMAIL_LENGTH_PRESETS: EmailLengthPreset[] = ['sm', 'md', 'lg'];
+export const EMAIL_LENGTH_SELECT_OPTIONS: EmailLengthSelectOption[] = ['random', ...EMAIL_LENGTH_PRESETS];
+
 export const EMAIL_LENGTH_PRESET_RANGES: Record<EmailLengthPreset, { min: number; max: number }> = {
   sm: { min: 5, max: 10 },
   md: { min: 10, max: 20 },

@@ -33,6 +33,7 @@
   --color-text-label: #c0e8e4;
   --color-text-dim: #858585;
   --color-text-primary: #f4f4f4;
+  --color-selection-bg: #7b878a;
 
   --color-primary: linear-gradient(90deg, #c8c4ff 0%, #bdf8d9 50%, #f4f4f4 100%);
   --color-primary-light: #d7ffe9;

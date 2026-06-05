@@ -1,7 +1,18 @@
-import { EmailSettings } from 'src/shared/model/types';
+import { EmailLengthPreset, EmailSettings } from 'src/shared/model/types';
 import { getRandomInteger, getRandomItem } from 'src/shared/utils/random';
 
-import { DOMAINS, EMAIL_LENGTH_PRESET_RANGES, LOGINS, SEPARATORS, WORDS } from '../config/constants';
+import {
+  DOMAINS,
+  EMAIL_LENGTH_PRESET_RANGES,
+  EMAIL_LENGTH_PRESETS,
+  LOGINS,
+  SEPARATORS,
+  WORDS,
+} from '../config/constants';
+
+const getResolvedPreset = (preset: EmailSettings['lengthPreset']): EmailLengthPreset => {
+  return preset === 'random' ? getRandomItem(EMAIL_LENGTH_PRESETS) : preset;
+};
 
 const getRandomYear = (): string => String(getRandomInteger(1990, 2026));
 
@@ -22,7 +33,9 @@ const buildLogin = (): string => {
 };
 
 export const generateEmail = (settings: EmailSettings): string => {
-  const range = EMAIL_LENGTH_PRESET_RANGES[settings.lengthPreset];
+  const preset = getResolvedPreset(settings.lengthPreset);
+
+  const range = EMAIL_LENGTH_PRESET_RANGES[preset];
   const targetLength = getRandomInteger(range.min, range.max);
 
   let login = buildLogin();

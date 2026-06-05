@@ -21,7 +21,7 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   },
   linkSettings: {
     prefix: 'https://',
-    maxLength: 40,
+    lengthPreset: 'md',
   },
   phoneSettings: {
     countryCode: '+7',

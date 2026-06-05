@@ -14,7 +14,7 @@ export type LengthPreset = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
 export type ContentType = 'text' | 'title' | 'email' | 'link' | 'phone' | 'address' | 'firstName' | 'lastName';
 export type LinkPrefix = 'https://' | 'http://' | 'www.';
 export type AddressFormat = 'short' | 'medium' | 'full';
-export type EmailLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
+
 export type TitleTopic =
   | 'random'
   | 'business'
@@ -37,21 +37,28 @@ export type TextSettings = {
   withParagraphs: boolean;
 };
 
-export type TitleLengthPreset = LengthPreset | 'random';
+export type TitleLengthPreset = LengthPreset;
+export type TitleLengthSelectOption = TitleLengthPreset | 'random';
 
 export type TitleSettings = {
   language: Language;
-  lengthPreset: TitleLengthPreset;
+  lengthPreset: TitleLengthSelectOption;
   topic: TitleTopic;
 };
 
+export type EmailLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
+export type EmailLengthSelectOption = EmailLengthPreset | 'random';
+
 export type EmailSettings = {
-  lengthPreset: EmailLengthPreset;
+  lengthPreset: EmailLengthSelectOption;
 };
+
+export type LinkLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg' | 'xlg'>;
+export type LinkLengthSelectOption = LinkLengthPreset | 'random';
 
 export type LinkSettings = {
   prefix: LinkPrefix;
-  maxLength: number;
+  lengthPreset: LinkLengthSelectOption;
 };
 
 export type PhoneSettings = {

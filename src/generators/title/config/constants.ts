@@ -1,9 +1,9 @@
-import { LengthPreset, TitleTopic } from 'src/shared/model/types';
+import { TitleLengthPreset, TitleLengthSelectOption, TitleTopic } from 'src/shared/model/types';
 
-export const TITLE_LENGTH_PRESETS: LengthPreset[] = ['xsm', 'sm', 'md', 'lg', 'xlg'];
-export const TITLE_LENGTH_SELECT_OPTIONS = ['random', ...TITLE_LENGTH_PRESETS] as const;
+export const TITLE_LENGTH_PRESETS: TitleLengthPreset[] = ['xsm', 'sm', 'md', 'lg', 'xlg'];
+export const TITLE_LENGTH_SELECT_OPTIONS: TitleLengthSelectOption[] = ['random', ...TITLE_LENGTH_PRESETS];
 
-export const TITLE_LENGTH_PRESET_RANGES: Record<LengthPreset, { min: number; max: number }> = {
+export const TITLE_LENGTH_PRESET_RANGES: Record<TitleLengthPreset, { min: number; max: number }> = {
   xsm: { min: 5, max: 20 },
   sm: { min: 20, max: 40 },
   md: { min: 40, max: 70 },

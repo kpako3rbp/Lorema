@@ -4,7 +4,7 @@ import {
   TITLE_TOPICS,
 } from 'src/generators/title/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language, StorageSchema, TitleLengthPreset } from 'src/shared/model/types';
+import { Language, StorageSchema, TitleLengthSelectOption } from 'src/shared/model/types';
 
 import { POPOVER_IDS } from '../config/constants';
 import { renderOptions } from './render-options';
@@ -23,13 +23,13 @@ export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: Langu
         `${t.lengthPreset[preset]} (${TITLE_LENGTH_PRESET_RANGES[preset].min}-${TITLE_LENGTH_PRESET_RANGES[preset].max})`,
       ];
     }),
-  ) as Record<TitleLengthPreset, string>;
+  ) as Record<TitleLengthSelectOption, string>;
 
   return /*html*/ `
    <div class="lorem-form-wrapper">
       <span class="lorem-descriptor with-line">${t.titleParams}</span>
     
-      <div class="lorem-title-form">
+      <div class="lorem-grid-form">
         <label class="lorem-form-el-with-label">
           <span class="lorem-label">${t.titleLength}</span>
           <select id="${POPOVER_IDS.titleLengthPresetSelect}" class="lorem-select">

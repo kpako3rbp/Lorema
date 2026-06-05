@@ -1,7 +1,7 @@
 import { TRANSLATIONS } from 'src/i18n';
 import { Language, StorageSchema } from 'src/shared/model/types';
 
-import { MAX_CHARS, POPOVER_IDS } from '../config/constants';
+import { MAX_TEXT_CHARS, POPOVER_IDS } from '../config/constants';
 import { renderTooltip } from './render-tooltip';
 
 export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Language) => {
@@ -46,13 +46,16 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
      
         
         <label class="lorem-form-el-with-label">
-          <span class="lorem-label">${t.length}</span>
+          <span class="lorem-label">
+            ${t.length}
+            ${renderTooltip(t.lengthTooltip, 100)}
+          </span>
           <input
             class="lorem-input"
-            id="${POPOVER_IDS.lengthInput}"
+            id="${POPOVER_IDS.textLengthInput}"
             type="number"
             min="1"
-            max="${MAX_CHARS}"
+            max="${MAX_TEXT_CHARS}"
             value="${settings.length}"
             placeholder="${t.length}"
           /> 

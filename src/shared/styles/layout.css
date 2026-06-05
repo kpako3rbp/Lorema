@@ -45,12 +45,17 @@
 .lorem-form-el-with-label input,
 .lorem-form-el-with-label select {
   width: 100%;
+  padding: 9px;
 }
 
-.lorem-title-form {
+.lorem-grid-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+
+  &.grid-1-3 {
+    grid-template-columns: 1fr 3fr;
+  }
 }
 
 .lorem-length-input-wrapper {
