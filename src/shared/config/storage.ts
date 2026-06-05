@@ -16,6 +16,27 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
     lengthPreset: 'md',
     topic: 'random',
   },
+  emailSettings: {
+    lengthPreset: 'sm',
+  },
+  linkSettings: {
+    prefix: 'https://',
+    maxLength: 40,
+  },
+  phoneSettings: {
+    countryCode: '+7',
+    digitsCount: 10,
+  },
+  addressSettings: {
+    language: browserLanguage,
+    format: 'short',
+  },
+  firstNameSettings: {
+    language: browserLanguage,
+  },
+  lastNameSettings: {
+    language: browserLanguage,
+  },
 
   generationLanguage: browserLanguage,
   interfaceLanguage: browserLanguage,

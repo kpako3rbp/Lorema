@@ -2,7 +2,15 @@ import { generateContent } from 'src/generators';
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from 'src/popover/config/constants';
 import { movePopoverInsideViewport } from 'src/popover/lib/move-popover-inside-viewport';
 import { createPopover, removePopover } from 'src/popover/ui/create-popover';
-import { ContentType, Language, LengthMode, LengthPreset, StorageSchema, TitleTopic } from 'src/shared/model/types';
+import {
+  ContentType,
+  EmailLengthPreset,
+  Language,
+  LengthMode,
+  LengthPreset,
+  StorageSchema,
+  TitleTopic,
+} from 'src/shared/model/types';
 import { queryElement } from 'src/shared/utils/query-element';
 import { getStorageItems, setStorageItem } from 'src/shared/utils/storage';
 
@@ -92,8 +100,14 @@ const readSettingsFromForm = (
     title: () => ({
       titleSettings: {
         language: getLanguage(),
-        lengthPreset: getSelect(form, POPOVER_IDS.lengthPresetSelect).value as LengthPreset,
+        lengthPreset: getSelect(form, POPOVER_IDS.titleLengthPresetSelect).value as LengthPreset,
         topic: getSelect(form, POPOVER_IDS.topicSelect).value as TitleTopic,
+      },
+    }),
+
+    email: () => ({
+      emailSettings: {
+        lengthPreset: getSelect(form, POPOVER_IDS.emailLengthPresetSelect).value as EmailLengthPreset,
       },
     }),
   };

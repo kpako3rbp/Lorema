@@ -49,9 +49,12 @@ export const ensureDefaultStorage = async (): Promise<void> => {
 };
 
 export const getStorageItems = async (): Promise<StorageSchema> => ({
-  titleSettings: await getStorageItem('titleSettings'),
   textSettings: await getStorageItem('textSettings'),
+  titleSettings: await getStorageItem('titleSettings'),
+  emailSettings: await getStorageItem('emailSettings'),
+
   interfaceLanguage: await getStorageItem('interfaceLanguage'),
+
   generationLanguage: await getStorageItem('generationLanguage'),
   theme: await getStorageItem('theme'),
 });

@@ -23,6 +23,7 @@ export const TRANSLATIONS_RU: Translation = {
 
     textParams: 'Параметры текста',
     titleParams: 'Параметры заголовка',
+    emailParams: 'Параметры e-mail',
 
     length: 'Количество символов',
     lengthMode: 'Режим',
@@ -38,6 +39,7 @@ export const TRANSLATIONS_RU: Translation = {
     digitsCount: 'Количество цифр после кода',
     addressFormat: 'Формат адреса',
     titleLength: 'Размер',
+    loginLength: 'Размер логина',
     titleTopic: 'Тема',
     contentTitles: {
       text: 'Текст',

@@ -12,6 +12,9 @@ export type LengthMode = 'lte' | 'exact';
 export type InsertMode = 'quick' | 'custom';
 export type LengthPreset = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
 export type ContentType = 'text' | 'title' | 'email' | 'link' | 'phone' | 'address' | 'firstName' | 'lastName';
+export type LinkPrefix = 'https://' | 'http://' | 'www.';
+export type AddressFormat = 'short' | 'medium' | 'full';
+export type EmailLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
 export type TitleTopic =
   | 'random'
   | 'business'
@@ -42,19 +45,37 @@ export type TitleSettings = {
   topic: TitleTopic;
 };
 
-export type EmailSettings = {};
-export type LinklSettings = {};
-export type PhoneSettings = {};
-export type AddressSettings = {};
-export type FirstNameSettings = {};
-export type LastNameSettings = {};
+export type EmailSettings = {
+  lengthPreset: EmailLengthPreset;
+};
+
+export type LinkSettings = {
+  prefix: LinkPrefix;
+  maxLength: number;
+};
+
+export type PhoneSettings = {
+  countryCode: string;
+  digitsCount: number;
+};
+
+export type AddressSettings = {
+  language: Language;
+  format: AddressFormat;
+};
+export type FirstNameSettings = {
+  language: Language;
+};
+
+export type LastNameSettings = {
+  language: Language;
+};
 
 export type StorageSchema = {
   textSettings: TextSettings;
   titleSettings: TitleSettings;
-
   emailSettings: EmailSettings;
-  linkSettings: LinklSettings;
+  linkSettings: LinkSettings;
   phoneSettings: PhoneSettings;
   addressSettings: AddressSettings;
   firstNameSettings: FirstNameSettings;

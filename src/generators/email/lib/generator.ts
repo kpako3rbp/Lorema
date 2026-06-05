@@ -1,0 +1,39 @@
+import { EmailSettings } from 'src/shared/model/types';
+import { getRandomInteger, getRandomItem } from 'src/shared/utils/random';
+
+import { DOMAINS, EMAIL_LENGTH_PRESET_RANGES, LOGINS, SEPARATORS, WORDS } from '../config/constants';
+
+const getRandomYear = (): string => String(getRandomInteger(1990, 2026));
+
+const trimLogin = (login: string, maxLength: number): string => {
+  return login.slice(0, maxLength).replace(/[._-]$/, '');
+};
+
+const buildLogin = (): string => {
+  const parts = [
+    getRandomItem(LOGINS),
+    getRandomItem(SEPARATORS),
+    getRandomItem(WORDS),
+    getRandomItem(SEPARATORS),
+    Math.random() > 0.5 ? getRandomYear() : String(getRandomInteger(10, 99)),
+  ];
+
+  return parts.join('');
+};
+
+export const generateEmail = (settings: EmailSettings): string => {
+  const range = EMAIL_LENGTH_PRESET_RANGES[settings.lengthPreset];
+  const targetLength = getRandomInteger(range.min, range.max);
+
+  let login = buildLogin();
+
+  while (login.length < targetLength) {
+    const separator = login.endsWith('.') || login.endsWith('_') ? '' : getRandomItem(SEPARATORS);
+
+    login += `${separator}${getRandomItem(WORDS)}`;
+  }
+
+  login = trimLogin(login, targetLength);
+
+  return `${login}@${getRandomItem(DOMAINS)}`;
+};

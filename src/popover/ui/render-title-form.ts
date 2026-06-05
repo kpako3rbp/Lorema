@@ -32,7 +32,7 @@ export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: Langu
       <div class="lorem-title-form">
         <label class="lorem-form-el-with-label">
           <span class="lorem-label">${t.titleLength}</span>
-          <select id="${POPOVER_IDS.lengthPresetSelect}" class="lorem-select">
+          <select id="${POPOVER_IDS.titleLengthPresetSelect}" class="lorem-select">
             ${renderOptions(TITLE_LENGTH_SELECT_OPTIONS, settings.lengthPreset, presetLabels)}
           </select>
         </label>

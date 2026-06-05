@@ -16,7 +16,8 @@ export const POPOVER_IDS = {
   lengthInput: 'lengthInput',
   lengthModeInput: 'lengthModeInput',
 
-  lengthPresetSelect: 'lengthPresetSelect',
+  titleLengthPresetSelect: 'titleLengthPresetSelect',
+  emailLengthPresetSelect: 'emailLengthPresetSelect',
 
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeWords: 'keepWholeWords',
