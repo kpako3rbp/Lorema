@@ -1,0 +1,63 @@
+@import './theme.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Google Sans', Arial, sans-serif;  
+}
+
+::selection {
+  background: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  line-height: 0.8;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input,
+select,
+textarea,
+a {
+  line-height: 0.8;
+  transition:
+    background 0.15s ease,
+    background-color 0.15s ease,
+    background-position 0.45s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+@keyframes input-error {
+  0% {
+    border-color: var(--color-error);
+  }
+
+  70% {
+    border-color: var(--color-error);
+  }
+
+  100% {
+    border-color: var(--color-border);
+  }
+}

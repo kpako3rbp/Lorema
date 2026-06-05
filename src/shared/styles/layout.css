@@ -1,0 +1,87 @@
+@import './base.css';
+
+.lorem-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lorem-flex {
+  display: flex;
+  gap: 8px;
+}
+
+.lorem-flex.aic {
+  align-items: center;
+}
+
+.lorem-flex.sb {
+  justify-content: space-between;
+}
+
+.lorem-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.lorem-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lorem-form-el-with-label {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lorem-form-el-with-label input,
+.lorem-form-el-with-label select {
+  width: 100%;
+}
+
+.lorem-title-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.lorem-length-input-wrapper {
+  display: grid;
+  grid-template-columns: auto 3fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.lorem-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.lorem-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.lorem-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.lorem-buttons-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}

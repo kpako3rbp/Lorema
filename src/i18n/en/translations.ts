@@ -24,7 +24,7 @@ export const TRANSLATIONS_EN: Translation = {
     titleParams: 'Title parameters',
 
     length: 'Character count',
-    lengthMode: 'Length mode',
+    lengthMode: 'Mode',
     keepWholeWords: 'Keep whole words',
     paragraphs: 'Split into paragraphs',
     lengthModeTooltip: 'In exact length mode, words may be cut off',

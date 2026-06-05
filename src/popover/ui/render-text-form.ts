@@ -17,7 +17,7 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
         <div class="lorem-form-el-with-label">
           <span class="lorem-label">
             ${t.lengthMode}
-            ${renderTooltip(t.lengthModeTooltip)}
+            ${renderTooltip(t.lengthModeTooltip, 150)}
           </span>
 
           <div class="lorem-length-mode-wrapper">
@@ -70,7 +70,7 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
           />
           <span class="lorem-label">          
             ${t.keepWholeWords}
-            ${renderTooltip(t.keepWholeWordsTooltip, 120)}
+            ${renderTooltip(t.keepWholeWordsTooltip, 140)}
           </span>          
         </label>
 
@@ -84,7 +84,7 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
           />
           <span class="lorem-label">
             ${t.paragraphs}
-            ${renderTooltip(t.paragraphsCheckboxTooltip, 140)}
+            ${renderTooltip(t.paragraphsCheckboxTooltip, 130)}
           </span>          
         </label>
       </div>

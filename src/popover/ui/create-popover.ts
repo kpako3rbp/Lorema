@@ -41,7 +41,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
     <div class="lorem-header">
       <p class="lorem-title">
         ${t.title}
-        ${renderTooltip(t.titleTooltip, 120)}
+        ${renderTooltip(t.titleTooltip, 180)}
       </p>
 
       <div class="lorem-flex aic">
@@ -57,7 +57,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
       
       <div class="lorem-actions">        
         <div class="lorem-buttons-group">
-          <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-insert">
+          <button id="${POPOVER_IDS.insertButton}" type="submit" class="lorem-submit">
             ${t.insert}
             <span>(${t.insertKey})</span>
           </button>

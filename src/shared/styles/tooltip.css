@@ -1,0 +1,63 @@
+@import './tabs.css';
+
+.lorem-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.lorem-tooltip-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  color: inherit;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 8px;
+  background: var(--color-white-soft);
+  border: 1px solid var(--color-white-border);
+  border-radius: 50%;
+  cursor: help;
+  user-select: none;
+}
+
+.lorem-tooltip-trigger:hover {
+  color: var(--color-text-light);
+  background: var(--color-white-hover);
+}
+
+.lorem-tooltip-trigger:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: 10;
+  width: var(--tooltip-width, 140px);
+  padding: 8px;
+  color: var(--color-text);
+  font-size: 10px;
+  line-height: 12px;
+  background: var(--color-tooltip-bg);
+  border-radius: var(--radius-m);
+  box-shadow: 0 8px 18px rgb(0 0 0 / 30%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(4px);
+  border: 1px solid var(--color-border);
+}
+
+.lorem-tooltip-wrapper:hover .lorem-tooltip,
+.lorem-tooltip-wrapper:focus-within .lorem-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0.4s;
+}

@@ -12,7 +12,7 @@ export const TRANSLATIONS_RU: Translation = {
 
   popover: {
     title: 'Настройки',
-    titleTooltip: 'Настройки будут использованы при дальнейших вставках',
+    titleTooltip: 'Настройки сохранятся автоматически после вставки',
     insert: 'Вставить',
     insertKey: 'Enter',
     cancel: 'Отмена',
@@ -25,10 +25,10 @@ export const TRANSLATIONS_RU: Translation = {
     titleParams: 'Параметры заголовка',
 
     length: 'Количество символов',
-    lengthMode: 'Строгость',
+    lengthMode: 'Режим',
     keepWholeWords: 'Не обрезать слова',
     paragraphs: 'Разбить на абзацы',
-    lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме последнее слово может обрезаться',
+    lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме (=) последнее слово может обрезаться',
     keepWholeWordsTooltip: 'В конце предлложения всегда целое слово с точкой',
     paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2-3 предложения',
     maxLoginLength: 'Максимальная длина логина',
