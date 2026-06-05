@@ -53,4 +53,5 @@ export const getStorageItems = async (): Promise<StorageSchema> => ({
   textSettings: await getStorageItem('textSettings'),
   interfaceLanguage: await getStorageItem('interfaceLanguage'),
   generationLanguage: await getStorageItem('generationLanguage'),
+  theme: await getStorageItem('theme'),
 });

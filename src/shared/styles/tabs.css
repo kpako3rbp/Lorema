@@ -25,12 +25,14 @@
 }
 
 .lorem-tab input:checked + span {
-  color: #151515;
+  color: var(--color-active-button-text);
   background: var(--color-primary);
   background-size: 220% 100%;
   background-position: 0 50%;
   border: 1px solid rgb(255 255 255 / 24%);
   box-shadow: 0 0 14px var(--color-primary-glow);
+
+  border: var(--active-button-boder);
 }
 
 .lorem-tab span {
@@ -62,7 +64,7 @@
 }
 
 .lorem-tab:hover input:checked + span {
-  color: #151515;
+  color: var(--color-text-primary);
   background-color: transparent;
 }
 

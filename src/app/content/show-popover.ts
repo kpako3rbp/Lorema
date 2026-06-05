@@ -215,6 +215,7 @@ export const showPopover = async (contentType: ContentType, target: EditableTarg
     storage,
     interfaceLanguage: storage.interfaceLanguage,
     generationLanguage: storage.generationLanguage,
+    theme: storage.theme,
     position: target.position,
   });
 

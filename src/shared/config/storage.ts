@@ -1,4 +1,4 @@
-import { StorageSchema } from '../model/types';
+import { StorageSchema, Theme } from '../model/types';
 import { getBrowserLanguage } from '../utils/get-browser-language';
 
 const browserLanguage = getBrowserLanguage();
@@ -19,4 +19,5 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
 
   generationLanguage: browserLanguage,
   interfaceLanguage: browserLanguage,
+  theme: Theme.light,
 };

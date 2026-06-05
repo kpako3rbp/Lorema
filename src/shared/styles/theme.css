@@ -24,6 +24,8 @@
   --color-surface-hover: #2c2c2f;
   --color-border: rgb(255 255 255 / 14%);
   --color-line: rgb(255 255 255 / 10%);
+  --color-select-option-bg: #2b2d33;
+  --color-select-option-text: var(--color-text);
 
   --color-text: #e8e8e8;
   --color-text-light: #ffffff;
@@ -39,6 +41,9 @@
   --color-primary-soft: rgb(189 248 217 / 18%);
   --color-primary-focus: rgb(210 255 232 / 40%);
   --color-primary-glow: rgb(189 248 217 / 28%);
+
+  --color-checkbox-bg: #c3dbed;
+  --color-active-button-text: #151515;
 
   --color-white-soft: rgb(255 255 255 / 7%);
   --color-white-border: rgb(255 255 255 / 16%);
@@ -56,6 +61,8 @@
   --focus-outline: none;
 
   --focus-offset: 2px;
+
+  --active-button-boder: none;
 }
 
 * {

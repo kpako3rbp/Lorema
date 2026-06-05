@@ -3,6 +3,11 @@ export enum Language {
   ru = 'ru',
 }
 
+export enum Theme {
+  dark = 'dark',
+  light = 'light',
+}
+
 export type LengthMode = 'lte' | 'exact';
 export type InsertMode = 'quick' | 'custom';
 export type LengthPreset = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
@@ -58,6 +63,7 @@ export type StorageSchema = {
   // Common
   generationLanguage: Language;
   interfaceLanguage: Language;
+  theme: Theme;
 };
 
 export type ExtensionMessage =

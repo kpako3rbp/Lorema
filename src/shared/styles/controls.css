@@ -55,8 +55,8 @@
 }
 
 .lorem-select option {
-  color: var(--color-text);
-  background: #2b2d33;
+  color: var(--color-select-option-text);
+  background: var(--color-select-option-bg);
 }
 
 .lorem-checkbox {
@@ -93,7 +93,7 @@
   content: '';
   width: 8px;
   height: 8px;
-  background: var(--color-primary);
+  background: var(--color-checkbox-bg);
   background-size: 220% 100%;
   background-position: 0 50%;
   border-radius: 3px;
@@ -173,10 +173,11 @@
 }
 
 .lorem-segment input:checked + span {
-  color: #151515;
+  color: var(--color-active-button-text);
   background: var(--color-primary);
   background-size: 220% 100%;
   background-position: 0 50%;
+  border: var(--active-button-boder);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 45%),
     0 0 16px var(--color-primary-glow);
@@ -211,6 +212,12 @@
   outline: none;
   font-weight: 500;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    filter: saturate(0);
+  }
 }
 
 .lorem-submit:focus-visible,
@@ -226,7 +233,8 @@
 }
 
 .lorem-submit {
-  color: #151515;
+  border: var(--active-button-boder);
+  color: var(--color-active-button-text);
   background: var(--color-primary);
   background-size: 220% 100%;
   background-position: 0 50%;

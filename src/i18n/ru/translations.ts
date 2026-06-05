@@ -87,4 +87,9 @@ export const TRANSLATIONS_RU: Translation = {
       lastName: '👤 Фамилия',
     },
   },
+
+  theme: {
+    light: 'Светлая',
+    dark: 'Темная',
+  },
 };

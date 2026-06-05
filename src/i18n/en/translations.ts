@@ -91,4 +91,9 @@ export const TRANSLATIONS_EN: Translation = {
       lastName: '👤 Last name',
     },
   },
+
+  theme: {
+    light: 'Light',
+    dark: 'Dark',
+  },
 };

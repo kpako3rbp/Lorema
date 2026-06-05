@@ -1,37 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <link rel="stylesheet" href="./style.css" />
+<head>
+  <meta charset="UTF-8" />
 
-    <title>Lorema</title>
-  </head>
+  <link rel="stylesheet" href="./style.css" />
 
-  <body>
-    <div class="popup">
-      <h1 id="popup-title" class="lorem-title"></h1>
+  <title>Lorema</title>
+</head>
 
-      <div class="popup-field">
-        <label for="interface-language" id="interface-language-label" class="lorem-label"></label>
+<body>
+  <div class="popup">
+    <h1 id="popup-title" class="lorem-title"></h1>
 
-        <select id="interface-language" class="lorem-select"></select>
-      </div>
+    <div class="popup-field">
+      <label for="interface-language" id="interface-language-label" class="lorem-label"></label>
 
-      <button id="save" class="lorem-submit"></button>
-
-      <a
-        class="donate"
-        id="donate"
-        href="https://vk.com/hanssss"
-        target="_blank"
-      >
-      </a>
-
-      <script
-        type="module"
-        src="./index.ts"
-      ></script>
+      <select id="interface-language" class="lorem-select"></select>
     </div>
-  </body>
+
+    <div class="popup-field">
+      <label for="theme" class="lorem-label">Тема</label>
+
+      <select id="theme" class="lorem-select">
+        <option value="dark">Темная</option>
+        <option value="light">Светлая</option>
+      </select>
+    </div>
+
+    <button id="save" class="lorem-submit"></button>
+
+    <a class="donate" id="donate" href="https://vk.com/hanssss" target="_blank">
+    </a>
+
+    <script type="module" src="./index.ts"></script>
+  </div>
+</body>
+
 </html>

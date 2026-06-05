@@ -52,4 +52,9 @@ export type Translation = {
     setupAndPaste: string;
     items: Record<ContentType, string>;
   };
+
+  theme: {
+    light: string;
+    dark: string;
+  };
 };

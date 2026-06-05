@@ -36,6 +36,8 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
   const popover = document.createElement('div');
 
   popover.className = POPOVER_CLASSNAME;
+  popover.dataset.theme = storage.theme;
+  host.dataset.theme = storage.theme;
 
   popover.innerHTML = /*html*/ `
     <div class="lorem-header">
