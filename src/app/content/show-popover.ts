@@ -104,12 +104,14 @@ const readSettingsFromForm = (
 
   return {
     ...storage,
+    generationLanguage: getLanguage(),
     ...patch,
   };
 };
 
 const saveContentSettings = async (contentType: ContentType, storage: StorageSchema): Promise<void> => {
-  return setStorageItem(`${contentType}Settings`, storage[`${contentType}Settings`]);
+  await setStorageItem('generationLanguage', storage.generationLanguage);
+  await setStorageItem(`${contentType}Settings`, storage[`${contentType}Settings`]);
 };
 
 const submitContent = async (

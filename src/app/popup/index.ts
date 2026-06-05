@@ -67,6 +67,7 @@ const saveSettings = async (): Promise<void> => {
   const theme = themeSelect.value as Theme;
 
   await setStorageItem('interfaceLanguage', interfaceLanguage);
+  await setStorageItem('generationLanguage', interfaceLanguage);
   await setStorageItem('theme', theme);
   await chrome.runtime.sendMessage({
     type: 'UPDATE_CONTEXT_MENU',
