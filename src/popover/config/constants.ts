@@ -33,6 +33,9 @@ export const POPOVER_IDS = {
 
   addressFormatSelect: 'addressFormatSelect',
 
+  firstNameLengthSelect: 'firstNameLengthSelect',
+  lastNameLengthSelect: 'lastNameLengthSelect',
+
   topicSelect: 'topicSelect',
 
   insertButton: 'insertButton',

@@ -12,6 +12,7 @@ import {
   LengthPreset,
   LinkLengthPreset,
   LinkPrefix,
+  NameLengthPreset,
   PhoneFormat,
   StorageSchema,
   TitleTopic,
@@ -144,6 +145,24 @@ const readSettingsFromForm = (
         addressSettings: {
           language: getLanguage(),
           format: getSelect(form, POPOVER_IDS.addressFormatSelect).value as AddressFormat,
+        },
+      };
+    },
+
+    firstName: () => {
+      return {
+        firstNameSettings: {
+          language: getLanguage(),
+          lengthPreset: getSelect(form, POPOVER_IDS.firstNameLengthSelect).value as NameLengthPreset,
+        },
+      };
+    },
+
+    lastName: () => {
+      return {
+        lastNameSettings: {
+          language: getLanguage(),
+          lengthPreset: getSelect(form, POPOVER_IDS.lastNameLengthSelect).value as NameLengthPreset,
         },
       };
     },

@@ -74,17 +74,16 @@ export type AddressSettings = {
   format: AddressFormat;
 };
 
-export type FirstNameLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
+export type NameLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
+export type NameLengthSelectOption = NameLengthPreset | 'random';
 
 export type FirstNameSettings = {
-  lengthPreset: FirstNameSettings;
+  lengthPreset: NameLengthSelectOption;
   language: Language;
 };
 
-export type LastNameLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
-
 export type LastNameSettings = {
-  lengthPreset: LastNameLengthPreset;
+  lengthPreset: NameLengthSelectOption;
   language: Language;
 };
 

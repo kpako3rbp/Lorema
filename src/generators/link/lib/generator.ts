@@ -12,7 +12,7 @@ import {
 } from '../config/constants';
 
 const IDS = ['a8f20c', 'f91d02', '42ab8e', 'c7d93f', 'e10fa4', 'b204de'];
-const FILLER_CHARS = 'abcdefghijklmnopqrstuvwxyz0123456789';
+const FILLER_CHARS = [...'abcdefghijklmnopqrstuvwxyz0123456789'];
 
 const getResolvedPreset = (preset: LinkSettings['lengthPreset']): LinkLengthPreset => {
   return preset === 'random' ? getRandomItem(LINK_LENGTH_PRESETS) : preset;

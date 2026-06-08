@@ -3,6 +3,8 @@ import { ContentType, Language, StorageSchema } from 'src/shared/model/types';
 import { POPOVER_TAB_CLASSNAME } from '../config/constants';
 import { renderAddressForm } from './render-address-form';
 import { renderEmailForm } from './render-email-form';
+import { renderFirstNameForm } from './render-firsrname-form';
+import { renderLastNameForm } from './render-lastname-form';
 import { renderLinkForm } from './render-link-form';
 import { renderPhoneForm } from './render-phone-form';
 import { renderTextForm } from './render-text-form';
@@ -15,6 +17,8 @@ const FORM_RENDERERS: Record<ContentType, (storage: StorageSchema, interfaceLang
   link: renderLinkForm,
   phone: renderPhoneForm,
   address: renderAddressForm,
+  firstName: renderFirstNameForm,
+  lastName: renderLastNameForm,
 };
 
 export const renderForms = (storage: StorageSchema, interfaceLanguage: Language): string => {

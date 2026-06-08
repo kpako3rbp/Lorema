@@ -55,6 +55,8 @@ export const getStorageItems = async (): Promise<StorageSchema> => ({
   linkSettings: await getStorageItem('linkSettings'),
   phoneSettings: await getStorageItem('phoneSettings'),
   addressSettings: await getStorageItem('addressSettings'),
+  firstNameSettings: await getStorageItem('firstNameSettings'),
+  lastNameSettings: await getStorageItem('lastNameSettings'),
 
   interfaceLanguage: await getStorageItem('interfaceLanguage'),
 

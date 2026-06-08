@@ -52,8 +52,8 @@ export const TRANSLATIONS_RU: Translation = {
 
     addressFormat: 'Формат',
 
-    firstNameLength: 'Длина имени',
-    lastNameLength: 'Длина фамилии',
+    firstNameLength: 'Размер имени',
+    lastNameLength: 'Размер фамилии',
 
     titleLength: 'Размер',
     titleTopic: 'Тема',
