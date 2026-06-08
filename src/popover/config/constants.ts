@@ -22,6 +22,12 @@ export const POPOVER_IDS = {
 
   linkPrefixSelect: 'linkPrefixSelect',
 
+  phoneFormatSelect: 'phoneFormatSelect',
+  countryCodeInput: 'countryCodeInput',
+  digitsCountInput: 'digitsCountInput',
+  countryCodeError: 'countryCodeError',
+  digitsCountError: 'digitsCountError',
+
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeWords: 'keepWholeWords',
 
@@ -35,6 +41,5 @@ export const POPOVER_CLASSNAME = 'lorem-popover';
 export const POPOVER_TAB_CLASSNAME = 'lorem-tab-panel';
 
 export const POPOVER_OFFSET = 14;
-export const MAX_TEXT_CHARS = 10000;
 
 export const COMMAND_NAME = 'open-lorem-popover';

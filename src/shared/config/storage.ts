@@ -26,6 +26,7 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   phoneSettings: {
     countryCode: '+7',
     digitsCount: 10,
+    format: 'compact',
   },
   addressSettings: {
     language: browserLanguage,

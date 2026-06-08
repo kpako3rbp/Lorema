@@ -61,20 +61,30 @@ export type LinkSettings = {
   lengthPreset: LinkLengthSelectOption;
 };
 
+export type PhoneFormat = 'spaces' | 'dash' | 'brackets' | 'compact';
+
 export type PhoneSettings = {
   countryCode: string;
   digitsCount: number;
+  format: PhoneFormat;
 };
 
 export type AddressSettings = {
   language: Language;
   format: AddressFormat;
 };
+
+export type FirstNameLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
+
 export type FirstNameSettings = {
+  lengthPreset: FirstNameSettings;
   language: Language;
 };
 
+export type LastNameLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
+
 export type LastNameSettings = {
+  lengthPreset: LastNameLengthPreset;
   language: Language;
 };
 

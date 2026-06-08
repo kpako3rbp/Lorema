@@ -5,6 +5,34 @@ type ValidationResult = {
 
 const ERROR_TIMEOUT = 1000;
 
+export const validateCountryCode = (
+  value: string,
+  messages: {
+    required: string;
+    invalid: string;
+  },
+): ValidationResult => {
+  const trimmedValue = value.trim();
+
+  if (!trimmedValue) {
+    return {
+      isValid: false,
+      message: messages.required,
+    };
+  }
+
+  if (!/^\+?\d+$/.test(trimmedValue)) {
+    return {
+      isValid: false,
+      message: messages.invalid,
+    };
+  }
+
+  return {
+    isValid: true,
+  };
+};
+
 export const validateNumberInput = (
   input: HTMLInputElement,
   min: number | undefined,
@@ -31,14 +59,14 @@ export const validateNumberInput = (
     };
   }
 
-  if (min && value < min) {
+  if (min !== undefined && value < min) {
     return {
       isValid: false,
       message: messages.min,
     };
   }
 
-  if (max && value > max) {
+  if (max !== undefined && value > max) {
     return {
       isValid: false,
       message: messages.max,

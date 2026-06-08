@@ -1,7 +1,7 @@
 import { generateContent } from 'src/generators';
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from 'src/popover/config/constants';
 import { movePopoverInsideViewport } from 'src/popover/lib/move-popover-inside-viewport';
-import { validateTextForm } from 'src/popover/model/validation';
+import { validatePhoneForm, validateTextForm } from 'src/popover/model/validation';
 import { createPopover, removePopover } from 'src/popover/ui/create-popover';
 import {
   ContentType,
@@ -11,6 +11,7 @@ import {
   LengthPreset,
   LinkLengthPreset,
   LinkPrefix,
+  PhoneFormat,
   StorageSchema,
   TitleTopic,
 } from 'src/shared/model/types';
@@ -122,6 +123,20 @@ const readSettingsFromForm = (
         },
       };
     },
+
+    phone: () => {
+      const digitsCount = parsePositiveInteger(getInput(form, POPOVER_IDS.digitsCountInput));
+
+      if (digitsCount === null) return null;
+
+      return {
+        phoneSettings: {
+          countryCode: getInput(form, POPOVER_IDS.countryCodeInput).value,
+          digitsCount,
+          format: getSelect(form, POPOVER_IDS.phoneFormatSelect).value as PhoneFormat,
+        },
+      };
+    },
   };
 
   const patch = handlers[contentType]();
@@ -143,6 +158,7 @@ const saveContentSettings = async (contentType: ContentType, storage: StorageSch
 const validateActiveForm = (contentType: ContentType, form: HTMLFormElement, interfaceLanguage: Language): boolean => {
   const validators: Partial<Record<ContentType, () => boolean>> = {
     text: () => validateTextForm(form, interfaceLanguage),
+    phone: () => validatePhoneForm(form, interfaceLanguage),
   };
 
   return validators[contentType]?.() ?? true;

@@ -13,42 +13,60 @@ export const TRANSLATIONS_RU: Translation = {
   popover: {
     title: 'Настройки',
     titleTooltip: 'Настройки сохранятся автоматически после вставки',
+
     insert: 'Вставить',
     insertKey: 'Enter',
     cancel: 'Отмена',
     cancelKey: 'Esc',
+
     saveHint: 'Настройки будут использованы при дальнейших вставках',
-    trimHint: 'При выборе строго равенства текст может обрезаться',
+    trimHint: 'При выборе строгого равенства текст может обрезаться',
+
     generationLanguage: 'Язык генерации',
 
     textParams: 'Параметры текста',
     titleParams: 'Параметры заголовка',
     emailParams: 'Параметры email',
     linkParams: 'Параметры ссылки',
-
-    linkPrefix: 'Префикс',
+    phoneParams: 'Параметры телефона',
+    addressParams: 'Параметры адреса',
+    firstNameParams: 'Параметры имени',
+    lastNameParams: 'Параметры фамилии',
 
     length: 'Количество символов',
-    min: 'Минимум',
-    max: 'Максимум',
-    invalid: 'Неверный формат',
-
     lengthMode: 'Режим',
     keepWholeWords: 'Не обрезать слова',
     paragraphs: 'Разбить на абзацы',
-    lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме (=) последнее слово может обрезаться',
-    keepWholeWordsTooltip: 'В конце предлложения всегда целое слово с точкой',
-    paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2-3 предложения',
+
     maxLoginLength: 'Максимальная длина логина',
-    prefix: 'Префикс',
-    maxLinkLength: 'Максимальная длина после префикса',
-    countryCode: 'Код страны',
-    digitsCount: 'Количество цифр после кода',
-    addressFormat: 'Формат адреса',
-    titleLength: 'Размер',
     loginLength: 'Длина логина',
+
+    prefix: 'Префикс',
+    linkPrefix: 'Префикс',
+    maxLinkLength: 'Максимальная длина после префикса',
     linkLength: 'Размер ссылки',
+
+    phoneFormat: 'Формат',
+    countryCode: 'Код',
+    digitsCount: 'Количество цифр',
+
+    addressFormat: 'Формат',
+
+    firstNameLength: 'Длина имени',
+    lastNameLength: 'Длина фамилии',
+
+    titleLength: 'Размер',
     titleTopic: 'Тема',
+
+    min: 'Минимум',
+    max: 'Максимум',
+    invalid: 'Неверный формат',
+    required: 'Обязательно',
+
+    lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме (=) последнее слово может обрезаться',
+    keepWholeWordsTooltip: 'В конце предложения всегда целое слово с точкой',
+    paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–3 предложения',
+    countryCodeTooltip: 'Код страны с плюсом или без, например: +7 или 7',
 
     contentTitles: {
       text: 'Текст',
@@ -83,6 +101,13 @@ export const TRANSLATIONS_RU: Translation = {
       md: 'Средний',
       lg: 'Длинный',
       xlg: 'Очень длинный',
+    },
+
+    phoneFormatVariants: {
+      compact: 'Слитно',
+      brackets: 'Скобки и дефисы',
+      dash: 'Дефисы',
+      spaces: 'Пробелы',
     },
   },
 

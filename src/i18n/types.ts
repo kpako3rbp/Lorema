@@ -1,60 +1,92 @@
-import { ContentType, LengthPreset, TitleTopic } from 'src/shared/model/types';
+import { ContentType, LengthPreset, PhoneFormat, TitleTopic } from 'src/shared/model/types';
+
+type ThemeTranslation = {
+  light: string;
+  dark: string;
+};
+
+type PopupTranslation = {
+  title: string;
+  charsCount: string;
+  save: string;
+  interfaceLanguage: string;
+  donate: string;
+  saved: string;
+};
+
+type PopoverTranslation = {
+  title: string;
+  titleTooltip: string;
+
+  insert: string;
+  insertKey: string;
+  cancel: string;
+  cancelKey: string;
+
+  saveHint: string;
+  trimHint: string;
+
+  generationLanguage: string;
+
+  textParams: string;
+  titleParams: string;
+  emailParams: string;
+  linkParams: string;
+  phoneParams: string;
+  addressParams: string;
+  firstNameParams: string;
+  lastNameParams: string;
+
+  length: string;
+  lengthMode: string;
+  keepWholeWords: string;
+  paragraphs: string;
+
+  maxLoginLength: string;
+  loginLength: string;
+
+  prefix: string;
+  linkPrefix: string;
+  maxLinkLength: string;
+  linkLength: string;
+
+  phoneFormat: string;
+  countryCode: string;
+  digitsCount: string;
+
+  addressFormat: string;
+
+  firstNameLength: string;
+  lastNameLength: string;
+
+  titleLength: string;
+  titleTopic: string;
+
+  min: string;
+  max: string;
+  invalid: string;
+  required: string;
+
+  lengthModeTooltip: string;
+  keepWholeWordsTooltip: string;
+  paragraphsCheckboxTooltip: string;
+  countryCodeTooltip: string;
+
+  contentTitles: Record<ContentType, string>;
+  titleTopics: Record<TitleTopic, string>;
+  lengthPreset: Record<LengthPreset | 'random', string>;
+  phoneFormatVariants: Record<PhoneFormat, string>;
+};
+
+type ContextTranslation = {
+  paste: string;
+  setupAndPaste: string;
+  items: Record<ContentType, string>;
+};
 
 export type Translation = {
-  popup: {
-    title: string;
-    charsCount: string;
-    save: string;
-    interfaceLanguage: string;
-    donate: string;
-    saved: string;
-  };
-
-  popover: {
-    title: string;
-    titleTooltip: string;
-    insert: string;
-    insertKey: string;
-    cancel: string;
-    cancelKey: string;
-    saveHint: string;
-    trimHint: string;
-    generationLanguage: string;
-
-    textParams: string;
-    titleParams: string;
-
-    length: string;
-    lengthMode: string;
-    keepWholeWords: string;
-    paragraphs: string;
-    lengthModeTooltip: string;
-    keepWholeWordsTooltip: string;
-    paragraphsCheckboxTooltip: string;
-
-    maxLoginLength: string;
-    prefix: string;
-    maxLinkLength: string;
-    countryCode: string;
-    digitsCount: string;
-    addressFormat: string;
-
-    titleLength: string;
-    titleTopic: string;
-
-    contentTitles: Record<ContentType, string>;
-    titleTopics: Record<TitleTopic, string>;
-    lengthPreset: Record<LengthPreset | 'random', string>;
-  };
-
-  context: {
-    paste: string;
-    setupAndPaste: string;
-    items: Record<ContentType, string>;
-  };
-
-  theme: {
-    light: string;
-    dark: string;
-  };
+  popup: PopupTranslation;
+  popover: PopoverTranslation;
+  context: ContextTranslation;
+  theme: ThemeTranslation;
 };

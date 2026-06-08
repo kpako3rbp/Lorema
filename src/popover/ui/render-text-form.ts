@@ -42,9 +42,7 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
               <span>=</span>
             </label>            
           </div>
-        </div>
-      
-     
+        </div>    
         
         <label class="lorem-form-el-with-label">
           <span class="lorem-label">

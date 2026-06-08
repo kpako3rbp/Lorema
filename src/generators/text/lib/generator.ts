@@ -13,7 +13,12 @@ type LoremOptions = {
 
 const MIN_SENTENCES_IN_PARAGRAPH = 2;
 const MIN_LAST_SENTENCE_WORDS = 2;
+const MIN_LAST_WORD_LENGTH = 5;
 const PARAGRAPH_SIZE_VARIANTS = 3;
+
+const getWords = (text: string): string[] => {
+  return text.trim().match(/[a-zа-яё0-9]+/gi) ?? [];
+};
 
 const capitalize = (text: string): string => {
   if (!text.length) return text;
@@ -25,18 +30,38 @@ const countWords = (text: string): number => {
   return text.trim().split(/\s+/).filter(Boolean).length;
 };
 
+// const hasValidLastSentence = (text: string): boolean => {
+//   const sentences = text
+//     .split(/[.!?]+/)
+//     .map((item) => item.trim())
+//     .filter(Boolean);
+//   const lastSentence = sentences.at(-1);
+
+//   return lastSentence ? countWords(lastSentence) >= MIN_LAST_SENTENCE_WORDS : false;
+// };
+
 const hasValidLastSentence = (text: string): boolean => {
   const sentences = text
     .split(/[.!?]+/)
     .map((item) => item.trim())
     .filter(Boolean);
+
   const lastSentence = sentences.at(-1);
 
-  return lastSentence ? countWords(lastSentence) >= MIN_LAST_SENTENCE_WORDS : false;
+  if (!lastSentence) return false;
+
+  const words = getWords(lastSentence);
+  const lastWord = words.at(-1);
+
+  return words.length >= MIN_LAST_SENTENCE_WORDS && !!lastWord && lastWord.length >= MIN_LAST_WORD_LENGTH;
 };
 
 const addDot = (text: string): string => {
-  return /[.!?]$/.test(text) ? text : `${text}.`;
+  const result = text.trimEnd();
+
+  if (/[.!?]$/.test(result)) return result;
+
+  return `${result.replace(/[,:;]$/, '')}.`;
 };
 
 const getRandomParagraphSize = (): number => {
@@ -65,6 +90,22 @@ const appendChunk = (chunks: string[], chunk: string): number => {
   return chunk.length;
 };
 
+// const trimTextToLastWord = (text: string): string => {
+//   let result = text.trimEnd();
+
+//   while (result.includes(' ')) {
+//     const lastSpaceIndex = result.lastIndexOf(' ');
+
+//     result = result.slice(0, lastSpaceIndex).trimEnd();
+
+//     if (hasValidLastSentence(result)) {
+//       return addDot(result);
+//     }
+//   }
+
+//   return addDot(result);
+// };
+
 const trimTextToLastWord = (text: string): string => {
   let result = text.trimEnd();
 
@@ -72,7 +113,6 @@ const trimTextToLastWord = (text: string): string => {
     const lastSpaceIndex = result.lastIndexOf(' ');
 
     result = result.slice(0, lastSpaceIndex).trimEnd();
-
     if (hasValidLastSentence(result)) {
       return addDot(result);
     }
