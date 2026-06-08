@@ -18,3 +18,6 @@ export const NAME_BY_LANGUAGE: Record<Language, string> = {
   ru: 'Русский',
   en: 'English',
 };
+
+export const MIN_TEXT_CHARS = 1;
+export const MAX_TEXT_CHARS = 10000;

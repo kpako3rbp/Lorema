@@ -1,6 +1,7 @@
 import { generateContent } from 'src/generators';
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from 'src/popover/config/constants';
 import { movePopoverInsideViewport } from 'src/popover/lib/move-popover-inside-viewport';
+import { validateTextForm } from 'src/popover/model/validation';
 import { createPopover, removePopover } from 'src/popover/ui/create-popover';
 import {
   ContentType,
@@ -139,6 +140,14 @@ const saveContentSettings = async (contentType: ContentType, storage: StorageSch
   await setStorageItem(`${contentType}Settings`, storage[`${contentType}Settings`]);
 };
 
+const validateActiveForm = (contentType: ContentType, form: HTMLFormElement, interfaceLanguage: Language): boolean => {
+  const validators: Partial<Record<ContentType, () => boolean>> = {
+    text: () => validateTextForm(form, interfaceLanguage),
+  };
+
+  return validators[contentType]?.() ?? true;
+};
+
 const submitContent = async (
   contentType: ContentType,
   elements: PopoverElements,
@@ -193,6 +202,14 @@ const syncElementsUI = (elements: PopoverElements) => {
   }
 };
 
+const submitForm = (elements: PopoverElements, storage: StorageSchema, target: EditableTargetSnapshot): void => {
+  const contentType = getActiveContentType(elements.form);
+
+  if (!validateActiveForm(contentType, elements.form, storage.interfaceLanguage)) return;
+
+  void submitContent(contentType, elements, storage, target);
+};
+
 const registerPopoverEvents = (
   elements: PopoverElements,
   storage: StorageSchema,
@@ -203,7 +220,7 @@ const registerPopoverEvents = (
   elements.form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    void submitContent(getActiveContentType(elements.form), elements, storage, target);
+    submitForm(elements, storage, target);
   });
 
   elements.form.addEventListener('change', () => {
@@ -219,7 +236,7 @@ const registerPopoverEvents = (
 
     if (event.key === 'Enter') {
       event.preventDefault();
-      void submitContent(getActiveContentType(elements.form), elements, storage, target);
+      submitForm(elements, storage, target);
     }
   });
 
@@ -233,9 +250,29 @@ export const insertQuickContent = async (contentType: ContentType, target: Edita
   insertTextAtTarget(target.element, generateContent(contentType, storage), target.savedRange);
 };
 
+// it needs to link the fonts for the Shadow DOM separately, otherwise, they won't work
+const loadPopoverFonts = async (): Promise<void> => {
+  const regular = new FontFace('LoremGoogleSans', `url('${chrome.runtime.getURL('fonts/GoogleSans-Regular.woff2')}')`, {
+    weight: '400',
+    style: 'normal',
+  });
+
+  const medium = new FontFace('LoremGoogleSans', `url('${chrome.runtime.getURL('fonts/GoogleSans-Medium.woff2')}')`, {
+    weight: '500',
+    style: 'normal',
+  });
+
+  await Promise.all([regular.load(), medium.load()]);
+
+  document.fonts.add(regular);
+  document.fonts.add(medium);
+};
+
 export const showPopover = async (contentType: ContentType, target: EditableTargetSnapshot): Promise<void> => {
   closeActivePopover();
   const storage = await getStorageItems();
+
+  await loadPopoverFonts();
 
   const popover = createPopover({
     contentType,

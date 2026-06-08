@@ -27,7 +27,7 @@
   }
 
   * {
-    font-family: 'Google Sans', Arial, sans-serif;
+    font-family: 'LoremGoogleSans', 'Times New Roman', Times, serif, sans-serif;
     transition:
       background 0.15s ease,
       background-color 0.15s ease,

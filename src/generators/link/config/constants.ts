@@ -11,7 +11,7 @@ export const LINK_LENGTH_SELECT_OPTIONS: LinkLengthSelectOption[] = ['random', .
 
 export const LINK_LENGTH_PRESET_RANGES: Record<LinkLengthPreset, { min: number; max: number }> = {
   sm: { min: 15, max: 35 },
-  md: { min: 25, max: 60 },
+  md: { min: 35, max: 60 },
   lg: { min: 60, max: 120 },
-  xlg: { min: 120, max: 300 },
+  xlg: { min: 200, max: 600 },
 };

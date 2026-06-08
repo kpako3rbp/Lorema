@@ -12,6 +12,29 @@
   border-radius: var(--radius-l);
 }
 
+.lorem-error {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--color-error);
+  opacity: 0;
+  transform: translateY(-2px);
+}
+
+.lorem-error.active {
+  height: auto;
+  margin: 4px 0 0;
+  opacity: 1;
+  transform: translateY(0);
+  animation: error-message 1s ease forwards;
+}
+
+.lorem-input.error {
+  animation: input-error 1s ease;
+}
+
 .lorem-input:hover {
   background: var(--color-surface-hover);
 }
@@ -23,10 +46,6 @@
 
 .lorem-input::placeholder {
   color: var(--color-text-dim);
-}
-
-.lorem-input.error {
-  animation: input-error 1s ease;
 }
 
 .lorem-input::-webkit-inner-spin-button,
@@ -132,8 +151,8 @@
   display: flex;
   align-items: center;
   width: fit-content;
-  height: 34px;
-  padding: 0 4px;
+  height: 38px;
+  padding: 0 5px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-l);
@@ -188,7 +207,7 @@
   align-items: center;
   justify-content: center;
   min-width: 34px;
-  height: 24px;
+  height: 26px;
   color: var(--color-text-muted);
   font-weight: 600;
   border-radius: var(--radius-m);

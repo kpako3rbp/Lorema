@@ -1,5 +1,3 @@
-import { MAX_LINK_CHARS, MAX_TEXT_CHARS, MIN_LINK_CHARS } from 'src/popover/config/constants';
-
 import { Translation } from '../types';
 
 export const TRANSLATIONS_RU: Translation = {
@@ -31,7 +29,10 @@ export const TRANSLATIONS_RU: Translation = {
     linkPrefix: 'Префикс',
 
     length: 'Количество символов',
-    lengthTooltip: `Максимум ${MAX_TEXT_CHARS}`,
+    min: 'Минимум',
+    max: 'Максимум',
+    invalid: 'Неверный формат',
+
     lengthMode: 'Режим',
     keepWholeWords: 'Не обрезать слова',
     paragraphs: 'Разбить на абзацы',

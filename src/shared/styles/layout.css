@@ -61,7 +61,6 @@
 .lorem-length-input-wrapper {
   display: grid;
   grid-template-columns: auto 3fr;
-  align-items: center;
   gap: 16px;
 }
 

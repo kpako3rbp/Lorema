@@ -14,6 +14,7 @@ export const POPOVER_IDS = {
   popoverForm: 'popoverForm',
   languageSelect: 'languageSelect',
   textLengthInput: 'textLengthInput',
+  textLengthError: 'textLengthError',
 
   titleLengthPresetSelect: 'titleLengthPresetSelect',
   emailLengthPresetSelect: 'emailLengthPresetSelect',
