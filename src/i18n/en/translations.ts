@@ -58,6 +58,13 @@ export const TRANSLATIONS_EN: Translation = {
     titleLength: 'Size',
     titleTopic: 'Topic',
 
+    addressFormatVariants: {
+      short: 'Short',
+      full: 'Full',
+      postal: 'Postal',
+      legal: 'Legal',
+    },
+
     min: 'Minimum',
     max: 'Maximum',
     invalid: 'Invalid format',

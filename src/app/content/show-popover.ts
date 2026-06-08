@@ -4,6 +4,7 @@ import { movePopoverInsideViewport } from 'src/popover/lib/move-popover-inside-v
 import { validatePhoneForm, validateTextForm } from 'src/popover/model/validation';
 import { createPopover, removePopover } from 'src/popover/ui/create-popover';
 import {
+  AddressFormat,
   ContentType,
   EmailLengthPreset,
   Language,
@@ -134,6 +135,15 @@ const readSettingsFromForm = (
           countryCode: getInput(form, POPOVER_IDS.countryCodeInput).value,
           digitsCount,
           format: getSelect(form, POPOVER_IDS.phoneFormatSelect).value as PhoneFormat,
+        },
+      };
+    },
+
+    address: () => {
+      return {
+        addressSettings: {
+          language: getLanguage(),
+          format: getSelect(form, POPOVER_IDS.addressFormatSelect).value as AddressFormat,
         },
       };
     },

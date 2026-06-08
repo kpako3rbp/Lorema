@@ -13,7 +13,7 @@ export type InsertMode = 'quick' | 'custom';
 export type LengthPreset = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
 export type ContentType = 'text' | 'title' | 'email' | 'link' | 'phone' | 'address' | 'firstName' | 'lastName';
 export type LinkPrefix = 'https://' | 'http://' | 'www.';
-export type AddressFormat = 'short' | 'medium' | 'full';
+export type AddressFormat = 'short' | 'full' | 'postal' | 'legal';
 
 export type TitleTopic =
   | 'random'

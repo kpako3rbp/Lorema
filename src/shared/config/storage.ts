@@ -30,12 +30,14 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   },
   addressSettings: {
     language: browserLanguage,
-    format: 'short',
+    format: 'full',
   },
   firstNameSettings: {
+    lengthPreset: 'random',
     language: browserLanguage,
   },
   lastNameSettings: {
+    lengthPreset: 'random',
     language: browserLanguage,
   },
 

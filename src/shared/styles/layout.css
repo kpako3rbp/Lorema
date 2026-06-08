@@ -57,7 +57,7 @@
   }
 
   &.phone-form {
-    grid-template-columns: auto 70px 110px;
+    grid-template-columns: auto 60px 110px;
   }
 }
 

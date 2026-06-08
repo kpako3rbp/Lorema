@@ -209,7 +209,7 @@
   min-width: 34px;
   height: 26px;
   color: var(--color-text-muted);
-  font-weight: 600;
+  font-size: 15px;
   border-radius: var(--radius-m);
 }
 

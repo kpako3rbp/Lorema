@@ -1,4 +1,4 @@
-import { ContentType, LengthPreset, PhoneFormat, TitleTopic } from 'src/shared/model/types';
+import { AddressFormat, ContentType, LengthPreset, PhoneFormat, TitleTopic } from 'src/shared/model/types';
 
 type ThemeTranslation = {
   light: string;
@@ -76,6 +76,7 @@ type PopoverTranslation = {
   titleTopics: Record<TitleTopic, string>;
   lengthPreset: Record<LengthPreset | 'random', string>;
   phoneFormatVariants: Record<PhoneFormat, string>;
+  addressFormatVariants: Record<AddressFormat, string>;
 };
 
 type ContextTranslation = {

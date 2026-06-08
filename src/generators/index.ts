@@ -1,5 +1,6 @@
 import { ContentType, StorageSchema } from 'src/shared/model/types';
 
+import { generateAddress } from './address/lib/generator';
 import { generateEmail } from './email/lib/generator';
 import { generateLink } from './link/lib/generator';
 import { generatePhone } from './phone/lib/generator';
@@ -13,6 +14,7 @@ export const generateContent = (contentType: ContentType, storage: StorageSchema
     email: generateEmail(storage.emailSettings),
     link: generateLink(storage.linkSettings),
     phone: generatePhone(storage.phoneSettings),
+    address: generateAddress(storage.addressSettings),
   };
 
   return mapTypeToGenerator[contentType];

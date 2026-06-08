@@ -31,6 +31,8 @@ export const POPOVER_IDS = {
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeWords: 'keepWholeWords',
 
+  addressFormatSelect: 'addressFormatSelect',
+
   topicSelect: 'topicSelect',
 
   insertButton: 'insertButton',
