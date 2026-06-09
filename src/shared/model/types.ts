@@ -15,19 +15,7 @@ export type ContentType = 'text' | 'title' | 'email' | 'link' | 'phone' | 'addre
 export type LinkPrefix = 'https://' | 'http://' | 'www.';
 export type AddressFormat = 'short' | 'full' | 'postal' | 'legal';
 
-export type TitleTopic =
-  | 'random'
-  | 'business'
-  | 'it'
-  | 'project'
-  | 'task'
-  | 'art'
-  | 'education'
-  | 'science'
-  | 'travel'
-  | 'finance'
-  | 'marketing'
-  | 'health';
+export type TitleTopic = 'random' | 'business' | 'it' | 'art' | 'science' | 'finance' | 'marketing';
 
 export type TextSettings = {
   language: Language;

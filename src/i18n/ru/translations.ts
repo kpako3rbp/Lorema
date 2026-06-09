@@ -90,15 +90,10 @@ export const TRANSLATIONS_RU: Translation = {
       random: 'Случайно',
       business: 'Бизнес',
       it: 'IT',
-      project: 'Проект',
-      task: 'Задача',
       art: 'Искусство',
-      education: 'Образование',
       science: 'Наука',
-      travel: 'Путешествия',
       finance: 'Финансы',
       marketing: 'Маркетинг',
-      health: 'Здоровье',
     },
 
     lengthPreset: {

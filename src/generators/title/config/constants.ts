@@ -11,17 +11,4 @@ export const TITLE_LENGTH_PRESET_RANGES: Record<TitleLengthPreset, { min: number
   xlg: { min: 120, max: 200 },
 };
 
-export const TITLE_TOPICS: TitleTopic[] = [
-  'random',
-  'business',
-  'it',
-  'project',
-  'task',
-  'art',
-  'education',
-  'science',
-  'travel',
-  'finance',
-  'marketing',
-  'health',
-];
+export const TITLE_TOPICS: TitleTopic[] = ['random', 'business', 'it', 'art', 'science', 'finance', 'marketing'];

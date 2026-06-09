@@ -8,7 +8,6 @@ const ERROR_TIMEOUT = 1000;
 export const validateCountryCode = (
   value: string,
   messages: {
-    required: string;
     invalid: string;
   },
 ): ValidationResult => {
@@ -16,8 +15,7 @@ export const validateCountryCode = (
 
   if (!trimmedValue) {
     return {
-      isValid: false,
-      message: messages.required,
+      isValid: true,
     };
   }
 

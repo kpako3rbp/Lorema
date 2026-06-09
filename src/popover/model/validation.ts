@@ -34,7 +34,6 @@ export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: Lang
   const digitsCountError = queryElement<HTMLElement>(form, `#${POPOVER_IDS.digitsCountError}`);
 
   const countryCodeResult = validateCountryCode(countryCodeInput.value, {
-    required: t.required,
     invalid: t.invalid,
   });
 

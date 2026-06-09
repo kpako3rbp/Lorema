@@ -91,15 +91,10 @@ export const TRANSLATIONS_EN: Translation = {
       random: 'Random',
       business: 'Business',
       it: 'IT',
-      project: 'Project',
-      task: 'Task',
       art: 'Art',
-      education: 'Education',
       science: 'Science',
-      travel: 'Travel',
       finance: 'Finance',
       marketing: 'Marketing',
-      health: 'Health',
     },
 
     lengthPreset: {

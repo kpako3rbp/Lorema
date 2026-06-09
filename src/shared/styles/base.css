@@ -4,7 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'LoremGoogleSans', 'Times New Roman', Times, serif, sans-serif;
+  font-family: 'LoremGoogleSans', 'Roboto', 'Arial', Times, serif, sans-serif;
 }
 
 ::selection {
@@ -20,7 +20,6 @@ h3,
 h4,
 p {
   margin: 0;
-  line-height: 0.8;
 }
 
 button,
@@ -28,6 +27,7 @@ input,
 select,
 textarea {
   font: inherit;
+  line-height: inherit;
 }
 
 button,
