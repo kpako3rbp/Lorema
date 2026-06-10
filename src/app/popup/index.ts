@@ -1,25 +1,24 @@
 import { TRANSLATIONS } from 'src/i18n';
-import { renderOptions } from 'src/popover/ui/render-options';
+import { LANGUAGES, NAME_BY_LANGUAGE } from 'src/shared/config/language';
 import { getNameByLanguage, THEMES } from 'src/shared/config/theme';
 import { Language, Theme } from 'src/shared/model/types';
+import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selects';
+import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 import { getStorageItem, setStorageItem } from 'src/shared/utils/storage';
-
-import { LANGUAGES, NAME_BY_LANGUAGE } from './../../shared/config/language';
 
 const CLOSE_DELAY = 600;
 
 const title = document.getElementById('popup-title');
-const languageLabel = document.getElementById('interface-language-label');
-const donateLink = document.getElementById('donate');
-const languageSelect = document.getElementById('interface-language') as HTMLSelectElement | null;
-const themeSelect = document.getElementById('theme') as HTMLSelectElement | null;
+const languageSelectContainer = document.getElementById('interface-language-field');
+const themeSelectContainer = document.getElementById('theme-field');
+
 const saveButton = document.getElementById('save') as HTMLButtonElement | null;
+const donateLink = document.getElementById('donate');
 
 const renderTexts = (interfaceLanguage: Language): void => {
   const t = TRANSLATIONS[interfaceLanguage].popup;
 
   if (title) title.textContent = t.title;
-  if (languageLabel) languageLabel.textContent = t.interfaceLanguage;
   if (saveButton) saveButton.textContent = t.save;
   if (donateLink) donateLink.textContent = `☕ ${t.donate}`;
 
@@ -31,26 +30,67 @@ const applyTheme = (theme: Theme): void => {
 };
 
 const renderLanguageSelect = (interfaceLanguage: Language): void => {
-  if (!languageSelect) return;
+  if (!languageSelectContainer) return;
 
-  languageSelect.value = interfaceLanguage;
-  languageSelect.innerHTML = renderOptions(LANGUAGES, interfaceLanguage, NAME_BY_LANGUAGE);
+  const t = TRANSLATIONS[interfaceLanguage].popup;
+
+  languageSelectContainer.innerHTML = renderCustomSelect({
+    id: 'interface-language',
+    label: t.interfaceLanguage,
+    selectedValues: [interfaceLanguage],
+    interfaceLanguage: interfaceLanguage,
+    options: LANGUAGES.map((language) => ({
+      value: language,
+      label: NAME_BY_LANGUAGE[language],
+    })),
+  });
+
+  initCustomSelects(languageSelectContainer, interfaceLanguage);
+};
+
+const getLanguageSelect = (): HTMLSelectElement | null => {
+  return document.getElementById('interface-language') as HTMLSelectElement | null;
 };
 
 const renderThemeSelect = (theme: Theme, interfaceLanguage: Language): void => {
-  if (!themeSelect) return;
+  if (!themeSelectContainer) return;
+
+  const t = TRANSLATIONS[interfaceLanguage].popup;
 
   const names = getNameByLanguage(interfaceLanguage);
 
-  themeSelect.value = theme;
-  themeSelect.innerHTML = renderOptions(THEMES, theme, names);
+  themeSelectContainer.innerHTML = renderCustomSelect({
+    id: 'theme',
+    label: t.theme,
+    selectedValues: [theme],
+    interfaceLanguage: interfaceLanguage,
+    options: THEMES.map((th) => ({
+      value: th,
+      label: names[th],
+    })),
+  });
+
+  initCustomSelects(themeSelectContainer, interfaceLanguage);
 };
 
-const markSettingsChanged = (): void => {
+const getThemeSelect = (): HTMLSelectElement | null => {
+  return document.getElementById('theme') as HTMLSelectElement | null;
+};
+
+const previewSettingsChanges = (): void => {
+  const languageSelect = getLanguageSelect();
+  const themeSelect = getThemeSelect();
+
   if (!languageSelect || !themeSelect || !saveButton) return;
 
-  renderTexts(languageSelect.value as Language);
-  applyTheme(themeSelect.value as Theme);
+  const interfaceLanguage = languageSelect.value as Language;
+  const theme = themeSelect.value as Theme;
+
+  renderTexts(interfaceLanguage);
+  renderLanguageSelect(interfaceLanguage);
+  renderThemeSelect(theme, interfaceLanguage);
+  applyTheme(theme);
+
   saveButton.disabled = false;
 };
 
@@ -61,12 +101,16 @@ const closePopupSoon = (): void => {
 };
 
 const saveSettings = async (): Promise<void> => {
+  const languageSelect = getLanguageSelect();
+  const themeSelect = getThemeSelect();
+
   if (!languageSelect || !themeSelect || !saveButton) return;
 
   const interfaceLanguage = languageSelect.value as Language;
   const theme = themeSelect.value as Theme;
 
   await setStorageItem('interfaceLanguage', interfaceLanguage);
+  await setStorageItem('generationLanguage', interfaceLanguage);
   await setStorageItem('theme', theme);
   await chrome.runtime.sendMessage({
     type: 'UPDATE_CONTEXT_MENU',
@@ -92,8 +136,8 @@ const initPopup = async (): Promise<void> => {
 
 void initPopup();
 
-languageSelect?.addEventListener('change', markSettingsChanged);
-themeSelect?.addEventListener('change', markSettingsChanged);
+languageSelectContainer?.addEventListener('change', previewSettingsChanges);
+themeSelectContainer?.addEventListener('change', previewSettingsChanges);
 
 saveButton?.addEventListener('click', () => {
   void saveSettings();

@@ -5,11 +5,16 @@ type ThemeTranslation = {
   dark: string;
 };
 
+type CustomSelectTranslation = {
+  selected: string;
+  random: string;
+};
+
 type PopupTranslation = {
   title: string;
-  charsCount: string;
   save: string;
   interfaceLanguage: string;
+  theme: string;
   donate: string;
   saved: string;
 };
@@ -74,7 +79,7 @@ type PopoverTranslation = {
 
   contentTitles: Record<ContentType, string>;
   titleTopics: Record<TitleTopic, string>;
-  lengthPreset: Record<LengthPreset | 'random', string>;
+  lengthPreset: Record<LengthPreset, string>;
   phoneFormatVariants: Record<PhoneFormat, string>;
   addressFormatVariants: Record<AddressFormat, string>;
 };
@@ -89,5 +94,6 @@ export type Translation = {
   popup: PopupTranslation;
   popover: PopoverTranslation;
   context: ContextTranslation;
+  customSelect: CustomSelectTranslation;
   theme: ThemeTranslation;
 };

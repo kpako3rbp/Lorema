@@ -1,4 +1,5 @@
-import { isTextInputElement } from './is-textinput-element';
+import { isTextInputElement } from 'src/shared/utils/query-element';
+
 import { CursorPosition, EditableTargetSnapshot } from './types';
 
 const DEFAULT_POSITION: CursorPosition = { x: 0, y: 0 };

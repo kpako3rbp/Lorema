@@ -1,7 +1,3 @@
-import { TitleTopic } from 'src/shared/model/types';
-
-export type TopicWithoutRandom = Exclude<TitleTopic, 'random'>;
-
 export type RuTopicForms = {
   nom: string;
   gen: string;

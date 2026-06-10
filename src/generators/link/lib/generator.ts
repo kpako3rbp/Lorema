@@ -14,8 +14,10 @@ import {
 const IDS = ['a8f20c', 'f91d02', '42ab8e', 'c7d93f', 'e10fa4', 'b204de'];
 const FILLER_CHARS = [...'abcdefghijklmnopqrstuvwxyz0123456789'];
 
-const getResolvedPreset = (preset: LinkSettings['lengthPreset']): LinkLengthPreset => {
-  return preset === 'random' ? getRandomItem(LINK_LENGTH_PRESETS) : preset;
+const getLinkLengthPreset = (settings: LinkSettings): LinkLengthPreset => {
+  const selectedLengthPresets = settings.lengthPresets.length ? settings.lengthPresets : LINK_LENGTH_PRESETS;
+
+  return getRandomItem(selectedLengthPresets);
 };
 
 const getTargetLength = (preset: LinkLengthPreset): number => {
@@ -119,7 +121,7 @@ const extendQueryToLength = (url: string, targetLength: number): string => {
 };
 
 export const generateLink = (settings: LinkSettings): string => {
-  const preset = getResolvedPreset(settings.lengthPreset);
+  const preset = getLinkLengthPreset(settings);
   const targetLength = getTargetLength(preset);
   const host = getHost();
 

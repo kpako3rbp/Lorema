@@ -38,7 +38,7 @@
 .lorem-form-el-with-label {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
 }
 
 .lorem-form-el-with-label input,

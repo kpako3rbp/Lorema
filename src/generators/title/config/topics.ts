@@ -1,10 +1,10 @@
-import { Language } from 'src/shared/model/types';
+import { Language, TitleTopic } from 'src/shared/model/types';
 
-import { EnTopicForms, RuTopicForms, TopicWithoutRandom } from '../model/types';
+import { EnTopicForms, RuTopicForms } from '../model/types';
 
-export const TOPICS: TopicWithoutRandom[] = ['business', 'it', 'art', 'science', 'finance', 'marketing'];
+export const TOPICS: TitleTopic[] = ['business', 'it', 'art', 'science', 'finance', 'marketing'];
 
-export const RU_TOPIC_FORMS: Record<TopicWithoutRandom, RuTopicForms> = {
+export const RU_TOPIC_FORMS: Record<TitleTopic, RuTopicForms> = {
   business: {
     nom: 'бизнес',
     gen: 'бизнеса',
@@ -72,7 +72,7 @@ export const RU_TOPIC_FORMS: Record<TopicWithoutRandom, RuTopicForms> = {
   },
 };
 
-export const EN_TOPIC_FORMS: Record<TopicWithoutRandom, EnTopicForms> = {
+export const EN_TOPIC_FORMS: Record<TitleTopic, EnTopicForms> = {
   business: {
     value: 'business',
     context: 'market analysis',

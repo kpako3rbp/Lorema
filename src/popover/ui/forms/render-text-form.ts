@@ -1,9 +1,8 @@
 import { MAX_TEXT_CHARS } from 'src/generators/text/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
+import { POPOVER_IDS } from 'src/popover/config/constants';
 import { Language, StorageSchema } from 'src/shared/model/types';
-
-import { POPOVER_IDS } from '../config/constants';
-import { renderTooltip } from './render-tooltip';
+import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
 export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Language) => {
   const t = TRANSLATIONS[interfaceLanguage].popover;

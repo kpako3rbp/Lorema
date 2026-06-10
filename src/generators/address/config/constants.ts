@@ -1,4 +1,4 @@
-import { Language } from 'src/shared/model/types';
+import { AddressFormat, Language } from 'src/shared/model/types';
 
 import { AddressParts } from '../model/types';
 
@@ -257,3 +257,5 @@ export const ADDRESS_PARTS_BY_LANGUAGE: Record<Language, AddressParts> = {
   ru: ADDRESS_PARTS_RU,
   en: ADDRESS_PARTS_EN,
 };
+
+export const ADDRESS_FORMATS: AddressFormat[] = ['short', 'full', 'postal', 'legal'];

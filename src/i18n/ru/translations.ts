@@ -3,9 +3,9 @@ import { Translation } from '../types';
 export const TRANSLATIONS_RU: Translation = {
   popup: {
     title: 'Настройки',
-    charsCount: 'Количество символов',
     save: 'Сохранить',
     interfaceLanguage: 'Язык интерфейса',
+    theme: 'Тема',
     donate: 'Купить мне кофе',
     saved: 'Сохранено!',
   },
@@ -87,7 +87,6 @@ export const TRANSLATIONS_RU: Translation = {
     },
 
     titleTopics: {
-      random: 'Случайно',
       business: 'Бизнес',
       it: 'IT',
       art: 'Искусство',
@@ -97,7 +96,6 @@ export const TRANSLATIONS_RU: Translation = {
     },
 
     lengthPreset: {
-      random: 'Случайно',
       xsm: 'Очень короткий',
       sm: 'Короткий',
       md: 'Средний',
@@ -131,5 +129,10 @@ export const TRANSLATIONS_RU: Translation = {
   theme: {
     light: 'Светлая',
     dark: 'Темная',
+  },
+
+  customSelect: {
+    selected: 'Выбрано',
+    random: 'Случайно',
   },
 };

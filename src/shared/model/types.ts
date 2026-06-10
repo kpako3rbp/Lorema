@@ -15,7 +15,7 @@ export type ContentType = 'text' | 'title' | 'email' | 'link' | 'phone' | 'addre
 export type LinkPrefix = 'https://' | 'http://' | 'www.';
 export type AddressFormat = 'short' | 'full' | 'postal' | 'legal';
 
-export type TitleTopic = 'random' | 'business' | 'it' | 'art' | 'science' | 'finance' | 'marketing';
+export type TitleTopic = 'business' | 'it' | 'art' | 'science' | 'finance' | 'marketing';
 
 export type TextSettings = {
   language: Language;
@@ -26,27 +26,24 @@ export type TextSettings = {
 };
 
 export type TitleLengthPreset = LengthPreset;
-export type TitleLengthSelectOption = TitleLengthPreset | 'random';
 
 export type TitleSettings = {
   language: Language;
-  lengthPreset: TitleLengthSelectOption;
-  topic: TitleTopic;
+  lengthPresets: TitleLengthPreset[];
+  topics: TitleTopic[];
 };
 
 export type EmailLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
-export type EmailLengthSelectOption = EmailLengthPreset | 'random';
 
 export type EmailSettings = {
-  lengthPreset: EmailLengthSelectOption;
+  lengthPresets: EmailLengthPreset[];
 };
 
 export type LinkLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg' | 'xlg'>;
-export type LinkLengthSelectOption = LinkLengthPreset | 'random';
 
 export type LinkSettings = {
   prefix: LinkPrefix;
-  lengthPreset: LinkLengthSelectOption;
+  lengthPresets: LinkLengthPreset[];
 };
 
 export type PhoneFormat = 'spaces' | 'dash' | 'brackets' | 'compact';
@@ -59,19 +56,18 @@ export type PhoneSettings = {
 
 export type AddressSettings = {
   language: Language;
-  format: AddressFormat;
+  formats: AddressFormat[];
 };
 
 export type NameLengthPreset = Extract<LengthPreset, 'sm' | 'md' | 'lg'>;
-export type NameLengthSelectOption = NameLengthPreset | 'random';
 
 export type FirstNameSettings = {
-  lengthPreset: NameLengthSelectOption;
+  lengthPresets: NameLengthPreset[];
   language: Language;
 };
 
 export type LastNameSettings = {
-  lengthPreset: NameLengthSelectOption;
+  lengthPresets: NameLengthPreset[];
   language: Language;
 };
 

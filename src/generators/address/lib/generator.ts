@@ -1,7 +1,13 @@
-import { AddressSettings, Language } from 'src/shared/model/types';
+import { AddressFormat, AddressSettings, Language } from 'src/shared/model/types';
 import { getRandomInteger, getRandomItem } from 'src/shared/utils/random';
 
-import { ADDRESS_PARTS_BY_LANGUAGE } from '../config/constants';
+import { ADDRESS_FORMATS, ADDRESS_PARTS_BY_LANGUAGE } from '../config/constants';
+
+const getSettingsFormat = (settings: AddressSettings): AddressFormat => {
+  const selectedFormats = settings.formats.length ? settings.formats : ADDRESS_FORMATS;
+
+  return getRandomItem(selectedFormats);
+};
 
 const generateRussianAddress = (settings: AddressSettings) => {
   const parts = ADDRESS_PARTS_BY_LANGUAGE.ru;
@@ -19,14 +25,14 @@ const generateRussianAddress = (settings: AddressSettings) => {
   const shortStreetAddress = `${streetType} ${streetName}, ${building}-${apartment}`;
   const fullStreetAddress = `${streetType} ${streetName}, д. ${building}, кв. ${apartment}`;
 
-  const formatMap: Record<AddressSettings['format'], string> = {
+  const formatMap: Record<AddressFormat, string> = {
     short: shortStreetAddress,
     full: `г. ${city}, ${fullStreetAddress}`,
     postal: `${postalCode}, ${country}, ${region}, г. ${city}, ${fullStreetAddress}`,
     legal: `${postalCode}, город ${city}, ${streetType} ${streetName}, д. ${building} ${getRandomItem(['стр.', 'корп.'])} ${getRandomInteger(1, 20)}`,
   };
 
-  return formatMap[settings.format];
+  return formatMap[getSettingsFormat(settings)];
 };
 
 const generateEnglishAddress = (settings: AddressSettings) => {
@@ -44,14 +50,14 @@ const generateEnglishAddress = (settings: AddressSettings) => {
 
   const streetAddress = `${building} ${streetName} ${streetType}, Apt ${apartment}`;
 
-  const formatMap: Record<AddressSettings['format'], string> = {
+  const formatMap: Record<AddressFormat, string> = {
     short: streetAddress,
     full: `${streetAddress}, ${city}, ${state}`,
     postal: `${zipCode}, ${streetAddress}, ${city}, ${state}, ${country}`,
     legal: `${zipCode}, ${city}, ${state}, ${building} ${streetName} ${streetType}, Suite ${getRandomInteger(100, 5000)}`,
   };
 
-  return formatMap[settings.format];
+  return formatMap[getSettingsFormat(settings)];
 };
 
 const ADDRESS_GENERATORS_BY_LANGUAGE: Record<Language, (settings: AddressSettings) => string> = {

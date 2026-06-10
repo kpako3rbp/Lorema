@@ -281,3 +281,128 @@
 .lorem-cancel:hover {
   background-color: var(--color-surface-muted);
 }
+
+.lorem-custom-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lorem-custom-select-native {
+  display: none;
+}
+
+.lorem-custom-select-button {
+  width: 100%;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 37px;
+  color: var(--color-text-light);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    background: var(--color-surface-hover);
+  }
+
+  &.generation-language {
+    padding: 9px 10px;
+    min-height: auto;
+  }
+}
+
+.lorem-custom-select-arrow {
+  height: 12px;
+  width: 12px;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.lorem-custom-select-value {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.lorem-custom-select-dropdown {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+
+  z-index: 99999;
+
+  display: none;
+  width: 100%;
+  max-height: 200px;
+  padding: 6px;
+  overflow: auto;
+  box-shadow: var(--tooltip-box-shadow);
+
+  color: var(--color-text-light);
+  background: var(--color-select-option-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  font-size: 12px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lorem-custom-select-dropdown::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.lorem-custom-select.open .lorem-custom-select-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: max-content;
+}
+
+.lorem-custom-select.open-up .lorem-custom-select-dropdown {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+
+.lorem-custom-select-option {
+  width: 100%;
+  padding: 8px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.lorem-custom-select-option:hover,
+.lorem-custom-select-option[aria-selected='true'] {
+  background: var(--color-surface);
+  border-radius: var(--radius-m);
+}
+
+.lorem-custom-select-check {
+  opacity: 0;
+}
+
+.lorem-custom-select-option[aria-selected='true'] .lorem-custom-select-check {
+  opacity: 1;
+}

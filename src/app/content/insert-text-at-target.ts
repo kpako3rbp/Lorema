@@ -1,4 +1,5 @@
-import { isTextInputElement } from './is-textinput-element';
+import { isTextInputElement } from 'src/shared/utils/query-element';
+
 import { EditableTarget } from './types';
 
 const dispatchTextInputEvent = (element: HTMLElement, text: string): void => {

@@ -1,4 +1,4 @@
-import { LinkLengthPreset, LinkLengthSelectOption } from 'src/shared/model/types';
+import { LinkLengthPreset } from 'src/shared/model/types';
 
 export const DOMAINS = ['alpha', 'demo', 'sample', 'project', 'content', 'market', 'studio', 'portal'];
 export const ZONES = ['com', 'net', 'dev', 'io'];
@@ -7,7 +7,6 @@ export const QUERY_KEYS = ['ref', 'utm_source', 'utm_campaign', 'page', 'sort', 
 export const QUERY_VALUES = ['demo', 'test', 'main', 'profile', 'catalog', 'active', 'new', 'popular'];
 
 export const LINK_LENGTH_PRESETS: LinkLengthPreset[] = ['sm', 'md', 'lg', 'xlg'];
-export const LINK_LENGTH_SELECT_OPTIONS: LinkLengthSelectOption[] = ['random', ...LINK_LENGTH_PRESETS];
 
 export const LINK_LENGTH_PRESET_RANGES: Record<LinkLengthPreset, { min: number; max: number }> = {
   sm: { min: 15, max: 35 },

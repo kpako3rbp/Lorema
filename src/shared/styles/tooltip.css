@@ -45,7 +45,7 @@
   line-height: 12px;
   background: var(--color-tooltip-bg);
   border-radius: var(--radius-m);
-  box-shadow: 0 8px 18px rgb(0 0 0 / 30%);
+  box-shadow: var(--tooltip-box-shadow);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

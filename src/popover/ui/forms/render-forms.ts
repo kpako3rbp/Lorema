@@ -1,6 +1,6 @@
+import { POPOVER_TAB_CLASSNAME } from 'src/popover/config/constants';
 import { ContentType, Language, StorageSchema } from 'src/shared/model/types';
 
-import { POPOVER_TAB_CLASSNAME } from '../config/constants';
 import { renderAddressForm } from './render-address-form';
 import { renderEmailForm } from './render-email-form';
 import { renderFirstNameForm } from './render-firsrname-form';

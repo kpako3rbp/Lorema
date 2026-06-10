@@ -1,12 +1,14 @@
 import { TRANSLATIONS } from 'src/i18n';
+import { LANGUAGES, SHORT_NAME_BY_LANGUAGE } from 'src/shared/config/language';
+import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selects';
+import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
+import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
 import { POPOVER_CLASSNAME, POPOVER_IDS } from '../config/constants';
 import { CreatePopoverParams } from '../model/types';
-import { renderForms } from './render-forms';
-import { renderLanguageSelect } from './render-language-select';
-import { renderTabs } from './render-tabs';
-import { renderTooltip } from './render-tooltip';
+import { renderForms } from './forms/render-forms';
 import popoverStyles from './style.css?inline';
+import { renderTabs } from './tabs/render-tabs';
 
 const createHost = (params: CreatePopoverParams): HTMLDivElement => {
   const host = document.createElement('div');
@@ -48,7 +50,17 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
 
       <div class="lorem-flex aic">
         <p class="lorem-descriptor">${t.generationLanguage}</p>
-        ${renderLanguageSelect(generationLanguage, true)}
+
+        ${renderCustomSelect({
+          id: POPOVER_IDS.languageSelect,
+          selectedValues: [generationLanguage],
+          interfaceLanguage: interfaceLanguage,
+          options: LANGUAGES.map((lang) => ({
+            value: lang,
+            label: SHORT_NAME_BY_LANGUAGE[lang],
+          })),
+          className: 'generation-language',
+        })}
       </div>
     </div>       
 
@@ -67,17 +79,13 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
             ${t.cancel}
             <span>(${t.cancelKey})</span>
           </button>  
-        </div>   
-        <!-- <p class="lorem-hint">${t.saveHint}</p>    -->
+        </div>
       </div>      
     </form>
   `;
 
   shadowRoot.append(createStyle(), popover);
+  initCustomSelects(shadowRoot, interfaceLanguage);
 
   return host;
-};
-
-export const removePopover = (): void => {
-  document.getElementById(POPOVER_IDS.popover)?.remove();
 };

@@ -10,8 +10,10 @@ import {
   WORDS,
 } from '../config/constants';
 
-const getResolvedPreset = (preset: EmailSettings['lengthPreset']): EmailLengthPreset => {
-  return preset === 'random' ? getRandomItem(EMAIL_LENGTH_PRESETS) : preset;
+const getEmailLengthPreset = (settings: EmailSettings): EmailLengthPreset => {
+  const selectedLengthPresets = settings.lengthPresets.length ? settings.lengthPresets : EMAIL_LENGTH_PRESETS;
+
+  return getRandomItem(selectedLengthPresets);
 };
 
 const getRandomYear = (): string => String(getRandomInteger(1990, 2026));
@@ -33,7 +35,7 @@ const buildLogin = (): string => {
 };
 
 export const generateEmail = (settings: EmailSettings): string => {
-  const preset = getResolvedPreset(settings.lengthPreset);
+  const preset = getEmailLengthPreset(settings);
 
   const range = EMAIL_LENGTH_PRESET_RANGES[preset];
   const targetLength = getRandomInteger(range.min, range.max);

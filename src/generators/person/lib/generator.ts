@@ -1,14 +1,20 @@
-import { FirstNameSettings, LastNameSettings, NameLengthPreset, NameLengthSelectOption } from 'src/shared/model/types';
+import { FirstNameSettings, LastNameSettings, NameLengthPreset } from 'src/shared/model/types';
 import { getRandomItem } from 'src/shared/utils/random';
 
-import { NAME_PARTS_BY_LANGUAGE } from '../config/constants';
+import { NAME_LENGTH_PRESETS, NAME_PARTS_BY_LANGUAGE } from '../config/constants';
 
 type NameType = 'firstName' | 'lastName';
+
+const getLenghtPreset = (settings: FirstNameSettings | LastNameSettings): NameLengthPreset => {
+  const selectedPresets = settings.lengthPresets.length ? settings.lengthPresets : NAME_LENGTH_PRESETS;
+
+  return getRandomItem(selectedPresets);
+};
 
 const getNameList = (
   nameType: NameType,
   language: FirstNameSettings['language'],
-  length: NameLengthSelectOption,
+  length: NameLengthPreset,
 ): string[] => {
   const parts = NAME_PARTS_BY_LANGUAGE[language];
 
@@ -17,17 +23,13 @@ const getNameList = (
     lastName: parts.lastNames,
   };
 
-  if (length === 'random') {
-    return Object.values(source[nameType]).flat();
-  }
-
   return source[nameType][length];
 };
 
 export const generateFirstName = (settings: FirstNameSettings): string => {
-  return getRandomItem(getNameList('firstName', settings.language, settings.lengthPreset));
+  return getRandomItem(getNameList('firstName', settings.language, getLenghtPreset(settings)));
 };
 
 export const generateLastName = (settings: LastNameSettings): string => {
-  return getRandomItem(getNameList('lastName', settings.language, settings.lengthPreset));
+  return getRandomItem(getNameList('lastName', settings.language, getLenghtPreset(settings)));
 };

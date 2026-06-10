@@ -13,15 +13,15 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   },
   titleSettings: {
     language: browserLanguage,
-    lengthPreset: 'md',
-    topic: 'random',
+    lengthPresets: ['sm', 'md'],
+    topics: [],
   },
   emailSettings: {
-    lengthPreset: 'sm',
+    lengthPresets: ['sm', 'md'],
   },
   linkSettings: {
     prefix: 'https://',
-    lengthPreset: 'md',
+    lengthPresets: ['sm', 'md'],
   },
   phoneSettings: {
     countryCode: '+7',
@@ -30,14 +30,14 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   },
   addressSettings: {
     language: browserLanguage,
-    format: 'full',
+    formats: ['full'],
   },
   firstNameSettings: {
-    lengthPreset: 'random',
+    lengthPresets: [],
     language: browserLanguage,
   },
   lastNameSettings: {
-    lengthPreset: 'random',
+    lengthPresets: [],
     language: browserLanguage,
   },
 

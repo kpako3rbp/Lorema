@@ -1,6 +1,4 @@
-import { Language, TitleLengthPreset } from 'src/shared/model/types';
-
-import { TopicWithoutRandom } from '../model/types';
+import { Language, TitleLengthPreset, TitleTopic } from 'src/shared/model/types';
 
 export const COMMON_TITLE_TEMPLATES: Record<Language, Record<TitleLengthPreset, string[]>> = {
   ru: {
@@ -132,7 +130,7 @@ export const COMMON_TITLE_TEMPLATES: Record<Language, Record<TitleLengthPreset, 
 
 export const TOPIC_TITLE_TEMPLATES: Record<
   Language,
-  Record<TopicWithoutRandom, Partial<Record<TitleLengthPreset, string[]>>>
+  Record<TitleTopic, Partial<Record<TitleLengthPreset, string[]>>>
 > = {
   ru: {
     business: {

@@ -1,9 +1,8 @@
-import { Language, NameLengthPreset, NameLengthSelectOption } from 'src/shared/model/types';
+import { Language, NameLengthPreset } from 'src/shared/model/types';
 
 import { NameParts } from '../model/types';
 
 export const NAME_LENGTH_PRESETS: NameLengthPreset[] = ['sm', 'md', 'lg'];
-export const NAME_LENGTH_SELECT_OPTIONS: NameLengthSelectOption[] = ['random', ...NAME_LENGTH_PRESETS];
 
 export const NAME_PARTS_RU: NameParts = {
   firstNames: {

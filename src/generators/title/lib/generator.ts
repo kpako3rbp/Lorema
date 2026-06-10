@@ -1,16 +1,19 @@
-import { Language, TitleLengthPreset, TitleSettings } from 'src/shared/model/types';
+import { Language, TitleLengthPreset, TitleSettings, TitleTopic } from 'src/shared/model/types';
 import { getRandomItem } from 'src/shared/utils/random';
 
-import { TITLE_LENGTH_PRESETS } from '../config/constants';
+import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
 import { EXTRA_TEMPLATES_BY_LANGUAGE } from '../config/extra-templates';
 import { COMMON_TITLE_TEMPLATES, TOPIC_TITLE_TEMPLATES } from '../config/titles';
-import { EN_TOPIC_FORMS, RU_TOPIC_FORMS, TOPICS } from '../config/topics';
-import { TopicWithoutRandom } from '../model/types';
+import { EN_TOPIC_FORMS, RU_TOPIC_FORMS } from '../config/topics';
 
 const TITLE_HISTORY_LIMIT = 30;
 const titleHistory = new Set<string>();
 
-const normalizeTitle = (value: string): string => value.trim().replace(/\s+/g, ' ');
+const normalizeTitle = (value: string): string => {
+  const normalized = value.trim().replace(/\s+/g, ' ');
+
+  return normalized.charAt(0).toUpperCase() + normalized.slice(1);
+};
 
 const rememberTitle = (title: string): void => {
   titleHistory.add(title);
@@ -22,8 +25,8 @@ const rememberTitle = (title: string): void => {
   titleHistory.delete(firstTitle);
 };
 
-const renderRuTitle = (template: string, topic: TopicWithoutRandom): string => {
-  const forms = RU_TOPIC_FORMS[topic];
+const renderRuTitle = (template: string, topics: TitleTopic): string => {
+  const forms = RU_TOPIC_FORMS[topics];
 
   return template
     .replaceAll('{nom}', forms.nom)
@@ -36,8 +39,8 @@ const renderRuTitle = (template: string, topic: TopicWithoutRandom): string => {
     .replaceAll('{result}', forms.result);
 };
 
-const renderEnTitle = (template: string, topic: TopicWithoutRandom): string => {
-  const forms = EN_TOPIC_FORMS[topic];
+const renderEnTitle = (template: string, topics: TitleTopic): string => {
+  const forms = EN_TOPIC_FORMS[topics];
 
   return template
     .replaceAll('{topic}', forms.value)
@@ -45,29 +48,25 @@ const renderEnTitle = (template: string, topic: TopicWithoutRandom): string => {
     .replaceAll('{result}', forms.result);
 };
 
-const renderTitleByLanguage: Record<Language, (template: string, topic: TopicWithoutRandom) => string> = {
+const renderTitleByLanguage: Record<Language, (template: string, topics: TitleTopic) => string> = {
   ru: renderRuTitle,
   en: renderEnTitle,
 };
 
-const getTitleTemplates = (
-  language: Language,
-  topic: TopicWithoutRandom,
-  lengthPreset: TitleLengthPreset,
-): string[] => {
+const getTitleTemplates = (language: Language, topics: TitleTopic, lengthPreset: TitleLengthPreset): string[] => {
   return [
     ...COMMON_TITLE_TEMPLATES[language][lengthPreset],
     ...EXTRA_TEMPLATES_BY_LANGUAGE[language][lengthPreset],
-    ...(TOPIC_TITLE_TEMPLATES[language][topic][lengthPreset] ?? []),
+    ...(TOPIC_TITLE_TEMPLATES[language][topics][lengthPreset] ?? []),
   ];
 };
 
-const getUniqueTitle = (templates: string[], language: Language, topic: TopicWithoutRandom): string => {
+const getUniqueTitle = (templates: string[], language: Language, topics: TitleTopic): string => {
   const attempts = Math.min(templates.length, 20);
 
   for (let i = 0; i < attempts; i += 1) {
     const template = getRandomItem(templates);
-    const title = normalizeTitle(renderTitleByLanguage[language](template, topic));
+    const title = normalizeTitle(renderTitleByLanguage[language](template, topics));
 
     if (!titleHistory.has(title)) {
       rememberTitle(title);
@@ -76,17 +75,28 @@ const getUniqueTitle = (templates: string[], language: Language, topic: TopicWit
     }
   }
 
-  const title = normalizeTitle(renderTitleByLanguage[language](getRandomItem(templates), topic));
+  const title = normalizeTitle(renderTitleByLanguage[language](getRandomItem(templates), topics));
 
   rememberTitle(title);
 
   return title;
 };
 
-export const generateTitle = (settings: TitleSettings): string => {
-  const topic = settings.topic === 'random' ? getRandomItem(TOPICS) : settings.topic;
+const getTitleTopic = (settings: TitleSettings): TitleTopic => {
+  const selectedTopics = settings.topics.length ? settings.topics : TITLE_TOPICS;
 
-  const lengthPreset = settings.lengthPreset === 'random' ? getRandomItem(TITLE_LENGTH_PRESETS) : settings.lengthPreset;
+  return getRandomItem(selectedTopics);
+};
+
+const getTitleLengthPreset = (settings: TitleSettings): TitleLengthPreset => {
+  const selectedLengthPresets = settings.lengthPresets.length ? settings.lengthPresets : TITLE_LENGTH_PRESETS;
+
+  return getRandomItem(selectedLengthPresets);
+};
+
+export const generateTitle = (settings: TitleSettings): string => {
+  const topic = getTitleTopic(settings);
+  const lengthPreset = getTitleLengthPreset(settings);
 
   const templates = getTitleTemplates(settings.language, topic, lengthPreset);
 

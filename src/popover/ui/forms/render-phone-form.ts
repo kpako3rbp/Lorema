@@ -1,10 +1,9 @@
 import { MAX_PHONE_DIGITS, MIN_PHONE_DIGITS } from 'src/generators/phone/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
+import { POPOVER_IDS } from 'src/popover/config/constants';
 import { Language, PhoneFormat, StorageSchema } from 'src/shared/model/types';
-
-import { POPOVER_IDS } from '../config/constants';
-import { renderOptions } from './render-options';
-import { renderTooltip } from './render-tooltip';
+import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
+import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
 const PHONE_FORMATS: PhoneFormat[] = ['compact', 'brackets', 'dash', 'spaces'];
 
@@ -12,21 +11,21 @@ export const renderPhoneForm = (storage: StorageSchema, interfaceLanguage: Langu
   const t = TRANSLATIONS[interfaceLanguage].popover;
   const settings = storage.phoneSettings;
 
-  const formatLabels = Object.fromEntries(
-    PHONE_FORMATS.map((format) => [format, t.phoneFormatVariants[format]]),
-  ) as Record<PhoneFormat, string>;
-
   return /*html*/ `
    <div class="lorem-form-wrapper">
       <span class="lorem-descriptor with-line">${t.phoneParams}</span>
     
       <div class="lorem-grid-form phone-form">
-        <label class="lorem-form-el-with-label">
-          <span class="lorem-label">${t.phoneFormat}</span>
-          <select id="${POPOVER_IDS.phoneFormatSelect}" class="lorem-select">
-            ${renderOptions(PHONE_FORMATS, settings.format, formatLabels)}
-          </select>
-        </label>
+        ${renderCustomSelect({
+          id: POPOVER_IDS.phoneFormatSelect,
+          label: t.phoneFormat,
+          selectedValues: [settings.format],
+          interfaceLanguage: interfaceLanguage,
+          options: PHONE_FORMATS.map((format) => ({
+            value: format,
+            label: t.phoneFormatVariants[format],
+          })),
+        })}
 
         <label class="lorem-form-el-with-label">
           <span class="lorem-label">

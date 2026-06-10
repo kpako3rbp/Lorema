@@ -1,6 +1,7 @@
+import { insertQuickContent } from 'src/popover/controller/insert-quick-content';
+import { showPopover } from 'src/popover/controller/show-popover';
 import { ExtensionMessage } from 'src/shared/model/types';
 
-import { insertQuickContent, showPopover } from './show-popover';
 import { createEmptyTargetSnapshot, getActiveTargetSnapshot, getEditableTargetSnapshot } from './snapshot';
 import { EditableTargetSnapshot } from './types';
 
