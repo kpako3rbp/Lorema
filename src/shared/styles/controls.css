@@ -331,6 +331,15 @@
 .lorem-custom-select-value {
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .lorem-custom-select-dropdown {
@@ -391,6 +400,17 @@
 
   text-align: left;
   cursor: pointer;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+  }
 }
 
 .lorem-custom-select-option:hover,

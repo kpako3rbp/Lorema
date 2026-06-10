@@ -58,6 +58,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
           options: LANGUAGES.map((lang) => ({
             value: lang,
             label: SHORT_NAME_BY_LANGUAGE[lang],
+            // iconMarkup: ICON_BY_LANGUAGE[lang],
           })),
           className: 'generation-language',
         })}

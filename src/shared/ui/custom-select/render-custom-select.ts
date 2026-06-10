@@ -4,6 +4,7 @@ import { Language } from 'src/shared/model/types';
 type SelectOption<T extends string> = {
   value: T;
   label: string;
+  iconMarkup?: string;
 };
 
 type RenderCustomSelectParams<T extends string> = {
@@ -19,18 +20,30 @@ type RenderCustomSelectParams<T extends string> = {
 const chevron =
   '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg>';
 
+const renderOptionContent = <T extends string>(option: SelectOption<T> | undefined, fallbackText = ''): string => {
+  if (!option) return `<span>${fallbackText}</span>`;
+
+  return /*html*/ `
+    ${option.iconMarkup ? option.iconMarkup : ''}
+    <span>${option.label}</span>
+  `;
+};
+
 export const renderCustomSelect = <T extends string>(params: RenderCustomSelectParams<T>): string => {
   const { id, label, options, selectedValues, interfaceLanguage, multiple = false, className } = params;
   const t = TRANSLATIONS[interfaceLanguage].customSelect;
-  const selectedLabels = options
-    .filter((option) => selectedValues.includes(option.value))
-    .map((option) => option.label);
 
-  const buttonText = selectedLabels.length ? selectedLabels.join(', ') : label;
+  const selectedOptions = options.filter((option) => selectedValues.includes(option.value));
+  const selectedOption = selectedOptions[0];
+
+  const selectedLabels = selectedOptions.map((option) => option.label);
+  const buttonText = selectedLabels.length ? selectedLabels.join(', ') : (label ?? '');
+
   const multipleButtonText = selectedLabels.length
     ? `${t.selected}: ${selectedLabels.length}/${options.length}`
     : t.random;
 
+  const buttonContent = multiple ? multipleButtonText : renderOptionContent(selectedOption, buttonText);
   const labelMarkup = label ? `<span class="lorem-label">${label}</span>` : '';
 
   return /*html*/ `
@@ -57,12 +70,12 @@ export const renderCustomSelect = <T extends string>(params: RenderCustomSelectP
       </select>
 
       <button
-        class="lorem-custom-select-button ${className}"
+        class="lorem-custom-select-button ${className ?? ''}"
         type="button"
         aria-haspopup="listbox"
         aria-expanded="false"
       >
-        <span class="lorem-custom-select-value">${multiple ? multipleButtonText : buttonText}</span>
+        <span class="lorem-custom-select-value">${buttonContent}</span>
         <span class="lorem-custom-select-arrow">${chevron}</span>
       </button>
 
@@ -81,7 +94,9 @@ export const renderCustomSelect = <T extends string>(params: RenderCustomSelectP
                 data-value="${option.value}"
                 aria-selected="${selectedValues.includes(option.value)}"
               >
-                <span>${option.label}</span>
+                <span class="lorem-custom-select-option-content">
+                  ${renderOptionContent(option)}
+                </span>
                 <span class="lorem-custom-select-check">✓</span>
               </button>
             `,

@@ -1,6 +1,6 @@
 import { TRANSLATIONS } from 'src/i18n';
 import { LANGUAGES, NAME_BY_LANGUAGE } from 'src/shared/config/language';
-import { getNameByLanguage, THEMES } from 'src/shared/config/theme';
+import { getNameByLanguage, ICON_BY_LANGUAGE, ICON_BY_THEME, THEMES } from 'src/shared/config/theme';
 import { Language, Theme } from 'src/shared/model/types';
 import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selects';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
@@ -42,6 +42,7 @@ const renderLanguageSelect = (interfaceLanguage: Language): void => {
     options: LANGUAGES.map((language) => ({
       value: language,
       label: NAME_BY_LANGUAGE[language],
+      iconMarkup: ICON_BY_LANGUAGE[language],
     })),
   });
 
@@ -67,6 +68,7 @@ const renderThemeSelect = (theme: Theme, interfaceLanguage: Language): void => {
     options: THEMES.map((th) => ({
       value: th,
       label: names[th],
+      iconMarkup: ICON_BY_THEME[th],
     })),
   });
 

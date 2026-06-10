@@ -12,6 +12,14 @@ const getSelectedLabels = (select: HTMLSelectElement): string[] => {
   return Array.from(select.selectedOptions).map((option) => option.textContent?.trim() ?? '');
 };
 
+const getSelectedCustomOptionContent = (root: HTMLElement, value: string): string => {
+  const option = root.querySelector<HTMLElement>(
+    `.lorem-custom-select-option[data-value="${value}"] .lorem-custom-select-option-content`,
+  );
+
+  return option?.innerHTML ?? '';
+};
+
 const updateText = (root: HTMLElement, select: HTMLSelectElement, interfaceLanguage: Language): void => {
   const t = TRANSLATIONS[interfaceLanguage].customSelect;
   const valueElement = root.querySelector<HTMLElement>('.lorem-custom-select-value');
@@ -19,11 +27,28 @@ const updateText = (root: HTMLElement, select: HTMLSelectElement, interfaceLangu
   if (!valueElement) return;
 
   const labels = getSelectedLabels(select);
+  const selectedValues = getSelectedValues(select);
 
   const buttonText = labels.length ? labels.join(', ') : '';
   const multipleButtonText = labels.length ? `${t.selected}: ${labels.length}/${select.options.length}` : t.random;
 
-  valueElement.textContent = select.multiple ? multipleButtonText : buttonText;
+  if (select.multiple) {
+    valueElement.textContent = multipleButtonText;
+
+    return;
+  }
+
+  const selectedValue = selectedValues[0];
+
+  if (!selectedValue) {
+    valueElement.textContent = buttonText;
+
+    return;
+  }
+
+  const selectedContent = getSelectedCustomOptionContent(root, selectedValue);
+
+  valueElement.innerHTML = selectedContent || buttonText;
 };
 
 const updateOptions = (root: HTMLElement, select: HTMLSelectElement): void => {
