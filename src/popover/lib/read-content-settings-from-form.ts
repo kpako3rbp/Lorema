@@ -15,7 +15,13 @@ import {
 } from 'src/shared/model/types';
 import { queryElementById } from 'src/shared/utils/query-element';
 
-import { getSelectedValues, parsePositiveIntegerFromInput } from './form-utils';
+import {
+  getCheckboxValue,
+  getInputValue,
+  getSelectedValue,
+  getSelectedValues,
+  parsePositiveIntegerFromInput,
+} from './form-utils';
 
 export const readContentSettingsFromForm = (
   contentType: ContentType,
@@ -38,14 +44,8 @@ export const readContentSettingsFromForm = (
           language: getLanguage(),
           length,
           lengthMode,
-          keepWholeWords:
-            lengthMode === 'exact'
-              ? false
-              : queryElementById<HTMLInputElement>(form, POPOVER_IDS.keepWholeWords).checked,
-          withParagraphs:
-            lengthMode === 'exact'
-              ? false
-              : queryElementById<HTMLInputElement>(form, POPOVER_IDS.paragraphsCheckbox).checked,
+          keepWholeWords: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.keepWholeWords),
+          withParagraphs: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.paragraphsCheckbox),
         },
       };
     },
@@ -67,7 +67,7 @@ export const readContentSettingsFromForm = (
     link: () => {
       return {
         linkSettings: {
-          prefix: queryElementById<HTMLSelectElement>(form, POPOVER_IDS.linkPrefixSelect).value as LinkPrefix,
+          prefix: getSelectedValue<LinkPrefix>(form, POPOVER_IDS.linkPrefixSelect),
           lengthPresets: getSelectedValues<LinkLengthPreset>(form, POPOVER_IDS.linkLengthPresetSelect),
         },
       };
@@ -80,9 +80,9 @@ export const readContentSettingsFromForm = (
 
       return {
         phoneSettings: {
-          countryCode: queryElementById<HTMLInputElement>(form, POPOVER_IDS.countryCodeInput).value,
+          countryCode: getInputValue(form, POPOVER_IDS.countryCodeInput),
           digitsCount,
-          format: queryElementById<HTMLSelectElement>(form, POPOVER_IDS.phoneFormatSelect).value as PhoneFormat,
+          format: getSelectedValue<PhoneFormat>(form, POPOVER_IDS.phoneFormatSelect),
         },
       };
     },

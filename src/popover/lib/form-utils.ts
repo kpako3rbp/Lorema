@@ -1,10 +1,24 @@
 import { ContentType } from 'src/shared/model/types';
 import { queryElementById } from 'src/shared/utils/query-element';
 
+export const getSelectedValue = <T extends string>(form: HTMLFormElement, id: string): T => {
+  const select = queryElementById<HTMLSelectElement>(form, id);
+
+  return select.value as T;
+};
+
 export const getSelectedValues = <T extends string>(form: HTMLFormElement, id: string): T[] => {
   const select = queryElementById<HTMLSelectElement>(form, id);
 
   return Array.from(select.selectedOptions, (option) => option.value as T);
+};
+
+export const getInputValue = (form: HTMLFormElement, id: string): string => {
+  return queryElementById<HTMLInputElement>(form, id).value;
+};
+
+export const getCheckboxValue = (form: HTMLFormElement, id: string): boolean => {
+  return queryElementById<HTMLInputElement>(form, id).checked;
 };
 
 export const getActiveContentType = (form: HTMLFormElement): ContentType => {
