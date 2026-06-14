@@ -426,3 +426,11 @@
 .lorem-custom-select-option[aria-selected='true'] .lorem-custom-select-check {
   opacity: 1;
 }
+
+.lorem-copy-element {
+  width: 100%;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}

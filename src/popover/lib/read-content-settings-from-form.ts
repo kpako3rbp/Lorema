@@ -1,4 +1,5 @@
 import { POPOVER_IDS } from 'src/popover/config/constants';
+import { getCheckboxValue, getInputValue, getSelectedValue, getSelectedValues } from 'src/shared/lib/form-element';
 import {
   AddressFormat,
   ContentType,
@@ -13,36 +14,23 @@ import {
   StorageSchema,
   TitleTopic,
 } from 'src/shared/model/types';
-import { queryElementById } from 'src/shared/utils/query-element';
-
-import {
-  getCheckboxValue,
-  getInputValue,
-  getSelectedValue,
-  getSelectedValues,
-  parsePositiveIntegerFromInput,
-} from './form-utils';
 
 export const readContentSettingsFromForm = (
   contentType: ContentType,
   form: HTMLFormElement,
   languageSelect: HTMLSelectElement,
   storage: StorageSchema,
-): StorageSchema | null => {
+): StorageSchema => {
   const getLanguage = (): Language => languageSelect.value as Language;
 
-  const handlers: Record<ContentType, () => Partial<StorageSchema> | null> = {
+  const handlers: Record<ContentType, () => Partial<StorageSchema>> = {
     text: () => {
-      const length = parsePositiveIntegerFromInput(queryElementById(form, POPOVER_IDS.textLengthInput));
-
-      if (length === null) return null;
-
       const lengthMode = new FormData(form).get('lengthMode') as LengthMode;
 
       return {
         textSettings: {
           language: getLanguage(),
-          length,
+          length: Math.floor(Number(getInputValue(form, POPOVER_IDS.textLengthInput))),
           lengthMode,
           keepWholeWords: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.keepWholeWords),
           withParagraphs: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.paragraphsCheckbox),
@@ -74,14 +62,10 @@ export const readContentSettingsFromForm = (
     },
 
     phone: () => {
-      const digitsCount = parsePositiveIntegerFromInput(queryElementById(form, POPOVER_IDS.digitsCountInput));
-
-      if (digitsCount === null) return null;
-
       return {
         phoneSettings: {
           countryCode: getInputValue(form, POPOVER_IDS.countryCodeInput),
-          digitsCount,
+          digitsCount: Math.floor(Number(getInputValue(form, POPOVER_IDS.digitsCountInput))),
           format: getSelectedValue<PhoneFormat>(form, POPOVER_IDS.phoneFormatSelect),
         },
       };
@@ -117,7 +101,7 @@ export const readContentSettingsFromForm = (
 
   const contentSettings = handlers[contentType]();
 
-  if (!contentSettings) return null;
+  if (!contentSettings) return storage;
 
   return {
     ...storage,

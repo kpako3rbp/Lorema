@@ -1,17 +1,17 @@
 import { MAX_PHONE_DIGITS, MIN_PHONE_DIGITS } from 'src/generators/phone/config/constants';
 import { MAX_TEXT_CHARS, MIN_TEXT_CHARS } from 'src/generators/text/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
+import { getRequiredElement } from 'src/shared/lib/query-element';
+import { showInputError, validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';
 import { Language } from 'src/shared/model/types';
-import { queryElement } from 'src/shared/utils/query-element';
-import { showInputError, validateCountryCode, validateNumberInput } from 'src/shared/utils/validation';
 
 import { POPOVER_IDS } from '../config/constants';
 
 export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Language): boolean => {
   const t = TRANSLATIONS[interfaceLanguage].popover;
 
-  const inputEL = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.textLengthInput}`);
-  const errorEl = queryElement<HTMLElement>(form, `#${POPOVER_IDS.textLengthError}`);
+  const inputEL = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.textLengthInput}`);
+  const errorEl = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.textLengthError}`);
 
   const result = validateNumberInput(inputEL, 1, MAX_TEXT_CHARS, {
     invalid: t.invalid,
@@ -27,11 +27,11 @@ export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Langu
 export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: Language): boolean => {
   const t = TRANSLATIONS[interfaceLanguage].popover;
 
-  const countryCodeInput = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.countryCodeInput}`);
-  const countryCodeError = queryElement<HTMLElement>(form, `#${POPOVER_IDS.countryCodeError}`);
+  const countryCodeInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.countryCodeInput}`);
+  const countryCodeError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.countryCodeError}`);
 
-  const digitsCountInput = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.digitsCountInput}`);
-  const digitsCountError = queryElement<HTMLElement>(form, `#${POPOVER_IDS.digitsCountError}`);
+  const digitsCountInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.digitsCountInput}`);
+  const digitsCountError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.digitsCountError}`);
 
   const countryCodeResult = validateCountryCode(countryCodeInput.value, {
     invalid: t.invalid,

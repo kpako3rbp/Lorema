@@ -1,13 +1,13 @@
+import { insertTextAtTarget } from 'src/app/content/insert-text-at-target';
+import { EditableTargetSnapshot } from 'src/app/content/types';
 import { generateContent } from 'src/generators';
 import { validatePhoneForm, validateTextForm } from 'src/popover/model/validation';
+import { setStorageItem } from 'src/shared/lib/storage';
 import { ContentType, Language, StorageSchema } from 'src/shared/model/types';
-import { setStorageItem } from 'src/shared/utils/storage';
 
-import { insertTextAtTarget } from '../../app/content/insert-text-at-target';
-import { EditableTargetSnapshot } from '../../app/content/types';
-import { getActiveContentType } from '../lib/form-utils';
-import { PopoverElements } from '../lib/get-popover-elements';
+import { getActiveContentType } from '../lib/get-active-content-type';
 import { readContentSettingsFromForm } from '../lib/read-content-settings-from-form';
+import { PopoverElements } from '../model/types';
 import { closeActivePopover } from './close-popover';
 
 const saveSettingsForContentType = async (contentType: ContentType, storage: StorageSchema): Promise<void> => {

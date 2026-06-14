@@ -1,16 +1,16 @@
-import { PopoverElements } from 'src/popover/lib/get-popover-elements';
-import { queryElement } from 'src/shared/utils/query-element';
+import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
-import { getActiveContentType } from './form-utils';
+import { PopoverElements } from '../model/types';
+import { getActiveContentType } from './get-active-content-type';
 
 const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
   const lengthMode = new FormData(form).get('lengthMode');
 
   const shouldDisableCheckboxes = lengthMode === 'exact';
 
-  const trimTextCheckbox = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.keepWholeWords}`);
-  const paragraphsCheckbox = queryElement<HTMLInputElement>(form, `#${POPOVER_IDS.paragraphsCheckbox}`);
+  const trimTextCheckbox = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.keepWholeWords}`);
+  const paragraphsCheckbox = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.paragraphsCheckbox}`);
 
   trimTextCheckbox.disabled = shouldDisableCheckboxes;
   paragraphsCheckbox.disabled = shouldDisableCheckboxes;

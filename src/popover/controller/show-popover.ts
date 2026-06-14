@@ -1,10 +1,10 @@
+import { EditableTargetSnapshot } from 'src/app/content/types';
 import { loadPopoverFonts } from 'src/popover/lib/load-popover-fonts';
 import { movePopoverInsideViewport } from 'src/popover/lib/move-popover-inside-viewport';
 import { createPopover } from 'src/popover/ui/create-popover';
+import { getStorageItems } from 'src/shared/lib/storage';
 import { ContentType } from 'src/shared/model/types';
-import { getStorageItems } from 'src/shared/utils/storage';
 
-import { EditableTargetSnapshot } from '../../app/content/types';
 import { getPopoverElements } from '../lib/get-popover-elements';
 import { closeActivePopover } from './close-popover';
 import { registerPopoverEvents } from './register-events';

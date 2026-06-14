@@ -1,5 +1,5 @@
+import { getRandomItem } from 'src/shared/lib/random';
 import { Language } from 'src/shared/model/types';
-import { getRandomItem } from 'src/shared/utils/random';
 
 import { SENTENCE_TEMPLATES_BY_LANGUAGE, TEXT_PARTS_BY_LANGUAGE } from '../config/constants';
 import { TextParts } from '../model/types';
@@ -26,9 +26,9 @@ const capitalize = (text: string): string => {
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
-const countWords = (text: string): number => {
-  return text.trim().split(/\s+/).filter(Boolean).length;
-};
+// const countWords = (text: string): number => {
+//   return text.trim().split(/\s+/).filter(Boolean).length;
+// };
 
 // const hasValidLastSentence = (text: string): boolean => {
 //   const sentences = text

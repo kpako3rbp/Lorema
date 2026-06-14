@@ -1,8 +1,8 @@
 import { EditableTargetSnapshot } from 'src/app/content/types';
 import { StorageSchema } from 'src/shared/model/types';
 
-import { PopoverElements } from '../lib/get-popover-elements';
 import { syncElementsUI } from '../lib/sync-ui';
+import { PopoverElements } from '../model/types';
 import { closeActivePopover, closePopoverOnOutsideClick } from './close-popover';
 import { submitForm } from './submit-form';
 

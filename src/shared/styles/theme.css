@@ -1,6 +1,7 @@
 :host,
 :root {
   --color-bg: rgb(4 3 10 / 82%);
+  --color-bg-solid: #212126;
   --color-surface: #c2e1ea14;
   --color-surface-muted: #242426;
   --color-surface-hover: #2c2c2f;
@@ -8,6 +9,7 @@
   --color-line: rgb(255 255 255 / 10%);
   --color-select-option-bg: #2b2d33;
   --color-select-option-text: var(--color-text);
+  --color-success: rgb(1, 191, 159);
 
   --color-text: #e8e8e8;
   --color-text-light: #ffffff;
@@ -39,6 +41,7 @@
   --radius-m: 8px;
   --radius-l: 10px;
   --radius-xl: 12px;
+  --radius-xxl: 17px;
 
   /* --focus-outline: 2px solid var(--color-primary-focus); */
   --focus-outline: none;
@@ -47,8 +50,11 @@
 
   --active-button-boder: 1px solid var(--color-border);
 
-  --popover-box-shadow: 0 14px 34px rgb(0 0 0 / 55%), inset 0 1px 0 rgb(255 255 255 / 8%);
+  --popover-box-shadow: 0 2px 45px rgb(0 0 0 / 19%), inset 0 1px 0 rgb(255 255 255 / 3%);
   --tooltip-box-shadow: 0 6px 14px rgb(0 0 0 / 15%);
+
+  --logo-title-color: var(--color-primary);
+  --logo-border: 2px solid transparent;
 }
 
 * {

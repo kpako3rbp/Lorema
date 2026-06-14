@@ -1,5 +1,5 @@
+import { getRandomInteger, getRandomItem } from 'src/shared/lib/random';
 import { EmailLengthPreset, EmailSettings } from 'src/shared/model/types';
-import { getRandomInteger, getRandomItem } from 'src/shared/utils/random';
 
 import {
   DOMAINS,

@@ -1,6 +1,7 @@
 :host([data-theme='light']),
 [data-theme='light'] {
   --color-bg: rgb(255 255 255 / 88%);
+  --color-bg-solid: #f9fdfe;
   --color-surface: rgb(0 0 0 / 4%);
   --color-surface-hover: rgb(0 0 0 / 8%);
   --color-surface-muted: rgb(0 0 0 / 6%);
@@ -28,4 +29,7 @@
   --color-white-line: rgb(0 0 0 / 8%);
 
   --active-button-boder: 1px solid #9999df;
+
+  --logo-title-color: var(--color-text);
+  --logo-border: var(--active-button-boder);
 }

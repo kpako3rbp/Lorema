@@ -12,3 +12,11 @@ export type CreatePopoverParams = {
   generationLanguage: Language;
   position: PopoverPosition;
 };
+
+export type PopoverElements = {
+  form: HTMLFormElement;
+  lengthInput: HTMLInputElement;
+  insertButton: HTMLButtonElement;
+  cancelButton: HTMLButtonElement;
+  languageSelect: HTMLSelectElement;
+};

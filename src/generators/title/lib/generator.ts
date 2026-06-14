@@ -1,5 +1,5 @@
+import { getRandomItem } from 'src/shared/lib/random';
 import { Language, TitleLengthPreset, TitleSettings, TitleTopic } from 'src/shared/model/types';
-import { getRandomItem } from 'src/shared/utils/random';
 
 import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
 import { EXTRA_TEMPLATES_BY_LANGUAGE } from '../config/extra-templates';

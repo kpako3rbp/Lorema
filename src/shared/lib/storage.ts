@@ -57,9 +57,8 @@ export const getStorageItems = async (): Promise<StorageSchema> => ({
   addressSettings: await getStorageItem('addressSettings'),
   firstNameSettings: await getStorageItem('firstNameSettings'),
   lastNameSettings: await getStorageItem('lastNameSettings'),
+  generationLanguage: await getStorageItem('generationLanguage'),
 
   interfaceLanguage: await getStorageItem('interfaceLanguage'),
-
-  generationLanguage: await getStorageItem('generationLanguage'),
   theme: await getStorageItem('theme'),
 });

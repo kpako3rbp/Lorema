@@ -45,7 +45,7 @@ a {
     color 0.15s ease,
     transform 0.15s ease,
     opacity 0.15s ease,
-    visibility 0.15s ease;
+    visibility 0.15s ease,
 }
 
 @keyframes input-error {

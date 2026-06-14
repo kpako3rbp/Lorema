@@ -1,5 +1,5 @@
+import { getRandomItem } from 'src/shared/lib/random';
 import { FirstNameSettings, LastNameSettings, NameLengthPreset } from 'src/shared/model/types';
-import { getRandomItem } from 'src/shared/utils/random';
 
 import { NAME_LENGTH_PRESETS, NAME_PARTS_BY_LANGUAGE } from '../config/constants';
 

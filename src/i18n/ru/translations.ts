@@ -2,12 +2,31 @@ import { Translation } from '../types';
 
 export const TRANSLATIONS_RU: Translation = {
   popup: {
-    title: 'Настройки',
-    save: 'Сохранить',
-    interfaceLanguage: 'Язык интерфейса',
-    theme: 'Тема',
-    donate: 'Купить мне кофе',
-    saved: 'Сохранено!',
+    descriptor: 'генератор контента',
+    github: 'GitHub',
+    reportBug: 'Сообщить о баге',
+    feedback: 'Оставить отзыв',
+
+    settings: {
+      title: 'Настройки',
+      save: 'Сохранить настройки',
+      interfaceLanguage: 'Язык интерфейса',
+      theme: 'Тема',
+      donate: 'Купить мне кофе',
+      saved: 'Сохранено!',
+      likeExtension: 'Нравится расширение?',
+      supportDeveloper: 'Отблагодарить разработчика',
+    },
+    support: {
+      back: '← Вернуться назад',
+      thanks: 'Спасибо, что пользуетесь Lorema 💙',
+      description: 'Если расширение вам нравится, вы можете угостить разработчика кофе ☕ или оставить отзыв ⭐',
+      rubles: 'Рубли',
+      sbp: 'Перевод по СБП',
+      crypto: 'Криптовалюта',
+      copy: 'Скопировать',
+      copied: 'Кошелек скопирован',
+    },
   },
 
   popover: {

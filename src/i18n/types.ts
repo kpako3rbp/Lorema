@@ -10,15 +10,6 @@ type CustomSelectTranslation = {
   random: string;
 };
 
-type PopupTranslation = {
-  title: string;
-  save: string;
-  interfaceLanguage: string;
-  theme: string;
-  donate: string;
-  saved: string;
-};
-
 type PopoverTranslation = {
   title: string;
   titleTooltip: string;
@@ -90,8 +81,39 @@ type ContextTranslation = {
   items: Record<ContentType, string>;
 };
 
+type PopupSupportTranslation = {
+  back: string;
+  thanks: string;
+  description: string;
+  rubles: string;
+  sbp: string;
+  crypto: string;
+  copy: string;
+  copied: string;
+};
+
+type PopupSettingsTranslation = {
+  title: string;
+  save: string;
+  interfaceLanguage: string;
+  theme: string;
+  donate: string;
+  saved: string;
+  likeExtension: string;
+  supportDeveloper: string;
+};
+
 export type Translation = {
-  popup: PopupTranslation;
+  popup: {
+    descriptor: string;
+
+    settings: PopupSettingsTranslation;
+    support: PopupSupportTranslation;
+
+    github: string;
+    reportBug: string;
+    feedback: string;
+  };
   popover: PopoverTranslation;
   context: ContextTranslation;
   customSelect: CustomSelectTranslation;

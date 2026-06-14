@@ -1,4 +1,4 @@
-import { TextInputElement } from 'src/shared/utils/query-element';
+import { TextInputElement } from 'src/shared/lib/query-element';
 
 export type EditableTarget = TextInputElement | HTMLElement;
 

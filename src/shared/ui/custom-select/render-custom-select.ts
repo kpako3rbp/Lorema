@@ -1,6 +1,8 @@
 import { TRANSLATIONS } from 'src/i18n';
 import { Language } from 'src/shared/model/types';
 
+import { renderChevronDownIcon } from '../icons/chevron-down';
+
 type SelectOption<T extends string> = {
   value: T;
   label: string;
@@ -16,9 +18,6 @@ type RenderCustomSelectParams<T extends string> = {
   multiple?: boolean;
   className?: string;
 };
-
-const chevron =
-  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg>';
 
 const renderOptionContent = <T extends string>(option: SelectOption<T> | undefined, fallbackText = ''): string => {
   if (!option) return `<span>${fallbackText}</span>`;
@@ -76,7 +75,7 @@ export const renderCustomSelect = <T extends string>(params: RenderCustomSelectP
         aria-expanded="false"
       >
         <span class="lorem-custom-select-value">${buttonContent}</span>
-        <span class="lorem-custom-select-arrow">${chevron}</span>
+        <span class="lorem-custom-select-arrow">${renderChevronDownIcon()}</span>
       </button>
 
       <div

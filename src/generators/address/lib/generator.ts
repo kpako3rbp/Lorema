@@ -1,5 +1,5 @@
+import { getRandomInteger, getRandomItem } from 'src/shared/lib/random';
 import { AddressFormat, AddressSettings, Language } from 'src/shared/model/types';
-import { getRandomInteger, getRandomItem } from 'src/shared/utils/random';
 
 import { ADDRESS_FORMATS, ADDRESS_PARTS_BY_LANGUAGE } from '../config/constants';
 

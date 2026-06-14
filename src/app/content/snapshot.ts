@@ -1,4 +1,4 @@
-import { isTextInputElement } from 'src/shared/utils/query-element';
+import { isTextInputElement } from 'src/shared/lib/query-element';
 
 import { CursorPosition, EditableTargetSnapshot } from './types';
 

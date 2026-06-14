@@ -1,5 +1,5 @@
+import { getBrowserLanguage } from '../lib/get-browser-language';
 import { StorageSchema, Theme } from '../model/types';
-import { getBrowserLanguage } from '../utils/get-browser-language';
 
 const browserLanguage = getBrowserLanguage();
 

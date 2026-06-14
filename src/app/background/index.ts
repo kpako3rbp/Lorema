@@ -1,7 +1,7 @@
-import { COMMAND_NAME } from 'src/popover/config/constants';
+import { COMMAND_NAME } from 'src/shared/config/command';
 import { CONTENT_TYPES } from 'src/shared/config/content';
+import { ensureDefaultStorage } from 'src/shared/lib/storage';
 import { ContentType, ExtensionMessage, InsertMode } from 'src/shared/model/types';
-import { ensureDefaultStorage } from 'src/shared/utils/storage';
 
 import { createContextMenu, CUSTOM_MENU_ID, updateContextMenu } from './context-menu';
 import { sendInsertMessage } from './messaging';

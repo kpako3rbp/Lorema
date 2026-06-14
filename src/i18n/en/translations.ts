@@ -2,12 +2,32 @@ import { Translation } from '../types';
 
 export const TRANSLATIONS_EN: Translation = {
   popup: {
-    title: 'Settings',
-    save: 'Save',
-    interfaceLanguage: 'Interface language',
-    theme: 'Theme',
-    donate: 'Buy me a coffee',
-    saved: 'Saved!',
+    descriptor: 'content generator',
+    github: 'GitHub',
+    reportBug: 'Report a bug',
+    feedback: 'Leave feedback',
+
+    settings: {
+      title: 'Settings',
+      save: 'Save settings',
+      interfaceLanguage: 'Interface language',
+      theme: 'Theme',
+      donate: 'Buy me a coffee',
+      saved: 'Saved!',
+      likeExtension: 'Enjoying Lorema?',
+      supportDeveloper: 'Enjoying Lorema? Buy me a coffee',
+    },
+
+    support: {
+      back: '← Back to settings',
+      thanks: 'Thank you for using Lorema 💙',
+      description: 'If you enjoy using the extension, you can buy the developer a coffee ☕ or leave a feedback ⭐',
+      rubles: 'Rubles',
+      sbp: 'Faster Payment System Russia',
+      crypto: 'Cryptocurrency',
+      copy: 'Copy',
+      copied: 'Wallet copied',
+    },
   },
 
   popover: {

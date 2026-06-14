@@ -46,5 +46,3 @@ export const POPOVER_CLASSNAME = 'lorem-popover';
 export const POPOVER_TAB_CLASSNAME = 'lorem-tab-panel';
 
 export const POPOVER_OFFSET = 14;
-
-export const COMMAND_NAME = 'open-lorem-popover';
