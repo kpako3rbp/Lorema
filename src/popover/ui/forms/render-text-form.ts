@@ -46,7 +46,7 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
         <label class="lorem-form-el-with-label">
           <span class="lorem-label">
             ${t.length}
-            ${renderTooltip(`${t.max} ${MAX_TEXT_CHARS}`, 100)}
+            ${renderTooltip(`${t.max} ${MAX_TEXT_CHARS}`, 'fit-content')}
           </span>
           <input
             class="lorem-input"
