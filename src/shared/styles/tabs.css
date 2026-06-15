@@ -1,0 +1,77 @@
+@import './controls.css';
+
+.lorem-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding-bottom: 6px;
+}
+
+.lorem-tab {
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-m);
+}
+
+.lorem-tab input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lorem-tab input:focus-visible + span {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-tab input:checked + span {
+  color: var(--color-active-button-text);
+  background: var(--color-primary);
+  background-size: 220% 100%;
+  background-position: 0 50%;
+  border: 1px solid rgb(255 255 255 / 24%);
+  box-shadow: 0 0 14px var(--color-primary-glow);
+
+  border: var(--active-button-boder);
+}
+
+.lorem-tab span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+}
+
+.lorem-tab span svg {
+  width: 14px;
+  height: 14px;
+}
+
+.lorem-tab:hover input:checked + span,
+.lorem-tab:focus-within input:checked + span {
+  background-position: 100% 50%;
+}
+
+.lorem-tab:hover span {
+  color: var(--color-text-light);
+  background: var(--color-surface-hover);
+}
+
+.lorem-tab:hover input:checked + span {
+  color: var(--color-active-button-text);
+  background-color: transparent;
+}
+
+.lorem-tab-panel {
+  display: none;
+}
+
+.lorem-tab-panel.active {
+  display: block;
+}
