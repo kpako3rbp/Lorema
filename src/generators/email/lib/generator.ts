@@ -16,7 +16,7 @@ const getEmailLengthPreset = (settings: EmailSettings): EmailLengthPreset => {
   return getRandomItem(selectedLengthPresets);
 };
 
-const getRandomYear = (): string => String(getRandomInteger(1990, 2026));
+const getRandomYear = (): string => String(getRandomInteger(1960, 2026));
 
 const trimLogin = (login: string, maxLength: number): string => {
   return login.slice(0, maxLength).replace(/[._-]$/, '');
@@ -43,7 +43,7 @@ export const generateEmail = (settings: EmailSettings): string => {
   let login = buildLogin();
 
   while (login.length < targetLength) {
-    const separator = login.endsWith('.') || login.endsWith('_') ? '' : getRandomItem(SEPARATORS);
+    const separator = /[._-]$/.test(login) ? '' : getRandomItem(SEPARATORS);
 
     login += `${separator}${getRandomItem(WORDS)}`;
   }

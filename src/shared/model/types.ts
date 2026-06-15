@@ -21,7 +21,7 @@ export type TextSettings = {
   language: Language;
   length: number;
   lengthMode: LengthMode;
-  keepWholeWords: boolean;
+  keepWholeSentencies: boolean;
   withParagraphs: boolean;
 };
 

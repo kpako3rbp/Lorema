@@ -9,7 +9,7 @@ const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
 
   const shouldDisableCheckboxes = lengthMode === 'exact';
 
-  const trimTextCheckbox = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.keepWholeWords}`);
+  const trimTextCheckbox = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.keepWholeSentencies}`);
   const paragraphsCheckbox = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.paragraphsCheckbox}`);
 
   trimTextCheckbox.disabled = shouldDisableCheckboxes;

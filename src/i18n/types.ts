@@ -35,7 +35,7 @@ type PopoverTranslation = {
 
   length: string;
   lengthMode: string;
-  keepWholeWords: string;
+  keepWholeSentencies: string;
   paragraphs: string;
 
   maxLoginLength: string;
@@ -60,11 +60,12 @@ type PopoverTranslation = {
 
   min: string;
   max: string;
+  maxWarning: string;
   invalid: string;
   required: string;
 
   lengthModeTooltip: string;
-  keepWholeWordsTooltip: string;
+  keepWholeSentenciesTooltip: string;
   paragraphsCheckboxTooltip: string;
   countryCodeTooltip: string;
 

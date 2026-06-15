@@ -1,6 +1,7 @@
 import { MAX_TEXT_CHARS } from 'src/generators/text/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/popover/config/constants';
+import { numberWithSpaces } from 'src/shared/lib/string';
 import { Language, StorageSchema } from 'src/shared/model/types';
 import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
@@ -46,7 +47,7 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
         <label class="lorem-form-el-with-label">
           <span class="lorem-label">
             ${t.length}
-            ${renderTooltip(`${t.max} ${MAX_TEXT_CHARS}`, 'fit-content')}
+            ${renderTooltip(`${t.max} ${numberWithSpaces(MAX_TEXT_CHARS)}.\n${t.maxWarning}`, 200)}
           </span>
           <input
             class="lorem-input"
@@ -63,14 +64,14 @@ export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Langua
         <label class="lorem-checkbox">
           <input
             class="lorem-checkbox-input"
-            id="${POPOVER_IDS.keepWholeWords}"
+            id="${POPOVER_IDS.keepWholeSentencies}"
             type="checkbox"
-            ${!isExactMode && settings.keepWholeWords ? 'checked' : ''}
+            ${!isExactMode && settings.keepWholeSentencies ? 'checked' : ''}
             ${isExactMode ? 'disabled' : ''}
           />
           <span class="lorem-label">          
-            ${t.keepWholeWords}
-            ${renderTooltip(t.keepWholeWordsTooltip, 140)}
+            ${t.keepWholeSentencies}
+            ${renderTooltip(t.keepWholeSentenciesTooltip, 140)}
           </span>          
         </label>
 

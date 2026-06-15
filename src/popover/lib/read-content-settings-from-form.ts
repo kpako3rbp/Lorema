@@ -32,7 +32,7 @@ export const readContentSettingsFromForm = (
           language: getLanguage(),
           length: Math.floor(Number(getInputValue(form, POPOVER_IDS.textLengthInput))),
           lengthMode,
-          keepWholeWords: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.keepWholeWords),
+          keepWholeSentencies: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.keepWholeSentencies),
           withParagraphs: lengthMode === 'exact' ? false : getCheckboxValue(form, POPOVER_IDS.paragraphsCheckbox),
         },
       };

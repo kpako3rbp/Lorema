@@ -8,7 +8,7 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
     language: browserLanguage,
     length: 200,
     lengthMode: 'lte',
-    keepWholeWords: true,
+    keepWholeSentencies: true,
     withParagraphs: false,
   },
   titleSettings: {

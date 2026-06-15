@@ -1,4 +1,5 @@
 import { getRandomItem } from 'src/shared/lib/random';
+import { capitalizeFirstLetter } from 'src/shared/lib/string';
 import { Language, TitleLengthPreset, TitleSettings, TitleTopic } from 'src/shared/model/types';
 
 import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
@@ -12,7 +13,7 @@ const titleHistory = new Set<string>();
 const normalizeTitle = (value: string): string => {
   const normalized = value.trim().replace(/\s+/g, ' ');
 
-  return normalized.charAt(0).toUpperCase() + normalized.slice(1);
+  return capitalizeFirstLetter(normalized);
 };
 
 const rememberTitle = (title: string): void => {

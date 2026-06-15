@@ -3,5 +3,8 @@ export type TextParts = {
   subjects: string[];
   predicates: string[];
   objects: string[];
+  objectsGen: string[];
+  objectsDat: string[];
+  objectsLoc: string[];
   endings: string[];
 };

@@ -1,5 +1,7 @@
 import { PhoneSettings } from 'src/shared/model/types';
 
+const PATTERN = [3, 3, 2, 2];
+
 const randomDigit = (): string => String(Math.floor(Math.random() * 10));
 
 const normalizeCountryCode = (countryCode: string): string => {
@@ -7,18 +9,18 @@ const normalizeCountryCode = (countryCode: string): string => {
 };
 
 const splitByPattern = (value: string, pattern: number[]): string[] => {
-  const groups: string[] = [];
   let index = 0;
+  const groups: string[] = [];
 
   for (const size of pattern) {
-    if (index >= value.length) break;
-
     groups.push(value.slice(index, index + size));
     index += size;
   }
 
-  if (index < value.length) {
-    groups.push(value.slice(index));
+  const rest = value.slice(index);
+
+  if (rest) {
+    groups.push(rest);
   }
 
   return groups;
@@ -29,7 +31,7 @@ export const generatePhone = (settings: PhoneSettings): string => {
   const digitsCount = Math.max(1, Math.floor(settings.digitsCount));
   const digits = Array.from({ length: digitsCount }, randomDigit).join('');
 
-  const groups = splitByPattern(digits, [3, 3, 2, 2]);
+  const groups = splitByPattern(digits, PATTERN);
 
   const mapFormatToPattern: Record<PhoneSettings['format'], () => string> = {
     compact: () => `${countryCode}${digits}`,

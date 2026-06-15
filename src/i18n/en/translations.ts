@@ -55,7 +55,7 @@ export const TRANSLATIONS_EN: Translation = {
 
     length: 'Character count',
     lengthMode: 'Mode',
-    keepWholeWords: 'Keep whole words',
+    keepWholeSentencies: 'Keep whole sentencies',
     paragraphs: 'Split into paragraphs',
 
     maxLoginLength: 'Maximum login length',
@@ -87,12 +87,13 @@ export const TRANSLATIONS_EN: Translation = {
 
     min: 'Minimum',
     max: 'Maximum',
+    maxWarning: 'If the character limit is too low, sentences may be truncated',
     invalid: 'Invalid format',
     required: 'Required',
 
     lengthModeTooltip:
       'Controls how exact the character count should be. In exact mode (=), the last word may be cut off',
-    keepWholeWordsTooltip: 'The text always ends with a whole word and a period',
+    keepWholeSentenciesTooltip: 'The last sentence will always be complete with a dot at the end',
     paragraphsCheckboxTooltip: 'Text will be split into paragraphs of 2–3 sentences',
     countryCodeTooltip: 'Country code with or without plus, for example: +7 or 7',
 

@@ -21,9 +21,7 @@ export const renderTooltip = (text: string, width: number | 'fit-content' = 140,
         class="lorem-tooltip"
         role="tooltip"
         style="--tooltip-width: ${width === 'fit-content' ? 'fit-content' : width + 'px'}"
-      >
-        ${text}
-      </span>
+      >${text}</span>
     </span>
   `;
 };

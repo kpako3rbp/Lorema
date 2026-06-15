@@ -29,7 +29,7 @@ export const POPOVER_IDS = {
   digitsCountError: 'digitsCountError',
 
   paragraphsCheckbox: 'paragraphsCheckbox',
-  keepWholeWords: 'keepWholeWords',
+  keepWholeSentencies: 'keepWholeSentencies',
 
   addressFormatSelect: 'addressFormatSelect',
 

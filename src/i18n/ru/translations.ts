@@ -54,7 +54,7 @@ export const TRANSLATIONS_RU: Translation = {
 
     length: 'Количество символов',
     lengthMode: 'Режим',
-    keepWholeWords: 'Не обрезать слова',
+    keepWholeSentencies: 'Не обрезать предложения',
     paragraphs: 'Разбить на абзацы',
 
     maxLoginLength: 'Максимальная длина логина',
@@ -86,12 +86,13 @@ export const TRANSLATIONS_RU: Translation = {
 
     min: 'Минимум',
     max: 'Максимум',
+    maxWarning: 'Если указать слишком мало символов, предложения могут обрезаться',
     invalid: 'Неверный формат',
     required: 'Обязательно',
 
     lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме (=) последнее слово может обрезаться',
-    keepWholeWordsTooltip: 'В конце предложения всегда целое слово с точкой',
-    paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–3 предложения',
+    keepWholeSentenciesTooltip: 'Последнее предложение всегда будет полным с точкой в конце',
+    paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–4 предложения',
     countryCodeTooltip: 'Код страны с плюсом или без, например: +7 или 7',
 
     contentTitles: {
