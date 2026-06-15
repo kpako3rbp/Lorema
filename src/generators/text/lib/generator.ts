@@ -49,12 +49,12 @@ export const generateLorem = (options: LoremOptions): string => {
   let sentencesInParagraph = 0;
   let targetParagraphSize = getRandomParagraphSize();
 
-  let lastSentenceEnd = 0;
+  let lastValidLength = 0;
 
   while (currentLength < length) {
     const sentence = generateSentence(textParts, language);
 
-    lastSentenceEnd = currentLength;
+    lastValidLength = currentLength;
 
     currentLength += appendChunk(chunks, sentence);
     sentencesInParagraph += 1;
@@ -77,13 +77,17 @@ export const generateLorem = (options: LoremOptions): string => {
     return fullText.slice(0, length);
   }
 
-  if (currentLength <= length) {
+  const isOverlimited = currentLength > length;
+
+  if (!isOverlimited) {
     return fullText.trimEnd();
   }
 
-  if (lastSentenceEnd === 0) {
+  const hasCompleteSentenceWithinLimit = lastValidLength > 0;
+
+  if (!hasCompleteSentenceWithinLimit) {
     return `${fullText.slice(0, length - 1).trimEnd()}.`;
   }
 
-  return fullText.slice(0, lastSentenceEnd).trimEnd();
+  return fullText.slice(0, lastValidLength).trimEnd();
 };
