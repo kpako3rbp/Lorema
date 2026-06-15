@@ -1,6 +1,7 @@
+import { TitleLengthPreset, TitleSettings, TitleTopic } from 'src/features/content-generation/model';
 import { getRandomItem } from 'src/shared/lib/random';
 import { capitalizeFirstLetter } from 'src/shared/lib/string';
-import { Language, TitleLengthPreset, TitleSettings, TitleTopic } from 'src/shared/model/types';
+import { Language } from 'src/shared/model/types';
 
 import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
 import { EXTRA_TEMPLATES_BY_LANGUAGE } from '../config/extra-templates';

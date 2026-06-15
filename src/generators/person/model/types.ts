@@ -1,4 +1,4 @@
-import { NameLengthPreset } from 'src/shared/model/types';
+import { NameLengthPreset } from 'src/features/content-generation/model';
 
 export type NameParts = {
   firstNames: Record<NameLengthPreset, string[]>;

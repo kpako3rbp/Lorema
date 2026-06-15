@@ -1,5 +1,5 @@
+import { setStorageItem } from 'src/features/content-generation/lib/storage';
 import { TRANSLATIONS } from 'src/i18n';
-import { setStorageItem } from 'src/shared/lib/storage';
 
 import { POPUP_CLOSE_DELAY } from '../config/constants';
 import { readExtensionSettingsFromElements } from '../lib/read-extension-settings-from-elements';

@@ -1,4 +1,5 @@
-import { Language, TitleLengthPreset } from 'src/shared/model/types';
+import { TitleLengthPreset } from 'src/features/content-generation/model';
+import { Language } from 'src/shared/model/types';
 
 const RU_EXTRA_TEMPLATES: Record<TitleLengthPreset, string[]> = {
   xsm: [

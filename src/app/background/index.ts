@@ -1,7 +1,8 @@
+import { InsertMode } from 'src/app/model/messages';
+import { CONTENT_TYPES } from 'src/features/content-generation/config/content';
+import { ensureDefaultStorage } from 'src/features/content-generation/lib/storage';
+import { ContentType } from 'src/features/content-generation/model';
 import { COMMAND_NAME } from 'src/shared/config/command';
-import { CONTENT_TYPES } from 'src/shared/config/content';
-import { ensureDefaultStorage } from 'src/shared/lib/storage';
-import { ContentType, InsertMode } from 'src/shared/model/types';
 
 import { createContextMenu, CUSTOM_MENU_ID, updateContextMenu } from './context-menu';
 import { sendInsertMessage } from './messaging';

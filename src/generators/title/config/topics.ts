@@ -1,4 +1,5 @@
-import { Language, TitleTopic } from 'src/shared/model/types';
+import { TitleTopic } from 'src/features/content-generation/model';
+import { Language } from 'src/shared/model/types';
 
 import { EnTopicForms, RuTopicForms } from '../model/types';
 

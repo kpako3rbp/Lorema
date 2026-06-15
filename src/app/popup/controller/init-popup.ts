@@ -1,4 +1,4 @@
-import { getStorageItems } from 'src/shared/lib/storage';
+import { getStorageItems } from 'src/features/content-generation/lib/storage';
 
 import { POPUP_IDS } from '../config/constants';
 import { PopupState } from '../model/types';

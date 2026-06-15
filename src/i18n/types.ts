@@ -1,4 +1,10 @@
-import { AddressFormat, ContentType, LengthPreset, PhoneFormat, TitleTopic } from 'src/shared/model/types';
+import {
+  AddressFormat,
+  ContentType,
+  LengthPreset,
+  PhoneFormat,
+  TitleTopic,
+} from 'src/features/content-generation/model';
 
 type ThemeTranslation = {
   light: string;

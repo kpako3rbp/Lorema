@@ -1,5 +1,6 @@
+import { AddressFormat, AddressSettings } from 'src/features/content-generation/model';
 import { getRandomInteger, getRandomItem } from 'src/shared/lib/random';
-import { AddressFormat, AddressSettings, Language } from 'src/shared/model/types';
+import { Language } from 'src/shared/model/types';
 
 import { ADDRESS_FORMATS, ADDRESS_PARTS_BY_LANGUAGE } from '../config/constants';
 

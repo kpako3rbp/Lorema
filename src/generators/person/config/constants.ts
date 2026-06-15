@@ -1,4 +1,5 @@
-import { Language, NameLengthPreset } from 'src/shared/model/types';
+import { NameLengthPreset } from 'src/features/content-generation/model';
+import { Language } from 'src/shared/model/types';
 
 import { NameParts } from '../model/types';
 

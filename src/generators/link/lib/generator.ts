@@ -1,5 +1,5 @@
+import { LinkLengthPreset, LinkSettings } from 'src/features/content-generation/model';
 import { getRandomInteger, getRandomItem } from 'src/shared/lib/random';
-import { LinkLengthPreset, LinkSettings } from 'src/shared/model/types';
 
 import {
   DOMAINS,

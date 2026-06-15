@@ -1,8 +1,12 @@
-import { insertQuickContent, showPopover } from 'src/popover';
-import type { ExtensionMessage } from 'src/shared/model/types';
-
-import { createEmptyTargetSnapshot, getActiveTargetSnapshot, getEditableTargetSnapshot } from './snapshot';
-import type { EditableTargetSnapshot } from './types';
+import type { ExtensionMessage } from 'src/app/model/messages';
+import type { EditableTargetSnapshot } from 'src/entities/editable-target';
+import {
+  createEmptyTargetSnapshot,
+  getActiveTargetSnapshot,
+  getEditableTargetSnapshot,
+} from 'src/entities/editable-target';
+import { showPopover } from 'src/features/content-insert-popover';
+import { insertGeneratedContent } from 'src/features/insert-generated-content';
 
 type InsertMessage = Extract<
   ExtensionMessage,
@@ -64,7 +68,7 @@ const initContentScript = (): void => {
     const target = getTargetForMessage(message, latestTarget);
 
     if (message.mode === 'quick') {
-      void insertQuickContent(message.contentType, target);
+      void insertGeneratedContent(message.contentType, target);
 
       return;
     }

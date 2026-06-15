@@ -1,4 +1,4 @@
-import type { ExtensionMessage } from 'src/shared/model/types';
+import type { ExtensionMessage } from 'src/app/model/messages';
 
 const getContentScriptFile = (): string | null => {
   const manifest = chrome.runtime.getManifest();
