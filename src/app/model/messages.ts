@@ -1,4 +1,4 @@
-import { ContentType } from 'src/features/content-generation/model/types';
+import { ContentType } from 'src/entities/generated-content/model';
 
 export type InsertMode = 'quick' | 'custom';
 

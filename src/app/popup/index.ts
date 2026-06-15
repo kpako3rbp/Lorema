@@ -1,3 +1,3 @@
-import { initPopup } from './controller/init-popup';
+import { initPopup } from 'src/pages/popup';
 
 void initPopup();

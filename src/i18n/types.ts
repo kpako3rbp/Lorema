@@ -4,7 +4,7 @@ import {
   LengthPreset,
   PhoneFormat,
   TitleTopic,
-} from 'src/features/content-generation/model';
+} from 'src/entities/generation-settings/model';
 
 type ThemeTranslation = {
   light: string;

@@ -1,4 +1,4 @@
-import { TitleLengthPreset, TitleTopic } from 'src/features/content-generation/model';
+import { TitleLengthPreset, TitleTopic } from 'src/entities/generation-settings/model';
 
 export const TITLE_LENGTH_PRESETS: TitleLengthPreset[] = ['xsm', 'sm', 'md', 'lg', 'xlg'];
 

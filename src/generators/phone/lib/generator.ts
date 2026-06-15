@@ -1,4 +1,4 @@
-import { PhoneSettings } from 'src/features/content-generation/model';
+import { PhoneSettings } from 'src/entities/generation-settings/model';
 
 const PATTERN = [3, 3, 2, 2];
 

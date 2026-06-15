@@ -1,4 +1,4 @@
-import { TitleLengthPreset } from 'src/features/content-generation/model';
+import { TitleLengthPreset } from 'src/entities/generation-settings/model';
 import { Language } from 'src/shared/model/types';
 
 const RU_EXTRA_TEMPLATES: Record<TitleLengthPreset, string[]> = {

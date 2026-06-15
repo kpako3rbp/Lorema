@@ -1,4 +1,4 @@
-import { EmailLengthPreset } from 'src/features/content-generation/model';
+import { EmailLengthPreset } from 'src/entities/generation-settings/model';
 
 export const EMAIL_LENGTH_PRESETS: EmailLengthPreset[] = ['sm', 'md', 'lg'];
 

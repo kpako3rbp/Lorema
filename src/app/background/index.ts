@@ -1,7 +1,8 @@
 import { InsertMode } from 'src/app/model/messages';
-import { CONTENT_TYPES } from 'src/features/content-generation/config/content';
-import { ensureDefaultStorage } from 'src/features/content-generation/lib/storage';
-import { ContentType } from 'src/features/content-generation/model';
+import { ensureDefaultExtensionSettings } from 'src/entities/extension-settings/lib/storage';
+import { CONTENT_TYPES } from 'src/entities/generated-content/config/content';
+import { ContentType } from 'src/entities/generated-content/model';
+import { ensureDefaultGenerationSettings } from 'src/entities/generation-settings/lib/storage';
 import { COMMAND_NAME } from 'src/shared/config/command';
 
 import { createContextMenu, CUSTOM_MENU_ID, updateContextMenu } from './context-menu';
@@ -29,12 +30,12 @@ const parseMenuItemId = (menuItemId: string): { mode: InsertMode; contentType: C
 };
 
 chrome.runtime.onInstalled.addListener(async () => {
-  await ensureDefaultStorage();
+  await Promise.all([ensureDefaultGenerationSettings(), ensureDefaultExtensionSettings()]);
   await createContextMenu();
 });
 
 chrome.runtime.onStartup.addListener(async () => {
-  await ensureDefaultStorage();
+  await Promise.all([ensureDefaultGenerationSettings(), ensureDefaultExtensionSettings()]);
   await createContextMenu();
 });
 

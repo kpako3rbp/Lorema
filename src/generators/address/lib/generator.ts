@@ -1,4 +1,4 @@
-import { AddressFormat, AddressSettings } from 'src/features/content-generation/model';
+import { AddressFormat, AddressSettings } from 'src/entities/generation-settings/model';
 import { getRandomInteger, getRandomItem } from 'src/shared/lib/random';
 import { Language } from 'src/shared/model/types';
 

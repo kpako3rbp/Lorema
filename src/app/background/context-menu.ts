@@ -1,7 +1,7 @@
 import { InsertMode } from 'src/app/model/messages';
-import { CONTENT_TYPES } from 'src/features/content-generation/config/content';
-import { getStorageItem } from 'src/features/content-generation/lib/storage';
-import { ContentType } from 'src/features/content-generation/model';
+import { getExtensionSetting } from 'src/entities/extension-settings/lib/storage';
+import { CONTENT_TYPES } from 'src/entities/generated-content/config/content';
+import { ContentType } from 'src/entities/generated-content/model';
 import { TRANSLATIONS } from 'src/i18n';
 import { COMMAND_NAME } from 'src/shared/config/command';
 
@@ -22,14 +22,14 @@ const getCommandShortcut = async () => {
 };
 
 const getRootTitle = async (shortcut?: string): Promise<string> => {
-  const interfaceLanguage = await getStorageItem('interfaceLanguage');
+  const interfaceLanguage = await getExtensionSetting('interfaceLanguage');
   const title = TRANSLATIONS[interfaceLanguage].context.paste;
 
   return shortcut ? `${title} (${shortcut})` : title;
 };
 
 export const createContextMenu = async (): Promise<void> => {
-  const interfaceLanguage = await getStorageItem('interfaceLanguage');
+  const interfaceLanguage = await getExtensionSetting('interfaceLanguage');
   const t = TRANSLATIONS[interfaceLanguage].context;
   const shortcut = await getCommandShortcut();
 

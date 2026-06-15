@@ -1,4 +1,4 @@
-import { TitleLengthPreset, TitleSettings, TitleTopic } from 'src/features/content-generation/model';
+import { TitleLengthPreset, TitleSettings, TitleTopic } from 'src/entities/generation-settings/model';
 import { getRandomItem } from 'src/shared/lib/random';
 import { capitalizeFirstLetter } from 'src/shared/lib/string';
 import { Language } from 'src/shared/model/types';

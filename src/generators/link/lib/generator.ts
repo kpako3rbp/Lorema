@@ -1,4 +1,4 @@
-import { LinkLengthPreset, LinkSettings } from 'src/features/content-generation/model';
+import { LinkLengthPreset, LinkSettings } from 'src/entities/generation-settings/model';
 import { getRandomInteger, getRandomItem } from 'src/shared/lib/random';
 
 import {

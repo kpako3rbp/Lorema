@@ -1,4 +1,4 @@
-import { TitleLengthPreset, TitleTopic } from 'src/features/content-generation/model';
+import { TitleLengthPreset, TitleTopic } from 'src/entities/generation-settings/model';
 import { Language } from 'src/shared/model/types';
 
 export const COMMON_TITLE_TEMPLATES: Record<Language, Record<TitleLengthPreset, string[]>> = {

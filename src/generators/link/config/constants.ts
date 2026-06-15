@@ -1,4 +1,4 @@
-import { LinkLengthPreset } from 'src/features/content-generation/model';
+import { LinkLengthPreset } from 'src/entities/generation-settings/model';
 
 export const DOMAINS = ['alpha', 'demo', 'sample', 'project', 'content', 'market', 'studio', 'portal'];
 export const ZONES = ['com', 'net', 'dev', 'io'];

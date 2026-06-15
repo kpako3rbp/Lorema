@@ -1,4 +1,4 @@
-import { AddressFormat } from 'src/features/content-generation/model';
+import { AddressFormat } from 'src/entities/generation-settings/model';
 import { Language } from 'src/shared/model/types';
 
 import { AddressParts } from '../model/types';

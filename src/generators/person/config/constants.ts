@@ -1,4 +1,4 @@
-import { NameLengthPreset } from 'src/features/content-generation/model';
+import { NameLengthPreset } from 'src/entities/generation-settings/model';
 import { Language } from 'src/shared/model/types';
 
 import { NameParts } from '../model/types';
