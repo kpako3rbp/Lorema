@@ -36,9 +36,11 @@ const handleSettingsChange = (elements: PopupElements, state: PopupState, rerend
 };
 
 const handleSaveSettings = async (elements: PopupElements, state: PopupState): Promise<void> => {
-  await setStorageItem('interfaceLanguage', state.interfaceLanguage);
-  await setStorageItem('generationLanguage', state.interfaceLanguage);
-  await setStorageItem('theme', state.theme);
+  await Promise.all([
+    setStorageItem('interfaceLanguage', state.interfaceLanguage),
+    setStorageItem('generationLanguage', state.interfaceLanguage),
+    setStorageItem('theme', state.theme),
+  ]);
 
   const saveButton = elements.saveButton;
 

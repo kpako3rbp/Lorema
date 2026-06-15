@@ -1,7 +1,7 @@
 import { COMMAND_NAME } from 'src/shared/config/command';
 import { CONTENT_TYPES } from 'src/shared/config/content';
 import { ensureDefaultStorage } from 'src/shared/lib/storage';
-import { ContentType, ExtensionMessage, InsertMode } from 'src/shared/model/types';
+import { ContentType, InsertMode } from 'src/shared/model/types';
 
 import { createContextMenu, CUSTOM_MENU_ID, updateContextMenu } from './context-menu';
 import { sendInsertMessage } from './messaging';
@@ -36,10 +36,11 @@ chrome.runtime.onStartup.addListener(() => {
   void ensureDefaultStorage().then(createContextMenu);
 });
 
-chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
-  if (message.type === 'UPDATE_CONTEXT_MENU') {
-    void updateContextMenu();
-  }
+chrome.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName !== 'sync') return;
+  if (!changes.interfaceLanguage) return;
+
+  void updateContextMenu();
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
