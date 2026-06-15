@@ -1,3 +1,4 @@
+![Lorema Logo](public/icons/bg_en.jpg)
 # Lorema
 
 Read this in other languages: English | [Русский](./README_ru.md)
