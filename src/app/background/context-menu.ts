@@ -9,7 +9,7 @@ const SEPARATOR_MENU_ID = 'context-menu-separator';
 
 export const CUSTOM_MENU_ID = 'custom-insert-text';
 
-export const getMenuItemId = (mode: InsertMode, contentType: ContentType): string => {
+const getMenuItemId = (mode: InsertMode, contentType: ContentType): string => {
   return `${mode}:${contentType}`;
 };
 

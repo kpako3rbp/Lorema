@@ -32,12 +32,12 @@ chrome.runtime.onInstalled.addListener(async () => {
   await createContextMenu();
 });
 
-chrome.runtime.onStartup.addListener(() => {
-  void ensureDefaultStorage().then(createContextMenu);
+chrome.runtime.onStartup.addListener(async () => {
+  await ensureDefaultStorage();
+  await createContextMenu();
 });
 
-chrome.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName !== 'sync') return;
+chrome.storage.onChanged.addListener((changes) => {
   if (!changes.interfaceLanguage) return;
 
   void updateContextMenu();

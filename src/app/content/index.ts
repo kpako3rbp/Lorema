@@ -1,17 +1,52 @@
 import { insertQuickContent, showPopover } from 'src/popover';
-import { ExtensionMessage } from 'src/shared/model/types';
+import type { ExtensionMessage } from 'src/shared/model/types';
 
 import { createEmptyTargetSnapshot, getActiveTargetSnapshot, getEditableTargetSnapshot } from './snapshot';
-import { EditableTargetSnapshot } from './types';
+import type { EditableTargetSnapshot } from './types';
 
-const initContentScript = (): void => {
+type InsertMessage = Extract<
+  ExtensionMessage,
+  { type: 'INSERT_CONTENT_FROM_CONTEXT_MENU' | 'INSERT_CONTENT_FROM_HOTKEY' }
+>;
+
+const isInsertMessage = (message: ExtensionMessage): message is InsertMessage => {
+  return message.type === 'INSERT_CONTENT_FROM_CONTEXT_MENU' || message.type === 'INSERT_CONTENT_FROM_HOTKEY';
+};
+
+const markContentScriptAsLoaded = (): boolean => {
   const windowWithFlag = window as Window & {
     __loremBrowserExtensionLoaded?: boolean;
   };
 
-  if (windowWithFlag.__loremBrowserExtensionLoaded) return;
+  if (windowWithFlag.__loremBrowserExtensionLoaded) {
+    return false;
+  }
 
   windowWithFlag.__loremBrowserExtensionLoaded = true;
+
+  return true;
+};
+
+const getTargetForMessage = (message: InsertMessage, latestTarget: EditableTargetSnapshot): EditableTargetSnapshot => {
+  if (message.type === 'INSERT_CONTENT_FROM_HOTKEY') {
+    return getActiveTargetSnapshot();
+  }
+
+  if (message.mode === 'quick') {
+    return latestTarget;
+  }
+
+  if (latestTarget.element) {
+    return latestTarget;
+  }
+
+  return getActiveTargetSnapshot();
+};
+
+const initContentScript = (): void => {
+  const shouldInit = markContentScriptAsLoaded();
+
+  if (!shouldInit) return;
 
   let latestTarget: EditableTargetSnapshot = createEmptyTargetSnapshot();
 
@@ -24,12 +59,9 @@ const initContentScript = (): void => {
   );
 
   chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
-    if (message.type !== 'INSERT_CONTENT_FROM_CONTEXT_MENU' && message.type !== 'INSERT_CONTENT_FROM_HOTKEY') {
-      return;
-    }
+    if (!isInsertMessage(message)) return;
 
-    const target =
-      message.mode === 'quick' ? latestTarget : latestTarget.element ? latestTarget : getActiveTargetSnapshot();
+    const target = getTargetForMessage(message, latestTarget);
 
     if (message.mode === 'quick') {
       void insertQuickContent(message.contentType, target);
