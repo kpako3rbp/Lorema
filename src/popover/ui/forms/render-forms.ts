@@ -3,7 +3,7 @@ import { ContentType, Language, StorageSchema } from 'src/shared/model/types';
 
 import { renderAddressForm } from './render-address-form';
 import { renderEmailForm } from './render-email-form';
-import { renderFirstNameForm } from './render-firsrname-form';
+import { renderFirstNameForm } from './render-first-name-form';
 import { renderLastNameForm } from './render-lastname-form';
 import { renderLinkForm } from './render-link-form';
 import { renderPhoneForm } from './render-phone-form';

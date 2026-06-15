@@ -2,6 +2,7 @@ import { insertTextAtTarget } from 'src/app/content/insert-text-at-target';
 import { EditableTargetSnapshot } from 'src/app/content/types';
 import { generateContent } from 'src/generators';
 import { validatePhoneForm, validateTextForm } from 'src/popover/model/validation';
+import { getContentSettingsKey } from 'src/shared/config/content';
 import { setStorageItem } from 'src/shared/lib/storage';
 import { ContentType, Language, StorageSchema } from 'src/shared/model/types';
 
@@ -11,8 +12,10 @@ import { PopoverElements } from '../model/types';
 import { closeActivePopover } from './close-popover';
 
 const saveSettingsForContentType = async (contentType: ContentType, storage: StorageSchema): Promise<void> => {
+  const settingsKey = getContentSettingsKey(contentType);
+
   await setStorageItem('generationLanguage', storage.generationLanguage);
-  await setStorageItem(`${contentType}Settings`, storage[`${contentType}Settings`]);
+  await setStorageItem(settingsKey, storage[settingsKey]);
 };
 
 const validateFormByContentType = (
