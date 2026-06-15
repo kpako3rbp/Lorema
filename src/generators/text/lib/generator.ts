@@ -74,7 +74,10 @@ export const generateLorem = (options: LoremOptions): string => {
   const fullText = chunks.join('');
 
   if (!keepWholeSentencies) {
-    return fullText.slice(0, length);
+    const text = fullText.slice(0, length);
+    const trimmed = text.trim();
+
+    return text.length === trimmed.length ? text : `${trimmed}.`;
   }
 
   const isOverlimited = currentLength > length;
