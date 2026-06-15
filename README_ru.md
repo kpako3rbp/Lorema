@@ -1,6 +1,6 @@
 # Lorema
 
-Read this in other languages: [English](./READM.md) | Русский
+Прочесть README на других языках: [English](./READM.md) | Русский
 
 **Lorema** — браузерное расширение для быстрой вставки сгенерированного контента в редактируемые поля.
 
