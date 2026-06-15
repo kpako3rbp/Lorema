@@ -27,14 +27,14 @@ export const renderFooter = (interfaceLanguage: Language): string => {
         <p>${t.reportBug}</p>
       </a>
 
-      <a
+      <!-- <a
         href="https://chromewebstore.google.com"
         target="_blank"
         class="caption link-with-icon"
       >
         ${renderFeedbackIcon()}
         <p>${t.feedback}</p>
-      </a>
+      </a> -->
     </div>
   `;
 };
