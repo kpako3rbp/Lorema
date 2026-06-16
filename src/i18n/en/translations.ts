@@ -97,7 +97,7 @@ export const TRANSLATIONS_EN: Translation = {
     paragraphsCheckboxTooltip: 'Text will be split into paragraphs of 2–3 sentences',
     countryCodeTooltip: 'Country code with or without plus, for example: +7 or 7',
 
-    contentTitles: {
+    dataTitles: {
       text: 'Text',
       title: 'Title',
       email: 'Email',

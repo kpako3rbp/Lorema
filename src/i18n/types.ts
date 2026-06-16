@@ -1,4 +1,13 @@
-import { AddressFormat, ContentType, LengthPreset, PhoneFormat, TitleTopic } from 'src/shared/model/types';
+import { DataType } from 'src/modules/data-type';
+import {
+  AddressFormat,
+  EmailLengthPreset,
+  LinkLengthPreset,
+  NameLengthPreset,
+  PhoneFormat,
+  TitleLengthPreset,
+  TitleTopic,
+} from 'src/modules/generators';
 
 type ThemeTranslation = {
   light: string;
@@ -69,9 +78,9 @@ type PopoverTranslation = {
   paragraphsCheckboxTooltip: string;
   countryCodeTooltip: string;
 
-  contentTitles: Record<ContentType, string>;
+  dataTitles: Record<DataType, string>;
   titleTopics: Record<TitleTopic, string>;
-  lengthPreset: Record<LengthPreset, string>;
+  lengthPreset: Record<NameLengthPreset | TitleLengthPreset | EmailLengthPreset | LinkLengthPreset, string>;
   phoneFormatVariants: Record<PhoneFormat, string>;
   addressFormatVariants: Record<AddressFormat, string>;
 };
@@ -79,7 +88,7 @@ type PopoverTranslation = {
 type ContextTranslation = {
   paste: string;
   setupAndPaste: string;
-  items: Record<ContentType, string>;
+  items: Record<DataType, string>;
 };
 
 type PopupSupportTranslation = {
