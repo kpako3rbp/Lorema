@@ -2,7 +2,7 @@ import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
 import { PopoverElements } from '../model/types';
-import { getActiveContentType } from './get-active-content-type';
+import { getActiveDataType } from './get-active-data-type';
 
 const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
   const lengthMode = new FormData(form).get('lengthMode');
@@ -22,19 +22,19 @@ const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
 };
 
 const syncTabPanels = (form: HTMLFormElement): void => {
-  const activeContentType = new FormData(form).get('contentType');
+  const activeDataType = new FormData(form).get('dataType');
 
   const panels = form.querySelectorAll<HTMLElement>(`.${POPOVER_TAB_CLASSNAME}`);
 
   panels.forEach((panel) => {
-    panel.classList.toggle('active', panel.dataset.contentType === activeContentType);
+    panel.classList.toggle('active', panel.dataset.dataType === activeDataType);
   });
 };
 
 export const syncElementsUI = (elements: PopoverElements) => {
   syncTabPanels(elements.form);
 
-  if (getActiveContentType(elements.form) === 'text') {
+  if (getActiveDataType(elements.form) === 'text') {
     syncTextCheckboxesWithLengthMode(elements.form);
   }
 };

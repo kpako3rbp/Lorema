@@ -1,4 +1,4 @@
-import { ContentType } from 'src/modules/content-type';
+import { DataType } from 'src/modules/data-type';
 import { StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';
 
@@ -8,7 +8,7 @@ export type PopoverPosition = {
 };
 
 export type CreatePopoverParams = {
-  contentType: ContentType;
+  dataType: DataType;
   storage: StorageSchema;
   interfaceLanguage: Language;
   generationLanguage: Language;

@@ -2,7 +2,7 @@ import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selec
 
 import { POPOVER_CLASSNAME, POPOVER_IDS } from '../config/constants';
 import { CreatePopoverParams } from '../model/types';
-import { renderInsertContent } from './content/render-insert-content';
+import { renderInsertData } from './content/render-insert-data';
 import popoverStyles from './style.css?inline';
 
 const createHost = (params: CreatePopoverParams): HTMLDivElement => {
@@ -34,7 +34,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
   popover.dataset.theme = storage.theme;
   host.dataset.theme = storage.theme;
 
-  popover.innerHTML = renderInsertContent(params);
+  popover.innerHTML = renderInsertData(params);
 
   shadowRoot.append(createStyle(), popover);
   initCustomSelects(shadowRoot, interfaceLanguage);

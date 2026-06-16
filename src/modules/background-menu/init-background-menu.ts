@@ -27,9 +27,9 @@ export const initBackgroundMenu = () => {
 
     if (info.menuItemId === CUSTOM_MENU_ID) {
       void sendInsertMessage(tab.id, {
-        type: 'INSERT_CONTENT_FROM_CONTEXT_MENU',
+        type: 'INSERT_DATA_FROM_CONTEXT_MENU',
         mode: 'custom',
-        contentType: 'text',
+        dataType: 'text',
       });
 
       return;
@@ -40,9 +40,9 @@ export const initBackgroundMenu = () => {
     if (!parsedMenuItem) return;
 
     void sendInsertMessage(tab.id, {
-      type: 'INSERT_CONTENT_FROM_CONTEXT_MENU',
+      type: 'INSERT_DATA_FROM_CONTEXT_MENU',
       mode: parsedMenuItem.mode,
-      contentType: parsedMenuItem.contentType,
+      dataType: parsedMenuItem.dataType,
     });
   });
 
@@ -50,9 +50,9 @@ export const initBackgroundMenu = () => {
     if (command !== COMMANDS.openLoremPopover || !tab?.id) return;
 
     void sendInsertMessage(tab.id, {
-      type: 'INSERT_CONTENT_FROM_HOTKEY',
+      type: 'INSERT_DATA_FROM_HOTKEY',
       mode: 'custom',
-      contentType: 'text',
+      dataType: 'text',
     });
   });
 };

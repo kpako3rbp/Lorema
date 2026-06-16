@@ -8,8 +8,8 @@ import { CreatePopoverParams } from '../../model/types';
 import { renderForms } from '../forms/render-forms';
 import { renderTabs } from '../tabs/render-tabs';
 
-export const renderInsertContent = (params: CreatePopoverParams): string => {
-  const { contentType, storage, interfaceLanguage, generationLanguage } = params;
+export const renderInsertData = (params: CreatePopoverParams): string => {
+  const { dataType, storage, interfaceLanguage, generationLanguage } = params;
 
   const t = TRANSLATIONS[interfaceLanguage].popover;
 
@@ -38,7 +38,7 @@ export const renderInsertContent = (params: CreatePopoverParams): string => {
     </div>       
 
     <form id="${POPOVER_IDS.popoverForm}" class="lorem-form">
-      ${renderTabs(contentType, interfaceLanguage)} 
+      ${renderTabs(dataType, interfaceLanguage)} 
       
       ${renderForms(storage, interfaceLanguage)}
       

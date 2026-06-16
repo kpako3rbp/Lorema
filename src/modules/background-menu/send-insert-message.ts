@@ -1,9 +1,6 @@
 import { ExtensionMessage } from '../messages';
 
-type InsertMessage = Extract<
-  ExtensionMessage,
-  { type: 'INSERT_CONTENT_FROM_CONTEXT_MENU' | 'INSERT_CONTENT_FROM_HOTKEY' }
->;
+type InsertMessage = Extract<ExtensionMessage, { type: 'INSERT_DATA_FROM_CONTEXT_MENU' | 'INSERT_DATA_FROM_HOTKEY' }>;
 
 const getContentScriptFile = (): string | null => {
   const manifest = chrome.runtime.getManifest();

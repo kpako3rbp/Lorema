@@ -1,53 +1,49 @@
-import { generateContent } from 'src/modules/content-generator';
-import { ContentType } from 'src/modules/content-type';
+import { generateData } from 'src/modules/data-generator';
+import { DataType } from 'src/modules/data-type';
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import { validatePhoneForm, validateTextForm } from 'src/modules/popover/model/validation';
 import { setStorageItem, StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';
 
-import { getActiveContentType } from '../lib/get-active-content-type';
-import { readContentSettingsFromForm } from '../lib/read-content-settings-from-form';
+import { getActiveDataType } from '../lib/get-active-data-type';
+import { readDataSettingsFromForm } from '../lib/read-data-settings-from-form';
 import { PopoverElements } from '../model/types';
 import { closeActivePopover } from './close-popover';
 
-const saveSettingsForContentType = async (contentType: ContentType, storage: StorageSchema): Promise<void> => {
+const saveSettingsForDataType = async (dataType: DataType, storage: StorageSchema): Promise<void> => {
   await setStorageItem('generationLanguage', storage.generationLanguage);
-  await setStorageItem(`${contentType}Settings`, storage[`${contentType}Settings`]);
+  await setStorageItem(`${dataType}Settings`, storage[`${dataType}Settings`]);
 };
 
-const validateFormByContentType = (
-  contentType: ContentType,
-  form: HTMLFormElement,
-  interfaceLanguage: Language,
-): boolean => {
-  const validators: Partial<Record<ContentType, () => boolean>> = {
+const validateFormByDataType = (dataType: DataType, form: HTMLFormElement, interfaceLanguage: Language): boolean => {
+  const validators: Partial<Record<DataType, () => boolean>> = {
     text: () => validateTextForm(form, interfaceLanguage),
     phone: () => validatePhoneForm(form, interfaceLanguage),
   };
 
-  return validators[contentType]?.() ?? true;
+  return validators[dataType]?.() ?? true;
 };
 
-const submitContent = async (
-  contentType: ContentType,
+const submitData = async (
+  dataType: DataType,
   elements: PopoverElements,
   storage: StorageSchema,
   target: EditableTargetSnapshot,
 ): Promise<void> => {
-  const nextStorage = readContentSettingsFromForm(contentType, elements.form, elements.languageSelect, storage);
+  const nextStorage = readDataSettingsFromForm(dataType, elements.form, elements.languageSelect, storage);
 
   if (!nextStorage) return;
 
-  await saveSettingsForContentType(contentType, nextStorage);
-  insertTextAtTarget(target.element, generateContent(contentType, nextStorage), target.savedRange);
+  await saveSettingsForDataType(dataType, nextStorage);
+  insertTextAtTarget(target.element, generateData(dataType, nextStorage), target.savedRange);
   closeActivePopover();
 };
 
 export const submitForm = (elements: PopoverElements, storage: StorageSchema, target: EditableTargetSnapshot): void => {
-  const contentType = getActiveContentType(elements.form);
-  const isValid = validateFormByContentType(contentType, elements.form, storage.interfaceLanguage);
+  const dataType = getActiveDataType(elements.form);
+  const isValid = validateFormByDataType(dataType, elements.form, storage.interfaceLanguage);
 
   if (!isValid) return;
 
-  void submitContent(contentType, elements, storage, target);
+  void submitData(dataType, elements, storage, target);
 };

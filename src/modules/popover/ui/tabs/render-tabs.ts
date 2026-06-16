@@ -1,5 +1,5 @@
 import { TRANSLATIONS } from 'src/i18n';
-import { CONTENT_TYPES, ContentType } from 'src/modules/content-type';
+import { DATA_TYPES, DataType } from 'src/modules/data-type';
 import { Language } from 'src/shared/model/types';
 import { renderAddressIcon } from 'src/shared/ui/icons/address';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';
@@ -10,7 +10,7 @@ import { renderPhoneIcon } from 'src/shared/ui/icons/phone';
 import { renderTextIcon } from 'src/shared/ui/icons/text';
 import { renderTitleIcon } from 'src/shared/ui/icons/title';
 
-const mapTypeToIcon: Record<ContentType, string> = {
+const mapTypeToIcon: Record<DataType, string> = {
   text: renderTextIcon(),
   title: renderTitleIcon(),
   email: renderEmailIcon(),
@@ -21,23 +21,23 @@ const mapTypeToIcon: Record<ContentType, string> = {
   lastName: renderLastNameIcon(),
 };
 
-export const renderTabs = (activeContentType: ContentType, interfaceLanguage: Language): string => {
+export const renderTabs = (activeDataType: DataType, interfaceLanguage: Language): string => {
   const t = TRANSLATIONS[interfaceLanguage].popover;
 
   return /*html*/ `
     <div class="lorem-tabs">
-      ${CONTENT_TYPES.map(
-        (contentType) => /*html*/ `
+      ${DATA_TYPES.map(
+        (dataType) => /*html*/ `
           <label class="lorem-tab">
             <input
               type="radio"
-              name="contentType"
-              value="${contentType}"
-              ${activeContentType === contentType ? 'checked' : ''}
+              name="dataType"
+              value="${dataType}"
+              ${activeDataType === dataType ? 'checked' : ''}
             />
             <span>
-              ${mapTypeToIcon[contentType]}
-              ${t.contentTitles[contentType]}
+              ${mapTypeToIcon[dataType]}
+              ${t.dataTitles[dataType]}
             </span>
           </label>
         `,

@@ -1,4 +1,4 @@
-import { ContentType } from 'src/modules/content-type';
+import { DataType } from 'src/modules/data-type';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -78,7 +78,7 @@ type PopoverTranslation = {
   paragraphsCheckboxTooltip: string;
   countryCodeTooltip: string;
 
-  contentTitles: Record<ContentType, string>;
+  dataTitles: Record<DataType, string>;
   titleTopics: Record<TitleTopic, string>;
   lengthPreset: Record<NameLengthPreset | TitleLengthPreset | EmailLengthPreset | LinkLengthPreset, string>;
   phoneFormatVariants: Record<PhoneFormat, string>;
@@ -88,7 +88,7 @@ type PopoverTranslation = {
 type ContextTranslation = {
   paste: string;
   setupAndPaste: string;
-  items: Record<ContentType, string>;
+  items: Record<DataType, string>;
 };
 
 type PopupSupportTranslation = {

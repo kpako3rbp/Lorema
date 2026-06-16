@@ -1,4 +1,4 @@
-import { ContentType } from 'src/modules/content-type';
+import { DataType } from 'src/modules/data-type';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -15,15 +15,15 @@ import { StorageSchema } from 'src/modules/storage';
 import { getCheckboxValue, getInputValue, getSelectedValue, getSelectedValues } from 'src/shared/lib/form-element';
 import { Language } from 'src/shared/model/types';
 
-export const readContentSettingsFromForm = (
-  contentType: ContentType,
+export const readDataSettingsFromForm = (
+  dataType: DataType,
   form: HTMLFormElement,
   languageSelect: HTMLSelectElement,
   storage: StorageSchema,
 ): StorageSchema => {
   const getLanguage = (): Language => languageSelect.value as Language;
 
-  const handlers: Record<ContentType, () => Partial<StorageSchema>> = {
+  const handlers: Record<DataType, () => Partial<StorageSchema>> = {
     text: () => {
       const lengthMode = new FormData(form).get('lengthMode') as LengthMode;
 
@@ -99,13 +99,13 @@ export const readContentSettingsFromForm = (
     },
   };
 
-  const contentSettings = handlers[contentType]();
+  const dataSettings = handlers[dataType]();
 
-  if (!contentSettings) return storage;
+  if (!dataSettings) return storage;
 
   return {
     ...storage,
     generationLanguage: getLanguage(),
-    ...contentSettings,
+    ...dataSettings,
   };
 };

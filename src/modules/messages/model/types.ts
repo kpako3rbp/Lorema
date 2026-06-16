@@ -1,16 +1,16 @@
-import { InsertMode } from 'src/modules/content-insertion';
-import { ContentType } from 'src/modules/content-type';
+import { InsertMode } from 'src/modules/data-insertion';
+import { DataType } from 'src/modules/data-type';
 
 export type ExtensionMessage =
   | {
-      type: 'INSERT_CONTENT_FROM_CONTEXT_MENU';
+      type: 'INSERT_DATA_FROM_CONTEXT_MENU';
       mode: InsertMode;
-      contentType: ContentType;
+      dataType: DataType;
     }
   | {
-      type: 'INSERT_CONTENT_FROM_HOTKEY';
+      type: 'INSERT_DATA_FROM_HOTKEY';
       mode: InsertMode;
-      contentType: ContentType;
+      dataType: DataType;
     }
   | {
       type: 'UPDATE_CONTEXT_MENU';

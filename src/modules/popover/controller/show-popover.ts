@@ -1,4 +1,4 @@
-import { ContentType } from 'src/modules/content-type';
+import { DataType } from 'src/modules/data-type';
 import { EditableTargetSnapshot } from 'src/modules/editable-target';
 import { loadPopoverFonts } from 'src/modules/popover/lib/load-popover-fonts';
 import { movePopoverInsideViewport } from 'src/modules/popover/lib/move-popover-inside-viewport';
@@ -9,14 +9,14 @@ import { getPopoverElements } from '../lib/get-popover-elements';
 import { closeActivePopover } from './close-popover';
 import { registerPopoverEvents } from './register-events';
 
-export const showPopover = async (contentType: ContentType, target: EditableTargetSnapshot): Promise<void> => {
+export const showPopover = async (dataType: DataType, target: EditableTargetSnapshot): Promise<void> => {
   closeActivePopover();
   const storage = await getStorageItems();
 
   await loadPopoverFonts();
 
   const popover = createPopover({
-    contentType,
+    dataType,
     storage,
     interfaceLanguage: storage.interfaceLanguage,
     generationLanguage: storage.generationLanguage,

@@ -2,16 +2,16 @@ import { TRANSLATIONS } from 'src/i18n';
 import { getStorageItem } from 'src/modules/storage';
 import { COMMANDS } from 'src/shared/config/commands';
 
-import { InsertMode } from '../content-insertion';
-import { CONTENT_TYPES, ContentType } from '../content-type';
+import { InsertMode } from '../data-insertion';
+import { DATA_TYPES, DataType } from '../data-type';
 
 const ROOT_MENU_ID = 'quick-insert-text';
 const SEPARATOR_MENU_ID = 'context-menu-separator';
 
 export const CUSTOM_MENU_ID = 'custom-insert-text';
 
-const getMenuItemId = (mode: InsertMode, contentType: ContentType): string => {
-  return `${mode}:${contentType}`;
+const getMenuItemId = (mode: InsertMode, dataType: DataType): string => {
+  return `${mode}:${dataType}`;
 };
 
 const getOpenPopoverCommandShortcut = async () => {
@@ -41,11 +41,11 @@ export const createContextMenu = async (): Promise<void> => {
     contexts: ['editable'],
   });
 
-  for (const contentType of CONTENT_TYPES) {
+  for (const dataType of DATA_TYPES) {
     chrome.contextMenus.create({
-      id: getMenuItemId('quick', contentType),
+      id: getMenuItemId('quick', dataType),
       parentId: ROOT_MENU_ID,
-      title: t.items[contentType],
+      title: t.items[dataType],
       contexts: ['editable'],
     });
   }
