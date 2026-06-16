@@ -1,12 +1,18 @@
 {
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint-all": "npm run typecheck && npm run lint",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.4.0",
     "@types/chrome": "^0.0.268",
     "eslint-config-rtkit": "^3.0.5",
+    "eslint-plugin-boundaries": "^6.0.2",
+    "husky": "^9.1.7",
     "typescript": "^5.5.4",
     "vite": "^5.4.0"
   }
