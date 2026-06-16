@@ -1,8 +1,10 @@
 import { TRANSLATIONS } from 'src/i18n';
 import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from 'src/modules/generators';
 import { getRequiredElement } from 'src/shared/lib/query-element';
-import { showInputError, validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';
+import { numberWithSpaces } from 'src/shared/lib/string';
+import { validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';
 import { Language } from 'src/shared/model/types';
+import { showInputError } from 'src/shared/ui/form-error/show-input-error';
 
 import { POPOVER_IDS } from '../config/constants';
 
@@ -14,8 +16,8 @@ export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Langu
 
   const result = validateNumberInput(inputEL, 1, MAX_TEXT_CHARS, {
     invalid: t.invalid,
-    min: `${t.min} ${MIN_TEXT_CHARS}`,
-    max: `${t.max} ${MAX_TEXT_CHARS}`,
+    min: `${t.min} ${numberWithSpaces(MIN_TEXT_CHARS)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_TEXT_CHARS)}`,
   });
 
   showInputError(inputEL, errorEl, result.message);
@@ -38,8 +40,8 @@ export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: Lang
 
   const digitsCountResult = validateNumberInput(digitsCountInput, MIN_PHONE_DIGITS, MAX_PHONE_DIGITS, {
     invalid: t.invalid,
-    min: `${t.min} ${MIN_PHONE_DIGITS}`,
-    max: `${t.max} ${MAX_PHONE_DIGITS}`,
+    min: `${t.min} ${numberWithSpaces(MIN_PHONE_DIGITS)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_PHONE_DIGITS)}`,
   });
 
   showInputError(countryCodeInput, countryCodeError, countryCodeResult.message);
