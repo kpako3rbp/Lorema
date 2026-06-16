@@ -1,4 +1,4 @@
-import { generateData } from 'src/modules/data-generator';
+import { generateData } from 'src/modules/data-generation';
 import { DataType } from 'src/modules/data-type';
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import { validatePhoneForm, validateTextForm } from 'src/modules/popover/model/validation';

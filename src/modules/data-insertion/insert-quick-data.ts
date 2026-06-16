@@ -1,7 +1,7 @@
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import { getStorageItems } from 'src/modules/storage';
 
-import { generateData } from '../data-generator';
+import { generateData } from '../data-generation';
 import { DataType } from '../data-type';
 
 export const insertQuickData = async (dataType: DataType, target: EditableTargetSnapshot): Promise<void> => {

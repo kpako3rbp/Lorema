@@ -1,5 +1,5 @@
-import { DataType } from '../model/data-type';
-
-export const DATA_TYPES: DataType[] = ['text', 'title', 'email', 'link', 'phone', 'address', 'firstName', 'lastName'];
+export const DATA_TYPES = ['text', 'title', 'email', 'link', 'phone', 'address', 'firstName', 'lastName'] as const;
 
 export const DEFAULT_DATA_TYPE: DataType = 'text';
+
+export type DataType = (typeof DATA_TYPES)[number];
