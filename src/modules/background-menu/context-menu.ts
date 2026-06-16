@@ -1,6 +1,6 @@
 import { TRANSLATIONS } from 'src/i18n';
 import { getStorageItem } from 'src/modules/storage';
-import { COMMAND_NAME } from 'src/shared/config/command';
+import { COMMANDS } from 'src/shared/config/commands';
 
 import { InsertMode } from '../content-insertion';
 import { CONTENT_TYPES, ContentType } from '../content-type';
@@ -14,9 +14,9 @@ const getMenuItemId = (mode: InsertMode, contentType: ContentType): string => {
   return `${mode}:${contentType}`;
 };
 
-const getCommandShortcut = async () => {
+const getOpenPopoverCommandShortcut = async () => {
   const commands = await chrome.commands.getAll();
-  const command = commands.find((item) => item.name === COMMAND_NAME);
+  const command = commands.find((item) => item.name === COMMANDS.openLoremPopover);
 
   return command?.shortcut;
 };
@@ -31,13 +31,13 @@ const getRootTitle = async (shortcut?: string): Promise<string> => {
 export const createContextMenu = async (): Promise<void> => {
   const interfaceLanguage = await getStorageItem('interfaceLanguage');
   const t = TRANSLATIONS[interfaceLanguage].context;
-  const shortcut = await getCommandShortcut();
+  const openPopoverShortcut = await getOpenPopoverCommandShortcut();
 
   await chrome.contextMenus.removeAll();
 
   chrome.contextMenus.create({
     id: ROOT_MENU_ID,
-    title: await getRootTitle(shortcut),
+    title: await getRootTitle(openPopoverShortcut),
     contexts: ['editable'],
   });
 
@@ -61,7 +61,7 @@ export const createContextMenu = async (): Promise<void> => {
   chrome.contextMenus.create({
     id: CUSTOM_MENU_ID,
     parentId: ROOT_MENU_ID,
-    title: shortcut ? `${t.setupAndPaste} (${shortcut})` : t.setupAndPaste,
+    title: openPopoverShortcut ? `${t.setupAndPaste} (${openPopoverShortcut})` : t.setupAndPaste,
     contexts: ['editable'],
   });
 };

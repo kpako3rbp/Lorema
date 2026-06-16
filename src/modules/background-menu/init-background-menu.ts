@@ -1,5 +1,5 @@
 import { ensureDefaultStorage } from 'src/modules/storage';
-import { COMMAND_NAME } from 'src/shared/config/command';
+import { COMMANDS } from 'src/shared/config/commands';
 
 import { createContextMenu, CUSTOM_MENU_ID, updateContextMenu } from './context-menu';
 import { parseMenuItemId } from './parse-menu-item-id';
@@ -47,7 +47,7 @@ export const initBackgroundMenu = () => {
   });
 
   chrome.commands.onCommand.addListener((command, tab) => {
-    if (command !== COMMAND_NAME || !tab?.id) return;
+    if (command !== COMMANDS.openLoremPopover || !tab?.id) return;
 
     void sendInsertMessage(tab.id, {
       type: 'INSERT_CONTENT_FROM_HOTKEY',
