@@ -11,6 +11,7 @@ import {
 import { Language, Theme } from 'src/shared/model/types';
 
 export type StorageSchema = {
+  // Settings
   textSettings: TextSettings;
   titleSettings: TitleSettings;
   emailSettings: EmailSettings;

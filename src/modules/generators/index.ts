@@ -1,7 +1,14 @@
+export { generateAddress } from './address/lib/generator';
 export type { AddressFormat, AddressSettings } from './address/model/types';
+export { generateEmail } from './email/lib/generator';
 export type { EmailLengthPreset, EmailSettings } from './email/model/types';
+export { generateLink } from './link/lib/generator';
 export type { LinkLengthPreset, LinkPrefix, LinkSettings } from './link/model/types';
+export { generateFirstName, generateLastName } from './person/lib/generator';
 export type { FirstNameSettings, LastNameSettings, NameLengthPreset } from './person/model/types';
+export { generatePhone } from './phone/lib/generator';
 export type { PhoneFormat, PhoneSettings } from './phone/model/types';
+export { generateLorem } from './text/lib/generator';
 export type { LengthMode, TextSettings } from './text/model/types';
+export { generateTitle } from './title/lib/generator';
 export type { TitleLengthPreset, TitleSettings, TitleTopic } from './title/model/types';

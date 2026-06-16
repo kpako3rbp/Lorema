@@ -10,16 +10,20 @@ const mergeObject = <T extends object>(defaults: T, value: unknown): T => {
   };
 };
 
-export const getStorageItem = async <Key extends keyof StorageSchema>(key: Key): Promise<StorageSchema[Key]> => {
-  const items = (await chrome.storage.sync.get([key])) as Partial<StorageSchema>;
-  const value = items[key];
+const normalizeStorageValue = <Key extends keyof StorageSchema>(key: Key, value: unknown): StorageSchema[Key] => {
   const defaults = DEFAULT_STORAGE_VALUES[key];
 
   if (typeof defaults === 'object' && defaults !== null) {
     return mergeObject(defaults, value) as StorageSchema[Key];
   }
 
-  return value ?? defaults;
+  return (value ?? defaults) as StorageSchema[Key];
+};
+
+export const getStorageItem = async <Key extends keyof StorageSchema>(key: Key): Promise<StorageSchema[Key]> => {
+  const items = (await chrome.storage.sync.get([key])) as Partial<StorageSchema>;
+
+  return normalizeStorageValue(key, items[key]);
 };
 
 export const setStorageItem = async <Key extends keyof StorageSchema>(
@@ -35,11 +39,10 @@ export const getStorageItems = async <Key extends keyof StorageSchema>(
   keys?: readonly Key[],
 ): Promise<StorageSchema | Pick<StorageSchema, Key>> => {
   const storageKeys = keys ?? (Object.keys(DEFAULT_STORAGE_VALUES) as Key[]);
-
-  const result = await chrome.storage.sync.get(storageKeys);
+  const items = (await chrome.storage.sync.get(storageKeys)) as Partial<StorageSchema>;
 
   return storageKeys.reduce<Partial<StorageSchema>>((acc, key) => {
-    acc[key] = result[key] ?? DEFAULT_STORAGE_VALUES[key];
+    acc[key] = normalizeStorageValue(key, items[key]);
 
     return acc;
   }, {}) as StorageSchema | Pick<StorageSchema, Key>;
