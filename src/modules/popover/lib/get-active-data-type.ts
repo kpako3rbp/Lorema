@@ -1,5 +1,11 @@
-import { DataType } from 'src/modules/data-type';
+import { DataType, DEFAULT_DATA_TYPE, isDataType } from 'src/modules/data-type';
 
 export const getActiveDataType = (form: HTMLFormElement): DataType => {
-  return new FormData(form).get('dataType') as DataType;
+  const value = new FormData(form).get('dataType');
+
+  if (!isDataType(value)) {
+    return DEFAULT_DATA_TYPE;
+  }
+
+  return value;
 };

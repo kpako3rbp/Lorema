@@ -1,6 +1,5 @@
 import { TRANSLATIONS } from 'src/i18n';
-import { MAX_PHONE_DIGITS, MIN_PHONE_DIGITS } from 'src/modules/generators/phone/config/constants';
-import { MAX_TEXT_CHARS, MIN_TEXT_CHARS } from 'src/modules/generators/text/config/constants';
+import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from 'src/modules/generators';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 import { showInputError, validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';
 import { Language } from 'src/shared/model/types';

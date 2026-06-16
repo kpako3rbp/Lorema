@@ -1,6 +1,7 @@
 import { ensureDefaultStorage } from 'src/modules/storage';
 import { COMMANDS } from 'src/shared/config/commands';
 
+import { DEFAULT_DATA_TYPE } from '../data-type';
 import { createContextMenu, CUSTOM_MENU_ID, updateContextMenu } from './context-menu';
 import { parseMenuItemId } from './parse-menu-item-id';
 import { sendInsertMessage } from './send-insert-message';
@@ -29,7 +30,7 @@ export const initBackgroundMenu = () => {
       void sendInsertMessage(tab.id, {
         type: 'INSERT_DATA_FROM_CONTEXT_MENU',
         mode: 'custom',
-        dataType: 'text',
+        dataType: DEFAULT_DATA_TYPE,
       });
 
       return;
@@ -52,7 +53,7 @@ export const initBackgroundMenu = () => {
     void sendInsertMessage(tab.id, {
       type: 'INSERT_DATA_FROM_HOTKEY',
       mode: 'custom',
-      dataType: 'text',
+      dataType: DEFAULT_DATA_TYPE,
     });
   });
 };
