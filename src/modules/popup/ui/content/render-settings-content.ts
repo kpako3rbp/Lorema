@@ -53,7 +53,7 @@ export const renderSettingsContent = (interfaceLanguage: Language, theme: Theme)
         ${t.save}
       </button>
 
-      <button id="${POPUP_IDS.showSupportButton}" class="box donate-wrapper" type="button">
+      <button id="${POPUP_IDS.showSupportButton}" class="lorem-box donate-wrapper" type="button">
         <div class="text-wrapper">
           <div class="coffee">
             <img src="/icons/coffee4.svg" alt="coffee">

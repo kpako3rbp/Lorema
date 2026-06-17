@@ -31,110 +31,122 @@ export const TRANSLATIONS_RU: Translation = {
   },
 
   popover: {
-    title: 'Настройки',
-    titleTooltip: 'Настройки сохранятся автоматически после вставки',
+    dataGeneration: {
+      title: 'Настройки',
+      titleTooltip: 'Настройки сохранятся автоматически после вставки',
 
-    insert: 'Вставить',
-    insertKey: 'Enter',
-    cancel: 'Отмена',
-    cancelKey: 'Esc',
+      insert: 'Вставить',
+      insertKey: 'Enter',
+      cancel: 'Отмена',
+      cancelKey: 'Esc',
 
-    saveHint: 'Настройки будут использованы при дальнейших вставках',
-    trimHint: 'При выборе строгого равенства текст может обрезаться',
+      saveHint: 'Настройки будут использованы при дальнейших вставках',
+      trimHint: 'При выборе строгого равенства текст может обрезаться',
 
-    generationLanguage: 'Язык генерации',
+      generationLanguage: 'Язык генерации',
 
-    textParams: 'Параметры текста',
-    titleParams: 'Параметры заголовка',
-    emailParams: 'Параметры email',
-    linkParams: 'Параметры ссылки',
-    phoneParams: 'Параметры телефона',
-    addressParams: 'Параметры адреса',
-    firstNameParams: 'Параметры имени',
-    lastNameParams: 'Параметры фамилии',
+      textParams: 'Параметры текста',
+      titleParams: 'Параметры заголовка',
+      emailParams: 'Параметры email',
+      linkParams: 'Параметры ссылки',
+      phoneParams: 'Параметры телефона',
+      addressParams: 'Параметры адреса',
+      firstNameParams: 'Параметры имени',
+      lastNameParams: 'Параметры фамилии',
 
-    length: 'Количество символов',
-    lengthMode: 'Режим',
-    keepWholeSentencies: 'Не обрезать предложения',
-    paragraphs: 'Разбить на абзацы',
+      length: 'Количество символов',
+      lengthMode: 'Режим',
+      keepWholeSentencies: 'Не обрезать предложения',
+      paragraphs: 'Разбить на абзацы',
 
-    maxLoginLength: 'Максимальная длина логина',
-    loginLength: 'Длина логина',
+      maxLoginLength: 'Максимальная длина логина',
+      loginLength: 'Длина логина',
 
-    prefix: 'Префикс',
-    linkPrefix: 'Префикс',
-    maxLinkLength: 'Максимальная длина после префикса',
-    linkLength: 'Размер ссылки',
+      prefix: 'Префикс',
+      linkPrefix: 'Префикс',
+      maxLinkLength: 'Максимальная длина после префикса',
+      linkLength: 'Размер ссылки',
 
-    phoneFormat: 'Формат',
-    countryCode: 'Код',
-    digitsCount: 'Количество цифр',
+      phoneFormat: 'Формат',
+      countryCode: 'Код',
+      digitsCount: 'Количество цифр',
 
-    addressFormat: 'Формат',
+      addressFormat: 'Формат',
 
-    firstNameLength: 'Размер имени',
-    lastNameLength: 'Размер фамилии',
+      firstNameLength: 'Размер имени',
+      lastNameLength: 'Размер фамилии',
 
-    titleLength: 'Размер',
-    titleTopic: 'Тема',
+      titleLength: 'Размер',
+      titleTopic: 'Тема',
 
-    addressFormatVariants: {
-      short: 'Короткий',
-      full: 'Подробный',
-      postal: 'Почтовый',
-      legal: 'Юридический',
+      addressFormatVariants: {
+        short: 'Короткий',
+        full: 'Подробный',
+        postal: 'Почтовый',
+        legal: 'Юридический',
+      },
+
+      min: 'Минимум',
+      max: 'Максимум',
+      maxWarning: 'Если указать слишком мало символов, предложения могут обрезаться',
+      invalid: 'Неверный формат',
+      required: 'Обязательно',
+
+      lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме (=) последнее слово может обрезаться',
+      keepWholeSentenciesTooltip: 'Последнее предложение всегда будет полным с точкой в конце',
+      paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–4 предложения',
+      countryCodeTooltip: 'Код страны с плюсом или без, например: +7 или 7',
+
+      dataTitles: {
+        text: 'Текст',
+        title: 'Заголовок',
+        email: 'Email',
+        link: 'Ссылка',
+        phone: 'Телефон',
+        address: 'Адрес',
+        firstName: 'Имя',
+        lastName: 'Фамилия',
+      },
+
+      titleTopics: {
+        business: 'Бизнес',
+        it: 'IT',
+        art: 'Искусство',
+        science: 'Наука',
+        finance: 'Финансы',
+        marketing: 'Маркетинг',
+      },
+
+      lengthPreset: {
+        xsm: 'Очень короткий',
+        sm: 'Короткий',
+        md: 'Средний',
+        lg: 'Длинный',
+        xlg: 'Очень длинный',
+      },
+
+      phoneFormatVariants: {
+        compact: 'Слитно',
+        brackets: 'Скобки и дефисы',
+        dash: 'Дефисы',
+        spaces: 'Пробелы',
+      },
     },
-
-    min: 'Минимум',
-    max: 'Максимум',
-    maxWarning: 'Если указать слишком мало символов, предложения могут обрезаться',
-    invalid: 'Неверный формат',
-    required: 'Обязательно',
-
-    lengthModeTooltip: 'Выбор точности количества символов. В строгом режиме (=) последнее слово может обрезаться',
-    keepWholeSentenciesTooltip: 'Последнее предложение всегда будет полным с точкой в конце',
-    paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–4 предложения',
-    countryCodeTooltip: 'Код страны с плюсом или без, например: +7 или 7',
-
-    dataTitles: {
-      text: 'Текст',
-      title: 'Заголовок',
-      email: 'Email',
-      link: 'Ссылка',
-      phone: 'Телефон',
-      address: 'Адрес',
-      firstName: 'Имя',
-      lastName: 'Фамилия',
-    },
-
-    titleTopics: {
-      business: 'Бизнес',
-      it: 'IT',
-      art: 'Искусство',
-      science: 'Наука',
-      finance: 'Финансы',
-      marketing: 'Маркетинг',
-    },
-
-    lengthPreset: {
-      xsm: 'Очень короткий',
-      sm: 'Короткий',
-      md: 'Средний',
-      lg: 'Длинный',
-      xlg: 'Очень длинный',
-    },
-
-    phoneFormatVariants: {
-      compact: 'Слитно',
-      brackets: 'Скобки и дефисы',
-      dash: 'Дефисы',
-      spaces: 'Пробелы',
+    textStatistics: {
+      title: 'Подсчет символов',
+      characters: 'Всего символов',
+      charactersWithoutSpaces: 'Без пробелов',
+      spaces: 'Пробелов',
+      words: 'Слов',
+      sentences: 'Предложений',
+      paragraphs: 'Абзацев',
     },
   },
 
   context: {
     paste: 'Вставить контент',
     setupAndPaste: '⚙︎ Настроить и вставить',
+    calculateTextStatistics: 'Посчитать символы',
     items: {
       text: '📄 Текст-рыба',
       title: '🅰️ Заголовок',

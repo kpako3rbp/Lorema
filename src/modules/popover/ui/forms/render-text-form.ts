@@ -7,7 +7,7 @@ import { Language } from 'src/shared/model/types';
 import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
 export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Language) => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.textSettings;
   const isExactMode = settings.lengthMode === 'exact';
 

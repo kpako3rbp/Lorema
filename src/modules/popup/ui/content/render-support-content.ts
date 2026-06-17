@@ -37,7 +37,7 @@ export const renderSupportContent = (interfaceLanguage: Language): string => {
       <div>
         <span class="lorem-label">${t.rubles}</span>
 
-        <a class="box" href="${PAYMENT_LINK}" target="_blank">
+        <a class="lorem-box" href="${PAYMENT_LINK}" target="_blank">
           <div class="text-wrapper">
             <img src="/icons/spb.svg" alt="card">
             <p class="description">${t.sbp}</p>
@@ -50,7 +50,7 @@ export const renderSupportContent = (interfaceLanguage: Language): string => {
         <span class="lorem-label">${t.crypto}</span>
         ${renderCopyElement({
           value: USDT_WALLET,
-          className: 'box',
+          className: 'lorem-box',
           content: /*html*/ `
             <div class="text-wrapper">
               <img src="/icons/tether.svg" alt="tether">
@@ -77,7 +77,7 @@ export const renderSupportContent = (interfaceLanguage: Language): string => {
 
         ${renderCopyElement({
           value: TON_WALLET,
-          className: 'box',
+          className: 'lorem-box',
           content: /*html*/ `
             <div class="text-wrapper">
               <img src="/icons/ton.svg" alt="ton">

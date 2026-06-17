@@ -2,12 +2,12 @@ import { EditableTargetSnapshot } from 'src/modules/editable-target';
 import { StorageSchema } from 'src/modules/storage';
 
 import { syncElementsUI } from '../lib/sync-ui';
-import { PopoverElements } from '../model/types';
+import { PopoverGenerationElements } from '../model/types';
 import { closeActivePopover, closePopoverOnOutsideClick } from './close-popover';
 import { submitForm } from './submit-form';
 
-export const registerPopoverEvents = (
-  elements: PopoverElements,
+export const registerGenerationPopoverEvents = (
+  elements: PopoverGenerationElements,
   storage: StorageSchema,
   target: EditableTargetSnapshot,
 ): void => {

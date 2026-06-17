@@ -9,7 +9,7 @@ import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-se
 const LINK_PREFIXES: LinkPrefix[] = ['https://', 'http://', 'www.'];
 
 export const renderLinkForm = (storage: StorageSchema, interfaceLanguage: Language): string => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.linkSettings;
 
   return /*html*/ `

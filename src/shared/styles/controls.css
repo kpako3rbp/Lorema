@@ -252,6 +252,18 @@
   font-size: 12px;
 }
 
+.lorem-cancel.close-button {
+  padding: 4px;
+  width: fit-content;
+  border-radius: var(--radius-s);
+
+  svg {
+    height: 13px;
+    width: 13px;
+    stroke-width: 3px;
+  }
+}
+
 .lorem-submit {
   border: var(--active-button-boder);
   color: var(--color-active-button-text);

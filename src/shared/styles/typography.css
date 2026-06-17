@@ -18,6 +18,7 @@
   gap: 6px;
   color: var(--color-text-label);
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .lorem-descriptor {

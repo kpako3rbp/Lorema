@@ -1,7 +1,7 @@
 import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
-import { PopoverElements } from '../model/types';
+import { PopoverGenerationElements } from '../model/types';
 import { getActiveDataType } from './get-active-data-type';
 
 const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
@@ -31,7 +31,7 @@ const syncTabPanels = (form: HTMLFormElement): void => {
   });
 };
 
-export const syncElementsUI = (elements: PopoverElements) => {
+export const syncElementsUI = (elements: PopoverGenerationElements) => {
   syncTabPanels(elements.form);
 
   if (getActiveDataType(elements.form) === 'text') {

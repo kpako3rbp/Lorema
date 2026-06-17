@@ -1,11 +1,7 @@
 import { TextInputElement } from 'src/shared/lib/query-element';
+import { CursorPosition } from 'src/shared/model/types';
 
 export type EditableTarget = TextInputElement | HTMLElement;
-
-export type CursorPosition = {
-  x: number;
-  y: number;
-};
 
 export type EditableTargetSnapshot = {
   element: EditableTarget | null;

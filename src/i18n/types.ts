@@ -19,7 +19,37 @@ type CustomSelectTranslation = {
   random: string;
 };
 
-type PopoverTranslation = {
+type ContextTranslation = {
+  paste: string;
+  setupAndPaste: string;
+  calculateTextStatistics: string;
+  items: Record<DataType, string>;
+};
+
+type PopupSupportTranslation = {
+  back: string;
+  thanks: string;
+  description: string;
+  rubles: string;
+  sbp: string;
+  crypto: string;
+  copy: string;
+  copied: string;
+};
+
+type PopupSettingsTranslation = {
+  title: string;
+  save: string;
+  interfaceLanguage: string;
+  theme: string;
+  donate: string;
+  saved: string;
+  likeExtension: string;
+  supportDeveloper: string;
+  description: string;
+};
+
+type DataGeneration = {
   title: string;
   titleTooltip: string;
 
@@ -85,33 +115,19 @@ type PopoverTranslation = {
   addressFormatVariants: Record<AddressFormat, string>;
 };
 
-type ContextTranslation = {
-  paste: string;
-  setupAndPaste: string;
-  items: Record<DataType, string>;
-};
-
-type PopupSupportTranslation = {
-  back: string;
-  thanks: string;
-  description: string;
-  rubles: string;
-  sbp: string;
-  crypto: string;
-  copy: string;
-  copied: string;
-};
-
-type PopupSettingsTranslation = {
+type TextStatistics = {
   title: string;
-  save: string;
-  interfaceLanguage: string;
-  theme: string;
-  donate: string;
-  saved: string;
-  likeExtension: string;
-  supportDeveloper: string;
-  description: string;
+  characters: string;
+  charactersWithoutSpaces: string;
+  spaces: string;
+  words: string;
+  sentences: string;
+  paragraphs: string;
+};
+
+type PopoverTranslation = {
+  dataGeneration: DataGeneration;
+  textStatistics: TextStatistics;
 };
 
 export type Translation = {

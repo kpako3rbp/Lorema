@@ -20,6 +20,15 @@
   justify-content: space-between;
 }
 
+.lorem-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.lorem-grid.tc-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .lorem-form {
   display: flex;
   flex-direction: column;

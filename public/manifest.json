@@ -48,12 +48,19 @@
     }
   ],
   "commands": {
-    "open-lorem-popover": {
+    "open-generation-popover": {
       "suggested_key": {
         "default": "Alt+Shift+L",
         "mac": "Command+Shift+L"
       },
       "description": "Open data insertion popover"
+    },
+    "open-statistics-popover": {
+      "suggested_key": {
+        "default": "Alt+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Open text statistics popover"
     }
   }
 }

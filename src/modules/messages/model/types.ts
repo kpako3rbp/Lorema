@@ -13,5 +13,9 @@ export type ExtensionMessage =
       dataType: DataType;
     }
   | {
+      type: 'SHOW_TEXT_STATISTICS';
+      selectedText?: string;
+    }
+  | {
       type: 'UPDATE_CONTEXT_MENU';
     };

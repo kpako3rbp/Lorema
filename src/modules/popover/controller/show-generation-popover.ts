@@ -4,22 +4,29 @@ import { loadPopoverFonts } from 'src/modules/popover/lib/load-popover-fonts';
 import { movePopoverInsideViewport } from 'src/modules/popover/lib/move-popover-inside-viewport';
 import { createPopover } from 'src/modules/popover/ui/create-popover';
 import { getStorageItems } from 'src/modules/storage';
+import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selects';
 
-import { getPopoverElements } from '../lib/get-popover-elements';
+import { getGenerationPopoverElements } from '../lib/get-generation-popover-elements';
+import { renderInsertData } from '../ui/content/render-insert-data';
 import { closeActivePopover } from './close-popover';
-import { registerPopoverEvents } from './register-events';
+import { registerGenerationPopoverEvents } from './register-generation-events';
 
-export const showPopover = async (dataType: DataType, target: EditableTargetSnapshot): Promise<void> => {
+export const showGenerationPopover = async (dataType: DataType, target: EditableTargetSnapshot): Promise<void> => {
   closeActivePopover();
   const storage = await getStorageItems();
 
   await loadPopoverFonts();
 
-  const popover = createPopover({
+  const content = renderInsertData({
     dataType,
     storage,
     interfaceLanguage: storage.interfaceLanguage,
     generationLanguage: storage.generationLanguage,
+  });
+
+  const popover = createPopover({
+    content,
+    theme: storage.theme,
     position: target.position,
   });
 
@@ -33,10 +40,13 @@ export const showPopover = async (dataType: DataType, target: EditableTargetSnap
 
   requestAnimationFrame(() => movePopoverInsideViewport(popover));
 
-  const elements = getPopoverElements(shadowRoot);
+  initCustomSelects(shadowRoot, storage.interfaceLanguage);
 
-  registerPopoverEvents(elements, storage, target);
+  const elements = getGenerationPopoverElements(shadowRoot);
 
+  registerGenerationPopoverEvents(elements, storage, target);
+
+  // TODO исправить это странное место и делать фокус не тут
   requestAnimationFrame(() => {
     elements.lengthInput?.focus();
     elements.lengthInput?.select();
