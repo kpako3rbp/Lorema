@@ -46,7 +46,6 @@ export const showGenerationPopover = async (dataType: DataType, target: Editable
 
   registerGenerationPopoverEvents(elements, storage, target);
 
-  // TODO исправить это странное место и делать фокус не тут
   requestAnimationFrame(() => {
     elements.lengthInput?.focus();
     elements.lengthInput?.select();

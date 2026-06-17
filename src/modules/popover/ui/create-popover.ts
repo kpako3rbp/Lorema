@@ -26,7 +26,7 @@ export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
   const shadowRoot = host.attachShadow({ mode: 'open' });
   const popover = document.createElement('div');
 
-  popover.className = POPOVER_CLASSNAME; // TODO добавлять класс в самом рендере попопвера?
+  popover.className = POPOVER_CLASSNAME;
   popover.dataset.theme = params.theme;
   popover.innerHTML = params.content;
 
