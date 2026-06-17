@@ -135,7 +135,7 @@ export const TRANSLATIONS_EN: Translation = {
   },
 
   context: {
-    paste: 'Insert Lorem Ipsum',
+    paste: 'Insert content',
     setupAndPaste: '⚙︎ Customize and insert',
     items: {
       text: '📄 Lorem Ipsum',

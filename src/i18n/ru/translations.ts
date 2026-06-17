@@ -133,7 +133,7 @@ export const TRANSLATIONS_RU: Translation = {
   },
 
   context: {
-    paste: 'Вставить текст-рыбу',
+    paste: 'Вставить контент',
     setupAndPaste: '⚙︎ Настроить и вставить',
     items: {
       text: '📄 Текст-рыба',
