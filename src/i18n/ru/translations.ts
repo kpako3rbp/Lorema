@@ -16,6 +16,7 @@ export const TRANSLATIONS_RU: Translation = {
       saved: 'Сохранено!',
       likeExtension: 'Нравится расширение?',
       supportDeveloper: 'Отблагодарить разработчика',
+      description: 'Кликните ПКМ по текстовому полю, чтобы быстро вставить контент или настроить его перед вставкой',
     },
     support: {
       back: '← Вернуться назад',

@@ -11,6 +11,10 @@ body {
   line-height: 0.8;
   color: var(--color-text);
 
+  button {
+    transition: background .15s ease;
+  }
+
   .popup {
     width: 380px;
     padding: 20px;
@@ -21,6 +25,19 @@ body {
     gap: 18px;
     backdrop-filter: blur(6px);
     position: relative;
+
+    .info {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+
+      svg {
+        height: 17px;
+        width: 30px;
+        stroke: var(--color-text-muted); 
+        stroke-width: 1.8px;
+      }
+    }
 
     .settings-block {
       display: flex;
@@ -61,7 +78,7 @@ body {
     }
 
     .caption {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--color-text-muted);
       line-height: 16px;
       transition: color 0.2s ease;
@@ -222,7 +239,7 @@ body {
 
       .success {
         color: var(--color-success);
-        
+
         svg {
           stroke: var(--color-success);
         }

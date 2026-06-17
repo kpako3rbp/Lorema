@@ -111,6 +111,7 @@ type PopupSettingsTranslation = {
   saved: string;
   likeExtension: string;
   supportDeveloper: string;
+  description: string;
 };
 
 export type Translation = {

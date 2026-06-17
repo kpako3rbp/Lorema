@@ -4,6 +4,7 @@ import { getNameByLanguage, ICON_BY_LANGUAGE, ICON_BY_THEME, THEMES } from 'src/
 import { Language, Theme } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 import { renderHeartIcon } from 'src/shared/ui/icons/heart';
+import { renderInfoIcon } from 'src/shared/ui/icons/info';
 
 import { POPUP_IDS } from '../../config/constants';
 
@@ -12,6 +13,13 @@ export const renderSettingsContent = (interfaceLanguage: Language, theme: Theme)
   const themeNames = getNameByLanguage(interfaceLanguage);
 
   return /* html */ `
+    <hr>
+
+    <div class="info">
+      ${renderInfoIcon()}
+      <p class="caption">${t.description}</p>
+    </div>
+
     <hr>
 
     <div class="settings-block">
@@ -50,9 +58,7 @@ export const renderSettingsContent = (interfaceLanguage: Language, theme: Theme)
           <div class="coffee">
             <img src="/icons/coffee4.svg" alt="coffee">
           </div>
-          <p class="caption">
-            <!-- ${t.likeExtension} -->
-            <!-- <br> -->
+          <p class="description">
             ${t.supportDeveloper}
           </p>
         </div>

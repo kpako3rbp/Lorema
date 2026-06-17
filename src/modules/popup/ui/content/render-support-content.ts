@@ -40,7 +40,7 @@ export const renderSupportContent = (interfaceLanguage: Language): string => {
         <a class="box" href="${PAYMENT_LINK}" target="_blank">
           <div class="text-wrapper">
             <img src="/icons/spb.svg" alt="card">
-            <p class="caption">${t.sbp}</p>
+            <p class="description">${t.sbp}</p>
           </div>
           ${renderArrowUpRightIcon()}
         </a>
@@ -54,7 +54,7 @@ export const renderSupportContent = (interfaceLanguage: Language): string => {
           content: /*html*/ `
             <div class="text-wrapper">
               <img src="/icons/tether.svg" alt="tether">
-              <p class="caption">USDT (TRC20)</p>
+              <p class="description">USDT (TRC20)</p>
               <p class="caption crypto-wallet">${formatWalletAddress(USDT_WALLET)}</p>
             </div>
 
@@ -65,7 +65,7 @@ export const renderSupportContent = (interfaceLanguage: Language): string => {
           successContent: /*html*/ `
             <div class="text-wrapper">
               <img src="/icons/tether.svg" alt="tether">
-              <p class="caption">USDT (TRC20)</p>
+              <p class="description">USDT (TRC20)</p>
               <p class="caption crypto-wallet success">${t.copied}</p>
             </div>
 

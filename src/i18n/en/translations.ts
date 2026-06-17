@@ -16,6 +16,7 @@ export const TRANSLATIONS_EN: Translation = {
       saved: 'Saved!',
       likeExtension: 'Enjoying Lorema?',
       supportDeveloper: 'Enjoying Lorema? Buy me a coffee',
+      description: 'Right-click a text field to insert content instantly or customize it before inserting',
     },
 
     support: {
