@@ -16,36 +16,53 @@ type RenderTextStatisticsParams = {
   interfaceLanguage: Language;
 };
 
-const MAP_TYPE_TO_ICON: Record<keyof TextStatistics, string> = {
-  spaces: renderSpaceIcon(),
-  charactersWithoutSpaces: renderNoSpaceIcon(),
-  words: renderWordIcon(),
-  sentences: renderSentenceIcon(),
-  characters: renderCharacterIcon(),
-  // paragraphs: renderParagraphIcon(),
+type TextStatisticsKey = keyof TextStatistics;
+type TextStatisticsTranslation = Translation['popover']['textStatistics'];
+
+type StatisticsItem = {
+  key: TextStatisticsKey;
+  icon: string;
+  isGeneral?: boolean;
 };
 
-const renderItems = (statistics: Partial<TextStatistics>, translation: Translation['popover']['textStatistics']) => {
-  return Object.entries(statistics)
-    .map(([key, value]) => {
-      const currentKey = key as unknown as keyof TextStatistics;
+const MAIN_STATISTICS_ITEMS: StatisticsItem[] = [{ key: 'characters', icon: renderCharacterIcon(), isGeneral: true }];
 
-      const containerClass = `lorem-statistics-box ${currentKey === 'characters' ? 'general' : ''}`;
+const DETAIL_STATISTICS_ITEMS: StatisticsItem[] = [
+  { key: 'charactersWithoutSpaces', icon: renderNoSpaceIcon() },
+  { key: 'spaces', icon: renderSpaceIcon() },
+  { key: 'words', icon: renderWordIcon() },
+  { key: 'sentences', icon: renderSentenceIcon() },
+];
 
-      return /*html*/ `
-      <div class="${containerClass}">
-        <div class="item">
-          <div class="svg">${MAP_TYPE_TO_ICON[currentKey]}</div>
-          <div class="info">
-            <span class="count">${numberWithSpaces(value)}</span>
-            <span class="label">${translation[currentKey]}</span>
-          </div>
+const renderStatisticsItem = (
+  item: StatisticsItem,
+  statistics: TextStatistics,
+  translation: TextStatisticsTranslation,
+): string => {
+  const { key, icon, isGeneral } = item;
+
+  const containerClass = isGeneral ? 'lorem-statistics-box general' : 'lorem-statistics-box';
+
+  return /*html*/ `
+    <div class="${containerClass}">
+      <div class="item">
+        <div class="svg">${icon}</div>
+
+        <div class="info">
+          <span class="count">${numberWithSpaces(statistics[key])}</span>
+          <span class="label">${translation[key]}</span>
         </div>
       </div>
-    `;
-    })
-    .filter(Boolean)
-    .join('');
+    </div>
+  `;
+};
+
+const renderItems = (
+  items: StatisticsItem[],
+  statistics: TextStatistics,
+  translation: TextStatisticsTranslation,
+): string => {
+  return items.map((item) => renderStatisticsItem(item, statistics, translation)).join('');
 };
 
 export const renderTextStatistics = (params: RenderTextStatisticsParams): string => {
@@ -62,27 +79,14 @@ export const renderTextStatistics = (params: RenderTextStatisticsParams): string
         <button class="lorem-cancel close-button" id="${POPOVER_IDS.cancelButton}">
           ${renderCloseIcon()}
         </button>
-      </div>  
+      </div>
 
       <div class="lorem-grid">
-        ${renderItems(
-          {
-            characters: statistics.characters,
-          },
-          t,
-        )}
-        
+        ${renderItems(MAIN_STATISTICS_ITEMS, statistics, t)}
+
         <div class="lorem-grid tc-2">
-          ${renderItems(
-            {
-              charactersWithoutSpaces: statistics.charactersWithoutSpaces,
-              spaces: statistics.spaces,
-              words: statistics.words,
-              sentences: statistics.sentences,
-            },
-            t,
-          )}
-        </div> 
+          ${renderItems(DETAIL_STATISTICS_ITEMS, statistics, t)}
+        </div>
       </div>
     </div>
   `;
