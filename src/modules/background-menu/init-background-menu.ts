@@ -18,8 +18,14 @@ export const initBackgroundMenu = () => {
     await createContextMenu();
   });
 
-  chrome.storage.onChanged.addListener((changes) => {
-    if (!changes.interfaceLanguage) return;
+  chrome.storage.onChanged.addListener((changes, areaName) => {
+    if (areaName !== 'sync') return;
+
+    const interfaceLanguageChange = changes.interfaceLanguage;
+
+    if (!interfaceLanguageChange) return;
+    if (interfaceLanguageChange.oldValue === undefined) return;
+    if (interfaceLanguageChange.oldValue === interfaceLanguageChange.newValue) return;
 
     void updateContextMenu();
   });
