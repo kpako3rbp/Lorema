@@ -1,8 +1,5 @@
-import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selects';
-
 import { POPOVER_CLASSNAME, POPOVER_IDS } from '../config/constants';
 import { CreatePopoverParams } from '../model/types';
-import { renderInsertData } from './content/render-insert-data';
 import popoverStyles from './style.css?inline';
 
 const createHost = (params: CreatePopoverParams): HTMLDivElement => {
@@ -11,6 +8,7 @@ const createHost = (params: CreatePopoverParams): HTMLDivElement => {
   host.id = POPOVER_IDS.popover;
   host.dataset.cursorX = String(params.position.x);
   host.dataset.cursorY = String(params.position.y);
+  host.dataset.theme = params.theme;
 
   return host;
 };
@@ -24,20 +22,15 @@ const createStyle = (): HTMLStyleElement => {
 };
 
 export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
-  const { storage, interfaceLanguage } = params;
-
   const host = createHost(params);
   const shadowRoot = host.attachShadow({ mode: 'open' });
   const popover = document.createElement('div');
 
   popover.className = POPOVER_CLASSNAME;
-  popover.dataset.theme = storage.theme;
-  host.dataset.theme = storage.theme;
-
-  popover.innerHTML = renderInsertData(params);
+  popover.dataset.theme = params.theme;
+  popover.innerHTML = params.content;
 
   shadowRoot.append(createStyle(), popover);
-  initCustomSelects(shadowRoot, interfaceLanguage);
 
   return host;
 };

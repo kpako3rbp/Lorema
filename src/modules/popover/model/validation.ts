@@ -9,7 +9,7 @@ import { showInputError } from 'src/shared/ui/form-error/show-input-error';
 import { POPOVER_IDS } from '../config/constants';
 
 export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Language): boolean => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
 
   const inputEL = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.textLengthInput}`);
   const errorEl = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.textLengthError}`);
@@ -26,7 +26,7 @@ export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Langu
 };
 
 export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: Language): boolean => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
 
   const countryCodeInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.countryCodeInput}`);
   const countryCodeError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.countryCodeError}`);

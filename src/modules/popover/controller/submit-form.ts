@@ -7,7 +7,7 @@ import { Language } from 'src/shared/model/types';
 
 import { getActiveDataType } from '../lib/get-active-data-type';
 import { readDataSettingsFromForm } from '../lib/read-data-settings-from-form';
-import { PopoverElements } from '../model/types';
+import { PopoverGenerationElements } from '../model/types';
 import { closeActivePopover } from './close-popover';
 
 const saveSettingsForDataType = async (dataType: DataType, storage: StorageSchema): Promise<void> => {
@@ -26,7 +26,7 @@ const validateFormByDataType = (dataType: DataType, form: HTMLFormElement, inter
 
 const submitData = async (
   dataType: DataType,
-  elements: PopoverElements,
+  elements: PopoverGenerationElements,
   storage: StorageSchema,
   target: EditableTargetSnapshot,
 ): Promise<void> => {
@@ -39,7 +39,11 @@ const submitData = async (
   closeActivePopover();
 };
 
-export const submitForm = (elements: PopoverElements, storage: StorageSchema, target: EditableTargetSnapshot): void => {
+export const submitForm = (
+  elements: PopoverGenerationElements,
+  storage: StorageSchema,
+  target: EditableTargetSnapshot,
+): void => {
   const dataType = getActiveDataType(elements.form);
   const isValid = validateFormByDataType(dataType, elements.form, storage.interfaceLanguage);
 

@@ -1,7 +1,5 @@
 import { ExtensionMessage } from '../messages';
 
-type InsertMessage = Extract<ExtensionMessage, { type: 'INSERT_DATA_FROM_CONTEXT_MENU' | 'INSERT_DATA_FROM_HOTKEY' }>;
-
 const getContentScriptFile = (): string | null => {
   const manifest = chrome.runtime.getManifest();
   const contentScript = manifest.content_scripts?.[0];
@@ -9,7 +7,7 @@ const getContentScriptFile = (): string | null => {
   return contentScript?.js?.[0] ?? null;
 };
 
-export const sendInsertMessage = async (tabId: number, message: InsertMessage): Promise<void> => {
+export const sendContentMessage = async (tabId: number, message: ExtensionMessage): Promise<void> => {
   try {
     await chrome.tabs.sendMessage(tabId, message);
 

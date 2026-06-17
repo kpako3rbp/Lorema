@@ -10,7 +10,7 @@ import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 const PHONE_FORMATS: PhoneFormat[] = ['compact', 'brackets', 'dash', 'spaces'];
 
 export const renderPhoneForm = (storage: StorageSchema, interfaceLanguage: Language): string => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.phoneSettings;
 
   return /*html*/ `

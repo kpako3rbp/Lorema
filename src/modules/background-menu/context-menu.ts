@@ -1,44 +1,52 @@
 import { TRANSLATIONS } from 'src/i18n';
 import { getStorageItem } from 'src/modules/storage';
-import { COMMANDS } from 'src/shared/config/commands';
+import { COMMANDS, CommandType } from 'src/shared/config/commands';
 
 import { InsertMode } from '../data-insertion';
 import { DATA_TYPES, DataType } from '../data-type';
-
-const ROOT_MENU_ID = 'quick-insert-text';
-const SEPARATOR_MENU_ID = 'context-menu-separator';
-
-export const CUSTOM_MENU_ID = 'custom-insert-text';
+import { CONTEXT_MENU_IDS, ROOT_MENU_ID, SEPARATOR_MENU_ID } from './config/constants';
 
 const getMenuItemId = (mode: InsertMode, dataType: DataType): string => {
   return `${mode}:${dataType}`;
 };
 
-const getOpenPopoverCommandShortcut = async () => {
+const getCommandShortcut = async (type: CommandType) => {
   const commands = await chrome.commands.getAll();
-  const command = commands.find((item) => item.name === COMMANDS.openLoremPopover);
+  const command = commands.find((item) => item.name === COMMANDS[type]);
 
-  return command?.shortcut;
+  return command?.shortcut || undefined;
 };
 
-const getRootTitle = async (shortcut?: string): Promise<string> => {
+const getMenuTitle = async (type: CommandType, shortcut: string | undefined): Promise<string> => {
   const interfaceLanguage = await getStorageItem('interfaceLanguage');
-  const title = TRANSLATIONS[interfaceLanguage].context.paste;
+  const t = TRANSLATIONS[interfaceLanguage].context;
 
-  return shortcut ? `${title} (${shortcut})` : title;
+  const mapTitleByType: Record<CommandType, string> = {
+    openGenerationPopover: t.paste,
+    openStatisticsPopover: t.calculateTextStatistics,
+  };
+
+  return shortcut ? `${mapTitleByType[type]} (${shortcut})` : mapTitleByType[type];
 };
 
 export const createContextMenu = async (): Promise<void> => {
   const interfaceLanguage = await getStorageItem('interfaceLanguage');
   const t = TRANSLATIONS[interfaceLanguage].context;
-  const openPopoverShortcut = await getOpenPopoverCommandShortcut();
+  const openGenerationPopoverShortcut = await getCommandShortcut('openGenerationPopover');
+  const openStatisticsPopoverShortcut = await getCommandShortcut('openStatisticsPopover');
 
   await chrome.contextMenus.removeAll();
 
   chrome.contextMenus.create({
     id: ROOT_MENU_ID,
-    title: await getRootTitle(openPopoverShortcut),
+    title: await getMenuTitle('openGenerationPopover', openGenerationPopoverShortcut),
     contexts: ['editable'],
+  });
+
+  chrome.contextMenus.create({
+    id: CONTEXT_MENU_IDS.countSelectedText,
+    title: await getMenuTitle('openStatisticsPopover', openStatisticsPopoverShortcut),
+    contexts: ['selection'],
   });
 
   for (const dataType of DATA_TYPES) {
@@ -59,9 +67,9 @@ export const createContextMenu = async (): Promise<void> => {
   });
 
   chrome.contextMenus.create({
-    id: CUSTOM_MENU_ID,
+    id: CONTEXT_MENU_IDS.insertData,
     parentId: ROOT_MENU_ID,
-    title: openPopoverShortcut ? `${t.setupAndPaste} (${openPopoverShortcut})` : t.setupAndPaste,
+    title: openGenerationPopoverShortcut ? `${t.setupAndPaste} (${openGenerationPopoverShortcut})` : t.setupAndPaste,
     contexts: ['editable'],
   });
 };

@@ -6,7 +6,7 @@ import { Language } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 
 export const renderFirstNameForm = (storage: StorageSchema, interfaceLanguage: Language): string => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.firstNameSettings;
 
   return /*html*/ `

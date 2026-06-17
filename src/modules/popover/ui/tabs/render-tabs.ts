@@ -22,7 +22,7 @@ const mapTypeToIcon: Record<DataType, string> = {
 };
 
 export const renderTabs = (activeDataType: DataType, interfaceLanguage: Language): string => {
-  const t = TRANSLATIONS[interfaceLanguage].popover;
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
 
   return /*html*/ `
     <div class="lorem-tabs">
