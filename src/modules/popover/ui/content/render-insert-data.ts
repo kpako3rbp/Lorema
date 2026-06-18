@@ -27,7 +27,7 @@ export const renderInsertData = (params: RenderInsertDataParams): string => {
       <div class="lorem-header">
         <p class="lorem-title">
           ${t.title}
-          ${renderTooltip(t.titleTooltip, 180)}
+          ${renderTooltip(t.titleTooltip, 220)}
         </p>
 
         <div class="lorem-flex aic">

@@ -33,7 +33,7 @@ export const TRANSLATIONS_RU: Translation = {
   popover: {
     dataGeneration: {
       title: 'Настройки',
-      titleTooltip: 'Настройки сохранятся автоматически после вставки',
+      titleTooltip: 'Настройки для всех категорий сохранятся автоматически после вставки',
 
       insert: 'Вставить',
       insertKey: 'Enter',

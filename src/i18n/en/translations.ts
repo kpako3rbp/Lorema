@@ -34,7 +34,7 @@ export const TRANSLATIONS_EN: Translation = {
   popover: {
     dataGeneration: {
       title: 'Settings',
-      titleTooltip: 'Settings will be saved automatically after insertion',
+      titleTooltip: 'Settings for all categories will be saved automatically after insertion',
 
       insert: 'Insert',
       insertKey: 'Enter',
