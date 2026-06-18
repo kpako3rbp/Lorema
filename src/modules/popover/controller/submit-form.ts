@@ -32,7 +32,7 @@ const submitData = async (
   storage: StorageSchema,
   target: EditableTargetSnapshot,
 ): Promise<void> => {
-  const nextStorage = readDataSettingsFromForm(dataType, elements.form, elements.languageSelect, storage, true);
+  const nextStorage = readDataSettingsFromForm(elements.form, elements.languageSelect, storage);
 
   if (!nextStorage) return;
 

@@ -16,11 +16,10 @@ import { getCheckboxValue, getInputValue, getSelectedValue, getSelectedValues } 
 import { Language } from 'src/shared/model/types';
 
 export const readDataSettingsFromForm = (
-  dataType: DataType,
   form: HTMLFormElement,
   languageSelect: HTMLSelectElement,
   storage: StorageSchema,
-  readAll = false,
+  dataType?: DataType,
 ): StorageSchema => {
   const getLanguage = (): Language => languageSelect.value as Language;
 
@@ -100,7 +99,7 @@ export const readDataSettingsFromForm = (
     },
   };
 
-  if (readAll) {
+  if (!dataType) {
     const allDataSettings = Object.values(handlers).reduce<Partial<StorageSchema>>((acc, handler) => {
       return { ...acc, ...handler() };
     }, {});
