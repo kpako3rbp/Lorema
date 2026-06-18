@@ -20,6 +20,7 @@ export const readDataSettingsFromForm = (
   form: HTMLFormElement,
   languageSelect: HTMLSelectElement,
   storage: StorageSchema,
+  readAll = false,
 ): StorageSchema => {
   const getLanguage = (): Language => languageSelect.value as Language;
 
@@ -99,13 +100,15 @@ export const readDataSettingsFromForm = (
     },
   };
 
+  if (readAll) {
+    const allDataSettings = Object.values(handlers).reduce<Partial<StorageSchema>>((acc, handler) => {
+      return { ...acc, ...handler() };
+    }, {});
+
+    return { ...storage, generationLanguage: getLanguage(), ...allDataSettings };
+  }
+
   const dataSettings = handlers[dataType]();
 
-  if (!dataSettings) return storage;
-
-  return {
-    ...storage,
-    generationLanguage: getLanguage(),
-    ...dataSettings,
-  };
+  return { ...storage, generationLanguage: getLanguage(), ...dataSettings };
 };

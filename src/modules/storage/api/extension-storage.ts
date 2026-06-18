@@ -35,6 +35,12 @@ export const setStorageItem = async <Key extends keyof StorageSchema>(
   });
 };
 
+export const setStorageItems = async (values: Partial<StorageSchema>): Promise<void> => {
+  if (Object.keys(values).length === 0) return;
+
+  await chrome.storage.sync.set(values);
+};
+
 export const getStorageItems = async <Key extends keyof StorageSchema>(
   keys?: readonly Key[],
 ): Promise<StorageSchema | Pick<StorageSchema, Key>> => {

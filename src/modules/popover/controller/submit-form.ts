@@ -2,7 +2,8 @@ import { generateData } from 'src/modules/data-generation';
 import { DataType } from 'src/modules/data-type';
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import { validatePhoneForm, validateTextForm } from 'src/modules/popover/model/validation';
-import { setStorageItem, StorageSchema } from 'src/modules/storage';
+import { StorageSchema } from 'src/modules/storage';
+import { setStorageItems } from 'src/modules/storage/api/extension-storage';
 import { Language } from 'src/shared/model/types';
 
 import { getActiveDataType } from '../lib/get-active-data-type';
@@ -10,9 +11,10 @@ import { readDataSettingsFromForm } from '../lib/read-data-settings-from-form';
 import { PopoverGenerationElements } from '../model/types';
 import { closeActivePopover } from './close-popover';
 
-const saveSettingsForDataType = async (dataType: DataType, storage: StorageSchema): Promise<void> => {
-  await setStorageItem('generationLanguage', storage.generationLanguage);
-  await setStorageItem(`${dataType}Settings`, storage[`${dataType}Settings`]);
+const saveSettingsForDataType = async (storage: StorageSchema): Promise<void> => {
+  const { theme, interfaceLanguage, ...generationSettings } = storage;
+
+  await setStorageItems(generationSettings);
 };
 
 const validateFormByDataType = (dataType: DataType, form: HTMLFormElement, interfaceLanguage: Language): boolean => {
@@ -30,11 +32,11 @@ const submitData = async (
   storage: StorageSchema,
   target: EditableTargetSnapshot,
 ): Promise<void> => {
-  const nextStorage = readDataSettingsFromForm(dataType, elements.form, elements.languageSelect, storage);
+  const nextStorage = readDataSettingsFromForm(dataType, elements.form, elements.languageSelect, storage, true);
 
   if (!nextStorage) return;
 
-  await saveSettingsForDataType(dataType, nextStorage);
+  await saveSettingsForDataType(nextStorage);
   insertTextAtTarget(target.element, generateData(dataType, nextStorage), target.savedRange);
   closeActivePopover();
 };
