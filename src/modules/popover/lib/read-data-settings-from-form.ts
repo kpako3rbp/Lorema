@@ -100,14 +100,14 @@ export const readDataSettingsFromForm = (
   };
 
   if (!dataType) {
-    const allDataSettings = Object.values(handlers).reduce<Partial<StorageSchema>>((acc, handler) => {
+    const allDataGenerationSettings = Object.values(handlers).reduce<Partial<StorageSchema>>((acc, handler) => {
       return { ...acc, ...handler() };
     }, {});
 
-    return { ...storage, generationLanguage: getLanguage(), ...allDataSettings };
+    return { ...storage, generationLanguage: getLanguage(), ...allDataGenerationSettings };
   }
 
-  const dataSettings = handlers[dataType]();
+  const dataGenerationSettingsByType = handlers[dataType]();
 
-  return { ...storage, generationLanguage: getLanguage(), ...dataSettings };
+  return { ...storage, generationLanguage: getLanguage(), ...dataGenerationSettingsByType };
 };
