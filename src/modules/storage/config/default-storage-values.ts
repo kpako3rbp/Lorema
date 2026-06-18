@@ -45,5 +45,5 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
 
   generationLanguage: browserLanguage,
   interfaceLanguage: browserLanguage,
-  theme: Theme.light,
+  theme: Theme.dark,
 };
