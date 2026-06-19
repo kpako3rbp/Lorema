@@ -1,4 +1,5 @@
 import { DataType } from 'src/modules/data-type';
+import { DataTab } from 'src/modules/data-type/config/constants';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -108,7 +109,7 @@ type DataGeneration = {
   paragraphsCheckboxTooltip: string;
   countryCodeTooltip: string;
 
-  dataTitles: Record<DataType, string>;
+  dataTitles: Record<DataTab, string>;
   titleTopics: Record<TitleTopic, string>;
   lengthPreset: Record<NameLengthPreset | TitleLengthPreset | EmailLengthPreset | LinkLengthPreset, string>;
   phoneFormatVariants: Record<PhoneFormat, string>;

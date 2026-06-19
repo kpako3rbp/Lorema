@@ -1,4 +1,4 @@
-import { DataType } from 'src/modules/data-type';
+import { DataTab } from 'src/modules/data-type/config/constants';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -19,11 +19,11 @@ export const readDataSettingsFromForm = (
   form: HTMLFormElement,
   languageSelect: HTMLSelectElement,
   storage: StorageSchema,
-  dataType?: DataType,
+  dataTab?: DataTab,
 ): StorageSchema => {
   const getLanguage = (): Language => languageSelect.value as Language;
 
-  const handlers: Record<DataType, () => Partial<StorageSchema>> = {
+  const handlers: Record<DataTab, () => Partial<StorageSchema>> = {
     text: () => {
       const lengthMode = new FormData(form).get('lengthMode') as LengthMode;
 
@@ -80,17 +80,12 @@ export const readDataSettingsFromForm = (
       };
     },
 
-    firstName: () => {
+    person: () => {
       return {
         firstNameSettings: {
           language: getLanguage(),
           lengthPresets: getSelectedValues<NameLengthPreset>(form, POPOVER_IDS.firstNameLengthSelect),
         },
-      };
-    },
-
-    lastName: () => {
-      return {
         lastNameSettings: {
           language: getLanguage(),
           lengthPresets: getSelectedValues<NameLengthPreset>(form, POPOVER_IDS.lastNameLengthSelect),
@@ -99,7 +94,7 @@ export const readDataSettingsFromForm = (
     },
   };
 
-  if (!dataType) {
+  if (!dataTab) {
     const allDataGenerationSettings = Object.values(handlers).reduce<Partial<StorageSchema>>((acc, handler) => {
       return { ...acc, ...handler() };
     }, {});
@@ -107,7 +102,7 @@ export const readDataSettingsFromForm = (
     return { ...storage, generationLanguage: getLanguage(), ...allDataGenerationSettings };
   }
 
-  const dataGenerationSettingsByType = handlers[dataType]();
+  const dataGenerationSettingsByType = handlers[dataTab]();
 
   return { ...storage, generationLanguage: getLanguage(), ...dataGenerationSettingsByType };
 };

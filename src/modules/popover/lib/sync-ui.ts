@@ -1,8 +1,9 @@
+import { DATA_TAB_TO_TYPE, DataTab } from 'src/modules/data-type/config/constants';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
 import { PopoverGenerationElements } from '../model/types';
-import { getActiveDataType } from './get-active-data-type';
+import { getActiveDataTab } from './get-active-data-type';
 
 const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
   const lengthMode = new FormData(form).get('lengthMode');
@@ -22,19 +23,19 @@ const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
 };
 
 const syncTabPanels = (form: HTMLFormElement): void => {
-  const activeDataType = new FormData(form).get('dataType');
+  const activeDataType = new FormData(form).get('dataType') as DataTab;
 
   const panels = form.querySelectorAll<HTMLElement>(`.${POPOVER_TAB_CLASSNAME}`);
 
   panels.forEach((panel) => {
-    panel.classList.toggle('active', panel.dataset.dataType === activeDataType);
+    panel.classList.toggle('active', panel.dataset.dataTab === DATA_TAB_TO_TYPE[activeDataType]);
   });
 };
 
 export const syncElementsUI = (elements: PopoverGenerationElements) => {
   syncTabPanels(elements.form);
 
-  if (getActiveDataType(elements.form) === 'text') {
+  if (getActiveDataTab(elements.form) === 'text') {
     syncTextCheckboxesWithLengthMode(elements.form);
   }
 };

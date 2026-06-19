@@ -106,8 +106,7 @@ export const TRANSLATIONS_EN: Translation = {
         link: 'Link',
         phone: 'Phone',
         address: 'Address',
-        firstName: 'First name',
-        lastName: 'Last name',
+        person: 'Person',
       },
 
       titleTopics: {
@@ -158,6 +157,7 @@ export const TRANSLATIONS_EN: Translation = {
       address: '📍 Address',
       firstName: '👤 First name',
       lastName: '👤 Last name',
+      fullName: '🧑 Full name',
     },
   },
 

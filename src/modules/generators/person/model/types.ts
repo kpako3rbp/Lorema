@@ -16,3 +16,5 @@ export type LastNameSettings = {
   lengthPresets: NameLengthPreset[];
   language: Language;
 };
+
+export type PersonNamePart = 'firstName' | 'lastName';

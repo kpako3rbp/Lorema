@@ -104,8 +104,10 @@ export const TRANSLATIONS_RU: Translation = {
         link: 'Ссылка',
         phone: 'Телефон',
         address: 'Адрес',
-        firstName: 'Имя',
-        lastName: 'Фамилия',
+        person: 'ФИО',
+        // list: 'Список',
+        // number: 'Число',
+        // date: 'Дата',
       },
 
       titleTopics: {
@@ -154,8 +156,12 @@ export const TRANSLATIONS_RU: Translation = {
       link: '🔗 Ссылка',
       phone: '📱 Телефон',
       address: '📍 Адрес',
-      firstName: '👤 Имя',
-      lastName: '👤 Фамилия',
+      firstName: '🖊️ Имя',
+      lastName: '🖊️ Фамилия',
+      fullName: '🧑 Имя и фамилия',
+      // list: 'Список',
+      // number: 'Число',
+      // date: 'Дата',
     },
   },
 

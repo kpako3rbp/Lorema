@@ -1,3 +1,9 @@
+export const POPOVER_INSERT_BTN_ID = 'popover-insert-btn';
+export const POPOVER_CANCEL_BTN_ID = 'popover-cancel-btn';
+export const POPOVER_LANG_SELECT_ID = 'popover-lang-select';
+export const POPOVER_LENGTHMODE_INPUT_ID = 'popover-lang-select';
+export const POPOVER_PARAGRAPHS_CHECKBOX_ID = 'popover-paragraphs-checkbox';
+
 export const POPOVER_IDS = {
   popover: 'popover',
   popoverForm: 'popoverForm',

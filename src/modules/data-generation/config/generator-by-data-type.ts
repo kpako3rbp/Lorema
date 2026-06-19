@@ -3,6 +3,7 @@ import {
   generateAddress,
   generateEmail,
   generateFirstName,
+  generateFullName,
   generateLastName,
   generateLink,
   generateLorem,
@@ -31,4 +32,9 @@ export const GENERATOR_BY_DATA_TYPE: Record<DataType, DataGenerator> = {
   address: createDataGenerator('addressSettings', generateAddress),
   firstName: createDataGenerator('firstNameSettings', generateFirstName),
   lastName: createDataGenerator('lastNameSettings', generateLastName),
+  fullName: (storage) =>
+    generateFullName({
+      firstName: storage.firstNameSettings,
+      lastName: storage.lastNameSettings,
+    }),
 };
