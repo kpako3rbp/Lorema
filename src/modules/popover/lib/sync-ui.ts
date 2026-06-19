@@ -1,4 +1,4 @@
-import { DATA_TAB_TO_TYPE, DataTab } from 'src/modules/data-type/config/constants';
+import { DataTab } from 'src/modules/data-type/config/constants';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
@@ -23,12 +23,12 @@ const syncTextCheckboxesWithLengthMode = (form: HTMLFormElement): void => {
 };
 
 const syncTabPanels = (form: HTMLFormElement): void => {
-  const activeDataType = new FormData(form).get('dataType') as DataTab;
+  const activeDataTab = new FormData(form).get('dataTab') as DataTab;
 
   const panels = form.querySelectorAll<HTMLElement>(`.${POPOVER_TAB_CLASSNAME}`);
 
   panels.forEach((panel) => {
-    panel.classList.toggle('active', panel.dataset.dataTab === DATA_TAB_TO_TYPE[activeDataType]);
+    panel.classList.toggle('active', panel.dataset.dataTab === activeDataTab);
   });
 };
 

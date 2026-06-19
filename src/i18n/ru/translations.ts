@@ -53,6 +53,7 @@ export const TRANSLATIONS_RU: Translation = {
       addressParams: 'Параметры адреса',
       firstNameParams: 'Параметры имени',
       lastNameParams: 'Параметры фамилии',
+      fullNameParams: 'Параметры имени и фамилии',
 
       length: 'Количество символов',
       lengthMode: 'Режим',
@@ -104,7 +105,7 @@ export const TRANSLATIONS_RU: Translation = {
         link: 'Ссылка',
         phone: 'Телефон',
         address: 'Адрес',
-        person: 'ФИО',
+        person: 'Имя',
         // list: 'Список',
         // number: 'Число',
         // date: 'Дата',

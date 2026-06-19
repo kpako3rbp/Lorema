@@ -54,6 +54,7 @@ export const TRANSLATIONS_EN: Translation = {
       addressParams: 'Address parameters',
       firstNameParams: 'First name parameters',
       lastNameParams: 'Last name parameters',
+      fullNameParams: 'Full name parameters',
 
       length: 'Character count',
       lengthMode: 'Mode',

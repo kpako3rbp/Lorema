@@ -28,8 +28,6 @@ export const DATA_TABS = [
 ] as const;
 export type DataTab = (typeof DATA_TABS)[number];
 
-export const DEFAULT_DATA_TYPE: DataType = 'text';
-
 export const DEFAULT_DATA_TAB: DataTab = 'text';
 
 export const DATA_TYPE_TO_TAB: Record<DataType, DataTab> = {

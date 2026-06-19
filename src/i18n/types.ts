@@ -72,6 +72,7 @@ type DataGeneration = {
   addressParams: string;
   firstNameParams: string;
   lastNameParams: string;
+  fullNameParams: string;
 
   length: string;
   lengthMode: string;

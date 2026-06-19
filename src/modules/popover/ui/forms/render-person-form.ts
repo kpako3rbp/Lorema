@@ -11,31 +11,33 @@ export const renderPersonForm = (storage: StorageSchema, interfaceLanguage: Lang
 
   return /*html*/ `
     <div class="lorem-form-wrapper">
-      <span class="lorem-descriptor with-line">${t.dataTitles.person}</span>
+      <span class="lorem-descriptor with-line">${t.fullNameParams}</span>
 
-      ${renderCustomSelect({
-        id: POPOVER_IDS.firstNameLengthSelect,
-        label: t.firstNameLength,
-        multiple: true,
-        selectedValues: storage.firstNameSettings.lengthPresets,
-        interfaceLanguage,
-        options: NAME_LENGTH_PRESETS.map((preset) => ({
-          value: preset,
-          label: t.lengthPreset[preset],
-        })),
-      })}
+      <div class="lorem-grid-form">
+        ${renderCustomSelect({
+          id: POPOVER_IDS.firstNameLengthSelect,
+          label: t.firstNameLength,
+          multiple: true,
+          selectedValues: storage.firstNameSettings.lengthPresets,
+          interfaceLanguage,
+          options: NAME_LENGTH_PRESETS.map((preset) => ({
+            value: preset,
+            label: t.lengthPreset[preset],
+          })),
+        })}
 
-      ${renderCustomSelect({
-        id: POPOVER_IDS.lastNameLengthSelect,
-        label: t.lastNameLength,
-        multiple: true,
-        selectedValues: storage.lastNameSettings.lengthPresets,
-        interfaceLanguage,
-        options: NAME_LENGTH_PRESETS.map((preset) => ({
-          value: preset,
-          label: t.lengthPreset[preset],
-        })),
-      })}
+        ${renderCustomSelect({
+          id: POPOVER_IDS.lastNameLengthSelect,
+          label: t.lastNameLength,
+          multiple: true,
+          selectedValues: storage.lastNameSettings.lengthPresets,
+          interfaceLanguage,
+          options: NAME_LENGTH_PRESETS.map((preset) => ({
+            value: preset,
+            label: t.lengthPreset[preset],
+          })),
+        })}
+      </div>
     </div>
   `;
 };

@@ -1,6 +1,5 @@
 import { TRANSLATIONS } from 'src/i18n';
-import { DataType } from 'src/modules/data-type';
-import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab } from 'src/modules/data-type/config/constants';
+import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab, DataType } from 'src/modules/data-type';
 import { Language } from 'src/shared/model/types';
 import { renderAddressIcon } from 'src/shared/ui/icons/address';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';
@@ -34,7 +33,7 @@ export const renderTabs = (activeDataType: DataType, interfaceLanguage: Language
           <label class="lorem-tab">
             <input
               type="radio"
-              name="dataType"
+              name="dataTab"
               value="${tab}"
               ${activeTab === tab ? 'checked' : ''}
             />

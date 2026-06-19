@@ -1,5 +1,6 @@
 import { InsertMode } from '../data-insertion';
-import { DataType, isDataType } from '../data-type';
+import { DataType, isDataTab } from '../data-type';
+import { DATA_TYPE_TO_TAB } from '../data-type/config/constants';
 
 const isInsertMode = (value: string): value is InsertMode => {
   return value === 'quick' || value === 'custom';
@@ -10,7 +11,7 @@ export const parseMenuItemId = (menuItemId: string): { mode: InsertMode; dataTyp
 
   if (!mode || !dataType) return null;
   if (!isInsertMode(mode)) return null;
-  if (!isDataType(dataType)) return null;
+  if (!isDataTab(DATA_TYPE_TO_TAB[dataType])) return null;
 
   return {
     mode,
