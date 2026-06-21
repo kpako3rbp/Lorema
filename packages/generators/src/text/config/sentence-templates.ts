@@ -10,3 +10,6 @@ const SENTENCE_TEMPLATES_EN_MEDIUM = [
   '{start} {subject} {predicate} {object} {ending}',
   '{subject} gradually improve {object} {ending}',
   '{subject} increasingly support {object} {ending}',
+  '{subject} help maintain stability in {objectLoc} {ending}',
+  '{subject} create conditions for {objectDat} {ending}',
+] as const;
