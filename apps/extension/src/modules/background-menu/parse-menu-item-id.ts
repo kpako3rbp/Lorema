@@ -1,6 +1,6 @@
+import { DATA_TYPE_TO_TAB, DataType, isDataTab } from '@lorema/core';
+
 import { InsertMode } from '../data-insertion';
-import { DataType, isDataTab } from '../data-type';
-import { DATA_TYPE_TO_TAB } from '../data-type/config/constants';
 
 const isInsertMode = (value: string): value is InsertMode => {
   return value === 'quick' || value === 'custom';

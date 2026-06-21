@@ -1,4 +1,4 @@
-import { DataTab } from 'src/modules/data-type/config/constants';
+import { DataTab } from '@lorema/core';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';

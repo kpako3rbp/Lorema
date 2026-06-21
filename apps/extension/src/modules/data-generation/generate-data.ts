@@ -1,4 +1,5 @@
-import { DataType } from '../data-type';
+import { DataType } from '@lorema/core';
+
 import { StorageSchema } from '../storage';
 import { GENERATOR_BY_DATA_TYPE } from './config/generator-by-data-type';
 

@@ -1,4 +1,4 @@
-import { DataType } from 'src/modules/data-type';
+import { DataType } from '@lorema/core';
 import {
   generateAddress,
   generateEmail,
@@ -9,7 +9,7 @@ import {
   generateLorem,
   generatePhone,
   generateTitle,
-} from 'src/modules/generators';
+} from '@lorema/generators';
 import { StorageSchema } from 'src/modules/storage';
 
 type DataSettingsKey = keyof Omit<StorageSchema, 'generationLanguage' | 'interfaceLanguage' | 'theme'>;

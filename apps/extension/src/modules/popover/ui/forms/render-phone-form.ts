@@ -1,5 +1,5 @@
+import { MAX_PHONE_DIGITS, MIN_PHONE_DIGITS, PhoneFormat } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
-import { MAX_PHONE_DIGITS, MIN_PHONE_DIGITS, PhoneFormat } from 'src/modules/generators';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';

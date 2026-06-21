@@ -1,15 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "types": ["chrome"],
-    "paths": {
-      "src/*": ["src/*"],
-      "@lorema/generators": ["../../packages/generators/src/index.ts"],
-      "@lorema/generators/*": ["../../packages/generators/src/*"],
-      "@lorema/core": ["../../packages/core/src/index.ts"],
-      "@lorema/core/*": ["../../packages/core/src/*"]
-    }
+    "baseUrl": "../..",
+    "types": ["chrome"]
   },
   "include": ["src/**/*.ts", "vite.config.ts"],
   "exclude": ["node_modules", "dist"]

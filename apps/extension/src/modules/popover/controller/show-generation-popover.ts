@@ -1,4 +1,4 @@
-import { DataType } from 'src/modules/data-type';
+import { DataType } from '@lorema/core';
 import { EditableTargetSnapshot } from 'src/modules/editable-target';
 import { loadPopoverFonts } from 'src/modules/popover/lib/load-popover-fonts';
 import { movePopoverInsideViewport } from 'src/modules/popover/lib/move-popover-inside-viewport';

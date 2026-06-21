@@ -1,5 +1,5 @@
+import { DataType } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { DataType } from 'src/modules/data-type';
 import { StorageSchema } from 'src/modules/storage';
 import { LANGUAGES, SHORT_NAME_BY_LANGUAGE } from 'src/shared/config/language';
 import { Language } from 'src/shared/model/types';

@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
+      "src/*": ["apps/extension/src/*"],
       "@lorema/generators": ["packages/generators/src/index.ts"],
       "@lorema/generators/*": ["packages/generators/src/*"],
       "@lorema/core": ["packages/core/src/index.ts"],

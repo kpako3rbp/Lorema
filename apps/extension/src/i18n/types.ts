@@ -1,5 +1,4 @@
-import { DataType } from 'src/modules/data-type';
-import { DataTab } from 'src/modules/data-type/config/constants';
+import { DataTab, DataType } from '@lorema/core';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -8,7 +7,7 @@ import {
   PhoneFormat,
   TitleLengthPreset,
   TitleTopic,
-} from 'src/modules/generators';
+} from '@lorema/generators';
 
 type ThemeTranslation = {
   light: string;

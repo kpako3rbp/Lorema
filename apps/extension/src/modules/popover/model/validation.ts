@@ -1,5 +1,5 @@
+import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
-import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from 'src/modules/generators';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 import { numberWithSpaces } from 'src/shared/lib/string';
 import { validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';

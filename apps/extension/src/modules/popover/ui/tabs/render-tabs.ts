@@ -1,5 +1,5 @@
+import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab, DataType } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab, DataType } from 'src/modules/data-type';
 import { Language } from 'src/shared/model/types';
 import { renderAddressIcon } from 'src/shared/ui/icons/address';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';

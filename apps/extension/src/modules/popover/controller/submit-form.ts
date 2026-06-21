@@ -1,6 +1,5 @@
+import { DATA_TAB_TO_TYPE, DataType } from '@lorema/core';
 import { generateData } from 'src/modules/data-generation';
-import { DataType } from 'src/modules/data-type';
-import { DATA_TAB_TO_TYPE } from 'src/modules/data-type/config/constants';
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import { validatePhoneForm, validateTextForm } from 'src/modules/popover/model/validation';
 import { StorageSchema } from 'src/modules/storage';

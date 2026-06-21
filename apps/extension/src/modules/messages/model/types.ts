@@ -1,5 +1,5 @@
+import { DataType } from '@lorema/core';
 import { InsertMode } from 'src/modules/data-insertion';
-import { DataType } from 'src/modules/data-type';
 
 export type ExtensionMessage =
   | {

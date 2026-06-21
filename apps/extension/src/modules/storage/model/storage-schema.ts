@@ -7,7 +7,7 @@ import {
   PhoneSettings,
   TextSettings,
   TitleSettings,
-} from 'src/modules/generators';
+} from '@lorema/generators';
 import { Language, Theme } from 'src/shared/model/types';
 
 export type StorageSchema = {

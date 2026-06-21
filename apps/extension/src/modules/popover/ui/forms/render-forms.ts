@@ -1,4 +1,4 @@
-import { DataTab } from 'src/modules/data-type/config/constants';
+import { DataTab } from '@lorema/core';
 import { POPOVER_TAB_CLASSNAME } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';

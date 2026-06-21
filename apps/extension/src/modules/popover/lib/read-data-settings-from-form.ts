@@ -1,4 +1,4 @@
-import { DataTab } from 'src/modules/data-type/config/constants';
+import { DataTab } from '@lorema/core';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -9,7 +9,7 @@ import {
   PhoneFormat,
   TitleLengthPreset,
   TitleTopic,
-} from 'src/modules/generators';
+} from '@lorema/generators';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { getCheckboxValue, getInputValue, getSelectedValue, getSelectedValues } from 'src/shared/lib/form-element';
