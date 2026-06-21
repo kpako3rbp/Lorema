@@ -1,14 +1,14 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 import { numberWithSpaces } from 'src/shared/lib/string';
 import { validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';
-import { Language } from 'src/shared/model/types';
 import { showInputError } from 'src/shared/ui/form-error/show-input-error';
 
 import { POPOVER_IDS } from '../config/constants';
 
-export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Language): boolean => {
+export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: InterfaceLanguage): boolean => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
 
   const inputEL = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.textLengthInput}`);
@@ -25,7 +25,7 @@ export const validateTextForm = (form: HTMLFormElement, interfaceLanguage: Langu
   return result.isValid;
 };
 
-export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: Language): boolean => {
+export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: InterfaceLanguage): boolean => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
 
   const countryCodeInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.countryCodeInput}`);

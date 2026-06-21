@@ -1,3 +1,4 @@
+import { GenerationLanguage, InterfaceLanguage } from '@lorema/core';
 import {
   AddressSettings,
   EmailSettings,
@@ -8,11 +9,11 @@ import {
   TextSettings,
   TitleSettings,
 } from '@lorema/generators';
-import { Language, Theme } from 'src/shared/model/types';
+import { Theme } from 'src/shared/model/types';
 
 export type StorageSchema = {
   // Generation Settings
-  generationLanguage: Language;
+  generationLanguage: GenerationLanguage;
   textSettings: TextSettings;
   titleSettings: TitleSettings;
   emailSettings: EmailSettings;
@@ -23,6 +24,6 @@ export type StorageSchema = {
   lastNameSettings: LastNameSettings;
 
   // Common
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
   theme: Theme;
 };

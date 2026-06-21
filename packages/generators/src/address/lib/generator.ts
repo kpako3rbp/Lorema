@@ -1,5 +1,5 @@
+import { GenerationLanguage } from '@lorema/core';
 import { getRandomInteger, getRandomItem } from '@lorema/generators/shared/lib/random';
-import { Language } from '@lorema/generators/shared/model/types';
 
 import { ADDRESS_FORMATS, ADDRESS_PARTS_BY_LANGUAGE } from '../config/constants';
 import { AddressFormat, AddressSettings } from '../model/types';
@@ -61,9 +61,10 @@ const generateEnglishAddress = (settings: AddressSettings) => {
   return formatMap[getSettingsFormat(settings)];
 };
 
-const ADDRESS_GENERATORS_BY_LANGUAGE: Record<Language, (settings: AddressSettings) => string> = {
+const ADDRESS_GENERATORS_BY_LANGUAGE: Record<GenerationLanguage, (settings: AddressSettings) => string> = {
   ru: generateRussianAddress,
   en: generateEnglishAddress,
+  la: generateEnglishAddress,
 };
 
 export const generateAddress = (settings: AddressSettings): string => {

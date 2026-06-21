@@ -1,9 +1,9 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language } from 'src/shared/model/types';
 import { renderLogo } from 'src/shared/ui/icons/logo';
 
 type RenderHeaderParams = {
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
   version: string;
 };
 

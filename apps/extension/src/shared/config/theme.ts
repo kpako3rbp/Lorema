@@ -1,12 +1,13 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language, Theme } from 'src/shared/model/types';
+import { Theme } from 'src/shared/model/types';
 
 import { renderBritishFlagIcon } from '../ui/icons/british-flag';
 import { renderDarkThemeIcon } from '../ui/icons/dark-theme';
 import { renderLightThemeIcon } from '../ui/icons/light-theme';
 import { renderRussianFlagIcon } from '../ui/icons/russian-flag';
 
-export const getNameByLanguage = (language: Language): Record<Theme, string> => ({
+export const getNameByLanguage = (language: InterfaceLanguage): Record<Theme, string> => ({
   light: TRANSLATIONS[language].theme.light,
   dark: TRANSLATIONS[language].theme.dark,
 });
@@ -18,7 +19,7 @@ export const ICON_BY_THEME: Record<Theme, string> = {
   [Theme.dark]: renderDarkThemeIcon(),
 };
 
-export const ICON_BY_LANGUAGE: Record<Language, string> = {
+export const ICON_BY_LANGUAGE: Record<InterfaceLanguage, string> = {
   en: renderBritishFlagIcon(),
   ru: renderRussianFlagIcon(),
 };

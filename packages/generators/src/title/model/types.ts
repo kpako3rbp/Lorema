@@ -1,4 +1,4 @@
-import { Language } from '@lorema/generators/shared/model/types';
+import { GenerationLanguage } from '@lorema/core';
 
 export type RuTopicForms = {
   nom: string;
@@ -21,7 +21,7 @@ export type TitleTopic = 'business' | 'it' | 'art' | 'science' | 'finance' | 'ma
 export type TitleLengthPreset = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
 
 export type TitleSettings = {
-  language: Language;
+  language: GenerationLanguage;
   lengthPresets: TitleLengthPreset[];
   topics: TitleTopic[];
 };

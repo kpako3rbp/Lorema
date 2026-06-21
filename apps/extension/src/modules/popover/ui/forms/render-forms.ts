@@ -1,7 +1,6 @@
-import { DataTab } from '@lorema/core';
+import { DataTab, InterfaceLanguage } from '@lorema/core';
 import { POPOVER_TAB_CLASSNAME } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
-import { Language } from 'src/shared/model/types';
 
 import { renderAddressForm } from './render-address-form';
 import { renderEmailForm } from './render-email-form';
@@ -11,7 +10,7 @@ import { renderPhoneForm } from './render-phone-form';
 import { renderTextForm } from './render-text-form';
 import { renderTitleForm } from './render-title-form';
 
-const FORM_RENDERERS: Record<DataTab, (storage: StorageSchema, interfaceLanguage: Language) => string> = {
+const FORM_RENDERERS: Record<DataTab, (storage: StorageSchema, interfaceLanguage: InterfaceLanguage) => string> = {
   text: renderTextForm,
   title: renderTitleForm,
   email: renderEmailForm,
@@ -21,7 +20,7 @@ const FORM_RENDERERS: Record<DataTab, (storage: StorageSchema, interfaceLanguage
   person: renderPersonForm,
 };
 
-export const renderForms = (storage: StorageSchema, interfaceLanguage: Language): string => {
+export const renderForms = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {
   return Object.entries(FORM_RENDERERS)
     .map(([dataTab, renderForm]) => {
       return /*html*/ `

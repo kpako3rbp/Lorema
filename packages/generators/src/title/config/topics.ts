@@ -1,4 +1,4 @@
-import { Language } from '@lorema/generators/shared/model/types';
+import { GenerationLanguage } from '@lorema/core';
 
 import { EnTopicForms, RuTopicForms, TitleTopic } from '../model/types';
 
@@ -110,7 +110,46 @@ export const EN_TOPIC_FORMS: Record<TitleTopic, EnTopicForms> = {
   },
 };
 
-export const TOPIC_FORMS_BY_LANGUAGE: Record<Language, unknown> = {
+export const LA_TOPIC_FORMS: Record<TitleTopic, EnTopicForms> = {
+  business: {
+    value: 'business',
+    context: 'market analysis',
+    result: 'profitability',
+  },
+
+  it: {
+    value: 'platform',
+    context: 'user interface',
+    result: 'stability',
+  },
+
+  science: {
+    value: 'research',
+    context: 'data analysis',
+    result: 'accuracy',
+  },
+
+  finance: {
+    value: 'budget',
+    context: 'expenses',
+    result: 'profitability',
+  },
+
+  marketing: {
+    value: 'campaign',
+    context: 'target audience',
+    result: 'conversion',
+  },
+
+  art: {
+    value: 'exhibition',
+    context: 'creative process',
+    result: 'engagement',
+  },
+};
+
+export const TOPIC_FORMS_BY_LANGUAGE: Record<GenerationLanguage, unknown> = {
   ru: RU_TOPIC_FORMS,
   en: EN_TOPIC_FORMS,
+  la: LA_TOPIC_FORMS,
 };

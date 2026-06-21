@@ -1,7 +1,7 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { Translation, TRANSLATIONS } from 'src/i18n';
 import { TextStatistics } from 'src/modules/text-statistics/model/types';
 import { numberWithSpaces } from 'src/shared/lib/string';
-import { Language } from 'src/shared/model/types';
 import { renderCharacterIcon } from 'src/shared/ui/icons/character';
 import { renderCloseIcon } from 'src/shared/ui/icons/close';
 import { renderNoSpaceIcon } from 'src/shared/ui/icons/no-space';
@@ -13,7 +13,7 @@ import { POPOVER_IDS } from '../../config/constants';
 
 type RenderTextStatisticsParams = {
   statistics: TextStatistics;
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
 };
 
 type TextStatisticsKey = keyof TextStatistics;

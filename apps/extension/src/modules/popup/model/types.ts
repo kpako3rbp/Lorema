@@ -1,4 +1,5 @@
-import { Language, Theme } from 'src/shared/model/types';
+import { InterfaceLanguage } from '@lorema/core';
+import { Theme } from 'src/shared/model/types';
 
 export type PopupView = 'settings' | 'support';
 
@@ -12,12 +13,12 @@ export type PopupElements = {
 };
 
 export type ExtensionSettings = {
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
   theme: Theme;
 };
 
 export type PopupState = {
   view: PopupView;
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
   theme: Theme;
 };

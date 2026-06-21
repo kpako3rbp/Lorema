@@ -1,4 +1,4 @@
-import { Language } from '@lorema/generators/shared/model/types';
+import { GenerationLanguage } from '@lorema/core';
 
 import { AddressFormat, AddressParts } from '../model/types';
 
@@ -253,9 +253,118 @@ export const ADDRESS_PARTS_EN: AddressParts = {
   ],
 };
 
-export const ADDRESS_PARTS_BY_LANGUAGE: Record<Language, AddressParts> = {
+export const ADDRESS_PARTS_LA: AddressParts = {
+  countries: ['USA'],
+
+  regions: [],
+
+  states: ['CA', 'NY', 'TX', 'FL', 'WA', 'IL', 'PA', 'OH', 'AZ', 'CO', 'MA', 'GA', 'NC', 'MI', 'NJ', 'VA', 'OR'],
+
+  cityTypes: [],
+
+  cities: [
+    'New York',
+    'Los Angeles',
+    'Chicago',
+    'Houston',
+    'Phoenix',
+    'Philadelphia',
+    'San Antonio',
+    'San Diego',
+    'Dallas',
+    'Austin',
+    'Jacksonville',
+    'San Jose',
+    'Fort Worth',
+    'Columbus',
+    'Charlotte',
+    'Indianapolis',
+    'Seattle',
+    'Denver',
+    'Boston',
+    'Nashville',
+    'Portland',
+    'Las Vegas',
+    'Detroit',
+    'Miami',
+    'Atlanta',
+    'Orlando',
+    'Tampa',
+    'Sacramento',
+    'Kansas City',
+    'Cleveland',
+  ],
+
+  streetTypes: ['St', 'Ave', 'Blvd', 'Rd', 'Ln', 'Dr', 'Way', 'Ct', 'Pl'],
+
+  streetNames: [
+    'Main',
+    'Oak',
+    'Pine',
+    'Maple',
+    'Cedar',
+    'Park',
+    'Washington',
+    'Lake',
+    'Hill',
+    'Sunset',
+    'Highland',
+    'Church',
+    'River',
+    'Lincoln',
+    'Adams',
+    'Madison',
+    'Jefferson',
+    'Franklin',
+    'Broadway',
+    'Forest',
+    'Elm',
+    'Walnut',
+    'Cherry',
+    'Willow',
+    'Spruce',
+    'Chestnut',
+    'Dogwood',
+    'Magnolia',
+    'Meadow',
+    'Ridge',
+    'Valley',
+    'Center',
+    'Market',
+    'Union',
+    'King',
+    'Queen',
+    'Victoria',
+    'George',
+    'Oxford',
+    'Cambridge',
+    'Baker',
+    'Mill',
+    'Bridge',
+    'Station',
+    'College',
+    'School',
+    'Spring',
+    'Summer',
+    'Winter',
+    'North',
+    'South',
+    'East',
+    'West',
+    'Hillside',
+    'Riverside',
+    'Lakeside',
+    'Greenwood',
+    'Fairview',
+    'Woodland',
+    'Brookfield',
+  ],
+};
+
+export const ADDRESS_PARTS_BY_LANGUAGE: Record<GenerationLanguage, AddressParts> = {
   ru: ADDRESS_PARTS_RU,
   en: ADDRESS_PARTS_EN,
+  la: ADDRESS_PARTS_LA,
 };
 
 export const ADDRESS_FORMATS: AddressFormat[] = ['short', 'full', 'postal', 'legal'];

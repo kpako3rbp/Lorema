@@ -1,5 +1,5 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language } from 'src/shared/model/types';
 
 import { renderChevronDownIcon } from '../icons/chevron-down';
 
@@ -14,7 +14,7 @@ type RenderCustomSelectParams<T extends string> = {
   label?: string;
   options: readonly SelectOption<T>[];
   selectedValues: readonly T[];
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
   multiple?: boolean;
   className?: string;
 };

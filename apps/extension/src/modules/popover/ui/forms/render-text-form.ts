@@ -1,12 +1,12 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { MAX_TEXT_CHARS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { numberWithSpaces } from 'src/shared/lib/string';
-import { Language } from 'src/shared/model/types';
 import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
-export const renderTextForm = (storage: StorageSchema, interfaceLanguage: Language) => {
+export const renderTextForm = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage) => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.textSettings;
   const isExactMode = settings.lengthMode === 'exact';

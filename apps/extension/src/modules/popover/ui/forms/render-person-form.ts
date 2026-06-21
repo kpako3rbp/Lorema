@@ -1,12 +1,12 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { NAME_LENGTH_PRESETS } from '@lorema/generators/person/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
 import { StorageSchema } from 'src/modules/storage';
-import { Language } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 
 import { POPOVER_IDS } from '../../config/constants';
 
-export const renderPersonForm = (storage: StorageSchema, interfaceLanguage: Language): string => {
+export const renderPersonForm = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
 
   return /*html*/ `

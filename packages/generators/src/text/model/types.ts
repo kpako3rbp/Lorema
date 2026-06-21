@@ -1,4 +1,4 @@
-import { Language } from '@lorema/generators/shared/model/types';
+import { GenerationLanguage } from '@lorema/core';
 
 export type TextParts = {
   starts: string[];
@@ -14,7 +14,7 @@ export type TextParts = {
 export type LengthMode = 'lte' | 'exact';
 
 export type TextSettings = {
-  language: Language;
+  language: GenerationLanguage;
   length: number;
   lengthMode: LengthMode;
   keepWholeSentencies: boolean;

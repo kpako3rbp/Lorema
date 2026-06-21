@@ -1,8 +1,12 @@
-import { DataType } from '@lorema/core';
+import {
+  DataType,
+  GENERATION_LANGUAGES,
+  GenerationLanguage,
+  InterfaceLanguage,
+  SHORT_NAME_BY_LANGUAGE,
+} from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
 import { StorageSchema } from 'src/modules/storage';
-import { LANGUAGES, SHORT_NAME_BY_LANGUAGE } from 'src/shared/config/language';
-import { Language } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
@@ -13,8 +17,8 @@ import { renderTabs } from '../tabs/render-tabs';
 type RenderInsertDataParams = {
   dataType: DataType;
   storage: StorageSchema;
-  interfaceLanguage: Language;
-  generationLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
+  generationLanguage: GenerationLanguage;
 };
 
 export const renderInsertData = (params: RenderInsertDataParams): string => {
@@ -37,7 +41,7 @@ export const renderInsertData = (params: RenderInsertDataParams): string => {
             id: POPOVER_IDS.languageSelect,
             selectedValues: [generationLanguage],
             interfaceLanguage: interfaceLanguage,
-            options: LANGUAGES.map((lang) => ({
+            options: GENERATION_LANGUAGES.map((lang) => ({
               value: lang,
               label: SHORT_NAME_BY_LANGUAGE[lang],
               // iconMarkup: ICON_BY_LANGUAGE[lang],

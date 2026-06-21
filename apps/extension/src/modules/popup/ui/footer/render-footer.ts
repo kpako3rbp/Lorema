@@ -1,10 +1,10 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language } from 'src/shared/model/types';
 import { renderBugIcon } from 'src/shared/ui/icons/bug';
 import { renderFeedbackIcon } from 'src/shared/ui/icons/feedback';
 import { renderGithubIcon } from 'src/shared/ui/icons/github';
 
-export const renderFooter = (interfaceLanguage: Language): string => {
+export const renderFooter = (interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popup;
 
   return /* html */ `

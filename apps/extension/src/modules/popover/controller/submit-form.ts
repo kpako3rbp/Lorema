@@ -1,10 +1,9 @@
-import { DATA_TAB_TO_TYPE, DataType } from '@lorema/core';
+import { DATA_TAB_TO_TYPE, DataType, InterfaceLanguage } from '@lorema/core';
 import { generateData } from 'src/modules/data-generation';
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import { validatePhoneForm, validateTextForm } from 'src/modules/popover/model/validation';
 import { StorageSchema } from 'src/modules/storage';
 import { setStorageItems } from 'src/modules/storage/api/extension-storage';
-import { Language } from 'src/shared/model/types';
 
 import { getActiveDataTab } from '../lib/get-active-data-type';
 import { readDataSettingsFromForm } from '../lib/read-data-settings-from-form';
@@ -17,7 +16,11 @@ const saveSettingsForDataType = async (storage: StorageSchema): Promise<void> =>
   await setStorageItems(generationSettings);
 };
 
-const validateFormByDataType = (dataType: DataType, form: HTMLFormElement, interfaceLanguage: Language): boolean => {
+const validateFormByDataType = (
+  dataType: DataType,
+  form: HTMLFormElement,
+  interfaceLanguage: InterfaceLanguage,
+): boolean => {
   const validators: Partial<Record<DataType, () => boolean>> = {
     text: () => validateTextForm(form, interfaceLanguage),
     phone: () => validatePhoneForm(form, interfaceLanguage),

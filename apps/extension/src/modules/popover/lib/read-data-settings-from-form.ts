@@ -1,4 +1,4 @@
-import { DataTab } from '@lorema/core';
+import { DataTab, GenerationLanguage } from '@lorema/core';
 import {
   AddressFormat,
   EmailLengthPreset,
@@ -13,7 +13,6 @@ import {
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { getCheckboxValue, getInputValue, getSelectedValue, getSelectedValues } from 'src/shared/lib/form-element';
-import { Language } from 'src/shared/model/types';
 
 export const readDataSettingsFromForm = (
   form: HTMLFormElement,
@@ -21,7 +20,7 @@ export const readDataSettingsFromForm = (
   storage: StorageSchema,
   dataTab?: DataTab,
 ): StorageSchema => {
-  const getLanguage = (): Language => languageSelect.value as Language;
+  const getLanguage = (): GenerationLanguage => languageSelect.value as GenerationLanguage;
 
   const handlers: Record<DataTab, () => Partial<StorageSchema>> = {
     text: () => {

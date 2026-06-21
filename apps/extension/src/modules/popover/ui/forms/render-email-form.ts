@@ -1,11 +1,11 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { EMAIL_LENGTH_PRESET_RANGES, EMAIL_LENGTH_PRESETS } from '@lorema/generators/email/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
-import { Language } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 
-export const renderEmailForm = (storage: StorageSchema, interfaceLanguage: Language): string => {
+export const renderEmailForm = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.emailSettings;
 

@@ -1,6 +1,5 @@
-import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab, DataType } from '@lorema/core';
+import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab, DataType, InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language } from 'src/shared/model/types';
 import { renderAddressIcon } from 'src/shared/ui/icons/address';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';
 import { renderLinkIcon } from 'src/shared/ui/icons/link';
@@ -22,7 +21,7 @@ const mapTypeToIcon: Record<DataTab, string> = {
   // date: renderDateIcon(),
 };
 
-export const renderTabs = (activeDataType: DataType, interfaceLanguage: Language): string => {
+export const renderTabs = (activeDataType: DataType, interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const activeTab = DATA_TYPE_TO_TAB[activeDataType];
 

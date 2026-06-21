@@ -1,14 +1,14 @@
+import { INTERFACE_LANGUAGES, InterfaceLanguage, NAME_BY_LANGUAGE } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { LANGUAGES, NAME_BY_LANGUAGE } from 'src/shared/config/language';
 import { getNameByLanguage, ICON_BY_LANGUAGE, ICON_BY_THEME, THEMES } from 'src/shared/config/theme';
-import { Language, Theme } from 'src/shared/model/types';
+import { Theme } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
 import { renderHeartIcon } from 'src/shared/ui/icons/heart';
 import { renderInfoIcon } from 'src/shared/ui/icons/info';
 
 import { POPUP_IDS } from '../../config/constants';
 
-export const renderSettingsContent = (interfaceLanguage: Language, theme: Theme): string => {
+export const renderSettingsContent = (interfaceLanguage: InterfaceLanguage, theme: Theme): string => {
   const t = TRANSLATIONS[interfaceLanguage].popup.settings;
   const themeNames = getNameByLanguage(interfaceLanguage);
 
@@ -29,7 +29,7 @@ export const renderSettingsContent = (interfaceLanguage: Language, theme: Theme)
           label: t.interfaceLanguage,
           selectedValues: [interfaceLanguage],
           interfaceLanguage,
-          options: LANGUAGES.map((language) => ({
+          options: INTERFACE_LANGUAGES.map((language) => ({
             value: language,
             label: NAME_BY_LANGUAGE[language],
             iconMarkup: ICON_BY_LANGUAGE[language],

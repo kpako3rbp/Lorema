@@ -1,11 +1,11 @@
-import { Language } from '../model/types';
+import { InterfaceLanguage } from '@lorema/core';
 
-export const getBrowserLanguage = (): Language => {
+export const getBrowserLanguage = (): InterfaceLanguage => {
   const language = navigator.language.toLowerCase();
 
   if (language.startsWith('ru')) {
-    return Language.ru;
+    return 'ru';
   }
 
-  return Language.en;
+  return 'en';
 };

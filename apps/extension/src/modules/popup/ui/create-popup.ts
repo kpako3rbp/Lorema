@@ -1,5 +1,6 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { APP_VERSION } from 'src/shared/config/version';
-import { Language, Theme } from 'src/shared/model/types';
+import { Theme } from 'src/shared/model/types';
 
 import { PopupView } from '../model/types';
 import { renderSettingsContent } from './content/render-settings-content';
@@ -9,7 +10,7 @@ import { renderHeader } from './header/render-header';
 
 type RenderPopupParams = {
   view: PopupView;
-  interfaceLanguage: Language;
+  interfaceLanguage: InterfaceLanguage;
   theme: Theme;
 };
 

@@ -1,5 +1,5 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language } from 'src/shared/model/types';
 
 const OPEN_CLASS = 'open';
 const OPEN_UP_CLASS = 'open-up';
@@ -20,7 +20,7 @@ const getSelectedCustomOptionContent = (root: HTMLElement, value: string): strin
   return option?.innerHTML ?? '';
 };
 
-const updateText = (root: HTMLElement, select: HTMLSelectElement, interfaceLanguage: Language): void => {
+const updateText = (root: HTMLElement, select: HTMLSelectElement, interfaceLanguage: InterfaceLanguage): void => {
   const t = TRANSLATIONS[interfaceLanguage].customSelect;
   const valueElement = root.querySelector<HTMLElement>('.lorem-custom-select-value');
 
@@ -100,7 +100,7 @@ const toggleOption = (
   root: HTMLElement,
   select: HTMLSelectElement,
   value: string,
-  interfaceLanguage: Language,
+  interfaceLanguage: InterfaceLanguage,
 ): void => {
   const option = Array.from(select.options).find((item) => item.value === value);
 
@@ -119,7 +119,7 @@ const toggleOption = (
   select.dispatchEvent(new Event('change', { bubbles: true }));
 };
 
-export const initCustomSelects = (rootNode: ParentNode, interfaceLanguage: Language): void => {
+export const initCustomSelects = (rootNode: ParentNode, interfaceLanguage: InterfaceLanguage): void => {
   const customSelects = rootNode.querySelectorAll<HTMLElement>('[data-custom-select]');
 
   customSelects.forEach((root) => {

@@ -1,4 +1,4 @@
-import { Language } from '@lorema/generators/shared/model/types';
+import { GenerationLanguage } from '@lorema/core';
 
 export type AddressParts = {
   countries: string[];
@@ -13,6 +13,6 @@ export type AddressParts = {
 export type AddressFormat = 'short' | 'full' | 'postal' | 'legal';
 
 export type AddressSettings = {
-  language: Language;
+  language: GenerationLanguage;
   formats: AddressFormat[];
 };

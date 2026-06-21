@@ -16,6 +16,24 @@ export const SENTENCE_TEMPLATES_EN = [
   '{start} {subject} help maintain stability in {objectLoc} {ending}',
 ] as const;
 
+export const SENTENCE_TEMPLATES_LA = [
+  '{start} {subject} {predicate} {object} {ending}',
+  '{start} {subject} help improve {object} {ending}',
+  '{start} {subject} create a stronger basis for {objectDat} {ending}',
+  '{start} {subject} contribute to {objectDat} {ending}',
+  '{start} {subject} reduce {objectGen} {ending}',
+  '{start} {subject} support consistency in {objectLoc} {ending}',
+  '{start} {subject} make it easier to manage {objectLoc} {ending}',
+  '{subject} gradually improve {object} {ending}',
+  '{subject} increasingly support {object} {ending}',
+  '{subject} not only improve {object}, but also create a basis for further development.',
+  '{start} it becomes clear that {subject} strengthen {object} {ending}',
+  '{start} practical results show that {subject} reduce {objectGen} {ending}',
+  '{start} {subject} provide a more reliable foundation for {objectDat} {ending}',
+  '{start} {subject} improve decision-making in {objectLoc} {ending}',
+  '{start} {subject} help maintain stability in {objectLoc} {ending}',
+] as const;
+
 export const SENTENCE_TEMPLATES_RU = [
   '{start} {subject} {predicate} {object} {ending}',
   '{start} именно {subject} {predicate} {object} {ending}',

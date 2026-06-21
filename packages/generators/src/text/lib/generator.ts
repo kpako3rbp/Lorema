@@ -1,6 +1,6 @@
+import { GenerationLanguage } from '@lorema/core';
 import { getRandomItem } from '@lorema/generators/shared/lib/random';
 import { capitalizeFirstLetter } from '@lorema/generators/shared/lib/string';
-import { Language } from '@lorema/generators/shared/model/types';
 
 import { SENTENCE_TEMPLATES_BY_LANGUAGE, TEXT_PARTS_BY_LANGUAGE } from '../config/constants';
 import { TextParts } from '../model/types';
@@ -8,7 +8,7 @@ import { TextParts } from '../model/types';
 type LoremOptions = {
   length: number;
   withParagraphs: boolean;
-  language: Language;
+  language: GenerationLanguage;
   keepWholeSentencies: boolean;
 };
 
@@ -28,7 +28,7 @@ const replaceTemplateVariables = (template: string, parts: TextParts): string =>
     .replace('{ending}', getRandomItem(parts.endings));
 };
 
-const generateSentence = (parts: TextParts, language: Language): string => {
+const generateSentence = (parts: TextParts, language: GenerationLanguage): string => {
   const template = getRandomItem(SENTENCE_TEMPLATES_BY_LANGUAGE[language]);
   const sentence = replaceTemplateVariables(template, parts).trim();
 

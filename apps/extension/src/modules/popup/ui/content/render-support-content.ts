@@ -1,5 +1,5 @@
+import { InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
-import { Language } from 'src/shared/model/types';
 import { renderCopyElement } from 'src/shared/ui/copy-element/render-copy-element';
 import { renderArrowUpRightIcon } from 'src/shared/ui/icons/arrow-up-right';
 import { renderCheckIcon } from 'src/shared/ui/icons/check';
@@ -17,7 +17,7 @@ const PAYMENT_LINK = 'https://pay.cloudtips.ru/p/4a128030';
 const USDT_WALLET = 'UQD3U8hKAGcno2HKplsKwD6puiQiWAEY_0julucR2gEpDuuR';
 const TON_WALLET = 'TXd8CXGpDBjnEAgp3acZXjCrHkPPQUXtqR';
 
-export const renderSupportContent = (interfaceLanguage: Language): string => {
+export const renderSupportContent = (interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popup.support;
 
   return /* html */ `

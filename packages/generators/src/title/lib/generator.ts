@@ -1,6 +1,6 @@
+import { GenerationLanguage } from '@lorema/core';
 import { getRandomItem } from '@lorema/generators/shared/lib/random';
 import { capitalizeFirstLetter } from '@lorema/generators/shared/lib/string';
-import { Language } from '@lorema/generators/shared/model/types';
 
 import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
 import { EXTRA_TEMPLATES_BY_LANGUAGE } from '../config/extra-templates';
@@ -50,12 +50,17 @@ const renderEnTitle = (template: string, topics: TitleTopic): string => {
     .replaceAll('{result}', forms.result);
 };
 
-const renderTitleByLanguage: Record<Language, (template: string, topics: TitleTopic) => string> = {
+const renderTitleByLanguage: Record<GenerationLanguage, (template: string, topics: TitleTopic) => string> = {
   ru: renderRuTitle,
   en: renderEnTitle,
+  la: renderEnTitle,
 };
 
-const getTitleTemplates = (language: Language, topics: TitleTopic, lengthPreset: TitleLengthPreset): string[] => {
+const getTitleTemplates = (
+  language: GenerationLanguage,
+  topics: TitleTopic,
+  lengthPreset: TitleLengthPreset,
+): string[] => {
   return [
     ...COMMON_TITLE_TEMPLATES[language][lengthPreset],
     ...EXTRA_TEMPLATES_BY_LANGUAGE[language][lengthPreset],
@@ -63,7 +68,7 @@ const getTitleTemplates = (language: Language, topics: TitleTopic, lengthPreset:
   ];
 };
 
-const getUniqueTitle = (templates: string[], language: Language, topics: TitleTopic): string => {
+const getUniqueTitle = (templates: string[], language: GenerationLanguage, topics: TitleTopic): string => {
   const attempts = Math.min(templates.length, 20);
 
   for (let i = 0; i < attempts; i += 1) {
