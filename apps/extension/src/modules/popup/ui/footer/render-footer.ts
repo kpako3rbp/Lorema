@@ -4,13 +4,18 @@ import { renderBugIcon } from 'src/shared/ui/icons/bug';
 import { renderFeedbackIcon } from 'src/shared/ui/icons/feedback';
 import { renderGithubIcon } from 'src/shared/ui/icons/github';
 
+const GITHUB_LINK = 'https://github.com/kpako3rbp/lorem-browser-extension';
+const ISSUE_LINK = 'https://github.com/kpako3rbp/lorem-browser-extension/issues/new';
+const FEEDBACK_LINK =
+  'https://chromewebstore.google.com/detail/lorema/dognadbjkfmnogefijfmcajhihpjefnj?hl=ru&authuser=0';
+
 export const renderFooter = (interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popup;
 
   return /* html */ `
     <div class="footer">
       <a
-        href="https://github.com/kpako3rbp/lorem-browser-extension"
+        href="${GITHUB_LINK}"
         target="_blank"
         class="caption link-with-icon"
       >
@@ -19,7 +24,7 @@ export const renderFooter = (interfaceLanguage: InterfaceLanguage): string => {
       </a>
 
       <a
-        href="https://github.com/kpako3rbp/lorem-browser-extension/issues/new"
+        href="${ISSUE_LINK}"
         target="_blank"
         class="caption link-with-icon"
       >
@@ -27,14 +32,14 @@ export const renderFooter = (interfaceLanguage: InterfaceLanguage): string => {
         <p>${t.reportBug}</p>
       </a>
 
-      <!-- <a
-        href="https://chromewebstore.google.com"
+      <a
+        href="${FEEDBACK_LINK}"
         target="_blank"
         class="caption link-with-icon"
       >
         ${renderFeedbackIcon()}
         <p>${t.feedback}</p>
-      </a> -->
+      </a>
     </div>
   `;
 };

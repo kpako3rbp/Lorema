@@ -1,4 +1,4 @@
-![Lorema Logo](src/assets/cover_ru.jpg)
+![Lorema Logo](apps/extension/src/assets/cover_ru.jpg)
 # Lorema
 
 Прочесть README на других языках: [English](./README.md) | Русский
