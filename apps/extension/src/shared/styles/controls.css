@@ -1,0 +1,448 @@
+@import './typography.css';
+
+.lorem-input {
+  width: 100%;
+  padding: 8px;
+  color: var(--color-text);
+  font-size: 14px;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-l);
+}
+
+.lorem-error {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--color-error);
+  opacity: 0;
+  transform: translateY(-2px);
+}
+
+.lorem-error.active {
+  height: auto;
+  margin: 4px 0 0;
+  opacity: 1;
+  transform: translateY(0);
+  animation: error-message 1s ease forwards;
+}
+
+.lorem-input.error {
+  animation: input-error 1s ease;
+}
+
+.lorem-input:hover {
+  background: var(--color-surface-hover);
+}
+
+.lorem-input:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-input::placeholder {
+  color: var(--color-text-dim);
+}
+
+.lorem-input::-webkit-inner-spin-button,
+.lorem-input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.lorem-select {
+  padding: 6px 7px;
+  height: 37px;
+  color: var(--color-text-light);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.lorem-select:hover {
+  background: var(--color-surface-hover);
+}
+
+.lorem-select:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-select option {
+  color: var(--color-select-option-text);
+  background: var(--color-select-option-bg);
+}
+
+.lorem-checkbox {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.lorem-checkbox:has(.lorem-checkbox-input:disabled) {
+  cursor: not-allowed;
+}
+
+.lorem-checkbox:has(.lorem-checkbox-input:disabled) span {
+  color: rgb(158 158 202 / 45%);
+}
+
+.lorem-checkbox-input {
+  flex: 0 0 auto;
+  display: grid;
+  place-content: center;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  appearance: none;
+  background: var(--color-white-soft);
+  border: 1px solid var(--color-white-border);
+  border-radius: var(--radius-s);
+  box-shadow: inset 0 1px 0 var(--color-white-line);
+  cursor: pointer;
+}
+
+.lorem-checkbox-input::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--color-checkbox-bg);
+  background-size: 220% 100%;
+  background-position: 0 50%;
+  border-radius: 3px;
+  transform: scale(0);
+}
+
+.lorem-checkbox-input:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-primary-focus);
+}
+
+.lorem-checkbox-input:checked {
+  background: var(--color-primary-soft);
+}
+
+.lorem-checkbox-input:checked::before {
+  transform: scale(1);
+}
+
+.lorem-checkbox-input:checked:hover::before,
+.lorem-checkbox-input:checked:focus-visible::before {
+  background-position: 100% 50%;
+}
+
+.lorem-checkbox-input:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-checkbox-input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.lorem-length-mode-wrapper {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 38px;
+  padding: 0 5px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-l);
+}
+
+.lorem-length-mode-wrapper:hover {
+  background: var(--color-surface-hover);
+}
+
+.lorem-segmented {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--color-white-soft);
+  border: 1px solid var(--color-white-line);
+  border-radius: var(--radius-l);
+}
+
+.lorem-segment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.lorem-segment input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lorem-segment input:focus-visible + span {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-segment input:checked + span {
+  color: var(--color-active-button-text);
+  background: var(--color-primary);
+  background-size: 220% 100%;
+  background-position: 0 50%;
+  border: var(--active-button-boder);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 45%),
+    0 0 16px var(--color-primary-glow);
+}
+
+.lorem-segment span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 26px;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  border-radius: var(--radius-m);
+}
+
+.lorem-segment:hover input:checked + span,
+.lorem-segment:focus-within input:checked + span {
+  background-position: 100% 50%;
+}
+
+.lorem-segment:hover span {
+  color: var(--color-text-light);
+}
+
+.lorem-submit,
+.lorem-cancel {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius-l);
+  outline: none;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    filter: saturate(0);
+  }
+}
+
+.lorem-submit:focus-visible,
+.lorem-cancel:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.lorem-submit span,
+.lorem-cancel span {
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.lorem-cancel.close-button {
+  padding: 4px;
+  width: fit-content;
+  border-radius: var(--radius-s);
+
+  svg {
+    height: 13px;
+    width: 13px;
+    stroke-width: 3px;
+  }
+}
+
+.lorem-submit {
+  border: var(--active-button-boder);
+  color: var(--color-active-button-text);
+  background: var(--color-primary);
+  background-size: 220% 100%;
+  background-position: 0 50%;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 45%),
+    0 0 18px var(--color-primary-glow);
+}
+
+.lorem-submit:hover {
+  background: var(--color-primary-hover);
+  background-size: 220% 100%;
+  background-position: 100% 50%;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 55%),
+    0 0 22px var(--color-primary-glow);
+}
+
+.lorem-cancel {
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.lorem-cancel:hover {
+  background-color: var(--color-surface-muted);
+}
+
+.lorem-custom-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lorem-custom-select-native {
+  display: none;
+}
+
+.lorem-custom-select-button {
+  width: 100%;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 37px;
+  color: var(--color-text-light);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    background: var(--color-surface-hover);
+  }
+
+  &.generation-language {
+    padding: 9px 10px;
+    min-height: auto;
+  }
+}
+
+.lorem-custom-select-arrow {
+  height: 12px;
+  width: 12px;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.lorem-custom-select-value {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.lorem-custom-select-dropdown {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+
+  z-index: 99999;
+
+  display: none;
+  width: 100%;
+  max-height: 200px;
+  padding: 6px;
+  overflow: auto;
+  box-shadow: var(--tooltip-box-shadow);
+
+  color: var(--color-text-light);
+  background: var(--color-select-option-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  font-size: 12px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lorem-custom-select-dropdown::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.lorem-custom-select.open .lorem-custom-select-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: max-content;
+}
+
+.lorem-custom-select.open-up .lorem-custom-select-dropdown {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+
+.lorem-custom-select-option {
+  width: 100%;
+  padding: 8px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  text-align: left;
+  cursor: pointer;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+.lorem-custom-select-option:hover,
+.lorem-custom-select-option[aria-selected='true'] {
+  background: var(--color-surface);
+  border-radius: var(--radius-m);
+}
+
+.lorem-custom-select-check {
+  opacity: 0;
+}
+
+.lorem-custom-select-option[aria-selected='true'] .lorem-custom-select-check {
+  opacity: 1;
+}
+
+.lorem-copy-element {
+  width: 100%;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}

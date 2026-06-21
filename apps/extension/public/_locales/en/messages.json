@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Lorema",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Generate and insert test data into editable fields.",
+    "description": "Short extension description"
+  }
+}

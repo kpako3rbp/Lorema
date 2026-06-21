@@ -1,10 +1,15 @@
 {
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "vite build",
-    "dev": "vite build --watch",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "lint-all": "npm run typecheck && npm run lint",
+    "build": "nx build extension",
+    "dev": "nx dev extension",
+    "typecheck": "nx typecheck extension",
+    "lint": "nx lint extension",
+    "lint-all": "nx run-many -t typecheck lint",
     "prepare": "husky"
   },
   "devDependencies": {
@@ -13,6 +18,7 @@
     "eslint-config-rtkit": "^3.0.5",
     "eslint-plugin-boundaries": "^6.0.2",
     "husky": "^9.1.7",
+    "nx": "^23.0.0",
     "typescript": "^5.5.4",
     "vite": "^5.4.0"
   }

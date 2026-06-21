@@ -1,0 +1,43 @@
+@import './base.css';
+
+.lorem-title {
+  display: flex;
+  gap: 8px;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.lorem-title span {
+  margin-bottom: -1px;
+}
+
+.lorem-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-label);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.lorem-descriptor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.lorem-descriptor.with-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.lorem-hint {
+  margin: 0;
+  color: var(--color-text-dim);
+  font-size: 12px;
+}

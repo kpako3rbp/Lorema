@@ -1,0 +1,839 @@
+{
+  "version": "6.0",
+  "nxVersion": "23.0.0",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "apps/website/README.md",
+        "hash": "3704488693942386283"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "4351022735255055213"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "12034898130073271735"
+      },
+      {
+        "file": "tsconfig.tsbuildinfo",
+        "hash": "3418514587454711410"
+      },
+      {
+        "file": "README_ru.md",
+        "hash": "13960429530291837628"
+      },
+      {
+        "file": "PRIVACY_POLICY.md",
+        "hash": "4565970926715227108"
+      },
+      {
+        "file": ".husky/pre-commit",
+        "hash": "13809669719001998808"
+      },
+      {
+        "file": "README.md",
+        "hash": "12264150803007768958"
+      },
+      {
+        "file": "nx.json",
+        "hash": "14528430757336322653"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "1130354318954549082"
+      },
+      {
+        "file": "package.json",
+        "hash": "5083982574245025215"
+      }
+    ],
+    "projectFileMap": {
+      "extension": [
+        {
+          "file": "apps/extension/project.json",
+          "hash": "2936379654391830647"
+        },
+        {
+          "file": "apps/extension/public/_locales/en/messages.json",
+          "hash": "16252926676320362616"
+        },
+        {
+          "file": "apps/extension/public/_locales/ru/messages.json",
+          "hash": "17801620939118374254"
+        },
+        {
+          "file": "apps/extension/public/fonts/GoogleSans-Medium.woff2",
+          "hash": "421533692062862500"
+        },
+        {
+          "file": "apps/extension/public/fonts/GoogleSans-Regular.woff2",
+          "hash": "4111763716403359373"
+        },
+        {
+          "file": "apps/extension/public/icons/coffee4.svg",
+          "hash": "8042042734610361415"
+        },
+        {
+          "file": "apps/extension/public/icons/icon128.png",
+          "hash": "10998703100249432435"
+        },
+        {
+          "file": "apps/extension/public/icons/icon16.png",
+          "hash": "7030916956886059243"
+        },
+        {
+          "file": "apps/extension/public/icons/icon32.png",
+          "hash": "5692351754832020381"
+        },
+        {
+          "file": "apps/extension/public/icons/icon48.png",
+          "hash": "2637946303424301558"
+        },
+        {
+          "file": "apps/extension/public/icons/logo.svg",
+          "hash": "11205931835950490156"
+        },
+        {
+          "file": "apps/extension/public/icons/spb.svg",
+          "hash": "14128686805011350960"
+        },
+        {
+          "file": "apps/extension/public/icons/tether.svg",
+          "hash": "2811391624996685351"
+        },
+        {
+          "file": "apps/extension/public/icons/ton.svg",
+          "hash": "12422382882939707056"
+        },
+        {
+          "file": "apps/extension/public/manifest.json",
+          "hash": "2695038590318414226"
+        },
+        {
+          "file": "apps/extension/src/app/background/index.ts",
+          "hash": "1601164828334123774"
+        },
+        {
+          "file": "apps/extension/src/app/content/index.ts",
+          "hash": "13342170366354351655"
+        },
+        {
+          "file": "apps/extension/src/app/popup/index.html",
+          "hash": "8552869009383736251"
+        },
+        {
+          "file": "apps/extension/src/app/popup/index.ts",
+          "hash": "4335389347667286238"
+        },
+        {
+          "file": "apps/extension/src/app/popup/style.css",
+          "hash": "14845763991732096297"
+        },
+        {
+          "file": "apps/extension/src/assets/cover_en.jpg",
+          "hash": "5300296325478733774"
+        },
+        {
+          "file": "apps/extension/src/assets/cover_ru.jpg",
+          "hash": "14611317061965097191"
+        },
+        {
+          "file": "apps/extension/src/i18n/en/translations.ts",
+          "hash": "6740640850300218765"
+        },
+        {
+          "file": "apps/extension/src/i18n/index.ts",
+          "hash": "6911808641792642527"
+        },
+        {
+          "file": "apps/extension/src/i18n/ru/translations.ts",
+          "hash": "3321603137431784788"
+        },
+        {
+          "file": "apps/extension/src/i18n/types.ts",
+          "hash": "10783501431672936218"
+        },
+        {
+          "file": "apps/extension/src/modules/background-menu/config/constants.ts",
+          "hash": "14242337195716222553"
+        },
+        {
+          "file": "apps/extension/src/modules/background-menu/context-menu.ts",
+          "hash": "11304109725541030024"
+        },
+        {
+          "file": "apps/extension/src/modules/background-menu/index.ts",
+          "hash": "10670011097789389222"
+        },
+        {
+          "file": "apps/extension/src/modules/background-menu/init-background-menu.ts",
+          "hash": "12693425235123607190"
+        },
+        {
+          "file": "apps/extension/src/modules/background-menu/parse-menu-item-id.ts",
+          "hash": "14755384466338704179"
+        },
+        {
+          "file": "apps/extension/src/modules/background-menu/send-content-message.ts",
+          "hash": "9900719392624112649"
+        },
+        {
+          "file": "apps/extension/src/modules/content-script/index.ts",
+          "hash": "15145776944734539824"
+        },
+        {
+          "file": "apps/extension/src/modules/content-script/init-content-script.ts",
+          "hash": "8604005068965810214"
+        },
+        {
+          "file": "apps/extension/src/modules/content-script/lib/get-selected-text.ts",
+          "hash": "2378723385113472728"
+        },
+        {
+          "file": "apps/extension/src/modules/data-generation/config/generator-by-data-type.ts",
+          "hash": "172818181866835172"
+        },
+        {
+          "file": "apps/extension/src/modules/data-generation/generate-data.ts",
+          "hash": "1041070167237919397"
+        },
+        {
+          "file": "apps/extension/src/modules/data-generation/index.ts",
+          "hash": "11943125820244633493"
+        },
+        {
+          "file": "apps/extension/src/modules/data-insertion/index.ts",
+          "hash": "6672687246161559282"
+        },
+        {
+          "file": "apps/extension/src/modules/data-insertion/insert-quick-data.ts",
+          "hash": "6436802884576033309"
+        },
+        {
+          "file": "apps/extension/src/modules/data-insertion/model/types.ts",
+          "hash": "11882670028865254715"
+        },
+        {
+          "file": "apps/extension/src/modules/data-type/config/constants.ts",
+          "hash": "3740451439180268639"
+        },
+        {
+          "file": "apps/extension/src/modules/data-type/index.ts",
+          "hash": "7789088987456325734"
+        },
+        {
+          "file": "apps/extension/src/modules/data-type/lib/is-data-tab.ts",
+          "hash": "3443962887966754671"
+        },
+        {
+          "file": "apps/extension/src/modules/editable-target/index.ts",
+          "hash": "5552259247218220627"
+        },
+        {
+          "file": "apps/extension/src/modules/editable-target/insert-text-at-target.ts",
+          "hash": "3914006783159226253"
+        },
+        {
+          "file": "apps/extension/src/modules/editable-target/insertion-target-snapshot.ts",
+          "hash": "10133466441956946275"
+        },
+        {
+          "file": "apps/extension/src/modules/editable-target/model/types.ts",
+          "hash": "6302242793351680024"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/address/config/constants.ts",
+          "hash": "3289706501749168083"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/address/lib/generator.ts",
+          "hash": "1238056290031666532"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/address/model/types.ts",
+          "hash": "15101038529157090578"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/email/config/constants.ts",
+          "hash": "12921243058210080406"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/email/lib/generator.ts",
+          "hash": "17106100642846454860"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/email/model/types.ts",
+          "hash": "17623438080689756161"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/index.ts",
+          "hash": "16629906071858171804"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/link/config/constants.ts",
+          "hash": "15812301913978938021"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/link/lib/generator.ts",
+          "hash": "12735674941958327098"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/link/model/types.ts",
+          "hash": "4775429046893868377"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/person/config/constants.ts",
+          "hash": "16700873535916245216"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/person/lib/generator.ts",
+          "hash": "2300047717256157166"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/person/model/types.ts",
+          "hash": "15965974345247745582"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/phone/config/constants.ts",
+          "hash": "10009153752510871105"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/phone/lib/generator.ts",
+          "hash": "2260660334243114318"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/phone/model/types.ts",
+          "hash": "16366507414186867340"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/text/config/constants.ts",
+          "hash": "9739730067112898682"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/text/config/sentence-templates.ts",
+          "hash": "2541646829454165977"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/text/config/text-parts.ts",
+          "hash": "1978751003896004384"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/text/lib/generator.ts",
+          "hash": "9507321584445969659"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/text/model/types.ts",
+          "hash": "7001203129292309759"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/title/config/constants.ts",
+          "hash": "1609260118667661428"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/title/config/extra-templates.ts",
+          "hash": "14494966967413900411"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/title/config/titles.ts",
+          "hash": "18232114116602283216"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/title/config/topics.ts",
+          "hash": "9596709917561620868"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/title/lib/generator.ts",
+          "hash": "14198732828650125005"
+        },
+        {
+          "file": "apps/extension/src/modules/generators/title/model/types.ts",
+          "hash": "6307833785421961058"
+        },
+        {
+          "file": "apps/extension/src/modules/messages/index.ts",
+          "hash": "18134273591539082793"
+        },
+        {
+          "file": "apps/extension/src/modules/messages/model/types.ts",
+          "hash": "10172280344141067124"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/config/constants.ts",
+          "hash": "6128555576423817912"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/controller/close-popover.ts",
+          "hash": "1493609845875853135"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/controller/register-generation-events.ts",
+          "hash": "4812372123034125688"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/controller/register-text-statistics-popover-events.ts",
+          "hash": "10977444635659452320"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/controller/show-generation-popover.ts",
+          "hash": "11478914937733181960"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/controller/show-text-statistics-popover.ts",
+          "hash": "16357918015807051834"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/controller/submit-form.ts",
+          "hash": "12758312918463001102"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/index.ts",
+          "hash": "10172638100960283427"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/get-active-data-type.ts",
+          "hash": "16904488677796348376"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/get-generation-popover-elements.ts",
+          "hash": "10299075173408284561"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/get-text-statistics-popover-elements.ts",
+          "hash": "9626383878639988573"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/load-popover-fonts.ts",
+          "hash": "4198837558905649707"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/move-popover-inside-viewport.ts",
+          "hash": "8984053990007537568"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/read-data-settings-from-form.ts",
+          "hash": "14646221963661064554"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/lib/sync-ui.ts",
+          "hash": "863892053228629499"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/model/types.ts",
+          "hash": "14488845040119566734"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/model/validation.ts",
+          "hash": "12531449097388829717"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/content/render-insert-data.ts",
+          "hash": "8327326439013612431"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/content/render-text-statistics.ts",
+          "hash": "1061148402515809647"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/create-popover.ts",
+          "hash": "11482771385557938568"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-address-form.ts",
+          "hash": "926262995434704047"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-email-form.ts",
+          "hash": "10877724164808370130"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-forms.ts",
+          "hash": "6309909904470101905"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-link-form.ts",
+          "hash": "15302468274235552439"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-person-form.ts",
+          "hash": "10101966481217343273"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-phone-form.ts",
+          "hash": "3756283666288562095"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-text-form.ts",
+          "hash": "5543677639169919997"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/forms/render-title-form.ts",
+          "hash": "3524717205624415855"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/style.css",
+          "hash": "14008447270181689762"
+        },
+        {
+          "file": "apps/extension/src/modules/popover/ui/tabs/render-tabs.ts",
+          "hash": "14536212766152501598"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/config/constants.ts",
+          "hash": "12898661544817040780"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/controller/init-popup.ts",
+          "hash": "17510176472023176592"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/controller/register-events.ts",
+          "hash": "4256986549699795633"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/controller/render-popup.ts",
+          "hash": "15307388516029481807"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/index.ts",
+          "hash": "3728688433041482802"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/lib/get-popup-elements.ts",
+          "hash": "2869606641456350530"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/lib/read-extension-settings-from-elements.ts",
+          "hash": "16156728432401480281"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/model/types.ts",
+          "hash": "6566418197337417264"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/ui/content/render-settings-content.ts",
+          "hash": "12998826852157260629"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/ui/content/render-support-content.ts",
+          "hash": "14536781120111796498"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/ui/create-popup.ts",
+          "hash": "17433191709519450144"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/ui/footer/render-footer.ts",
+          "hash": "2781687140197176158"
+        },
+        {
+          "file": "apps/extension/src/modules/popup/ui/header/render-header.ts",
+          "hash": "824476202688011133"
+        },
+        {
+          "file": "apps/extension/src/modules/storage/api/extension-storage.ts",
+          "hash": "769201624400691285"
+        },
+        {
+          "file": "apps/extension/src/modules/storage/config/default-storage-values.ts",
+          "hash": "4745611346809487027"
+        },
+        {
+          "file": "apps/extension/src/modules/storage/index.ts",
+          "hash": "3964432177800509262"
+        },
+        {
+          "file": "apps/extension/src/modules/storage/model/storage-schema.ts",
+          "hash": "15042491206655333117"
+        },
+        {
+          "file": "apps/extension/src/modules/text-statistics/index.ts",
+          "hash": "10850774441853611298"
+        },
+        {
+          "file": "apps/extension/src/modules/text-statistics/lib/calculate-text-statistics.ts",
+          "hash": "7850838050452303757"
+        },
+        {
+          "file": "apps/extension/src/modules/text-statistics/model/types.ts",
+          "hash": "2023365188530871133"
+        },
+        {
+          "file": "apps/extension/src/shared/config/commands.ts",
+          "hash": "17041871163716112959"
+        },
+        {
+          "file": "apps/extension/src/shared/config/language.ts",
+          "hash": "14752527318728631128"
+        },
+        {
+          "file": "apps/extension/src/shared/config/theme.ts",
+          "hash": "5731662751754857648"
+        },
+        {
+          "file": "apps/extension/src/shared/config/version.ts",
+          "hash": "627642064570836833"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/apply-styles.ts",
+          "hash": "18272536461251651962"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/copy-to-clipboard.ts",
+          "hash": "6656109865012433184"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/form-element.ts",
+          "hash": "8197406442381085778"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/get-browser-language.ts",
+          "hash": "9562180738391519477"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/query-element.ts",
+          "hash": "10876722281367627374"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/random.ts",
+          "hash": "12204883328597374686"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/string.ts",
+          "hash": "10859294411643355126"
+        },
+        {
+          "file": "apps/extension/src/shared/lib/validation.ts",
+          "hash": "10475126660883228823"
+        },
+        {
+          "file": "apps/extension/src/shared/model/types.ts",
+          "hash": "11677446295504539346"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/base.css",
+          "hash": "16638506165354699842"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/box.css",
+          "hash": "15281156673447045577"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/controls.css",
+          "hash": "437846510901548165"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/fonts.css",
+          "hash": "2083228230182486161"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/index.css",
+          "hash": "13847027002406089928"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/layout.css",
+          "hash": "5279004640707871456"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/normalise.css",
+          "hash": "9079023698278566710"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/tabs.css",
+          "hash": "15946744271631955695"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/theme-light.css",
+          "hash": "10355369067628865120"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/theme.css",
+          "hash": "3958418479626658812"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/tooltip.css",
+          "hash": "13539160249150433243"
+        },
+        {
+          "file": "apps/extension/src/shared/styles/typography.css",
+          "hash": "10933925198430057478"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/copy-element/constants.ts",
+          "hash": "1277025334431243979"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/copy-element/init-copy-element.ts",
+          "hash": "13288878121702416693"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/copy-element/render-copy-element.ts",
+          "hash": "9717977636612235389"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/custom-select/init-custom-selects.ts",
+          "hash": "9743448727042970872"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/custom-select/render-custom-select.ts",
+          "hash": "3859936252332543125"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/form-error/show-input-error.ts",
+          "hash": "4913536667643373115"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/address.ts",
+          "hash": "5221409526766720907"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/arrow-up-right.ts",
+          "hash": "2685993346752910614"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/british-flag.ts",
+          "hash": "16876114275766444100"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/bug.ts",
+          "hash": "14269294349652967102"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/character.ts",
+          "hash": "4528339025761537440"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/check.ts",
+          "hash": "14531787338839292544"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/chevron-down.ts",
+          "hash": "5187328787688197071"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/close.ts",
+          "hash": "13837793292804825513"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/copy.ts",
+          "hash": "11304349652066307336"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/dark-theme.ts",
+          "hash": "17407357079897389"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/date.ts",
+          "hash": "4655318463277713152"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/email.ts",
+          "hash": "1995573248159606724"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/feedback.ts",
+          "hash": "15949009518202435799"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/first-name.ts",
+          "hash": "9588286797045196711"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/github.ts",
+          "hash": "10804135239468367097"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/heart.ts",
+          "hash": "14703056018428847559"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/info.ts",
+          "hash": "17143155534811805494"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/last-name.ts",
+          "hash": "17880800346103247540"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/light-theme.ts",
+          "hash": "1003320783094876474"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/link.ts",
+          "hash": "9609586791139911271"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/list.ts",
+          "hash": "10923689294963088238"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/logo.ts",
+          "hash": "1410102614804344917"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/no-space.ts",
+          "hash": "14562722673077929840"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/number.ts",
+          "hash": "4902483463655050024"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/paragraph.ts",
+          "hash": "4876888565328294074"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/person.ts",
+          "hash": "11443613216198647319"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/phone.ts",
+          "hash": "6225968036513146243"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/russian-flag.ts",
+          "hash": "12133717660863555297"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/sentence.ts",
+          "hash": "17607777394815601530"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/space.ts",
+          "hash": "14719924731135754411"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/text.ts",
+          "hash": "16547514468934208999"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/title.ts",
+          "hash": "3541387377748796278"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/icons/word.ts",
+          "hash": "16693300606604815623"
+        },
+        {
+          "file": "apps/extension/src/shared/ui/tooltip/render-tooltip.ts",
+          "hash": "14115193241483804004"
+        },
+        {
+          "file": "apps/extension/src/vite-env.d.ts",
+          "hash": "2095094526674025655"
+        },
+        {
+          "file": "apps/extension/tsconfig.json",
+          "hash": "4098448638209872038"
+        },
+        {
+          "file": "apps/extension/vite.config.ts",
+          "hash": "13734233011461215849"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "3991987899633384572"
+}
