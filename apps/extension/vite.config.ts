@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       src: path.resolve(__dirname, './src'),
+      '@lorema/generators': path.resolve(__dirname, '../../packages/generators/src'),
     },
   },
   plugins: [crx({ manifest })],

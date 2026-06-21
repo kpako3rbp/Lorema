@@ -1,5 +1,5 @@
+import { MAX_TEXT_CHARS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
-import { MAX_TEXT_CHARS } from 'src/modules/generators/text/config/constants';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { numberWithSpaces } from 'src/shared/lib/string';

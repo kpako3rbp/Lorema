@@ -1,5 +1,5 @@
+import { ADDRESS_FORMATS } from '@lorema/generators/address/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
-import { ADDRESS_FORMATS } from 'src/modules/generators/address/config/constants';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';

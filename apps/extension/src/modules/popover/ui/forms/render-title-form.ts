@@ -1,9 +1,9 @@
-import { TRANSLATIONS } from 'src/i18n';
 import {
   TITLE_LENGTH_PRESET_RANGES,
   TITLE_LENGTH_PRESETS,
   TITLE_TOPICS,
-} from 'src/modules/generators/title/config/constants';
+} from '@lorema/generators/title/config/constants';
+import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';

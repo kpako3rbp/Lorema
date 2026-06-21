@@ -1,0 +1,22 @@
+{
+  "name": "generators",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "root": "packages/generators",
+  "sourceRoot": "packages/generators/src",
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/generators",
+        "command": "tsc --noEmit"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint packages/generators"
+      }
+    }
+  }
+}

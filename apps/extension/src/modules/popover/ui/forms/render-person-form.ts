@@ -1,5 +1,5 @@
+import { NAME_LENGTH_PRESETS } from '@lorema/generators/person/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
-import { NAME_LENGTH_PRESETS } from 'src/modules/generators/person/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { Language } from 'src/shared/model/types';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
