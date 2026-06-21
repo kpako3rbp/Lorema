@@ -1,6 +1,7 @@
 import { GenerationLanguage } from '@lorema/core';
 
 import { TitleLengthPreset, TitleTopic } from '../model/types';
+import { LOREM_TITLE_TEMPLATES } from './lorem-titles';
 
 export const COMMON_TITLE_TEMPLATES: Record<GenerationLanguage, Record<TitleLengthPreset, string[]>> = {
   ru: {
@@ -129,72 +130,11 @@ export const COMMON_TITLE_TEMPLATES: Record<GenerationLanguage, Record<TitleLeng
     ],
   },
 
-  la: {
-    xsm: [
-      '{topic} plan',
-      '{topic} growth',
-      '{topic} goal',
-      '{topic} focus',
-      '{topic} results',
-      '{topic} risk',
-      '{topic} model',
-      '{topic} idea',
-      '{topic} roadmap',
-      '{topic} analysis',
-    ],
-    sm: [
-      'New approach to {topic} development',
-      'Practical plan for {topic}',
-      'How to improve {topic} quality',
-      'Key changes in {topic}',
-      'New opportunities for {topic}',
-      'Better process for {topic}',
-      'Simple way to manage {topic}',
-      'How to reduce {topic} risks',
-      'How to improve {result}',
-      'Simple checklist for {topic}',
-    ],
-    md: [
-      'How the team improves {topic} in practice',
-      'Practical plan for {topic} development',
-      'How to improve processes around {topic}',
-      'How to choose priorities when working with {topic}',
-      'How to reduce risks when working with {topic}',
-      'Why {context} analysis helps improve {result}',
-      'How to find weak points in {topic} processes',
-      'How to connect team goals with {topic} development',
-      'Practical steps for improving {result}',
-      'How to build a stable process around {topic}',
-    ],
-    lg: [
-      'Practical approach to {topic} development under high workload and constant change',
-      'How to organize work with {topic} without losing process quality inside the team',
-      'How the team can find growth points while working with {topic}',
-      'How to connect strategic goals with daily work on {topic}',
-      'How to reduce operational risks during active work with {topic}',
-      'How to improve {result} through process review, clear roles and daily decisions',
-      'Why working with {topic} requires clear goals, transparent rules and regular checks',
-      'How {context} analysis helps the team detect problems before they become critical',
-      'What helps keep {topic} stable when workload grows and priorities change',
-      'Why a stable process around {topic} is more valuable than one-time improvements',
-    ],
-    xlg: [
-      'How to build a long-term {topic} development strategy, keep the team focused and preserve the quality of daily work',
-      'Practical {topic} development plan based on limited resources, organizational risks and changing expectations',
-      'Why stable {topic} development depends not only on ideas, but also on processes, communication and goal management',
-      'How the team can prepare for a new stage of work with {topic}, assign responsibility and reduce key risks in advance',
-      'How to choose priorities when working with {topic}, align team expectations and focus on the highest-impact tasks',
-      'Why {topic} development requires not only new ideas, but also clear responsibility, regular feedback and result control',
-      'How to rebuild the model of working with {topic} when current processes slow down decisions and create extra load',
-      'How to improve {result} through a clear decision system, regular {context} analysis and careful work with constraints',
-      'How to organize work with {topic} in a way that keeps decision speed, reduces workload and preserves quality',
-      'Why stable improvement of {result} requires regular tuning of processes around {topic}, not one-time decisions',
-    ],
-  },
+  la: LOREM_TITLE_TEMPLATES,
 };
 
 export const TOPIC_TITLE_TEMPLATES: Record<
-  GenerationLanguage,
+  Exclude<GenerationLanguage, 'la'>,
   Record<TitleTopic, Partial<Record<TitleLengthPreset, string[]>>>
 > = {
   ru: {
@@ -306,68 +246,6 @@ export const TOPIC_TITLE_TEMPLATES: Record<
   },
 
   en: {
-    business: {
-      xsm: ['Growth strategy', 'Sales plan', 'Service quality'],
-      sm: ['Customer service strategy', 'Revenue growth plan', 'Company performance review'],
-      md: [
-        'How to improve customer experience without increasing costs',
-        'Why a clear strategy helps business grow faster',
-        'How to find new profit sources in the current business model',
-      ],
-    },
-
-    it: {
-      xsm: ['API design', 'Code audit', 'Module release'],
-      sm: ['Application performance review', 'User interface improvement', 'Platform architecture update'],
-      md: [
-        'How to reduce technical debt without stopping development',
-        'Why interface stability matters for user experience',
-        'How to improve platform architecture before scaling',
-      ],
-    },
-
-    science: {
-      xsm: ['Data review', 'Test method', 'Research goal'],
-      sm: ['Scientific hypothesis testing', 'Experimental data analysis', 'Research method review'],
-      md: [
-        'How to choose a research method for hypothesis testing',
-        'Why data quality affects the accuracy of scientific conclusions',
-        'Practical use of new research results',
-      ],
-    },
-
-    finance: {
-      xsm: ['Budget plan', 'Risk review', 'Cost control'],
-      sm: ['Expense structure analysis', 'Quarterly budget planning', 'Investment risk review'],
-      md: [
-        'How to optimize expenses without losing process quality',
-        'Why budget control helps teams make decisions faster',
-        'How to assess financial risks before launching a new direction',
-      ],
-    },
-
-    marketing: {
-      xsm: ['Campaign plan', 'Traffic growth', 'Audience review'],
-      sm: ['Target audience research', 'Advertising campaign launch', 'Conversion growth plan'],
-      md: [
-        'How to improve conversion without increasing the advertising budget',
-        'Why audience analysis helps tune a campaign more accurately',
-        'How to choose promotion channels for a new product',
-      ],
-    },
-
-    art: {
-      xsm: ['Exhibition idea', 'Visual form', 'Art concept'],
-      sm: ['New exhibition concept', 'Visual language development', 'Contemporary art practices'],
-      md: [
-        'How visual form affects the perception of a project',
-        'Why an exhibition concept matters for audience experience',
-        'How artistic method helps express the author’s idea',
-      ],
-    },
-  },
-
-  la: {
     business: {
       xsm: ['Growth strategy', 'Sales plan', 'Service quality'],
       sm: ['Customer service strategy', 'Revenue growth plan', 'Company performance review'],

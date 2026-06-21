@@ -61,10 +61,36 @@ const generateEnglishAddress = (settings: AddressSettings) => {
   return formatMap[getSettingsFormat(settings)];
 };
 
+const generateLatinAddress = (settings: AddressSettings): string => {
+  const parts = ADDRESS_PARTS_BY_LANGUAGE.la;
+
+  const country = getRandomItem(parts.countries);
+  const region = getRandomItem(parts.regions);
+  const city = getRandomItem(parts.cities);
+  const streetType = getRandomItem(parts.streetTypes);
+  const streetName = getRandomItem(parts.streetNames);
+
+  const building = getRandomInteger(1, 300);
+  const apartment = getRandomInteger(1, 200);
+  const postalCode = getRandomInteger(10000, 99999);
+
+  const streetAddress = `${streetType} ${streetName}, ${building}-${apartment}`;
+  const fullStreetAddress = `${streetType} ${streetName}, domus ${building}, insula ${apartment}`;
+
+  const formatMap: Record<AddressFormat, string> = {
+    short: streetAddress,
+    full: `${city}, ${fullStreetAddress}`,
+    postal: `${postalCode}, ${country}, ${region}, ${city}, ${fullStreetAddress}`,
+    legal: `${postalCode}, ${city}, ${streetType} ${streetName}, domus ${building}, corpus ${getRandomInteger(1, 20)}`,
+  };
+
+  return formatMap[getSettingsFormat(settings)];
+};
+
 const ADDRESS_GENERATORS_BY_LANGUAGE: Record<GenerationLanguage, (settings: AddressSettings) => string> = {
   ru: generateRussianAddress,
   en: generateEnglishAddress,
-  la: generateEnglishAddress,
+  la: generateLatinAddress,
 };
 
 export const generateAddress = (settings: AddressSettings): string => {

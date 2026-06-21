@@ -27,6 +27,8 @@ const rememberTitle = (title: string): void => {
   titleHistory.delete(firstTitle);
 };
 
+const renderLaTitle = (template: string): string => template;
+
 const renderRuTitle = (template: string, topics: TitleTopic): string => {
   const forms = RU_TOPIC_FORMS[topics];
 
@@ -53,7 +55,7 @@ const renderEnTitle = (template: string, topics: TitleTopic): string => {
 const renderTitleByLanguage: Record<GenerationLanguage, (template: string, topics: TitleTopic) => string> = {
   ru: renderRuTitle,
   en: renderEnTitle,
-  la: renderEnTitle,
+  la: renderLaTitle,
 };
 
 const getTitleTemplates = (
@@ -61,6 +63,10 @@ const getTitleTemplates = (
   topics: TitleTopic,
   lengthPreset: TitleLengthPreset,
 ): string[] => {
+  if (language === 'la') {
+    return COMMON_TITLE_TEMPLATES.la[lengthPreset];
+  }
+
   return [
     ...COMMON_TITLE_TEMPLATES[language][lengthPreset],
     ...EXTRA_TEMPLATES_BY_LANGUAGE[language][lengthPreset],

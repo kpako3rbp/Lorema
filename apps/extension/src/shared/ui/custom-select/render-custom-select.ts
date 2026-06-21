@@ -17,6 +17,7 @@ type RenderCustomSelectParams<T extends string> = {
   interfaceLanguage: InterfaceLanguage;
   multiple?: boolean;
   className?: string;
+  disabled?: boolean;
 };
 
 const renderOptionContent = <T extends string>(option: SelectOption<T> | undefined, fallbackText = ''): string => {
@@ -29,7 +30,16 @@ const renderOptionContent = <T extends string>(option: SelectOption<T> | undefin
 };
 
 export const renderCustomSelect = <T extends string>(params: RenderCustomSelectParams<T>): string => {
-  const { id, label, options, selectedValues, interfaceLanguage, multiple = false, className } = params;
+  const {
+    id,
+    label,
+    options,
+    selectedValues,
+    interfaceLanguage,
+    multiple = false,
+    className,
+    disabled = false,
+  } = params;
   const t = TRANSLATIONS[interfaceLanguage].customSelect;
 
   const selectedOptions = options.filter((option) => selectedValues.includes(option.value));
@@ -46,13 +56,14 @@ export const renderCustomSelect = <T extends string>(params: RenderCustomSelectP
   const labelMarkup = label ? `<span class="lorem-label">${label}</span>` : '';
 
   return /*html*/ `
-    <div class="lorem-custom-select" data-custom-select>
+    <div class="lorem-custom-select ${disabled ? 'disabled' : ''}" data-custom-select>
       ${labelMarkup}
 
       <select
         id="${id}"
         class="lorem-custom-select-native"
         ${multiple ? 'multiple' : ''}
+        ${disabled ? 'disabled' : ''}
       >
         ${options
           .map(
@@ -73,6 +84,7 @@ export const renderCustomSelect = <T extends string>(params: RenderCustomSelectP
         type="button"
         aria-haspopup="listbox"
         aria-expanded="false"
+        ${disabled ? 'disabled' : ''}
       >
         <span class="lorem-custom-select-value">${buttonContent}</span>
         <span class="lorem-custom-select-arrow">${renderChevronDownIcon()}</span>

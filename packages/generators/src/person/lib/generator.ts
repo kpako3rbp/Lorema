@@ -7,7 +7,7 @@ type PersonDataSettings = {
   lastName: LastNameSettings;
 };
 
-const getLenghtPreset = (settings: FirstNameSettings | LastNameSettings): NameLengthPreset => {
+const getLengthPreset = (settings: FirstNameSettings | LastNameSettings): NameLengthPreset => {
   const selectedPresets = settings.lengthPresets.length ? settings.lengthPresets : NAME_LENGTH_PRESETS;
 
   return getRandomItem(selectedPresets);
@@ -29,11 +29,11 @@ const getNameList = (
 };
 
 export const generateFirstName = (settings: FirstNameSettings): string => {
-  return getRandomItem(getNameList('firstName', settings.language, getLenghtPreset(settings)));
+  return getRandomItem(getNameList('firstName', settings.language, getLengthPreset(settings)));
 };
 
 export const generateLastName = (settings: LastNameSettings): string => {
-  return getRandomItem(getNameList('lastName', settings.language, getLenghtPreset(settings)));
+  return getRandomItem(getNameList('lastName', settings.language, getLengthPreset(settings)));
 };
 
 const generateNamePart = (settings: PersonDataSettings, part: PersonNamePart): string => {

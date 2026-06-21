@@ -13,6 +13,8 @@ export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: Inter
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
   const settings = storage.titleSettings;
 
+  const isLatin = storage.generationLanguage === 'la';
+
   return /*html*/ `
    <div class="lorem-form-wrapper">
       <span class="lorem-descriptor with-line">${t.titleParams}</span>
@@ -34,8 +36,9 @@ export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: Inter
           id: POPOVER_IDS.topicSelect,
           label: t.titleTopic,
           multiple: true,
-          selectedValues: settings.topics,
+          selectedValues: isLatin ? [] : settings.topics,
           interfaceLanguage: interfaceLanguage,
+          disabled: isLatin,
           options: TITLE_TOPICS.map((topic) => ({
             value: topic,
             label: t.titleTopics[topic],

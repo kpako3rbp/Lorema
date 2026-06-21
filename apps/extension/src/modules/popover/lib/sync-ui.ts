@@ -1,4 +1,5 @@
-import { DataTab } from '@lorema/core';
+import { DataTab, InterfaceLanguage } from '@lorema/core';
+import { TRANSLATIONS } from 'src/i18n';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
@@ -30,6 +31,45 @@ const syncTabPanels = (form: HTMLFormElement): void => {
   panels.forEach((panel) => {
     panel.classList.toggle('active', panel.dataset.dataTab === activeDataTab);
   });
+};
+
+export const syncTitleTopicSelectWithLanguage = (
+  elements: PopoverGenerationElements,
+  interfaceLanguage: InterfaceLanguage,
+): void => {
+  const isLatin = elements.languageSelect.value === 'la';
+  const topicSelect = elements.form.querySelector<HTMLSelectElement>(`#${POPOVER_IDS.topicSelect}`);
+
+  if (!topicSelect) return;
+
+  topicSelect.disabled = isLatin;
+
+  if (isLatin) {
+    Array.from(topicSelect.options).forEach((option) => {
+      option.selected = false;
+    });
+  }
+
+  const root = topicSelect.closest<HTMLElement>('[data-custom-select]');
+  const button = root?.querySelector<HTMLButtonElement>('.lorem-custom-select-button');
+  const value = root?.querySelector<HTMLElement>('.lorem-custom-select-value');
+  const options = root?.querySelectorAll<HTMLElement>('.lorem-custom-select-option');
+
+  root?.classList.toggle('disabled', isLatin);
+  root?.classList.remove('open', 'open-up');
+
+  if (button) {
+    button.disabled = isLatin;
+    button.setAttribute('aria-expanded', 'false');
+  }
+
+  options?.forEach((option) => {
+    option.setAttribute('aria-selected', 'false');
+  });
+
+  if (value && !topicSelect.selectedOptions.length) {
+    value.textContent = TRANSLATIONS[interfaceLanguage].customSelect.random;
+  }
 };
 
 export const syncElementsUI = (elements: PopoverGenerationElements) => {

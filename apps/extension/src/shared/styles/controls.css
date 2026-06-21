@@ -330,6 +330,14 @@
   }
 }
 
+.lorem-custom-select.disabled {
+  opacity: 0.55;
+}
+
+.lorem-custom-select.disabled .lorem-custom-select-button {
+  cursor: not-allowed;
+}
+
 .lorem-custom-select-arrow {
   height: 12px;
   width: 12px;
