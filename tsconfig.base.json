@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@lorema/generators": ["packages/generators/src/index.ts"],
-      "@lorema/generators/*": ["packages/generators/src/*"]
+      "@lorema/generators/*": ["packages/generators/src/*"],
+      "@lorema/core": ["packages/core/src/index.ts"],
+      "@lorema/core/*": ["packages/core/src/*"]
     }
   }
 }
