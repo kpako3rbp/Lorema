@@ -1,8 +1,9 @@
 import { GenerationLanguage } from '@lorema/core';
-import { getRandomItem } from '@lorema/generators/shared/lib/random';
+import { getRandomInteger, getRandomItem } from '@lorema/generators/shared/lib/random';
 import { capitalizeFirstLetter } from '@lorema/generators/shared/lib/string';
 
 import { SENTENCE_TEMPLATES_BY_LANGUAGE, TEXT_PARTS_BY_LANGUAGE } from '../config/constants';
+import { LOREM_IPSUM_WORDS } from '../config/lorem-ipsum';
 import { TextParts } from '../model/types';
 
 type LoremOptions = {
@@ -12,9 +13,10 @@ type LoremOptions = {
   keepWholeSentencies: boolean;
 };
 
-const PARAGRAPH_SIZES = [2, 3, 4];
-
-const getRandomParagraphSize = (): number => getRandomItem(PARAGRAPH_SIZES);
+const MIN_LOREM_SENTENCE_WORDS_COUNT = 6;
+const MAX_LOREM_SENTENCE_WORDS_COUNT = 12;
+const MIN_PARAGRAPH_SIZE = 2;
+const MAX_PARAGRAPH_SIZE = 4;
 
 const replaceTemplateVariables = (template: string, parts: TextParts): string => {
   return template
@@ -35,6 +37,13 @@ const generateSentence = (parts: TextParts, language: GenerationLanguage): strin
   return capitalizeFirstLetter(sentence);
 };
 
+const generateLoremIpsumSentence = (): string => {
+  const wordsCount = getRandomInteger(MIN_LOREM_SENTENCE_WORDS_COUNT, MAX_LOREM_SENTENCE_WORDS_COUNT);
+  const words = Array.from({ length: wordsCount }, () => getRandomItem(LOREM_IPSUM_WORDS));
+
+  return `${capitalizeFirstLetter(words.join(' '))}.`;
+};
+
 const appendChunk = (chunks: string[], chunk: string): number => {
   chunks.push(chunk);
 
@@ -47,12 +56,12 @@ export const generateLorem = (options: LoremOptions): string => {
   const chunks: string[] = [];
   let currentLength = 0;
   let sentencesInParagraph = 0;
-  let targetParagraphSize = getRandomParagraphSize();
+  let targetParagraphSize = getRandomInteger(MIN_PARAGRAPH_SIZE, MAX_PARAGRAPH_SIZE);
 
   let lastValidLength = 0;
 
   while (currentLength < length) {
-    const sentence = generateSentence(textParts, language);
+    const sentence = textParts ? generateSentence(textParts, language) : generateLoremIpsumSentence();
 
     lastValidLength = currentLength;
 
@@ -65,7 +74,7 @@ export const generateLorem = (options: LoremOptions): string => {
     if (shouldStartNewParagraph) {
       currentLength += appendChunk(chunks, '\n\n');
       sentencesInParagraph = 0;
-      targetParagraphSize = getRandomParagraphSize();
+      targetParagraphSize = getRandomInteger(MIN_PARAGRAPH_SIZE, MAX_PARAGRAPH_SIZE);
     } else {
       currentLength += appendChunk(chunks, ' ');
     }

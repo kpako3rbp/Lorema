@@ -2,12 +2,12 @@ import { GenerationLanguage } from '@lorema/core';
 
 import { TextParts } from '../model/types';
 import { SENTENCE_TEMPLATES_EN, SENTENCE_TEMPLATES_LA, SENTENCE_TEMPLATES_RU } from './sentence-templates';
-import { TEXT_PARTS_EN, TEXT_PARTS_LA, TEXT_PARTS_RU } from './text-parts';
+import { TEXT_PARTS_EN, TEXT_PARTS_RU } from './text-parts';
 
-export const TEXT_PARTS_BY_LANGUAGE: Record<GenerationLanguage, TextParts> = {
+export const TEXT_PARTS_BY_LANGUAGE: Record<GenerationLanguage, TextParts | null> = {
   ru: TEXT_PARTS_RU,
   en: TEXT_PARTS_EN,
-  la: TEXT_PARTS_LA,
+  la: null,
 };
 
 export const SENTENCE_TEMPLATES_BY_LANGUAGE: Record<GenerationLanguage, readonly string[]> = {
