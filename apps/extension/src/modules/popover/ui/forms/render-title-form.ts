@@ -19,7 +19,7 @@ export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: Inter
    <div class="lorem-form-wrapper">
       <span class="lorem-descriptor with-line">${t.titleParams}</span>
     
-      <div class="lorem-grid-form">
+      <div class="lorem-grid-form grid-2-2">
         ${renderCustomSelect({
           id: POPOVER_IDS.titleLengthPresetSelect,
           label: t.titleLength,

@@ -48,6 +48,7 @@ export const generateEmail = (settings: EmailSettings): string => {
   }
 
   login = trimLogin(login, targetLength);
+  const domain = settings.domain || getRandomItem(DOMAINS);
 
-  return `${login}@${getRandomItem(DOMAINS)}`;
+  return `${login}@${domain}`;
 };

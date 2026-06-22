@@ -41,7 +41,9 @@ const getRandomString = (length: number): string => {
   return Array.from({ length }, () => getRandomItem(FILLER_CHARS)).join('');
 };
 
-const getHost = (): string => {
+const getHost = (settings: LinkSettings): string => {
+  if (settings.domain) return settings.domain;
+
   return `${getRandomItem(DOMAINS)}.${getRandomItem(ZONES)}`;
 };
 
@@ -122,7 +124,7 @@ const extendQueryToLength = (url: string, targetLength: number): string => {
 export const generateLink = (settings: LinkSettings): string => {
   const preset = getLinkLengthPreset(settings);
   const targetLength = getTargetLength(preset);
-  const host = getHost();
+  const host = getHost(settings);
 
   const baseUrl = `${settings.prefix}${host}`;
 

@@ -20,9 +20,11 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   },
   emailSettings: {
     lengthPresets: ['sm', 'md'],
+    domain: '',
   },
   linkSettings: {
     prefix: 'https://',
+    domain: '',
     lengthPresets: ['sm', 'md'],
   },
   phoneSettings: {

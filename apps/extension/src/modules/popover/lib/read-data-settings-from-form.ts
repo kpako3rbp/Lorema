@@ -48,6 +48,7 @@ export const readDataSettingsFromForm = (
     email: () => ({
       emailSettings: {
         lengthPresets: getSelectedValues<EmailLengthPreset>(form, POPOVER_IDS.emailLengthPresetSelect),
+        domain: getInputValue(form, POPOVER_IDS.emailDomainInput),
       },
     }),
 
@@ -55,6 +56,7 @@ export const readDataSettingsFromForm = (
       return {
         linkSettings: {
           prefix: getSelectedValue<LinkPrefix>(form, POPOVER_IDS.linkPrefixSelect),
+          domain: getInputValue(form, POPOVER_IDS.linkDomainInput),
           lengthPresets: getSelectedValues<LinkLengthPreset>(form, POPOVER_IDS.linkLengthPresetSelect),
         },
       };

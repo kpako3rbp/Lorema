@@ -12,16 +12,20 @@ export const POPOVER_IDS = {
   textLengthError: 'textLengthError',
 
   titleLengthPresetSelect: 'titleLengthPresetSelect',
-  emailLengthPresetSelect: 'emailLengthPresetSelect',
-  linkLengthPresetSelect: 'linkLengthPresetSelect',
 
+  emailLengthPresetSelect: 'emailLengthPresetSelect',
+  emailDomainInput: 'emailDomainInput',
+
+  linkLengthPresetSelect: 'linkLengthPresetSelect',
   linkPrefixSelect: 'linkPrefixSelect',
+  linkDomainInput: 'linkDomainInput',
 
   phoneFormatSelect: 'phoneFormatSelect',
   countryCodeInput: 'countryCodeInput',
   digitsCountInput: 'digitsCountInput',
   countryCodeError: 'countryCodeError',
   digitsCountError: 'digitsCountError',
+  linkDomainError: 'linkDomainError',
 
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeSentencies: 'keepWholeSentencies',

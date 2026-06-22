@@ -5,6 +5,7 @@ import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
+import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
 const LINK_PREFIXES: LinkPrefix[] = ['https://', 'http://', 'www.'];
 
@@ -16,7 +17,7 @@ export const renderLinkForm = (storage: StorageSchema, interfaceLanguage: Interf
    <div class="lorem-form-wrapper">
       <span class="lorem-descriptor with-line">${t.linkParams}</span>
     
-      <div class="lorem-grid-form grid-1-3">
+      <div class="lorem-grid-form link-form">
         ${renderCustomSelect({
           id: POPOVER_IDS.linkPrefixSelect,
           label: t.linkPrefix,
@@ -27,6 +28,21 @@ export const renderLinkForm = (storage: StorageSchema, interfaceLanguage: Interf
             label: prefix,
           })),
         })}
+
+        <label class="lorem-form-el-with-label">
+          <span class="lorem-label">
+            ${t.domain}
+            ${renderTooltip(t.domainTooltip, 170)}
+          </span>
+          <input
+            class="lorem-input"
+            id="${POPOVER_IDS.linkDomainInput}"
+            type="text"
+            placeholder="example.com"
+            value="${settings.domain}"
+          /> 
+          <p id="${POPOVER_IDS.linkDomainError}" class="lorem-error"></p>
+        </label>
 
         ${renderCustomSelect({
           id: POPOVER_IDS.linkLengthPresetSelect,

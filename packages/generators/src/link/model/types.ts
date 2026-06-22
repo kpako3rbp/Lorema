@@ -4,5 +4,6 @@ export type LinkLengthPreset = 'sm' | 'md' | 'lg' | 'xlg';
 
 export type LinkSettings = {
   prefix: LinkPrefix;
+  domain?: string;
   lengthPresets: LinkLengthPreset[];
 };

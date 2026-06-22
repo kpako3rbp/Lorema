@@ -52,6 +52,7 @@
     flex-direction: column;
     gap: 16px;
     min-height: 315px;
+    max-width: 440px;
   }
 
   .lorem-statistics-wrapper {

@@ -3,6 +3,7 @@
 .lorem-input {
   width: 100%;
   padding: 8px;
+  height: 37px;
   color: var(--color-text);
   font-size: 14px;
   appearance: textfield;
@@ -298,7 +299,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .lorem-custom-select-native {

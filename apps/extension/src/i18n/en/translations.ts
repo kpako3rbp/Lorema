@@ -71,6 +71,7 @@ export const TRANSLATIONS_EN: Translation = {
 
       phoneFormat: 'Format',
       countryCode: 'Code',
+      domain: 'Domain',
       digitsCount: 'Number of digits',
 
       addressFormat: 'Format',
@@ -99,6 +100,7 @@ export const TRANSLATIONS_EN: Translation = {
       keepWholeSentenciesTooltip: 'The last sentence will always be complete with a dot at the end',
       paragraphsCheckboxTooltip: 'Text will be split into paragraphs of 2–3 sentences',
       countryCodeTooltip: 'Country code with or without plus, for example: +7 or 7',
+      domainTooltip: 'Optional. If not specified, it will be generated automatically',
 
       dataTitles: {
         text: 'Text',

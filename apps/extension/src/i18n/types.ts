@@ -88,6 +88,7 @@ type DataGeneration = {
 
   phoneFormat: string;
   countryCode: string;
+  domain: string;
   digitsCount: string;
 
   addressFormat: string;
@@ -108,6 +109,7 @@ type DataGeneration = {
   keepWholeSentenciesTooltip: string;
   paragraphsCheckboxTooltip: string;
   countryCodeTooltip: string;
+  domainTooltip: string;
 
   dataTitles: Record<DataTab, string>;
   titleTopics: Record<TitleTopic, string>;

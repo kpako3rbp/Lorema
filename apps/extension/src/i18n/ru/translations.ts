@@ -70,6 +70,7 @@ export const TRANSLATIONS_RU: Translation = {
 
       phoneFormat: 'Формат',
       countryCode: 'Код',
+      domain: 'Домен',
       digitsCount: 'Количество цифр',
 
       addressFormat: 'Формат',
@@ -97,6 +98,7 @@ export const TRANSLATIONS_RU: Translation = {
       keepWholeSentenciesTooltip: 'Последнее предложение всегда будет полным с точкой в конце',
       paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–4 предложения',
       countryCodeTooltip: 'Код страны с плюсом или без, например: +7 или 7',
+      domainTooltip: 'Опционально. Если не задать, будет сгенерирован автоматически',
 
       dataTitles: {
         text: 'Текст',
