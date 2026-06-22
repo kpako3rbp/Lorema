@@ -1,6 +1,18 @@
 import { InterfaceLanguage } from '@lorema/core';
-import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from '@lorema/generators';
-import { MAX_LIST_ITEMS_COUNT, MIN_LIST_ITEMS_COUNT } from '@lorema/generators/list/config/constants';
+import {
+  MAX_DECIMAL_PLACES,
+  MAX_LIST_ITEMS_COUNT,
+  MAX_MULTIPLE_OF,
+  MAX_NUMBER_VALUE,
+  MAX_PHONE_DIGITS,
+  MAX_TEXT_CHARS,
+  MIN_DECIMAL_PLACES,
+  MIN_LIST_ITEMS_COUNT,
+  MIN_MULTIPLE_OF,
+  MIN_NUMBER_VALUE,
+  MIN_PHONE_DIGITS,
+  MIN_TEXT_CHARS,
+} from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 import { numberWithSpaces } from 'src/shared/lib/string';
@@ -66,4 +78,51 @@ export const validateListForm = (form: HTMLFormElement, interfaceLanguage: Inter
   showInputError(inputEL, errorEl, result.message);
 
   return result.isValid;
+};
+
+export const validateNumberForm = (form: HTMLFormElement, interfaceLanguage: InterfaceLanguage): boolean => {
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
+
+  const minInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.numberMinInput}`);
+  const minError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.numberMinError}`);
+
+  const maxInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.numberMaxInput}`);
+  const maxError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.numberMaxError}`);
+
+  const decimalPlacesInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.numberDecimalPlacesInput}`);
+  const decimalPlacesError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.numberDecimalPlacesError}`);
+
+  const multipleOfInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.numberMultipleOfInput}`);
+  const multipleOfError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.numberMultipleOfError}`);
+
+  const minResult = validateNumberInput(minInput, MIN_NUMBER_VALUE, MAX_NUMBER_VALUE, {
+    invalid: t.invalid,
+    min: `${t.min} ${numberWithSpaces(MIN_NUMBER_VALUE)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_NUMBER_VALUE)}`,
+  });
+
+  const maxResult = validateNumberInput(maxInput, MIN_NUMBER_VALUE, MAX_NUMBER_VALUE, {
+    invalid: t.invalid,
+    min: `${t.min} ${numberWithSpaces(MIN_NUMBER_VALUE)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_NUMBER_VALUE)}`,
+  });
+
+  const decimalPlacesResult = validateNumberInput(decimalPlacesInput, MIN_DECIMAL_PLACES, MAX_DECIMAL_PLACES, {
+    invalid: t.invalid,
+    min: `${t.min} ${numberWithSpaces(MIN_DECIMAL_PLACES)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_DECIMAL_PLACES)}`,
+  });
+
+  const multipleOfResult = validateNumberInput(multipleOfInput, MIN_MULTIPLE_OF, MAX_MULTIPLE_OF, {
+    invalid: t.invalid,
+    min: `${t.min} ${numberWithSpaces(MIN_MULTIPLE_OF)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_MULTIPLE_OF)}`,
+  });
+
+  showInputError(minInput, minError, minResult.message);
+  showInputError(maxInput, maxError, maxResult.message);
+  showInputError(decimalPlacesInput, decimalPlacesError, decimalPlacesResult.message);
+  showInputError(multipleOfInput, multipleOfError, multipleOfResult.message);
+
+  return minResult.isValid && maxResult.isValid && decimalPlacesResult.isValid && multipleOfResult.isValid;
 };

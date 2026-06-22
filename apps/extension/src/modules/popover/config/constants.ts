@@ -27,6 +27,10 @@ export const POPOVER_IDS = {
   digitsCountError: 'digitsCountError',
   linkDomainError: 'linkDomainError',
   listItemsCountError: 'listItemsCountError',
+  numberMinError: 'numberMinError',
+  numberMaxError: 'numberMaxError',
+  numberDecimalPlacesError: 'numberDecimalPlacesError',
+  numberMultipleOfError: 'numberMultipleOfError',
 
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeSentencies: 'keepWholeSentencies',
@@ -39,6 +43,12 @@ export const POPOVER_IDS = {
   listItemsCountInput: 'listItemsCountInput',
   listLengthPresetSelect: 'listLengthPresetSelect',
   listTypeSelect: 'listTypeSelect',
+
+  numberMinInput: 'numberMinInput',
+  numberMaxInput: 'numberMaxInput',
+  numberMultipleOfInput: 'numberMultipleOfInput',
+  numberDecimalPlacesInput: 'numberDecimalPlacesInput',
+  numberDecimalSeparatorSelect: 'numberDecimalSeparatorSelect',
 
   topicSelect: 'topicSelect',
 

@@ -73,6 +73,10 @@
     grid-template-columns: 2fr 2fr;
   }
 
+  &.grid-1-1-1-1-1 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   &.link-form {
     grid-template-columns: 85px 160px auto;
   }

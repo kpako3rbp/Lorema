@@ -50,6 +50,13 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
     lengthPresets: ['sm', 'md'],
     type: 'bullet',
   },
+  numberSettings: {
+    min: 1,
+    max: 9999,
+    multipleOf: 1,
+    decimalPlaces: 0,
+    decimalSeparator: 'dot',
+  },
 
   generationLanguage: browserLanguage,
   interfaceLanguage: browserLanguage,

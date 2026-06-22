@@ -4,6 +4,7 @@ import { renderAddressIcon } from 'src/shared/ui/icons/address';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';
 import { renderLinkIcon } from 'src/shared/ui/icons/link';
 import { renderListIcon } from 'src/shared/ui/icons/list';
+import { renderNumberIcon } from 'src/shared/ui/icons/number';
 import { renderPersonIcon } from 'src/shared/ui/icons/person';
 import { renderPhoneIcon } from 'src/shared/ui/icons/phone';
 import { renderTextIcon } from 'src/shared/ui/icons/text';
@@ -18,7 +19,7 @@ const mapTypeToIcon: Record<DataTab, string> = {
   phone: renderPhoneIcon(),
   address: renderAddressIcon(),
   person: renderPersonIcon(),
-  // number: renderNumberIcon(),
+  number: renderNumberIcon(),
   // date: renderDateIcon(),
 };
 

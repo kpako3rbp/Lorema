@@ -83,6 +83,15 @@ export const TRANSLATIONS_RU: Translation = {
       listItemLength: 'Размер пункта',
       listType: 'Тип списка',
 
+      number: 'Число',
+      numberParams: 'Параметры случайного числа',
+      numberMin: 'От',
+      numberMax: 'До',
+      numberMultipleOf: 'Кратно',
+      numberDecimalPlaces: 'После запятой',
+      numberDecimalSeparator: 'Разделитель',
+      numberDecimalSeparatorVariants: { dot: 'Точка', comma: 'Запятая' },
+
       titleLength: 'Размер',
       titleTopic: 'Тема',
 
@@ -104,6 +113,8 @@ export const TRANSLATIONS_RU: Translation = {
       paragraphsCheckboxTooltip: 'Текст будет разбит на абзацы по 2–4 предложения',
       countryCodeTooltip: 'Код страны с плюсом или без, например: +7 или 7',
       domainTooltip: 'Опционально. Если не задать, будет сгенерирован автоматически',
+      decimalPlacesTooltip: 'Количество знаков после запятой. Укажите 0, если вам нужны целые числа',
+      multipleOfTooltip: 'По умолчанию все числа кратны 1',
 
       dataTitles: {
         text: 'Текст',
@@ -114,7 +125,7 @@ export const TRANSLATIONS_RU: Translation = {
         address: 'Адрес',
         person: 'Имя',
         list: 'Список',
-        // number: 'Число',
+        number: 'Число',
         // date: 'Дата',
       },
 
@@ -173,7 +184,7 @@ export const TRANSLATIONS_RU: Translation = {
       lastName: '🖊️ Фамилия',
       fullName: '🧑 Имя и фамилия',
       list: '📋 Список',
-      // number: '🔢 Число',
+      number: '🔢 Число',
       // date: '📅 Дата',
     },
   },

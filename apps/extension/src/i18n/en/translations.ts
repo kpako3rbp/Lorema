@@ -106,6 +106,8 @@ export const TRANSLATIONS_EN: Translation = {
       paragraphsCheckboxTooltip: 'Text will be split into paragraphs of 2–3 sentences',
       countryCodeTooltip: 'Country code with or without plus, for example: +7 or 7',
       domainTooltip: 'Optional. If not specified, it will be generated automatically',
+      decimalPlacesTooltip: 'Number of digits after the decimal separator. Set 0 if you need whole numbers',
+      multipleOfTooltip: 'By default, numbers are generated as multiples of 1',
 
       dataTitles: {
         text: 'Text',
@@ -116,6 +118,7 @@ export const TRANSLATIONS_EN: Translation = {
         address: 'Address',
         person: 'Person',
         list: 'List',
+        number: 'Number',
       },
 
       titleTopics: {
@@ -143,6 +146,18 @@ export const TRANSLATIONS_EN: Translation = {
       },
 
       listTypeVariants: { bullet: 'Bulleted', numbered: 'Numbered' },
+
+      number: 'Number',
+      numberParams: 'Number parameters',
+      numberMin: 'From',
+      numberMax: 'To',
+      numberMultipleOf: 'Multiple of',
+      numberDecimalPlaces: 'Decimal places',
+      numberDecimalSeparator: 'Separator',
+      numberDecimalSeparatorVariants: {
+        dot: 'Dot',
+        comma: 'Comma',
+      },
     },
     textStatistics: {
       title: 'Character count',
@@ -170,7 +185,7 @@ export const TRANSLATIONS_EN: Translation = {
       lastName: '👤 Last name',
       fullName: '🧑 Full name',
       list: '📋 List',
-      // number: '🔢 Число',
+      number: '🔢 Число',
       // date: '📅 Дата',
     },
   },

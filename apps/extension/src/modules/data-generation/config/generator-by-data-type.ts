@@ -8,6 +8,7 @@ import {
   generateLink,
   generateList,
   generateLorem,
+  generateNumber,
   generatePhone,
   generateTitle,
 } from '@lorema/generators';
@@ -39,4 +40,5 @@ export const GENERATOR_BY_DATA_TYPE: Record<DataType, DataGenerator> = {
       lastName: storage.lastNameSettings,
     }),
   list: createDataGenerator('listSettings', generateList),
+  number: createDataGenerator('numberSettings', generateNumber),
 };

@@ -6,6 +6,7 @@ import { renderAddressForm } from './render-address-form';
 import { renderEmailForm } from './render-email-form';
 import { renderLinkForm } from './render-link-form';
 import { renderListForm } from './render-list-form';
+import { renderNumberForm } from './render-number-form';
 import { renderPersonForm } from './render-person-form';
 import { renderPhoneForm } from './render-phone-form';
 import { renderTextForm } from './render-text-form';
@@ -20,6 +21,7 @@ const FORM_RENDERERS: Record<DataTab, (storage: StorageSchema, interfaceLanguage
   address: renderAddressForm,
   person: renderPersonForm,
   list: renderListForm,
+  number: renderNumberForm,
 };
 
 export const renderForms = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {

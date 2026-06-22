@@ -106,6 +106,15 @@ type DataGeneration = {
   listTypeVariants: Record<ListType, string>;
   titleTopic: string;
 
+  number: string;
+  numberParams: string;
+  numberMin: string;
+  numberMax: string;
+  numberMultipleOf: string;
+  numberDecimalPlaces: string;
+  numberDecimalSeparator: string;
+  numberDecimalSeparatorVariants: { dot: string; comma: string };
+
   min: string;
   max: string;
   maxWarning: string;
@@ -117,6 +126,8 @@ type DataGeneration = {
   paragraphsCheckboxTooltip: string;
   countryCodeTooltip: string;
   domainTooltip: string;
+  decimalPlacesTooltip: string;
+  multipleOfTooltip: string;
 
   dataTitles: Record<DataTab, string>;
   titleTopics: Record<TitleTopic, string>;

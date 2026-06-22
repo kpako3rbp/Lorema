@@ -7,6 +7,7 @@ import {
   LinkPrefix,
   ListType,
   NameLengthPreset,
+  NumberDecimalSeparator,
   PhoneFormat,
   TitleLengthPreset,
   TitleTopic,
@@ -101,6 +102,16 @@ export const readDataSettingsFromForm = (
         itemsCount: Math.floor(Number(getInputValue(form, POPOVER_IDS.listItemsCountInput))),
         lengthPresets: getSelectedValues<TitleLengthPreset>(form, POPOVER_IDS.listLengthPresetSelect),
         type: getSelectedValue<ListType>(form, POPOVER_IDS.listTypeSelect),
+      },
+    }),
+
+    number: () => ({
+      numberSettings: {
+        min: Number(getInputValue(form, POPOVER_IDS.numberMinInput)),
+        max: Number(getInputValue(form, POPOVER_IDS.numberMaxInput)),
+        multipleOf: Number(getInputValue(form, POPOVER_IDS.numberMultipleOfInput)),
+        decimalPlaces: Number(getInputValue(form, POPOVER_IDS.numberDecimalPlacesInput)),
+        decimalSeparator: getSelectedValue<NumberDecimalSeparator>(form, POPOVER_IDS.numberDecimalSeparatorSelect),
       },
     }),
   };
