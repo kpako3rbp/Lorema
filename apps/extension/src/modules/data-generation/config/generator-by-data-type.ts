@@ -6,6 +6,7 @@ import {
   generateFullName,
   generateLastName,
   generateLink,
+  generateList,
   generateLorem,
   generatePhone,
   generateTitle,
@@ -37,4 +38,5 @@ export const GENERATOR_BY_DATA_TYPE: Record<DataType, DataGenerator> = {
       firstName: storage.firstNameSettings,
       lastName: storage.lastNameSettings,
     }),
+  list: createDataGenerator('listSettings', generateList),
 };

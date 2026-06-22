@@ -5,6 +5,7 @@ import {
   LengthMode,
   LinkLengthPreset,
   LinkPrefix,
+  ListType,
   NameLengthPreset,
   PhoneFormat,
   TitleLengthPreset,
@@ -93,6 +94,15 @@ export const readDataSettingsFromForm = (
         },
       };
     },
+
+    list: () => ({
+      listSettings: {
+        language: getLanguage(),
+        itemsCount: Math.floor(Number(getInputValue(form, POPOVER_IDS.listItemsCountInput))),
+        lengthPresets: getSelectedValues<TitleLengthPreset>(form, POPOVER_IDS.listLengthPresetSelect),
+        type: getSelectedValue<ListType>(form, POPOVER_IDS.listTypeSelect),
+      },
+    }),
   };
 
   if (!dataTab) {

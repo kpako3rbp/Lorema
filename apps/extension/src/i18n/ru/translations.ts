@@ -78,6 +78,11 @@ export const TRANSLATIONS_RU: Translation = {
       firstNameLength: 'Размер имени',
       lastNameLength: 'Размер фамилии',
 
+      listParams: 'Параметры списка',
+      listItemsCount: 'Пункты',
+      listItemLength: 'Размер пункта',
+      listType: 'Тип списка',
+
       titleLength: 'Размер',
       titleTopic: 'Тема',
 
@@ -108,7 +113,7 @@ export const TRANSLATIONS_RU: Translation = {
         phone: 'Телефон',
         address: 'Адрес',
         person: 'Имя',
-        // list: 'Список',
+        list: 'Список',
         // number: 'Число',
         // date: 'Дата',
       },
@@ -136,6 +141,11 @@ export const TRANSLATIONS_RU: Translation = {
         dash: 'Дефисы',
         spaces: 'Пробелы',
       },
+
+      listTypeVariants: {
+        bullet: 'Маркированный',
+        numbered: 'Нумерованный',
+      },
     },
     textStatistics: {
       title: 'Подсчет символов',
@@ -162,9 +172,9 @@ export const TRANSLATIONS_RU: Translation = {
       firstName: '🖊️ Имя',
       lastName: '🖊️ Фамилия',
       fullName: '🧑 Имя и фамилия',
-      // list: 'Список',
-      // number: 'Число',
-      // date: 'Дата',
+      list: '📋 Список',
+      // number: '🔢 Число',
+      // date: '📅 Дата',
     },
   },
 

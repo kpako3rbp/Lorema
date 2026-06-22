@@ -22,9 +22,11 @@
   color: var(--color-error);
   opacity: 0;
   transform: translateY(-2px);
+  display: none;
 }
 
 .lorem-error.active {
+  display: block;
   height: auto;
   margin: 4px 0 0;
   opacity: 1;

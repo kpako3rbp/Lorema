@@ -1,5 +1,6 @@
 import { InterfaceLanguage } from '@lorema/core';
 import { MAX_PHONE_DIGITS, MAX_TEXT_CHARS, MIN_PHONE_DIGITS, MIN_TEXT_CHARS } from '@lorema/generators';
+import { MAX_LIST_ITEMS_COUNT, MIN_LIST_ITEMS_COUNT } from '@lorema/generators/list/config/constants';
 import { TRANSLATIONS } from 'src/i18n';
 import { getRequiredElement } from 'src/shared/lib/query-element';
 import { numberWithSpaces } from 'src/shared/lib/string';
@@ -48,4 +49,21 @@ export const validatePhoneForm = (form: HTMLFormElement, interfaceLanguage: Inte
   showInputError(digitsCountInput, digitsCountError, digitsCountResult.message);
 
   return countryCodeResult.isValid && digitsCountResult.isValid;
+};
+
+export const validateListForm = (form: HTMLFormElement, interfaceLanguage: InterfaceLanguage): boolean => {
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
+
+  const inputEL = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.listItemsCountInput}`);
+  const errorEl = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.listItemsCountError}`);
+
+  const result = validateNumberInput(inputEL, 1, MAX_LIST_ITEMS_COUNT, {
+    invalid: t.invalid,
+    min: `${t.min} ${numberWithSpaces(MIN_LIST_ITEMS_COUNT)}`,
+    max: `${t.max} ${numberWithSpaces(MAX_LIST_ITEMS_COUNT)}`,
+  });
+
+  showInputError(inputEL, errorEl, result.message);
+
+  return result.isValid;
 };

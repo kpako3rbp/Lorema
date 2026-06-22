@@ -5,6 +5,7 @@ import {
   FirstNameSettings,
   LastNameSettings,
   LinkSettings,
+  ListSettings,
   PhoneSettings,
   TextSettings,
   TitleSettings,
@@ -22,6 +23,7 @@ export type StorageSchema = {
   addressSettings: AddressSettings;
   firstNameSettings: FirstNameSettings;
   lastNameSettings: LastNameSettings;
+  listSettings: ListSettings;
 
   // Common
   interfaceLanguage: InterfaceLanguage;

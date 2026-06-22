@@ -8,7 +8,7 @@ export const DATA_TYPES = [
   'firstName',
   'lastName',
   'fullName',
-  // 'list',
+  'list',
   // 'number',
   // 'date',
 ] as const;
@@ -17,12 +17,12 @@ export type DataType = (typeof DATA_TYPES)[number];
 export const DATA_TABS = [
   'text',
   'title',
+  'list',
+  'address',
+  'person',
   'email',
   'link',
   'phone',
-  'address',
-  'person',
-  // 'list',
   // 'number',
   // 'date',
 ] as const;
@@ -40,7 +40,7 @@ export const DATA_TYPE_TO_TAB: Record<DataType, DataTab> = {
   firstName: 'person',
   lastName: 'person',
   fullName: 'person',
-  // list: 'list',
+  list: 'list',
   // number: 'number',
   // date: 'date',
 };
@@ -53,7 +53,7 @@ export const DATA_TAB_TO_TYPE: Record<DataTab, DataType> = {
   link: 'link',
   phone: 'phone',
   address: 'address',
-  // list: 'list',
+  list: 'list',
   // number: 'number',
   // date: 'date',
 };

@@ -26,6 +26,7 @@ export const POPOVER_IDS = {
   countryCodeError: 'countryCodeError',
   digitsCountError: 'digitsCountError',
   linkDomainError: 'linkDomainError',
+  listItemsCountError: 'listItemsCountError',
 
   paragraphsCheckbox: 'paragraphsCheckbox',
   keepWholeSentencies: 'keepWholeSentencies',
@@ -34,6 +35,10 @@ export const POPOVER_IDS = {
 
   firstNameLengthSelect: 'firstNameLengthSelect',
   lastNameLengthSelect: 'lastNameLengthSelect',
+
+  listItemsCountInput: 'listItemsCountInput',
+  listLengthPresetSelect: 'listLengthPresetSelect',
+  listTypeSelect: 'listTypeSelect',
 
   topicSelect: 'topicSelect',
 

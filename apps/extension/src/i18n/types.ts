@@ -3,6 +3,7 @@ import {
   AddressFormat,
   EmailLengthPreset,
   LinkLengthPreset,
+  ListType,
   NameLengthPreset,
   PhoneFormat,
   TitleLengthPreset,
@@ -97,6 +98,12 @@ type DataGeneration = {
   lastNameLength: string;
 
   titleLength: string;
+
+  listParams: string;
+  listItemsCount: string;
+  listItemLength: string;
+  listType: string;
+  listTypeVariants: Record<ListType, string>;
   titleTopic: string;
 
   min: string;

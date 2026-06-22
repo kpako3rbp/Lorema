@@ -79,6 +79,11 @@ export const TRANSLATIONS_EN: Translation = {
       firstNameLength: 'First name length',
       lastNameLength: 'Last name length',
 
+      listParams: 'List parameters',
+      listItemsCount: 'Items',
+      listItemLength: 'Item size',
+      listType: 'List type',
+
       titleLength: 'Size',
       titleTopic: 'Topic',
 
@@ -110,6 +115,7 @@ export const TRANSLATIONS_EN: Translation = {
         phone: 'Phone',
         address: 'Address',
         person: 'Person',
+        list: 'List',
       },
 
       titleTopics: {
@@ -135,6 +141,8 @@ export const TRANSLATIONS_EN: Translation = {
         dash: 'Dashes',
         spaces: 'Spaces',
       },
+
+      listTypeVariants: { bullet: 'Bulleted', numbered: 'Numbered' },
     },
     textStatistics: {
       title: 'Character count',
@@ -161,6 +169,9 @@ export const TRANSLATIONS_EN: Translation = {
       firstName: '👤 First name',
       lastName: '👤 Last name',
       fullName: '🧑 Full name',
+      list: '📋 List',
+      // number: '🔢 Число',
+      // date: '📅 Дата',
     },
   },
 

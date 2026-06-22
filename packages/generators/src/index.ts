@@ -4,6 +4,8 @@ export { generateEmail } from './email/lib/generator';
 export type { EmailLengthPreset, EmailSettings } from './email/model/types';
 export { generateLink } from './link/lib/generator';
 export type { LinkLengthPreset, LinkPrefix, LinkSettings } from './link/model/types';
+export { generateList } from './list/lib/generator';
+export type { ListSettings, ListType } from './list/model/types';
 export { generateFirstName, generateFullName, generateLastName, generatePersonData } from './person/lib/generator';
 export type { FirstNameSettings, LastNameSettings, NameLengthPreset, PersonNamePart } from './person/model/types';
 export { MAX_PHONE_DIGITS, MIN_PHONE_DIGITS } from './phone/config/constants';

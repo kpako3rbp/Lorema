@@ -44,6 +44,12 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
     lengthPresets: [],
     language: browserLanguage,
   },
+  listSettings: {
+    language: browserLanguage,
+    itemsCount: 5,
+    lengthPresets: ['sm', 'md'],
+    type: 'bullet',
+  },
 
   generationLanguage: browserLanguage,
   interfaceLanguage: browserLanguage,

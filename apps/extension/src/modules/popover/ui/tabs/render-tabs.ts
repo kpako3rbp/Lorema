@@ -3,6 +3,7 @@ import { TRANSLATIONS } from 'src/i18n';
 import { renderAddressIcon } from 'src/shared/ui/icons/address';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';
 import { renderLinkIcon } from 'src/shared/ui/icons/link';
+import { renderListIcon } from 'src/shared/ui/icons/list';
 import { renderPersonIcon } from 'src/shared/ui/icons/person';
 import { renderPhoneIcon } from 'src/shared/ui/icons/phone';
 import { renderTextIcon } from 'src/shared/ui/icons/text';
@@ -11,7 +12,7 @@ import { renderTitleIcon } from 'src/shared/ui/icons/title';
 const mapTypeToIcon: Record<DataTab, string> = {
   text: renderTextIcon(),
   title: renderTitleIcon(),
-  // list: renderListIcon(),
+  list: renderListIcon(),
   email: renderEmailIcon(),
   link: renderLinkIcon(),
   phone: renderPhoneIcon(),
