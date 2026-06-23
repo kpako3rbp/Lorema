@@ -1,11 +1,13 @@
 import { InterfaceLanguage } from '@lorema/core';
 import {
+  MAX_DATE_YEAR,
   MAX_DECIMAL_PLACES,
   MAX_LIST_ITEMS_COUNT,
   MAX_MULTIPLE_OF,
   MAX_NUMBER_VALUE,
   MAX_PHONE_DIGITS,
   MAX_TEXT_CHARS,
+  MIN_DATE_YEAR,
   MIN_DECIMAL_PLACES,
   MIN_LIST_ITEMS_COUNT,
   MIN_MULTIPLE_OF,
@@ -125,4 +127,31 @@ export const validateNumberForm = (form: HTMLFormElement, interfaceLanguage: Int
   showInputError(multipleOfInput, multipleOfError, multipleOfResult.message);
 
   return minResult.isValid && maxResult.isValid && decimalPlacesResult.isValid && multipleOfResult.isValid;
+};
+
+export const validateDateForm = (form: HTMLFormElement, interfaceLanguage: InterfaceLanguage): boolean => {
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
+
+  const minYearInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.dateMinYearInput}`);
+  const minYearError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.dateMinYearError}`);
+
+  const maxYearInput = getRequiredElement<HTMLInputElement>(form, `#${POPOVER_IDS.dateMaxYearInput}`);
+  const maxYearError = getRequiredElement<HTMLElement>(form, `#${POPOVER_IDS.dateMaxYearError}`);
+
+  const minYearResult = validateNumberInput(minYearInput, MIN_DATE_YEAR, MAX_DATE_YEAR, {
+    invalid: t.invalid,
+    min: `${t.min} ${MIN_DATE_YEAR}`,
+    max: `${t.max} ${MAX_DATE_YEAR}`,
+  });
+
+  const maxYearResult = validateNumberInput(maxYearInput, MIN_DATE_YEAR, MAX_DATE_YEAR, {
+    invalid: t.invalid,
+    min: `${t.min} ${MIN_DATE_YEAR}`,
+    max: `${t.max} ${MAX_DATE_YEAR}`,
+  });
+
+  showInputError(minYearInput, minYearError, minYearResult.message);
+  showInputError(maxYearInput, maxYearError, maxYearResult.message);
+
+  return minYearResult.isValid && maxYearResult.isValid;
 };

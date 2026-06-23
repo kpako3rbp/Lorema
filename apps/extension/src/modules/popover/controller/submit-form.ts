@@ -2,6 +2,7 @@ import { DATA_TAB_TO_TYPE, DataType, InterfaceLanguage } from '@lorema/core';
 import { generateData } from 'src/modules/data-generation';
 import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
 import {
+  validateDateForm,
   validateListForm,
   validateNumberForm,
   validatePhoneForm,
@@ -31,6 +32,7 @@ const validateFormByDataType = (
     phone: () => validatePhoneForm(form, interfaceLanguage),
     list: () => validateListForm(form, interfaceLanguage),
     number: () => validateNumberForm(form, interfaceLanguage),
+    date: () => validateDateForm(form, interfaceLanguage),
   };
 
   return validators[dataType]?.() ?? true;

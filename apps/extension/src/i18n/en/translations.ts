@@ -16,7 +16,7 @@ export const TRANSLATIONS_EN: Translation = {
       saved: 'Saved!',
       likeExtension: 'Enjoying Lorema?',
       supportDeveloper: 'Enjoying Lorema? Buy me a coffee',
-      description: 'Right-click a text field to insert content instantly or customize it before inserting',
+      description: 'Right-click a text field to insert content\nRight-click selected text to count characters',
     },
 
     support: {
@@ -84,6 +84,26 @@ export const TRANSLATIONS_EN: Translation = {
       listItemLength: 'Item size',
       listType: 'List type',
 
+      date: 'Date',
+      dateParams: 'Date parameters',
+      dateMinYear: 'Year from',
+      dateMaxYear: 'Year to',
+      dateFormat: 'Date format',
+      timeFormat: 'Time format',
+
+      dateFormatVariants: {
+        'dd.mm.yyyy': '23.06.2026',
+        'yyyy-mm-dd': '2026-06-23',
+        'dd/mm/yyyy': '23/06/2026',
+        'mm/dd/yyyy': '06/23/2026',
+        'yyyy/mm/dd': '2026/06/23',
+        'ru-long': '23 июня 2026',
+        'en-long': 'June 23, 2026',
+        iso: 'ISO',
+      },
+
+      timeFormatVariants: { none: 'No time', 'hh:mm': '14:35', 'hh:mm-a': '2:35 PM' },
+
       titleLength: 'Size',
       titleTopic: 'Topic',
 
@@ -119,6 +139,7 @@ export const TRANSLATIONS_EN: Translation = {
         person: 'Person',
         list: 'List',
         number: 'Number',
+        date: 'Date',
       },
 
       titleTopics: {
@@ -152,7 +173,7 @@ export const TRANSLATIONS_EN: Translation = {
       numberMin: 'From',
       numberMax: 'To',
       numberMultipleOf: 'Multiple of',
-      numberDecimalPlaces: 'Decimal places',
+      numberDecimalPlaces: 'Decimals',
       numberDecimalSeparator: 'Separator',
       numberDecimalSeparatorVariants: {
         dot: 'Dot',
@@ -186,7 +207,7 @@ export const TRANSLATIONS_EN: Translation = {
       fullName: '🧑 Full name',
       list: '📋 List',
       number: '🔢 Число',
-      // date: '📅 Дата',
+      date: '📅 Дата',
     },
   },
 

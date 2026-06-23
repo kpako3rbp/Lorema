@@ -1,6 +1,7 @@
 import { GenerationLanguage, InterfaceLanguage } from '@lorema/core';
 import {
   AddressSettings,
+  DateSettings,
   EmailSettings,
   FirstNameSettings,
   LastNameSettings,
@@ -26,6 +27,7 @@ export type StorageSchema = {
   lastNameSettings: LastNameSettings;
   listSettings: ListSettings;
   numberSettings: NumberSettings;
+  dateSettings: DateSettings;
 
   // Common
   interfaceLanguage: InterfaceLanguage;

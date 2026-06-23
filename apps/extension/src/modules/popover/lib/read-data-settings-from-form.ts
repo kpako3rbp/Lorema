@@ -1,6 +1,7 @@
 import { DataTab, GenerationLanguage } from '@lorema/core';
 import {
   AddressFormat,
+  DateFormat,
   EmailLengthPreset,
   LengthMode,
   LinkLengthPreset,
@@ -9,6 +10,7 @@ import {
   NameLengthPreset,
   NumberDecimalSeparator,
   PhoneFormat,
+  TimeFormat,
   TitleLengthPreset,
   TitleTopic,
 } from '@lorema/generators';
@@ -112,6 +114,15 @@ export const readDataSettingsFromForm = (
         multipleOf: Number(getInputValue(form, POPOVER_IDS.numberMultipleOfInput)),
         decimalPlaces: Number(getInputValue(form, POPOVER_IDS.numberDecimalPlacesInput)),
         decimalSeparator: getSelectedValue<NumberDecimalSeparator>(form, POPOVER_IDS.numberDecimalSeparatorSelect),
+      },
+    }),
+
+    date: () => ({
+      dateSettings: {
+        minYear: Math.floor(Number(getInputValue(form, POPOVER_IDS.dateMinYearInput))),
+        maxYear: Math.floor(Number(getInputValue(form, POPOVER_IDS.dateMaxYearInput))),
+        dateFormat: getSelectedValue<DateFormat>(form, POPOVER_IDS.dateFormatSelect),
+        timeFormat: getSelectedValue<TimeFormat>(form, POPOVER_IDS.timeFormatSelect),
       },
     }),
   };

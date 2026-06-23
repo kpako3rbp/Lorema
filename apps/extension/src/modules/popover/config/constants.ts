@@ -50,6 +50,13 @@ export const POPOVER_IDS = {
   numberDecimalPlacesInput: 'numberDecimalPlacesInput',
   numberDecimalSeparatorSelect: 'numberDecimalSeparatorSelect',
 
+  dateMinYearInput: 'dateMinYearInput',
+  dateMinYearError: 'dateMinYearError',
+  dateMaxYearInput: 'dateMaxYearInput',
+  dateMaxYearError: 'dateMaxYearError',
+  dateFormatSelect: 'dateFormatSelect',
+  timeFormatSelect: 'timeFormatSelect',
+
   topicSelect: 'topicSelect',
 
   insertButton: 'insertButton',

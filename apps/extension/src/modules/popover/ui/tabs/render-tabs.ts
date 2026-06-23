@@ -1,6 +1,7 @@
 import { DATA_TABS, DATA_TYPE_TO_TAB, DataTab, DataType, InterfaceLanguage } from '@lorema/core';
 import { TRANSLATIONS } from 'src/i18n';
 import { renderAddressIcon } from 'src/shared/ui/icons/address';
+import { renderDateIcon } from 'src/shared/ui/icons/date';
 import { renderEmailIcon } from 'src/shared/ui/icons/email';
 import { renderLinkIcon } from 'src/shared/ui/icons/link';
 import { renderListIcon } from 'src/shared/ui/icons/list';
@@ -20,7 +21,7 @@ const mapTypeToIcon: Record<DataTab, string> = {
   address: renderAddressIcon(),
   person: renderPersonIcon(),
   number: renderNumberIcon(),
-  // date: renderDateIcon(),
+  date: renderDateIcon(),
 };
 
 export const renderTabs = (activeDataType: DataType, interfaceLanguage: InterfaceLanguage): string => {

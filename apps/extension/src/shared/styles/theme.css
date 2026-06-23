@@ -55,6 +55,8 @@
 
   --logo-title-color: var(--color-primary);
   --logo-border: 2px solid transparent;
+
+  --color-wallet: #83898b;
 }
 
 * {

@@ -1,5 +1,8 @@
 export { generateAddress } from './address/lib/generator';
 export type { AddressFormat, AddressSettings } from './address/model/types';
+export { MAX_DATE_YEAR, MIN_DATE_YEAR } from './date/config/constants';
+export { generateDate } from './date/lib/generator';
+export type { DateFormat, DateSettings, TimeFormat } from './date/model/types';
 export { generateEmail } from './email/lib/generator';
 export type { EmailLengthPreset, EmailSettings } from './email/model/types';
 export { generateLink } from './link/lib/generator';

@@ -16,7 +16,7 @@ export const TRANSLATIONS_RU: Translation = {
       saved: 'Сохранено!',
       likeExtension: 'Нравится расширение?',
       supportDeveloper: 'Отблагодарить разработчика',
-      description: 'Кликните ПКМ по текстовому полю, чтобы быстро вставить контент или настроить его перед вставкой',
+      description: 'ПКМ по текстовому полю — вставка контента\nПКМ по выделенному тексту — подсчет символов',
     },
     support: {
       back: '← Вернуться назад',
@@ -83,6 +83,24 @@ export const TRANSLATIONS_RU: Translation = {
       listItemLength: 'Размер пункта',
       listType: 'Тип списка',
 
+      date: 'Дата',
+      dateParams: 'Параметры даты',
+      dateMinYear: 'Год от',
+      dateMaxYear: 'Год до',
+      dateFormat: 'Формат даты',
+      timeFormat: 'Формат времени',
+      dateFormatVariants: {
+        'dd.mm.yyyy': '23.06.2026',
+        'yyyy-mm-dd': '2026-06-23',
+        'dd/mm/yyyy': '23/06/2026',
+        'mm/dd/yyyy': '06/23/2026',
+        'yyyy/mm/dd': '2026/06/23',
+        'ru-long': '23 июня 2026 г.',
+        'en-long': 'June 23, 2026',
+        iso: 'ISO',
+      },
+      timeFormatVariants: { none: 'Без времени', 'hh:mm': '14:35', 'hh:mm-a': '2:35 PM' },
+
       number: 'Число',
       numberParams: 'Параметры случайного числа',
       numberMin: 'От',
@@ -126,7 +144,7 @@ export const TRANSLATIONS_RU: Translation = {
         person: 'Имя',
         list: 'Список',
         number: 'Число',
-        // date: 'Дата',
+        date: 'Дата',
       },
 
       titleTopics: {
@@ -185,7 +203,7 @@ export const TRANSLATIONS_RU: Translation = {
       fullName: '🧑 Имя и фамилия',
       list: '📋 Список',
       number: '🔢 Число',
-      // date: '📅 Дата',
+      date: '📅 Дата',
     },
   },
 

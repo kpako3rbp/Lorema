@@ -1,6 +1,7 @@
 import { DataType } from '@lorema/core';
 import {
   generateAddress,
+  generateDate,
   generateEmail,
   generateFirstName,
   generateFullName,
@@ -41,4 +42,5 @@ export const GENERATOR_BY_DATA_TYPE: Record<DataType, DataGenerator> = {
     }),
   list: createDataGenerator('listSettings', generateList),
   number: createDataGenerator('numberSettings', generateNumber),
+  date: createDataGenerator('dateSettings', generateDate),
 };

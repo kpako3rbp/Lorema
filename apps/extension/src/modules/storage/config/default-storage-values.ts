@@ -5,6 +5,9 @@ import { StorageSchema } from '../model/storage-schema';
 
 const browserLanguage = getBrowserLanguage();
 
+const currentYear = new Date().getFullYear();
+const defaultMinDateYear = currentYear - 5;
+
 export const DEFAULT_STORAGE_VALUES: StorageSchema = {
   textSettings: {
     language: browserLanguage,
@@ -56,6 +59,13 @@ export const DEFAULT_STORAGE_VALUES: StorageSchema = {
     multipleOf: 1,
     decimalPlaces: 0,
     decimalSeparator: 'dot',
+  },
+
+  dateSettings: {
+    minYear: defaultMinDateYear,
+    maxYear: currentYear,
+    dateFormat: 'dd.mm.yyyy',
+    timeFormat: 'none',
   },
 
   generationLanguage: browserLanguage,

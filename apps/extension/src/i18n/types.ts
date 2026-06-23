@@ -1,11 +1,13 @@
 import { DataTab, DataType } from '@lorema/core';
 import {
   AddressFormat,
+  DateFormat,
   EmailLengthPreset,
   LinkLengthPreset,
   ListType,
   NameLengthPreset,
   PhoneFormat,
+  TimeFormat,
   TitleLengthPreset,
   TitleTopic,
 } from '@lorema/generators';
@@ -106,6 +108,13 @@ type DataGeneration = {
   listTypeVariants: Record<ListType, string>;
   titleTopic: string;
 
+  date: string;
+  dateParams: string;
+  dateMinYear: string;
+  dateMaxYear: string;
+  dateFormat: string;
+  timeFormat: string;
+
   number: string;
   numberParams: string;
   numberMin: string;
@@ -134,6 +143,8 @@ type DataGeneration = {
   lengthPreset: Record<NameLengthPreset | TitleLengthPreset | EmailLengthPreset | LinkLengthPreset, string>;
   phoneFormatVariants: Record<PhoneFormat, string>;
   addressFormatVariants: Record<AddressFormat, string>;
+  dateFormatVariants: Record<DateFormat, string>;
+  timeFormatVariants: Record<TimeFormat, string>;
 };
 
 type TextStatistics = {

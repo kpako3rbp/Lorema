@@ -3,6 +3,7 @@ import { POPOVER_TAB_CLASSNAME } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
 
 import { renderAddressForm } from './render-address-form';
+import { renderDateForm } from './render-date-form';
 import { renderEmailForm } from './render-email-form';
 import { renderLinkForm } from './render-link-form';
 import { renderListForm } from './render-list-form';
@@ -22,6 +23,7 @@ const FORM_RENDERERS: Record<DataTab, (storage: StorageSchema, interfaceLanguage
   person: renderPersonForm,
   list: renderListForm,
   number: renderNumberForm,
+  date: renderDateForm,
 };
 
 export const renderForms = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {
