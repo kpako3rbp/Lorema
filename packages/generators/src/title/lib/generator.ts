@@ -1,13 +1,14 @@
 import { GenerationLanguage } from '@lorema/core';
 import { capitalizeFirstLetter, getRandomItem } from '@lorema/generators';
 
-import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
-import { EXTRA_TEMPLATES_BY_LANGUAGE } from '../config/extra-templates';
-import { COMMON_TITLE_TEMPLATES, TOPIC_TITLE_TEMPLATES } from '../config/titles';
-import { EN_TOPIC_FORMS, RU_TOPIC_FORMS } from '../config/topics';
+import { TITLE_LENGTH_PRESET_RANGES, TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
+import { COMMON_TITLE_TEMPLATES, TOPIC_TITLE_TEMPLATES } from '../config/title-templates';
+import { EN_TOPIC_DATA, RU_TOPIC_DATA } from '../config/topic-data';
 import { TitleLengthPreset, TitleSettings, TitleTopic } from '../model/types';
 
 const TITLE_HISTORY_LIMIT = 30;
+const TITLE_GENERATION_ATTEMPTS = 60;
+
 const titleHistory = new Set<string>();
 
 const normalizeTitle = (value: string): string => {
@@ -26,72 +27,92 @@ const rememberTitle = (title: string): void => {
   titleHistory.delete(firstTitle);
 };
 
+const replaceTemplate = (template: string, values: Record<string, string>): string => {
+  return Object.entries(values).reduce((result, [key, value]) => {
+    return result.replaceAll(`{${key}}`, value);
+  }, template);
+};
+
 const renderLaTitle = (template: string): string => template;
 
-const renderRuTitle = (template: string, topics: TitleTopic): string => {
-  const forms = RU_TOPIC_FORMS[topics];
+const renderRuTitle = (template: string, topic: TitleTopic): string => {
+  const data = RU_TOPIC_DATA[topic];
+  const subject = getRandomItem(data.subjects);
 
-  return template
-    .replaceAll('{nom}', forms.nom)
-    .replaceAll('{gen}', forms.gen)
-    .replaceAll('{acc}', forms.acc)
-    .replaceAll('{instr}', forms.instr)
-    .replaceAll('{prep}', forms.prep)
-    .replaceAll('{withInstr}', forms.withInstr)
-    .replaceAll('{context}', forms.context)
-    .replaceAll('{result}', forms.result);
+  return replaceTemplate(template, {
+    ...subject,
+    context: getRandomItem(data.contexts),
+    result: getRandomItem(data.results),
+    problem: getRandomItem(data.problems),
+    process: getRandomItem(data.processes),
+    tool: getRandomItem(data.tools),
+  });
 };
 
-const renderEnTitle = (template: string, topics: TitleTopic): string => {
-  const forms = EN_TOPIC_FORMS[topics];
+const renderEnTitle = (template: string, topic: TitleTopic): string => {
+  const data = EN_TOPIC_DATA[topic];
 
-  return template
-    .replaceAll('{topic}', forms.value)
-    .replaceAll('{context}', forms.context)
-    .replaceAll('{result}', forms.result);
+  return replaceTemplate(template, {
+    topic: getRandomItem(data.subjects),
+    context: getRandomItem(data.contexts),
+    result: getRandomItem(data.results),
+    problem: getRandomItem(data.problems),
+    process: getRandomItem(data.processes),
+    tool: getRandomItem(data.tools),
+  });
 };
 
-const renderTitleByLanguage: Record<GenerationLanguage, (template: string, topics: TitleTopic) => string> = {
+const renderTitleByLanguage: Record<GenerationLanguage, (template: string, topic: TitleTopic) => string> = {
   ru: renderRuTitle,
   en: renderEnTitle,
   la: renderLaTitle,
 };
 
 const getTitleTemplates = (
-  language: GenerationLanguage,
-  topics: TitleTopic,
+  language: Exclude<GenerationLanguage, 'la'>,
+  topic: TitleTopic,
   lengthPreset: TitleLengthPreset,
 ): string[] => {
-  if (language === 'la') {
-    return COMMON_TITLE_TEMPLATES.la[lengthPreset];
-  }
+  const topicTemplates = TOPIC_TITLE_TEMPLATES[language][topic][lengthPreset] ?? [];
 
-  return [
-    ...COMMON_TITLE_TEMPLATES[language][lengthPreset],
-    ...EXTRA_TEMPLATES_BY_LANGUAGE[language][lengthPreset],
-    ...(TOPIC_TITLE_TEMPLATES[language][topics][lengthPreset] ?? []),
-  ];
+  return [...COMMON_TITLE_TEMPLATES[language][lengthPreset], ...topicTemplates];
 };
 
-const getUniqueTitle = (templates: string[], language: GenerationLanguage, topics: TitleTopic): string => {
-  const attempts = Math.min(templates.length, 20);
+const trimTitleToMaxLength = (title: string, maxLength: number): string => {
+  if (title.length <= maxLength) return title;
 
-  for (let i = 0; i < attempts; i += 1) {
-    const template = getRandomItem(templates);
-    const title = normalizeTitle(renderTitleByLanguage[language](template, topics));
+  const trimmed = title.slice(0, maxLength).trim();
+  const lastSpaceIndex = trimmed.lastIndexOf(' ');
 
-    if (!titleHistory.has(title)) {
-      rememberTitle(title);
+  if (lastSpaceIndex <= 0) return trimmed;
 
-      return title;
-    }
+  return trimmed.slice(0, lastSpaceIndex);
+};
+
+const getUniqueTitle = (
+  templates: string[],
+  renderTitle: (template: string) => string,
+  lengthPreset: TitleLengthPreset,
+): string => {
+  const { max } = TITLE_LENGTH_PRESET_RANGES[lengthPreset];
+
+  for (let i = 0; i < TITLE_GENERATION_ATTEMPTS; i += 1) {
+    const title = normalizeTitle(renderTitle(getRandomItem(templates)));
+
+    if (title.length > max) continue;
+    if (titleHistory.has(title)) continue;
+
+    rememberTitle(title);
+
+    return title;
   }
 
-  const title = normalizeTitle(renderTitleByLanguage[language](getRandomItem(templates), topics));
+  const title = normalizeTitle(renderTitle(getRandomItem(templates)));
+  const trimmedTitle = trimTitleToMaxLength(title, max);
 
-  rememberTitle(title);
+  rememberTitle(trimmedTitle);
 
-  return title;
+  return trimmedTitle;
 };
 
 const getTitleTopic = (settings: TitleSettings): TitleTopic => {
@@ -107,10 +128,18 @@ const getTitleLengthPreset = (settings: TitleSettings): TitleLengthPreset => {
 };
 
 export const generateTitle = (settings: TitleSettings): string => {
-  const topic = getTitleTopic(settings);
   const lengthPreset = getTitleLengthPreset(settings);
 
+  if (settings.language === 'la') {
+    return getUniqueTitle(COMMON_TITLE_TEMPLATES.la[lengthPreset], renderLaTitle, lengthPreset);
+  }
+
+  const topic = getTitleTopic(settings);
   const templates = getTitleTemplates(settings.language, topic, lengthPreset);
 
-  return getUniqueTitle(templates, settings.language, topic);
+  return getUniqueTitle(
+    templates,
+    (template) => renderTitleByLanguage[settings.language](template, topic),
+    lengthPreset,
+  );
 };
