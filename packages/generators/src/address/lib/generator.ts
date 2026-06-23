@@ -1,5 +1,5 @@
 import { GenerationLanguage } from '@lorema/core';
-import { getRandomInteger, getRandomItem } from '@lorema/generators/shared/lib/random';
+import { getRandomInteger, getRandomItem } from '@lorema/generators';
 
 import { ADDRESS_FORMATS, ADDRESS_PARTS_BY_LANGUAGE } from '../config/constants';
 import { AddressFormat, AddressSettings } from '../model/types';

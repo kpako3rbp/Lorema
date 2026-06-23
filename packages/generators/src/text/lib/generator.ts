@@ -1,6 +1,5 @@
 import { GenerationLanguage } from '@lorema/core';
-import { getRandomInteger, getRandomItem } from '@lorema/generators/shared/lib/random';
-import { capitalizeFirstLetter } from '@lorema/generators/shared/lib/string';
+import { capitalizeFirstLetter, getRandomInteger, getRandomItem } from '@lorema/generators';
 
 import { SENTENCE_TEMPLATES_BY_LANGUAGE, TEXT_PARTS_BY_LANGUAGE } from '../config/constants';
 import { LOREM_IPSUM_WORDS } from '../config/lorem-ipsum';

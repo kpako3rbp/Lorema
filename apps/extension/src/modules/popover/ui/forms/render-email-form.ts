@@ -1,5 +1,5 @@
 import { InterfaceLanguage } from '@lorema/core';
-import { EMAIL_LENGTH_PRESET_RANGES, EMAIL_LENGTH_PRESETS } from '@lorema/generators/email/config/constants';
+import { EMAIL_LENGTH_PRESET_RANGES, EMAIL_LENGTH_PRESETS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';

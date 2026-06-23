@@ -5,7 +5,7 @@ import {
   LIST_TYPES,
   MAX_LIST_ITEMS_COUNT,
   MIN_LIST_ITEMS_COUNT,
-} from '@lorema/generators/list/config/constants';
+} from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';

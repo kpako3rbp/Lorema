@@ -1,5 +1,4 @@
-import { getRandomItem } from '@lorema/generators/shared/lib/random';
-import { generateTitle } from '@lorema/generators/title/lib/generator';
+import { generateTitle, getRandomItem } from '@lorema/generators';
 
 import { LIST_ITEM_LENGTH_PRESETS, MAX_LIST_ITEMS_COUNT, MIN_LIST_ITEMS_COUNT } from '../config/constants';
 import { ListSettings } from '../model/types';

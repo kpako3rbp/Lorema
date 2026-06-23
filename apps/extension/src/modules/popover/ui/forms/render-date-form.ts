@@ -1,5 +1,5 @@
 import { InterfaceLanguage } from '@lorema/core';
-import { DATE_FORMATS, TIME_FORMATS } from '@lorema/generators/date/config/constants';
+import { DATE_FORMATS, TIME_FORMATS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';

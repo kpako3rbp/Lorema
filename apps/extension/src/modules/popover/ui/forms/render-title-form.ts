@@ -1,9 +1,5 @@
 import { InterfaceLanguage } from '@lorema/core';
-import {
-  TITLE_LENGTH_PRESET_RANGES,
-  TITLE_LENGTH_PRESETS,
-  TITLE_TOPICS,
-} from '@lorema/generators/title/config/constants';
+import { TITLE_LENGTH_PRESET_RANGES, TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';

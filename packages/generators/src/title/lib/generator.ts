@@ -1,6 +1,5 @@
 import { GenerationLanguage } from '@lorema/core';
-import { getRandomItem } from '@lorema/generators/shared/lib/random';
-import { capitalizeFirstLetter } from '@lorema/generators/shared/lib/string';
+import { capitalizeFirstLetter, getRandomItem } from '@lorema/generators';
 
 import { TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '../config/constants';
 import { EXTRA_TEMPLATES_BY_LANGUAGE } from '../config/extra-templates';

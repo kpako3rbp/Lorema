@@ -1,5 +1,5 @@
 import { InterfaceLanguage } from '@lorema/core';
-import { NAME_LENGTH_PRESETS } from '@lorema/generators/person/config/constants';
+import { NAME_LENGTH_PRESETS } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { StorageSchema } from 'src/modules/storage';
 import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';

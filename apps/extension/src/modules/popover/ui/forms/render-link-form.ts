@@ -1,6 +1,5 @@
 import { InterfaceLanguage } from '@lorema/core';
-import { LinkPrefix } from '@lorema/generators';
-import { LINK_LENGTH_PRESET_RANGES, LINK_LENGTH_PRESETS } from '@lorema/generators/link/config/constants';
+import { LINK_LENGTH_PRESET_RANGES, LINK_LENGTH_PRESETS, LinkPrefix } from '@lorema/generators';
 import { TRANSLATIONS } from 'src/i18n';
 import { POPOVER_IDS } from 'src/modules/popover/config/constants';
 import { StorageSchema } from 'src/modules/storage';
