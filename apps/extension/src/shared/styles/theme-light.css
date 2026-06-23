@@ -28,7 +28,8 @@
 
   --color-white-soft: #f4f8fc;
   --color-white-border: rgb(120 145 170);
-  --color-white-hover: #edf4fa;
+  --color-primary-focus: rgb(25 49 151);
+  --color-white-hover: rgb(120 145 170 / 14%);
   --color-white-line: rgb(120 145 170 / 14%);
 
   --active-button-boder: 1px solid #9aa7ff;

@@ -443,9 +443,8 @@
 
 .lorem-custom-select-option:hover,
 .lorem-custom-select-option[aria-selected='true'] {
-  background: var(--color-surface-hover);
+  background: var(--color-surface-muted);
   border-radius: var(--radius-m);
-  border-color: var(--color-border);
 }
 
 .lorem-custom-select-check {
@@ -454,6 +453,7 @@
 
 .lorem-custom-select-option[aria-selected='true'] .lorem-custom-select-check {
   opacity: 1;
+  border-color: var(--color-border);
 }
 
 .lorem-copy-element {
