@@ -427,6 +427,8 @@
 
   border: 1px solid transparent;
 
+  transition: all .15s ease;
+
   span {
     display: flex;
     align-items: center;
