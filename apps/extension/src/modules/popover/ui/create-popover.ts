@@ -1,3 +1,5 @@
+import { stopPopoverEventPropagation } from 'src/modules/popup/lib/stop-popover-event-propagation';
+
 import { POPOVER_CLASSNAME, POPOVER_IDS } from '../config/constants';
 import { CreatePopoverParams } from '../model/types';
 import popoverStyles from './style.css?inline';
@@ -24,6 +26,9 @@ const createStyle = (): HTMLStyleElement => {
 export const createPopover = (params: CreatePopoverParams): HTMLDivElement => {
   const host = createHost(params);
   const shadowRoot = host.attachShadow({ mode: 'open' });
+
+  stopPopoverEventPropagation(shadowRoot);
+
   const popover = document.createElement('div');
 
   popover.className = POPOVER_CLASSNAME;
