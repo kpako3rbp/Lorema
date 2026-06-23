@@ -1,3 +1,5 @@
+import { getRandomInteger } from '@lorema/generators';
+
 import { MAX_DATE_YEAR, MIN_DATE_YEAR } from '../config/constants';
 import { DateSettings } from '../model/types';
 
@@ -14,10 +16,6 @@ const normalizeYearRange = (minYearValue: number, maxYearValue: number): [number
   const maxYear = normalizeYear(maxYearValue, MAX_DATE_YEAR);
 
   return minYear <= maxYear ? [minYear, maxYear] : [maxYear, minYear];
-};
-
-const getRandomInteger = (min: number, max: number): number => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 const getDaysInMonth = (year: number, monthIndex: number): number => {
