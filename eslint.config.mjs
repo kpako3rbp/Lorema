@@ -3,7 +3,7 @@ import boundaries from 'eslint-plugin-boundaries';
 
 export default [
   ...rtkit.configs.recommended,
-  { ignores: ['dist/**'] },
+  { ignores: ['apps/extension/dist/**'] },
   {
     plugins: { boundaries },
     settings: {

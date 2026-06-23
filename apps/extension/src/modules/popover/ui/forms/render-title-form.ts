@@ -1,0 +1,46 @@
+import { InterfaceLanguage } from '@lorema/core';
+import { TITLE_LENGTH_PRESET_RANGES, TITLE_LENGTH_PRESETS, TITLE_TOPICS } from '@lorema/generators';
+import { TRANSLATIONS } from 'src/i18n';
+import { POPOVER_IDS } from 'src/modules/popover/config/constants';
+import { StorageSchema } from 'src/modules/storage';
+import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
+
+export const renderTitleForm = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {
+  const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;
+  const settings = storage.titleSettings;
+
+  const isLatin = storage.generationLanguage === 'la';
+
+  return /*html*/ `
+   <div class="lorem-form-wrapper">
+      <span class="lorem-descriptor with-line">${t.titleParams}</span>
+    
+      <div class="lorem-grid-form grid-2-2">
+        ${renderCustomSelect({
+          id: POPOVER_IDS.titleLengthPresetSelect,
+          label: t.titleLength,
+          multiple: true,
+          selectedValues: settings.lengthPresets,
+          interfaceLanguage: interfaceLanguage,
+          options: TITLE_LENGTH_PRESETS.map((preset) => ({
+            value: preset,
+            label: `${t.lengthPreset[preset]} (${TITLE_LENGTH_PRESET_RANGES[preset].min}-${TITLE_LENGTH_PRESET_RANGES[preset].max})`,
+          })),
+        })}
+
+        ${renderCustomSelect({
+          id: POPOVER_IDS.topicSelect,
+          label: t.titleTopic,
+          multiple: true,
+          selectedValues: isLatin ? [] : settings.topics,
+          interfaceLanguage: interfaceLanguage,
+          disabled: isLatin,
+          options: TITLE_TOPICS.map((topic) => ({
+            value: topic,
+            label: t.titleTopics[topic],
+          })),
+        })}
+      </div>
+   </div>
+  `;
+};

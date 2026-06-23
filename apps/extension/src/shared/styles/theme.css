@@ -1,0 +1,71 @@
+:host,
+:root {
+  --color-bg: rgb(4 3 10 / 82%);
+  --color-bg-solid: #212126;
+  --color-surface: #c2e1ea14;
+  --color-surface-muted: #242426;
+  --color-surface-hover: #2c2c2f;
+  --color-border: rgb(255 255 255 / 14%);
+  --color-line: rgb(255 255 255 / 10%);
+  --color-select-option-bg: #2b2d33;
+  --color-select-option-text: var(--color-text);
+  --color-success: rgb(1, 191, 159);
+
+  --color-text: #e8e8e8;
+  --color-text-light: #ffffff;
+  --color-text-muted: #b6b6b6;
+  --color-text-label: #c0e8e4;
+  --color-text-dim: #858585;
+  --color-text-primary: #f4f4f4;
+  --color-selection-bg: #7b878a;
+
+  --color-primary: linear-gradient(90deg, #c8c4ff 0%, #bdf8d9 50%, #f4f4f4 100%);
+  --color-primary-light: #d7ffe9;
+  --color-tooltip-bg: #413f48;
+  --color-primary-hover: linear-gradient(90deg, #f4f4f4 0%, #d0ffe5 50%, #ddd9ff 100%);
+  --color-primary-soft: rgb(189 248 217 / 18%);
+  --color-primary-focus: rgb(210 255 232 / 40%);
+  --color-primary-glow: rgb(189 248 217 / 28%);
+
+  --color-checkbox-bg: #c3dbed;
+  --color-active-button-text: #151515;
+
+  --color-white-soft: rgb(255 255 255 / 7%);
+  --color-white-border: rgb(255 255 255 / 16%);
+  --color-white-hover: rgb(255 255 255 / 11%);
+  --color-white-line: rgb(255 255 255 / 9%);
+
+  --color-error: #ff4d4f;
+
+  --radius-s: 5px;
+  --radius-m: 8px;
+  --radius-l: 10px;
+  --radius-xl: 12px;
+  --radius-xxl: 17px;
+
+  /* --focus-outline: 2px solid var(--color-primary-focus); */
+  --focus-outline: none;
+
+  --focus-offset: 2px;
+
+  --active-button-boder: 1px solid var(--color-border);
+
+  --popover-box-shadow: 0 2px 45px rgb(0 0 0 / 19%), inset 0 1px 0 rgb(255 255 255 / 3%);
+  --tooltip-box-shadow: 0 6px 14px rgb(0 0 0 / 15%);
+
+  --logo-title-color: var(--color-primary);
+  --logo-border: 2px solid transparent;
+
+  --color-wallet: #83898b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

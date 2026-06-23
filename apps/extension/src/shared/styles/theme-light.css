@@ -1,0 +1,40 @@
+:host([data-theme='light']),
+[data-theme='light'] {
+  --color-bg: rgb(240 244 249);
+  --color-bg-solid: #f8fbff;
+
+  --color-surface: #ffffff;
+  --color-surface-hover: #f7faff;
+  --color-surface-muted: #edf4fa;
+
+  --color-tooltip-bg: #ffffff;
+  --color-selection-bg: #dceafe;
+
+  --color-border: rgb(199 209 220);
+  --color-line: rgb(120 145 170 / 16%);
+
+  --color-select-option-bg: #ffffff;
+  --color-select-option-text: #17212b;
+
+  --color-checkbox-bg: #6f8faa;
+
+  --color-text: #17212b;
+  --color-text-light: #0f1720;
+  --color-text-muted: #667789;
+  --color-text-label: #526779;
+  --color-text-primary: #0f1720;
+
+  --color-active-button-text: #17212b;
+
+  --color-white-soft: #f4f8fc;
+  --color-white-border: rgb(120 145 170);
+  --color-white-hover: #edf4fa;
+  --color-white-line: rgb(120 145 170 / 14%);
+
+  --active-button-boder: 1px solid #9aa7ff;
+
+  --logo-title-color: var(--color-text);
+  --logo-border: var(--active-button-boder);
+
+  --color-wallet: #a0b2ca;
+}
