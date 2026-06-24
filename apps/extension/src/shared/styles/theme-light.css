@@ -8,7 +8,7 @@
   --color-surface-muted: #edf4fa;
 
   --color-tooltip-bg: #ffffff;
-  --color-selection-bg: #dceafe;
+  --color-selection-bg: rgb(52, 104, 167);
 
   --color-border: rgb(199 209 220);
   --color-line: rgb(120 145 170 / 16%);
@@ -38,4 +38,5 @@
   --logo-border: var(--active-button-boder);
 
   --color-wallet: #a0b2ca;
+  --color-statistic-box: #ffffff7d;
 }

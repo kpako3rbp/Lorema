@@ -29,7 +29,7 @@
 
 .lorem-statistics-box {
   border-radius: var(--radius-m);
-  /* background: var(--color-surface); */
+  background: var(--color-statistic-box);
   padding: 12px;
   min-height: 36px;
   text-decoration: none;
@@ -37,10 +37,7 @@
   width: 100%;
 
   .svg {
-    /* padding: 7px; */
     border-radius: var(--radius-m);
-    /* border: 1px solid var(--color-border);
-    background-color: var(--color-surface); */
     width: fit-content;
     height: fit-content;
 
@@ -74,7 +71,6 @@
   .info {
     display: flex;
     flex-direction: column;
-    gap: 8px;
   }
 
   .item {

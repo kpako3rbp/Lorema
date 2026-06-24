@@ -10,6 +10,7 @@
   --color-select-option-bg: #2b2d33;
   --color-select-option-text: var(--color-text);
   --color-success: rgb(1, 191, 159);
+  --color-selection-text: #e8e8e8;
 
   --color-text: #e8e8e8;
   --color-text-light: #ffffff;
@@ -57,6 +58,7 @@
   --logo-border: 2px solid transparent;
 
   --color-wallet: #83898b;
+  --color-statistic-box: transparent;
 }
 
 * {
