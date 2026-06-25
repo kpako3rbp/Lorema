@@ -1,11 +1,21 @@
 import { TextStatistics } from '../model/types';
 
+const WHITESPACE_REGEXP = /\s/gu;
+const WHITESPACES_REGEXP = /\s/gu;
+
 const countMatches = (value: string, regexp: RegExp): number => {
   return value.match(regexp)?.length ?? 0;
 };
 
 const countCharacters = (value: string): number => {
   return Array.from(value).length;
+};
+
+const normalizeTextForStatistics = (value: string): string => {
+  return value
+    .replace(/\u00A0/g, ' ')
+    .replace(/\u202F/g, ' ')
+    .trim();
 };
 
 const countSentences = (text: string): number => {
@@ -20,15 +30,14 @@ const countSentences = (text: string): number => {
 };
 
 export const calculateTextStatistics = (text: string): TextStatistics => {
-  const trimmedText = text.trim();
-  const textWithoutSpaces = text.replace(/ /g, '');
+  const normalizedText = normalizeTextForStatistics(text);
+  const textWithoutSpaces = normalizedText.replace(WHITESPACES_REGEXP, '');
 
   return {
-    characters: countCharacters(text),
+    characters: countCharacters(normalizedText),
     charactersWithoutSpaces: countCharacters(textWithoutSpaces),
-    spaces: countMatches(text, / /g),
-    words: trimmedText ? trimmedText.split(/\s+/).length : 0,
-    sentences: countSentences(text),
-    // paragraphs: trimmedText ? trimmedText.split(/\n\s*\n/).filter(Boolean).length : 0,
+    spaces: countMatches(normalizedText, WHITESPACE_REGEXP),
+    words: normalizedText ? normalizedText.split(/\s+/).length : 0,
+    sentences: countSentences(normalizedText),
   };
 };
