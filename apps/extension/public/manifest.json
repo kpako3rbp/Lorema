@@ -37,7 +37,8 @@
       ],
       "js": [
         "src/app/content/index.ts"
-      ]
+      ],
+      "all_frames": true
     }
   ],
   "web_accessible_resources": [
