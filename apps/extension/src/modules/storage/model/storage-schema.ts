@@ -1,3 +1,4 @@
+import { Theme } from '@extension/shared/model/types';
 import { GenerationLanguage, InterfaceLanguage } from '@lorema/core';
 import {
   AddressSettings,
@@ -12,7 +13,6 @@ import {
   TextSettings,
   TitleSettings,
 } from '@lorema/generators';
-import { Theme } from 'src/shared/model/types';
 
 export type StorageSchema = {
   // Generation Settings

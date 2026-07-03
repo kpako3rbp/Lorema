@@ -1,12 +1,12 @@
-import { loadPopoverFonts } from 'src/modules/popover/lib/load-popover-fonts';
-import { movePopoverInsideViewport } from 'src/modules/popover/lib/move-popover-inside-viewport';
-import { createPopover } from 'src/modules/popover/ui/create-popover';
-import { getStorageItems } from 'src/modules/storage';
-import { TextStatistics } from 'src/modules/text-statistics/model/types';
-import { CursorPosition } from 'src/shared/model/types';
+import { getStorageItems } from '@extension/modules/storage';
+import { TextStatistics } from '@extension/modules/text-statistics/model/types';
+import { CursorPosition } from '@extension/shared/model/types';
 
 import { getTextStatisticsPopoverElements } from '../lib/get-text-statistics-popover-elements';
+import { loadPopoverFonts } from '../lib/load-popover-fonts';
+import { movePopoverInsideViewport } from '../lib/move-popover-inside-viewport';
 import { renderTextStatistics } from '../ui/content/render-text-statistics';
+import { createPopover } from '../ui/create-popover';
 import { closeActivePopover } from './close-popover';
 import { registerTextStatisticsPopoverEvents } from './register-text-statistics-popover-events';
 

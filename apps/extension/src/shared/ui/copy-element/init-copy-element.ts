@@ -1,4 +1,4 @@
-import { copyToClipboard } from 'src/shared/lib/copy-to-clipboard';
+import { copyToClipboard } from '@extension/shared/lib/copy-to-clipboard';
 
 import {
   COPY_ELEMENT_CLASSNAME,

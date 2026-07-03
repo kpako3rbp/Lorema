@@ -1,8 +1,8 @@
+import { generateData } from '@extension/modules/data-generation';
+import { EditableTargetSnapshot, insertTextAtTarget } from '@extension/modules/editable-target';
+import { StorageSchema } from '@extension/modules/storage';
+import { setStorageItems } from '@extension/modules/storage/api/extension-storage';
 import { DATA_TAB_TO_TYPE, DataTab, DataType, InterfaceLanguage } from '@lorema/core';
-import { generateData } from 'src/modules/data-generation';
-import { EditableTargetSnapshot, insertTextAtTarget } from 'src/modules/editable-target';
-import { StorageSchema } from 'src/modules/storage';
-import { setStorageItems } from 'src/modules/storage/api/extension-storage';
 
 import { DATA_TAB_CONFIG } from '../config/data-tab-registry';
 import { getActiveDataTab } from '../lib/get-active-data-type';

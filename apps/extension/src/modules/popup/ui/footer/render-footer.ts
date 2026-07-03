@@ -1,8 +1,8 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { renderBugIcon } from '@extension/shared/ui/icons/bug';
+import { renderFeedbackIcon } from '@extension/shared/ui/icons/feedback';
+import { renderGithubIcon } from '@extension/shared/ui/icons/github';
 import { InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { renderBugIcon } from 'src/shared/ui/icons/bug';
-import { renderFeedbackIcon } from 'src/shared/ui/icons/feedback';
-import { renderGithubIcon } from 'src/shared/ui/icons/github';
 
 const GITHUB_LINK = 'https://github.com/kpako3rbp/lorem-browser-extension';
 const ISSUE_LINK = 'https://github.com/kpako3rbp/lorem-browser-extension/issues/new';

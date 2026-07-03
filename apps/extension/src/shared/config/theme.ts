@@ -1,7 +1,7 @@
+import { TRANSLATIONS } from '@extension/i18n';
 import { InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { Theme } from 'src/shared/model/types';
 
+import { Theme } from '../model/types';
 import { renderBritishFlagIcon } from '../ui/icons/british-flag';
 import { renderDarkThemeIcon } from '../ui/icons/dark-theme';
 import { renderLightThemeIcon } from '../ui/icons/light-theme';

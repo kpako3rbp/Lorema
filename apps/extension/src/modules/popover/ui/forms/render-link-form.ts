@@ -1,10 +1,11 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { StorageSchema } from '@extension/modules/storage';
+import { renderCustomSelect } from '@extension/shared/ui/custom-select/render-custom-select';
+import { renderTooltip } from '@extension/shared/ui/tooltip/render-tooltip';
 import { InterfaceLanguage } from '@lorema/core';
 import { LINK_LENGTH_PRESET_RANGES, LINK_LENGTH_PRESETS, LinkPrefix } from '@lorema/generators';
-import { TRANSLATIONS } from 'src/i18n';
-import { POPOVER_IDS } from 'src/modules/popover/config/constants';
-import { StorageSchema } from 'src/modules/storage';
-import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
-import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
+
+import { POPOVER_IDS } from '../../config/constants';
 
 const LINK_PREFIXES: LinkPrefix[] = ['https://', 'http://', 'www.'];
 

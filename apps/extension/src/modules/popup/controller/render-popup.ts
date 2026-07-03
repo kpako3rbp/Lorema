@@ -1,5 +1,5 @@
-import { initCopyElements } from 'src/shared/ui/copy-element/init-copy-element';
-import { initCustomSelects } from 'src/shared/ui/custom-select/init-custom-selects';
+import { initCopyElements } from '@extension/shared/ui/copy-element/init-copy-element';
+import { initCustomSelects } from '@extension/shared/ui/custom-select/init-custom-selects';
 
 import { getPopupElements } from '../lib/get-popup-elements';
 import { PopupState } from '../model/types';

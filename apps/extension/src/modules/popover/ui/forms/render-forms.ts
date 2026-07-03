@@ -1,7 +1,8 @@
+import { StorageSchema } from '@extension/modules/storage';
 import { DATA_TABS, InterfaceLanguage } from '@lorema/core';
-import { POPOVER_TAB_CLASSNAME } from 'src/modules/popover/config/constants';
-import { DATA_TAB_CONFIG } from 'src/modules/popover/config/data-tab-registry';
-import { StorageSchema } from 'src/modules/storage';
+
+import { POPOVER_TAB_CLASSNAME } from '../../config/constants';
+import { DATA_TAB_CONFIG } from '../../config/data-tab-registry';
 
 export const renderForms = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage): string => {
   return DATA_TABS.map((dataTab) => {

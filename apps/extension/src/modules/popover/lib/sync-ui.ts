@@ -1,6 +1,6 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { getRequiredElement } from '@extension/shared/lib/query-element';
 import { DataTab, InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { getRequiredElement } from 'src/shared/lib/query-element';
 
 import { POPOVER_IDS, POPOVER_TAB_CLASSNAME } from '../config/constants';
 import { PopoverGenerationElements } from '../model/types';

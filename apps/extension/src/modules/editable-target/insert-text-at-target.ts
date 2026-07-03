@@ -1,4 +1,4 @@
-import { isTextInputElement } from 'src/shared/lib/query-element';
+import { isTextInputElement } from '@extension/shared/lib/query-element';
 
 import { EditableTarget } from './model/types';
 

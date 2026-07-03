@@ -1,10 +1,11 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { StorageSchema } from '@extension/modules/storage';
+import { numberWithSpaces } from '@extension/shared/lib/string';
+import { renderTooltip } from '@extension/shared/ui/tooltip/render-tooltip';
 import { InterfaceLanguage } from '@lorema/core';
 import { MAX_TEXT_CHARS } from '@lorema/generators';
-import { TRANSLATIONS } from 'src/i18n';
-import { POPOVER_IDS } from 'src/modules/popover/config/constants';
-import { StorageSchema } from 'src/modules/storage';
-import { numberWithSpaces } from 'src/shared/lib/string';
-import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
+
+import { POPOVER_IDS } from '../../config/constants';
 
 export const renderTextForm = (storage: StorageSchema, interfaceLanguage: InterfaceLanguage) => {
   const t = TRANSLATIONS[interfaceLanguage].popover.dataGeneration;

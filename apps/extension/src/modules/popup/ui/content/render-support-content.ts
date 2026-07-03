@@ -1,10 +1,10 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { renderCopyElement } from '@extension/shared/ui/copy-element/render-copy-element';
+import { renderArrowUpRightIcon } from '@extension/shared/ui/icons/arrow-up-right';
+import { renderCheckIcon } from '@extension/shared/ui/icons/check';
+import { renderCopyIcon } from '@extension/shared/ui/icons/copy';
+import { renderTooltip } from '@extension/shared/ui/tooltip/render-tooltip';
 import { InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { renderCopyElement } from 'src/shared/ui/copy-element/render-copy-element';
-import { renderArrowUpRightIcon } from 'src/shared/ui/icons/arrow-up-right';
-import { renderCheckIcon } from 'src/shared/ui/icons/check';
-import { renderCopyIcon } from 'src/shared/ui/icons/copy';
-import { renderTooltip } from 'src/shared/ui/tooltip/render-tooltip';
 
 import { POPUP_IDS } from '../../config/constants';
 

@@ -1,4 +1,4 @@
-import { POPOVER_IDS } from 'src/modules/popover/config/constants';
+import { POPOVER_IDS } from '../config/constants';
 
 export const closeActivePopover = (): void => {
   document.getElementById(POPOVER_IDS.popover)?.remove();

@@ -1,5 +1,5 @@
+import { TRANSLATIONS } from '@extension/i18n';
 import { InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
 
 import { renderChevronDownIcon } from '../icons/chevron-down';
 

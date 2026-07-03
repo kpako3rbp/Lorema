@@ -1,6 +1,6 @@
-import { POPOVER_IDS } from 'src/modules/popover/config/constants';
-import { getRequiredElementById } from 'src/shared/lib/query-element';
+import { getRequiredElementById } from '@extension/shared/lib/query-element';
 
+import { POPOVER_IDS } from '../config/constants';
 import { PopoverTextStatisticsElements } from '../model/types';
 
 export const getTextStatisticsPopoverElements = (shadowRoot: ShadowRoot): PopoverTextStatisticsElements => ({

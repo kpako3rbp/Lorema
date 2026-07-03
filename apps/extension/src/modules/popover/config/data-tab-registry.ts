@@ -1,15 +1,15 @@
+import { StorageSchema } from '@extension/modules/storage';
+import { renderAddressIcon } from '@extension/shared/ui/icons/address';
+import { renderDateIcon } from '@extension/shared/ui/icons/date';
+import { renderEmailIcon } from '@extension/shared/ui/icons/email';
+import { renderLinkIcon } from '@extension/shared/ui/icons/link';
+import { renderListIcon } from '@extension/shared/ui/icons/list';
+import { renderNumberIcon } from '@extension/shared/ui/icons/number';
+import { renderPersonIcon } from '@extension/shared/ui/icons/person';
+import { renderPhoneIcon } from '@extension/shared/ui/icons/phone';
+import { renderTextIcon } from '@extension/shared/ui/icons/text';
+import { renderTitleIcon } from '@extension/shared/ui/icons/title';
 import { DataTab, InterfaceLanguage } from '@lorema/core';
-import { StorageSchema } from 'src/modules/storage';
-import { renderAddressIcon } from 'src/shared/ui/icons/address';
-import { renderDateIcon } from 'src/shared/ui/icons/date';
-import { renderEmailIcon } from 'src/shared/ui/icons/email';
-import { renderLinkIcon } from 'src/shared/ui/icons/link';
-import { renderListIcon } from 'src/shared/ui/icons/list';
-import { renderNumberIcon } from 'src/shared/ui/icons/number';
-import { renderPersonIcon } from 'src/shared/ui/icons/person';
-import { renderPhoneIcon } from 'src/shared/ui/icons/phone';
-import { renderTextIcon } from 'src/shared/ui/icons/text';
-import { renderTitleIcon } from 'src/shared/ui/icons/title';
 
 import {
   validateDateForm,

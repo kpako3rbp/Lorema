@@ -5,21 +5,47 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "nx build extension",
-    "dev": "nx dev extension",
-    "typecheck": "nx typecheck extension",
-    "lint": "nx lint extension",
-    "lint-all": "nx run-many -t typecheck lint",
+    "build:ext": "nx build extension",
+    "dev:ext": "nx dev extension",
+    "typecheck:ext": "nx typecheck extension",
+    "lint:ext": "nx lint extension",
+
+    "dev:web": "nx dev website",
+    "build:web": "nx build website",
+    "lint:web": "nx lint website",
+    "typecheck:web": "nx typecheck website",
+
+    "typecheck": "nx run-many --target=typecheck --projects=extension,website --parallel=4 --output-style=stream",
+    "lint": "nx run-many --target=lint --projects=extension,website --parallel=4 --output-style=stream",
+    "lint-all": "npm run typecheck && npm run lint",
     "prepare": "husky"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.4.0",
+    "@next/eslint-plugin-next": "^16.2.10",
+    "@nx/js": "23.0.1",
+    "@nx/next": "23.0.1",
+    "@nx/react": "23.0.1",
+    "@swc-node/register": "~1.11.1",
+    "@swc/cli": "~0.8.0",
+    "@swc/core": "~1.15.5",
+    "@swc/helpers": "~0.5.18",
     "@types/chrome": "^0.0.268",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "eslint-config-rtkit": "^3.0.5",
     "eslint-plugin-boundaries": "^6.0.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "husky": "^9.1.7",
-    "nx": "^23.0.0",
+    "nx": "23.0.1",
+    "prettier": "~3.6.2",
     "typescript": "^5.5.4",
     "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "next": "^16.2.10",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tslib": "^2.3.0"
   }
 }

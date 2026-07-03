@@ -1,5 +1,5 @@
+import { Theme } from '@extension/shared/model/types';
 import { InterfaceLanguage } from '@lorema/core';
-import { Theme } from 'src/shared/model/types';
 
 export type PopupView = 'settings' | 'support';
 

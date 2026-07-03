@@ -1,3 +1,8 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { getRequiredElement } from '@extension/shared/lib/query-element';
+import { numberWithSpaces } from '@extension/shared/lib/string';
+import { validateCountryCode, validateNumberInput } from '@extension/shared/lib/validation';
+import { showInputError } from '@extension/shared/ui/form-error/show-input-error';
 import { InterfaceLanguage } from '@lorema/core';
 import {
   MAX_DATE_YEAR,
@@ -15,11 +20,6 @@ import {
   MIN_PHONE_DIGITS,
   MIN_TEXT_CHARS,
 } from '@lorema/generators';
-import { TRANSLATIONS } from 'src/i18n';
-import { getRequiredElement } from 'src/shared/lib/query-element';
-import { numberWithSpaces } from 'src/shared/lib/string';
-import { validateCountryCode, validateNumberInput } from 'src/shared/lib/validation';
-import { showInputError } from 'src/shared/ui/form-error/show-input-error';
 
 import { POPOVER_IDS } from '../config/constants';
 

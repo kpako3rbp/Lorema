@@ -1,4 +1,4 @@
-import { queryOptionalElementById } from 'src/shared/lib/query-element';
+import { queryOptionalElementById } from '@extension/shared/lib/query-element';
 
 import { POPUP_IDS } from '../config/constants';
 import { PopupElements } from '../model/types';

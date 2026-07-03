@@ -1,6 +1,4 @@
-import { showGenerationPopover, showTextStatisticsPopover } from 'src/modules/popover';
-import { calculateTextStatistics } from 'src/modules/text-statistics';
-import { CursorPosition } from 'src/shared/model/types';
+import { CursorPosition } from '@extension/shared/model/types';
 
 import { insertQuickData } from '../data-insertion';
 import {
@@ -10,6 +8,8 @@ import {
   getInsertionTargetSnapshot,
 } from '../editable-target';
 import { ExtensionMessage } from '../messages';
+import { showGenerationPopover, showTextStatisticsPopover } from '../popover';
+import { calculateTextStatistics } from '../text-statistics';
 import { getSelectedText } from './lib/get-selected-text';
 
 type InsertMessage = Extract<ExtensionMessage, { type: 'INSERT_DATA_FROM_CONTEXT_MENU' | 'INSERT_DATA_FROM_HOTKEY' }>;

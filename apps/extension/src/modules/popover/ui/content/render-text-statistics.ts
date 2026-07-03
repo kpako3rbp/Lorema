@@ -1,13 +1,13 @@
+import { Translation, TRANSLATIONS } from '@extension/i18n';
+import { TextStatistics } from '@extension/modules/text-statistics/model/types';
+import { numberWithSpaces } from '@extension/shared/lib/string';
+import { renderCharacterIcon } from '@extension/shared/ui/icons/character';
+import { renderCloseIcon } from '@extension/shared/ui/icons/close';
+import { renderNoSpaceIcon } from '@extension/shared/ui/icons/no-space';
+import { renderSentenceIcon } from '@extension/shared/ui/icons/sentence';
+import { renderSpaceIcon } from '@extension/shared/ui/icons/space';
+import { renderWordIcon } from '@extension/shared/ui/icons/word';
 import { InterfaceLanguage } from '@lorema/core';
-import { Translation, TRANSLATIONS } from 'src/i18n';
-import { TextStatistics } from 'src/modules/text-statistics/model/types';
-import { numberWithSpaces } from 'src/shared/lib/string';
-import { renderCharacterIcon } from 'src/shared/ui/icons/character';
-import { renderCloseIcon } from 'src/shared/ui/icons/close';
-import { renderNoSpaceIcon } from 'src/shared/ui/icons/no-space';
-import { renderSentenceIcon } from 'src/shared/ui/icons/sentence';
-import { renderSpaceIcon } from 'src/shared/ui/icons/space';
-import { renderWordIcon } from 'src/shared/ui/icons/word';
 
 import { POPOVER_IDS } from '../../config/constants';
 

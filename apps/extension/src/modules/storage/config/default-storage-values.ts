@@ -1,5 +1,5 @@
-import { getBrowserLanguage } from 'src/shared/lib/get-browser-language';
-import { Theme } from 'src/shared/model/types';
+import { getBrowserLanguage } from '@extension/shared/lib/get-browser-language';
+import { Theme } from '@extension/shared/model/types';
 
 import { StorageSchema } from '../model/storage-schema';
 

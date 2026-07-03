@@ -1,3 +1,3 @@
-import { initBackgroundMenu } from 'src/modules/background-menu';
+import { initBackgroundMenu } from '@extension/modules/background-menu';
 
 initBackgroundMenu();

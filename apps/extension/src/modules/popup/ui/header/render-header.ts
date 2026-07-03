@@ -1,6 +1,6 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { renderLogo } from '@extension/shared/ui/icons/logo';
 import { InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { renderLogo } from 'src/shared/ui/icons/logo';
 
 type RenderHeaderParams = {
   interfaceLanguage: InterfaceLanguage;

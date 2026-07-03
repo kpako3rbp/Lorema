@@ -1,5 +1,5 @@
-import { TRANSLATIONS } from 'src/i18n';
-import { setStorageItem } from 'src/modules/storage';
+import { TRANSLATIONS } from '@extension/i18n';
+import { setStorageItem } from '@extension/modules/storage';
 
 import { POPUP_CLOSE_DELAY } from '../config/constants';
 import { readExtensionSettingsFromElements } from '../lib/read-extension-settings-from-elements';

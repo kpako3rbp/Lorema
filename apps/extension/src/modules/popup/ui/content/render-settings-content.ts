@@ -1,10 +1,10 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { getNameByLanguage, ICON_BY_LANGUAGE, ICON_BY_THEME, THEMES } from '@extension/shared/config/theme';
+import { Theme } from '@extension/shared/model/types';
+import { renderCustomSelect } from '@extension/shared/ui/custom-select/render-custom-select';
+import { renderHeartIcon } from '@extension/shared/ui/icons/heart';
+import { renderInfoIcon } from '@extension/shared/ui/icons/info';
 import { INTERFACE_LANGUAGES, InterfaceLanguage, NAME_BY_LANGUAGE } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { getNameByLanguage, ICON_BY_LANGUAGE, ICON_BY_THEME, THEMES } from 'src/shared/config/theme';
-import { Theme } from 'src/shared/model/types';
-import { renderCustomSelect } from 'src/shared/ui/custom-select/render-custom-select';
-import { renderHeartIcon } from 'src/shared/ui/icons/heart';
-import { renderInfoIcon } from 'src/shared/ui/icons/info';
 
 import { POPUP_IDS } from '../../config/constants';
 

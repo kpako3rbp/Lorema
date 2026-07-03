@@ -1,5 +1,5 @@
-import { EditableTargetSnapshot } from 'src/modules/editable-target';
-import { StorageSchema } from 'src/modules/storage';
+import { EditableTargetSnapshot } from '@extension/modules/editable-target';
+import { StorageSchema } from '@extension/modules/storage';
 
 import { syncElementsUI, syncTitleTopicSelectWithLanguage } from '../lib/sync-ui';
 import { PopoverGenerationElements } from '../model/types';

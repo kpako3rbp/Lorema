@@ -8,7 +8,7 @@ import manifest from './public/manifest.json';
 export default defineConfig({
   resolve: {
     alias: {
-      src: path.resolve(__dirname, './src'),
+      '@extension': path.resolve(__dirname, './src'),
       '@lorema/generators': path.resolve(__dirname, '../../packages/generators/src'),
       '@lorema/core': path.resolve(__dirname, '../../packages/core/src'),
     },

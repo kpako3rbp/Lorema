@@ -1,3 +1,3 @@
-import { initContentScript } from 'src/modules/content-script';
+import { initContentScript } from '@extension/modules/content-script';
 
 initContentScript();

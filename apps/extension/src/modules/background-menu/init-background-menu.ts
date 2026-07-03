@@ -1,7 +1,7 @@
+import { COMMANDS } from '@extension/shared/config/commands';
 import { DATA_TAB_TO_TYPE, DEFAULT_DATA_TAB } from '@lorema/core';
-import { ensureDefaultStorage } from 'src/modules/storage';
-import { COMMANDS } from 'src/shared/config/commands';
 
+import { ensureDefaultStorage } from '../storage';
 import { CONTEXT_MENU_IDS } from './config/constants';
 import { createContextMenu, updateContextMenu } from './context-menu';
 import { parseMenuItemId } from './parse-menu-item-id';

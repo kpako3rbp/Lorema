@@ -1,5 +1,5 @@
-import { isTextInputElement } from 'src/shared/lib/query-element';
-import { CursorPosition } from 'src/shared/model/types';
+import { isTextInputElement } from '@extension/shared/lib/query-element';
+import { CursorPosition } from '@extension/shared/model/types';
 
 import { EditableTargetSnapshot } from './model/types';
 

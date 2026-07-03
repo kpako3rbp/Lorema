@@ -1,6 +1,6 @@
+import { APP_VERSION } from '@extension/shared/config/version';
+import { Theme } from '@extension/shared/model/types';
 import { InterfaceLanguage } from '@lorema/core';
-import { APP_VERSION } from 'src/shared/config/version';
-import { Theme } from 'src/shared/model/types';
 
 import { PopupView } from '../model/types';
 import { renderSettingsContent } from './content/render-settings-content';

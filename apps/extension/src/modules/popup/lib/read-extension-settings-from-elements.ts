@@ -1,6 +1,6 @@
+import { getSelectedValue } from '@extension/shared/lib/form-element';
+import { Theme } from '@extension/shared/model/types';
 import { InterfaceLanguage } from '@lorema/core';
-import { getSelectedValue } from 'src/shared/lib/form-element';
-import { Theme } from 'src/shared/model/types';
 
 import { POPUP_IDS } from '../config/constants';
 import { ExtensionSettings } from '../model/types';

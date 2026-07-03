@@ -1,4 +1,4 @@
-import { stopPopoverEventPropagation } from 'src/modules/popup/lib/stop-popover-event-propagation';
+import { stopPopoverEventPropagation } from '@extension/modules/popup/lib/stop-popover-event-propagation';
 
 import { POPOVER_CLASSNAME, POPOVER_IDS } from '../config/constants';
 import { CreatePopoverParams } from '../model/types';

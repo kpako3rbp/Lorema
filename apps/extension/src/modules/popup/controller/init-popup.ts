@@ -1,4 +1,4 @@
-import { getStorageItems } from 'src/modules/storage';
+import { getStorageItems } from '@extension/modules/storage';
 
 import { POPUP_IDS } from '../config/constants';
 import { PopupState } from '../model/types';

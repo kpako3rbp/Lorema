@@ -1,4 +1,4 @@
-import { CursorPosition, Theme } from 'src/shared/model/types';
+import { CursorPosition, Theme } from '@extension/shared/model/types';
 
 export type CreatePopoverParams = {
   content: string;

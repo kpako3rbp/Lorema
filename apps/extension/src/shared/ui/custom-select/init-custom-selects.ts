@@ -1,5 +1,5 @@
+import { TRANSLATIONS } from '@extension/i18n';
 import { InterfaceLanguage } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
 
 const OPEN_CLASS = 'open';
 const OPEN_UP_CLASS = 'open-up';

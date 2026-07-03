@@ -1,3 +1,4 @@
+import { StorageSchema } from '@extension/modules/storage';
 import { DataType } from '@lorema/core';
 import {
   generateAddress,
@@ -13,7 +14,6 @@ import {
   generatePhone,
   generateTitle,
 } from '@lorema/generators';
-import { StorageSchema } from 'src/modules/storage';
 
 type DataSettingsKey = keyof Omit<StorageSchema, 'generationLanguage' | 'interfaceLanguage' | 'theme'>;
 

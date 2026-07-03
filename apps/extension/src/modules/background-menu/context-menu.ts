@@ -1,9 +1,9 @@
+import { TRANSLATIONS } from '@extension/i18n';
+import { COMMANDS, CommandType } from '@extension/shared/config/commands';
 import { DATA_TYPES, DataType } from '@lorema/core';
-import { TRANSLATIONS } from 'src/i18n';
-import { getStorageItem } from 'src/modules/storage';
-import { COMMANDS, CommandType } from 'src/shared/config/commands';
 
 import { InsertMode } from '../data-insertion';
+import { getStorageItem } from '../storage';
 import { CONTEXT_MENU_IDS, ROOT_MENU_ID, SEPARATOR_MENU_ID } from './config/constants';
 
 const getMenuItemId = (mode: InsertMode, dataType: DataType): string => {

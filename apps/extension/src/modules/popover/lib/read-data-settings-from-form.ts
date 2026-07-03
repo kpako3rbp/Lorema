@@ -1,3 +1,10 @@
+import { StorageSchema } from '@extension/modules/storage';
+import {
+  getCheckboxValue,
+  getInputValue,
+  getSelectedValue,
+  getSelectedValues,
+} from '@extension/shared/lib/form-element';
 import { DataTab, GenerationLanguage } from '@lorema/core';
 import {
   AddressFormat,
@@ -14,9 +21,8 @@ import {
   TitleLengthPreset,
   TitleTopic,
 } from '@lorema/generators';
-import { POPOVER_IDS } from 'src/modules/popover/config/constants';
-import { StorageSchema } from 'src/modules/storage';
-import { getCheckboxValue, getInputValue, getSelectedValue, getSelectedValues } from 'src/shared/lib/form-element';
+
+import { POPOVER_IDS } from '../config/constants';
 
 export const readDataSettingsFromForm = (
   form: HTMLFormElement,

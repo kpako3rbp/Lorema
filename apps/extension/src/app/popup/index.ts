@@ -1,3 +1,3 @@
-import { initPopup } from 'src/modules/popup';
+import { initPopup } from '@extension/modules/popup';
 
 void initPopup();
