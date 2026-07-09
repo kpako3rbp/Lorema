@@ -29,6 +29,8 @@ export const Header = async () => {
             </ButtonLink>
           </div>
 
+          {/* <ThemeSwitcher /> */}
+
           <MobileMenu />
         </div>
       </Container>

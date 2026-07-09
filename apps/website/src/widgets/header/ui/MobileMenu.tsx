@@ -44,7 +44,9 @@ export const MobileMenu = () => {
                     <div className={classNames(s.sidebarItem, isActive(pathname, item.href) && s.active)}>
                       {item.icon}
                       <Typography size={16} color="black">
-                        {t(item.labelKey)}
+                        <Link href={item.href} onClick={() => setIsOpen(false)}>
+                          {t(item.labelKey)}
+                        </Link>
                       </Typography>
                     </div>
 

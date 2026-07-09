@@ -29,7 +29,7 @@
   .sidebar {
     padding: 12px 30px 30px;
     background: var(--color-background);
-    border-top: 2px solid var(--border-light-color);
+    border-top: 2px solid var(--color-border);
     width: 320px;
 
     .sidebarWrapper {
@@ -55,11 +55,11 @@
         &.active {
 
           p {
-            color: var(--color-primary-solid);
+            color: var(--color-primary);
           }
 
           svg {
-            stroke: var(--color-primary-solid);
+            stroke: var(--color-primary);
           }
         }
       }
@@ -89,14 +89,14 @@
     padding: 0 16px;
     border-radius: var(--radius-sm);
     border: 2px solid transparent;
-    transition: all var(--transition-time);
+    transition: all var(--transition-duration);
 
     &:hover {
-      color: var(--color-primary-solid);
+      color: var(--color-primary);
     }
 
     &.active {
-      color: var(--color-primary-solid);
+      color: var(--color-primary);
     }
 
     svg {

@@ -18,12 +18,12 @@ body {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-scroll);
+    background: var(--color-scrollbar);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-scroll-hover);
+    background: var(--color-scrollbar-hover);
   }
 
   ::-webkit-scrollbar-track {

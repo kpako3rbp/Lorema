@@ -1,6 +1,7 @@
 import '../../shared/styles/index.css';
 
 import { routing } from '@website/i18n/routing';
+import { ThemeProvider } from '@website/shared/providers/theme-provider';
 import { Layout } from '@website/shared/ui/Layout/Layout';
 import { Header } from '@website/widgets/header';
 import { notFound } from 'next/navigation';
@@ -27,13 +28,15 @@ const RootLayout = async (props: Props) => {
   }
 
   return (
-    <html lang="en">
+    <html lang={locale} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider>
-          <Layout>
-            <Header />
-            <body>{children}</body>
-          </Layout>
+          <ThemeProvider>
+            <Layout>
+              <Header />
+              <body>{children}</body>
+            </Layout>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

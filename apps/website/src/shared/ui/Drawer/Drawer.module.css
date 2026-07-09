@@ -2,10 +2,10 @@
   position: fixed;
   padding: 0;
   border: 0;
-  background: var(--overlay);
+  background: var(--color-overlay);
   opacity: 0;
   pointer-events: none;
-  transition: opacity calc(var(--transition-time));
+  transition: opacity calc(var(--transition-duration));
   z-index: 999;
   cursor: default;
   height: 100dvh;
@@ -25,7 +25,7 @@
   max-width: 100vw;
   background: var(--white-color);
   transform: translateX(100%);
-  transition: transform var(--transition-time);
+  transition: transform var(--transition-duration);
   z-index: 1000;
   overflow: hidden auto;
   height: 100vh;

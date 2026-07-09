@@ -1,4 +1,9 @@
 {
+  "Theme": {
+    "dark": "Темная",
+    "light": "Светлая",
+    "system": "Системная"
+  },
   "Header": {
     "install": "Установить в Chrome"
   },

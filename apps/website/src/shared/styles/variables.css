@@ -1,22 +1,89 @@
 :root {
-  --color-background: #f0f4f9;
-  --color-scroll: #d8dfe8;
-  --color-scroll-hover: #c3d0e1;
-  --color-logo-black: #17212b;
-  --color-logo-white: #f0f4f7;
-
-  --color-primary-solid: #7d76cc;
-  --color-black: #060815;
-  --color-white: #ffffff;
-
+  /* Radius */
   --radius-sm: 8px;
   --radius-md: 15px;
   --radius-lg: 30px;
 
-  --transition-time: 0.15s;
+  /* Animation */
+  --transition-duration: 0.15s;
 
-  --border-light-color: #c0d1e6;
-  --shadow: 0px 1px 20px 1.1px #eff3f9;
+  &[data-theme='light'] {
+    /* Brand */
+    --color-primary: #7d76cc;
+    --color-primary-hover: #6f68bd;
+    --color-primary-soft: #c8c0f8;
 
-  --overlay: rgba(40, 62, 86, 0.55);
+    --color-accent: #b8f0d8;
+    --color-accent-soft: #dff8ef;
+
+    --gradient-brand: linear-gradient(
+      90deg,
+      #c8c0f8 0%,
+      #c7d9f4 50%,
+      #b8f0d8 100%
+    );
+
+    /* Backgrounds */
+    --color-background: #f0f4f9;
+    --color-surface: #ffffff;
+    --color-surface-secondary: #f8fafc;
+
+    /* Text */
+    --color-text-primary: #060815;
+    --color-text-secondary: #667085;
+    --color-text-muted: #98a2b3;
+
+    /* Borders */
+    --color-border: #c0d1e6;
+    --color-border-subtle: #e1e8f0;
+
+    /* Scrollbar */
+    --color-scrollbar: #d8dfe8;
+    --color-scrollbar-hover: #c3d0e1;
+
+    /* Effects */
+    --shadow-default: 0 8px 30px rgb(62 79 105 / 8%);
+    --shadow-elevated: 0 20px 60px rgb(62 79 105 / 15%);
+    --color-overlay: rgb(40 62 86 / 55%);
+  }
+
+  &[data-theme='dark'] {
+    /* Brand */
+    --color-primary: #958ee8;
+    --color-primary-hover: #aaa4f2;
+    --color-primary-soft: #2d2854;
+
+    --color-accent: #72d7b0;
+    --color-accent-soft: #193b32;
+
+    --gradient-brand: linear-gradient(
+      90deg,
+      #625baa 0%,
+      #49678f 50%,
+      #4d9b80 100%
+    );
+
+    /* Backgrounds */
+    --color-background: #100d22;
+    --color-surface: #19152f;
+    --color-surface-secondary: #211b3d;
+
+    /* Text */
+    --color-text-primary: #f6f4ff;
+    --color-text-secondary: #b7b3c9;
+    --color-text-muted: #858097;
+
+    /* Borders */
+    --color-border: #40395f;
+    --color-border-subtle: #2d2847;
+
+    /* Scrollbar */
+    --color-scrollbar: #292341;
+    --color-scrollbar-hover: #3a3260;
+
+    /* Effects */
+    --shadow-default: 0 8px 30px rgb(0 0 0 / 20%);
+    --shadow-elevated: 0 20px 60px rgb(0 0 0 / 40%);
+    --color-overlay: rgb(5 3 15 / 72%);
+  }
 }

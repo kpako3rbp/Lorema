@@ -41,12 +41,10 @@ export const HeaderNavigation = () => {
                 </div>
               )}
             >
-              <Typography
-                className={classNames(s.link, isActive(pathname, item.href) && s.active)}
-                size={16}
-                color="black"
-              >
-                {t(item.labelKey)}
+              <Typography size={16} color="black">
+                <Link href={item.href} className={classNames(s.link, isActive(pathname, item.href, true) && s.active)}>
+                  {t(item.labelKey)}
+                </Link>
               </Typography>
             </Dropdown>
           );
