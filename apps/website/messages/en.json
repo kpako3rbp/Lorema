@@ -1,0 +1,18 @@
+{
+  "Header": {
+    "install": "Install for Chrome"    
+  },
+  "Navigation": {
+    "navigation": "Navigation",
+    "home": "Home",
+    "generators": "Generators",
+    "text": "Text",
+    "title": "Titles",
+    "email": "Email",
+    "phone": "Phone",
+    "contacts": "Contacts"
+  },
+  "HomePage": {
+    "title": "Content generator for developers"
+  }
+}

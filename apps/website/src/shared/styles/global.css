@@ -1,0 +1,36 @@
+html,
+body {
+  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Google Sans', Arial, sans-serif;
+  font-weight: 500;
+  background: var(--color-background);
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-scroll);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scroll-hover);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}

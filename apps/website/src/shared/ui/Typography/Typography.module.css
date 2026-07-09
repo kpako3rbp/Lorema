@@ -1,0 +1,55 @@
+.root {
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.h4 {
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.sm {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.md {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.black {
+  color: var(--color-black)
+}
+
+.grey {
+  color: #6b7280;
+}
+
+.white {
+  color: #ffffff;
+}

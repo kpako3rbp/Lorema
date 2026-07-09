@@ -1,0 +1,53 @@
+.overlay {
+  position: fixed;
+  padding: 0;
+  border: 0;
+  background: var(--overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity calc(var(--transition-time));
+  z-index: 999;
+  cursor: default;
+  height: 100dvh;
+  display: block;
+  inset: 0;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 100vw;
+  background: var(--white-color);
+  transform: translateX(100%);
+  transition: transform var(--transition-time);
+  z-index: 1000;
+  overflow: hidden auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 30px;
+  }
+}
+
+.drawer.open {
+  transform: translateX(0);
+}

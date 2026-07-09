@@ -1,0 +1,18 @@
+{
+  "Header": {
+    "install": "Установить в Chrome"
+  },
+  "Navigation": {
+    "navigation": "Навигация",
+    "home": "Главная",
+    "generators": "Генераторы",
+    "text": "Текст",
+    "title": "Заголовок",
+    "email": "Email",
+    "phone": "Телефон",
+    "contacts": "Контакты"
+  },
+  "HomePage": {
+    "title": "Генератор контента для разработчиков"
+  }
+}

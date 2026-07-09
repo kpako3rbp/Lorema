@@ -9,12 +9,10 @@
     "dev:ext": "nx dev extension",
     "typecheck:ext": "nx typecheck extension",
     "lint:ext": "nx lint extension",
-
-    "dev:web": "nx dev website",
+    "dev:web": "nx dev website -- --port=3001",
     "build:web": "nx build website",
     "lint:web": "nx lint website",
     "typecheck:web": "nx typecheck website",
-
     "typecheck": "nx run-many --target=typecheck --projects=extension,website --parallel=4 --output-style=stream",
     "lint": "nx run-many --target=lint --projects=extension,website --parallel=4 --output-style=stream",
     "lint-all": "npm run typecheck && npm run lint",
@@ -43,7 +41,9 @@
     "vite": "^5.4.0"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "next": "^16.2.10",
+    "next-intl": "^4.13.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "tslib": "^2.3.0"

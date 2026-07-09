@@ -2,12 +2,7 @@ import { TRANSLATIONS } from '@extension/i18n';
 import { renderBugIcon } from '@extension/shared/ui/icons/bug';
 import { renderFeedbackIcon } from '@extension/shared/ui/icons/feedback';
 import { renderGithubIcon } from '@extension/shared/ui/icons/github';
-import { InterfaceLanguage } from '@lorema/core';
-
-const GITHUB_LINK = 'https://github.com/kpako3rbp/lorem-browser-extension';
-const ISSUE_LINK = 'https://github.com/kpako3rbp/lorem-browser-extension/issues/new';
-const FEEDBACK_LINK =
-  'https://chromewebstore.google.com/detail/lorema/dognadbjkfmnogefijfmcajhihpjefnj?hl=ru&authuser=0';
+import { EXTENSION_LINK, GITHUB_LINK, InterfaceLanguage, ISSUE_LINK } from '@lorema/core';
 
 export const renderFooter = (interfaceLanguage: InterfaceLanguage): string => {
   const t = TRANSLATIONS[interfaceLanguage].popup;
@@ -33,7 +28,7 @@ export const renderFooter = (interfaceLanguage: InterfaceLanguage): string => {
       </a>
 
       <a
-        href="${FEEDBACK_LINK}"
+        href="${EXTENSION_LINK}"
         target="_blank"
         class="caption link-with-icon"
       >

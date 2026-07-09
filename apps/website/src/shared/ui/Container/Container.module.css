@@ -1,0 +1,31 @@
+.root {
+  position: relative;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+@media (max-width: 1200px) {
+  .root {
+    max-width: 1020px;
+  }
+}
+
+@media (max-width: 992px) {
+  .root {
+    max-width: 780px;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}

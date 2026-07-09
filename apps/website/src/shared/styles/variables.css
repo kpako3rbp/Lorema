@@ -1,0 +1,22 @@
+:root {
+  --color-background: #f0f4f9;
+  --color-scroll: #d8dfe8;
+  --color-scroll-hover: #c3d0e1;
+  --color-logo-black: #17212b;
+  --color-logo-white: #f0f4f7;
+
+  --color-primary-solid: #7d76cc;
+  --color-black: #060815;
+  --color-white: #ffffff;
+
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 30px;
+
+  --transition-time: 0.15s;
+
+  --border-light-color: #c0d1e6;
+  --shadow: 0px 1px 20px 1.1px #eff3f9;
+
+  --overlay: rgba(40, 62, 86, 0.55);
+}

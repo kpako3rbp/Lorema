@@ -33,6 +33,6 @@
     "jest.config.ts",
     "jest.config.cts",
     "**/*.spec.ts",
-    "**/*.test.ts"
+    "**/*.test.ts",
   ]
 }
